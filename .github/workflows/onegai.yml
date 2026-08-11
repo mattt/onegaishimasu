@@ -1,0 +1,33 @@
+name: Onegaishimasu
+
+on:
+  pull_request:
+    types: [closed]
+  issue_comment:
+    types: [created]
+  push:
+    branches: [main]
+
+# Serialize regeneration per repo: two merges racing to rewrite the snapshot is
+# ledger corruption, not a tolerable last-writer-wins.
+concurrency:
+  group: onegai-${{ github.repository }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write # release branch and tags
+  pull-requests: write # the release PR
+  issues: write # comments and reactions
+  # copilot-requests: write   # uncomment on org repos using the Copilot default
+
+jobs:
+  onegai:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./ # replace with owner/onegaishimasu@v1 outside this repo
+        # env:
+        #   # BYO provider key, if not using the Copilot default.
+        #   PROVIDER_API_KEY: ${{ secrets.PROVIDER_API_KEY }}
+        # with:
+        #   provider-api-key: ${{ env.PROVIDER_API_KEY }}

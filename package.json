@@ -1,0 +1,50 @@
+{
+  "name": "onegaishimasu",
+  "version": "0.0.0",
+  "description": "A GitHub Action that maintains a release pull request, deciding versions and writing release notes from evidence rather than commit-message conventions alone.",
+  "keywords": [
+    "changelog",
+    "github-action",
+    "llm",
+    "release",
+    "semver"
+  ],
+  "license": "Apache-2.0",
+  "bin": {
+    "onegai": "dist/cli.cjs"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "scripts": {
+    "build": "vp pack",
+    "check": "vp check",
+    "test": "vp test",
+    "test:watch": "vp test watch"
+  },
+  "dependencies": {
+    "@actions/artifact": "^2.1.0",
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "release-please": "^16.12.0",
+    "semver": "^7.6.0",
+    "yaml": "^2.4.0",
+    "zod": "^3.23.0",
+    "zod-to-json-schema": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/semver": "^7.5.0",
+    "typescript": "^5.5.0",
+    "vite-plus": "^0.2.8"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": ">=11",
+      "onFail": "download"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,21 @@
+name: "Onegaishimasu"
+description: "Maintain a release pull request, deciding versions and writing release notes from evidence."
+author: "Onegaishimasu"
+branding:
+  icon: "git-pull-request"
+  color: "purple"
+inputs:
+  token:
+    description: "GitHub token used for API calls. Defaults to the workflow token."
+    required: false
+    default: ${{ github.token }}
+  config-path:
+    description: "Path to the Onegaishimasu config file."
+    required: false
+    default: ".github/onegai.yml"
+  provider-api-key:
+    description: "API key for a BYO LLM provider (OpenAI-compatible or Anthropic). Omit to use the Copilot default."
+    required: false
+runs:
+  using: "node20"
+  main: "dist/index.cjs"

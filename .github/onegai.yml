@@ -1,0 +1,41 @@
+# Onegaishimasu configuration. Every field is optional; defaults shown.
+
+provider:
+  # copilot | openai | anthropic
+  type: copilot
+  # `auto` lets Copilot route to the best available model.
+  # BYO providers (openai, anthropic) require an exact model here.
+  model: auto
+  # baseUrl: https://api.openai.com/v1   # point at any OpenAI-compatible gateway
+
+# Character budget for the sampled diff sent to the model.
+diffBudget: 12000
+
+preOneZero:
+  # Before 1.0.0, cap breaking changes at a minor bump.
+  capBreakingAtMinor: true
+
+render:
+  # Blog-post-shaped announcement draft for minor and major releases.
+  announcement: false
+  # Contributor credits in the release body.
+  credits: true
+
+# Comment the classified entry on the merged PR so the author can correct it.
+commentOnMerge: true
+
+# Branch that carries the staged release changes.
+releaseBranch: onegai--release
+
+# Version manifests to bump on release.
+manifestFiles:
+  - package.json
+  - package-lock.json
+
+# House-style instructions for release prose.
+# voicePath: .github/onegai-voice.md
+
+# Map repository labels to kinds (merged with sensible defaults).
+# labels:
+#   breaking-change: breaking
+#   enhancement: feature
