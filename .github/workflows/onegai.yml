@@ -24,7 +24,7 @@ jobs:
   onegai:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./ # replace with owner/onegaishimasu@v1 outside this repo
         # env:
         #   # BYO provider key, if not using the Copilot default.
