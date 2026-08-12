@@ -22,10 +22,10 @@
     "test:watch": "vp test watch"
   },
   "dependencies": {
-    "@actions/artifact": "^2.1.0",
+    "@actions/artifact": "^6.2.1",
     "@actions/core": "^1.10.1",
     "@actions/github": "^6.0.0",
-    "release-please": "^16.12.0",
+    "release-please": "^17.11.1",
     "semver": "^7.6.0",
     "yaml": "^2.4.0",
     "zod": "^3.23.0",
