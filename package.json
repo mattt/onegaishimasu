@@ -35,7 +35,7 @@
     "@types/node": "^24.0.0",
     "@types/semver": "^7.5.0",
     "typescript": "^5.5.0",
-    "vite-plus": "^0.2.8"
+    "vite-plus": "^0.3.1"
   },
   "devEngines": {
     "packageManager": {
