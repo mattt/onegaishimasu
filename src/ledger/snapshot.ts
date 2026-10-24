@@ -64,7 +64,8 @@ export function serializeSnapshot(entries: Entry[], maxChunkSize = DEFAULT_MAX_C
  * Non-chunk text is ignored, so parsing never depends on how GitHub renders the body.
  */
 export function parseSnapshot(body: string, comments: string[] = []): Entry[] {
-  const sources = [body, ...comments];
+  // Bodies saved from GitHub's web editor use CRLF line endings.
+  const sources = [body, ...comments].map((s) => s.replace(/\r\n/g, "\n"));
   const found: { part: number; yaml: string }[] = [];
 
   for (const source of sources) {

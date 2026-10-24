@@ -23,6 +23,7 @@ export async function bootstrapEntries(
 
   for (const number of numbers) {
     const merged = await client.getMergedPr(number);
+    if (merged.headRef === config.releaseBranch) continue;
     const rawDiff = await client.getPrDiff(number).catch(() => "");
     const diff = applyDiffBudget(rawDiff, { maxChars: config.diffBudget });
     const entry = await classify(

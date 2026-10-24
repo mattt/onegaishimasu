@@ -14,6 +14,16 @@ export interface ReleasePr {
 export interface MergedPr {
   input: PullRequestInput;
   mergeSha: string;
+  /** The head branch name, used to recognize the release PR itself. */
+  headRef: string;
+}
+
+export interface MergedReleasePr {
+  number: number;
+  version: string;
+  body: string;
+  /** The merge commit, which the release tag points at. */
+  mergeSha: string;
 }
 
 export interface UpsertInput {
@@ -43,11 +53,9 @@ export interface GitHubClient {
   addReaction(commentId: number, content: "+1" | "-1"): Promise<void>;
   latestTag(): Promise<string | null>;
   listMergedPrNumbersSinceTag(tag: string | null): Promise<number[]>;
-  getMergedReleasePr(
-    branch: string,
-  ): Promise<{ number: number; version: string; body: string } | null>;
+  getMergedReleasePr(branch: string): Promise<MergedReleasePr | null>;
   tagExists(version: string): Promise<boolean>;
-  tagAndRelease(version: string, notes: string): Promise<void>;
+  tagAndRelease(version: string, notes: string, target: string): Promise<void>;
 }
 
 /** Parse the version from a release PR title such as "chore: release 1.2.0". */
@@ -146,6 +154,7 @@ export class OctokitClient implements GitHubClient {
     const pr = res.data;
     return {
       mergeSha: pr.merge_commit_sha ?? "",
+      headRef: pr.head.ref,
       input: {
         number: pr.number,
         title: pr.title,
@@ -279,9 +288,7 @@ export class OctokitClient implements GitHubClient {
     return [...numbers].sort((a, b) => a - b);
   }
 
-  async getMergedReleasePr(
-    branch: string,
-  ): Promise<{ number: number; version: string; body: string } | null> {
+  async getMergedReleasePr(branch: string): Promise<MergedReleasePr | null> {
     const prs = await this.octokit.rest.pulls.list({
       ...this.repo,
       state: "closed",
@@ -291,9 +298,11 @@ export class OctokitClient implements GitHubClient {
       per_page: 5,
     });
     for (const pr of prs.data) {
-      if (!pr.merged_at) continue;
+      if (!pr.merged_at || !pr.merge_commit_sha) continue;
       const version = parseReleaseTitle(pr.title);
-      if (version) return { number: pr.number, version, body: pr.body ?? "" };
+      if (version) {
+        return { number: pr.number, version, body: pr.body ?? "", mergeSha: pr.merge_commit_sha };
+      }
     }
     return null;
   }
@@ -307,11 +316,14 @@ export class OctokitClient implements GitHubClient {
     }
   }
 
-  async tagAndRelease(version: string, notes: string): Promise<void> {
+  async tagAndRelease(version: string, notes: string, target: string): Promise<void> {
     const tag = `v${version}`;
     await this.octokit.rest.repos.createRelease({
       ...this.repo,
       tag_name: tag,
+      // Without a target, GitHub tags the default branch's head at run time,
+      // which may already include commits merged after the release PR.
+      target_commitish: target,
       name: tag,
       body: notes,
     });

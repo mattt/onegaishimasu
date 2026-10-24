@@ -109,6 +109,19 @@ describe("honest failure", () => {
     expect(entry.provenance?.model).toBe("fake-1");
   });
 
+  it("emits unknown when the provider throws and no signal exists", async () => {
+    const entry = await classify(pr({ title: "random title" }), {
+      provider: {
+        model: "fake-1",
+        async complete(): Promise<string> {
+          throw new Error("429 Too Many Requests");
+        },
+      },
+    });
+    expect(entry.kind).toBe("unknown");
+    expect(entry.confidence).toBe("low");
+  });
+
   it("falls back to the explicit kind when the model fails", async () => {
     const entry = await classify(pr({ title: "fix: patch" }), {
       provider: fakeProvider("garbage"),

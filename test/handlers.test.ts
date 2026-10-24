@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vite-plus/test";
 import { parseConfig } from "../src/config.js";
-import type { GitHubClient, MergedPr, ReleasePr, UpsertInput } from "../src/github/api.js";
+import type {
+  GitHubClient,
+  MergedPr,
+  MergedReleasePr,
+  ReleasePr,
+  UpsertInput,
+} from "../src/github/api.js";
 import {
   extractReleaseNotes,
   handleIssueComment,
@@ -33,8 +39,8 @@ interface FakeState {
   upserts: UpsertInput[];
   comments: { pr: number; body: string }[];
   reactions: { id: number; content: string }[];
-  mergedReleasePr: { number: number; version: string; body: string } | null;
-  releases: { version: string; notes: string }[];
+  mergedReleasePr: MergedReleasePr | null;
+  releases: { version: string; notes: string; target: string }[];
   existingTags: Set<string>;
 }
 
@@ -76,6 +82,7 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
       return (
         s.mergedPrs[number] ?? {
           mergeSha: "sha",
+          headRef: `feature-${number}`,
           input: { number, title: "feat: default", body: "", author: "octocat", labels: [] },
         }
       );
@@ -106,8 +113,8 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
     async tagExists(version: string) {
       return s.existingTags.has(version);
     },
-    async tagAndRelease(version: string, notes: string) {
-      s.releases.push({ version, notes });
+    async tagAndRelease(version: string, notes: string, target: string) {
+      s.releases.push({ version, notes, target });
     },
   };
 
@@ -144,6 +151,7 @@ describe("handlePullRequestMerged", () => {
       mergedPrs: {
         42: {
           mergeSha: "abc",
+          headRef: "feature",
           input: { number: 42, title: "feat: add retry", body: "", author: "octocat", labels: [] },
         },
       },
@@ -177,6 +185,51 @@ describe("handlePullRequestMerged", () => {
     expect(entries[0]!.summary).toBe("already classified");
     expect(state.comments.some((c) => c.pr === 42)).toBe(false);
   });
+
+  it("ignores the merge of the release PR itself", async () => {
+    const { client, state } = makeClient({
+      mergedPrs: {
+        999: {
+          mergeSha: "abc",
+          headRef: "onegai--release",
+          input: {
+            number: 999,
+            title: "chore: release 1.3.0",
+            body: "",
+            author: "github-actions[bot]",
+            labels: [],
+          },
+        },
+      },
+    });
+    await handlePullRequestMerged(
+      client,
+      { configPath: ".github/onegai.yml", provider: fakeProvider(featureOutput) },
+      999,
+    );
+
+    expect(state.upserts).toHaveLength(0);
+    expect(state.comments).toHaveLength(0);
+  });
+
+  it("keeps the ledger when the release PR body has CRLF line endings", async () => {
+    const existing = entry(41, { summary: "earlier change" });
+    const releaseBody = `body\n<details>\n${serialize(existing)}\n</details>`.replace(
+      /\n/g,
+      "\r\n",
+    );
+    const { client, state } = makeClient({
+      releasePr: { number: 999, body: releaseBody, comments: [] },
+    });
+    await handlePullRequestMerged(
+      client,
+      { configPath: ".github/onegai.yml", provider: fakeProvider(featureOutput) },
+      42,
+    );
+
+    const entries = parseSnapshot(state.upserts[0]!.body);
+    expect(entries.map((e) => e.pr)).toEqual([41, 42]);
+  });
 });
 
 describe("handleIssueComment", () => {
@@ -188,6 +241,7 @@ describe("handleIssueComment", () => {
       mergedPrs: {
         42: {
           mergeSha: "abc",
+          headRef: "feature",
           input: { number: 42, title: "feat: x", body: "", author: "octocat", labels: [] },
         },
       },
@@ -216,6 +270,7 @@ describe("handleIssueComment", () => {
       mergedPrs: {
         42: {
           mergeSha: "abc",
+          headRef: "feature",
           input: { number: 42, title: "feat: x", body: "", author: "octocat", labels: [] },
         },
       },
@@ -255,16 +310,19 @@ describe("handlePush", () => {
       mergedReleasePr: {
         number: 999,
         version: "1.3.0",
+        mergeSha: "def",
         body: "## Release 1.3.0\n\n## Release notes\n\n### Features\n\n- thing\n\n<details>\nledger\n</details>",
       },
     });
     await handlePush(client, { configPath: ".github/onegai.yml" });
-    expect(state.releases).toEqual([{ version: "1.3.0", notes: "### Features\n\n- thing" }]);
+    expect(state.releases).toEqual([
+      { version: "1.3.0", notes: "### Features\n\n- thing", target: "def" },
+    ]);
   });
 
   it("is idempotent when the tag already exists", async () => {
     const { client, state } = makeClient({
-      mergedReleasePr: { number: 999, version: "1.3.0", body: "x" },
+      mergedReleasePr: { number: 999, version: "1.3.0", body: "x", mergeSha: "def" },
       existingTags: new Set(["1.3.0"]),
     });
     await handlePush(client, { configPath: ".github/onegai.yml" });

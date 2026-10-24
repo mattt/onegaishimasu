@@ -43,7 +43,8 @@ const SECTION_RE =
 /** Parse wrapped sections from a body, flagging those a human has edited. */
 export function parseSections(body: string): ParsedSection[] {
   const parsed: ParsedSection[] = [];
-  for (const match of body.matchAll(SECTION_RE)) {
+  // Bodies saved from GitHub's web editor use CRLF line endings.
+  for (const match of body.replace(/\r\n/g, "\n").matchAll(SECTION_RE)) {
     const g = match.groups!;
     const content = g.content!;
     parsed.push({
