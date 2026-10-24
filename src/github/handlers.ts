@@ -93,6 +93,12 @@ export async function handlePullRequestMerged(
   prNumber: number,
 ): Promise<void> {
   const config = await client.getConfig(ctx.configPath);
+  const merged = await client.getMergedPr(prNumber);
+
+  // The release PR's own merge is handled by the push handler.
+  // Classifying it here would open the next release PR with the changes just released.
+  if (merged.headRef === config.releaseBranch) return;
+
   const releasePr = await client.findReleasePr(config.releaseBranch);
   let entries = releasePr ? parseSnapshot(releasePr.body, releasePr.comments) : [];
 
@@ -103,7 +109,6 @@ export async function handlePullRequestMerged(
 
   // Write-once: a PR already in the ledger is never re-classified here.
   if (!entries.some((e) => e.pr === prNumber)) {
-    const merged = await client.getMergedPr(prNumber);
     const rawDiff = await client.getPrDiff(prNumber).catch(() => "");
     const diff = applyDiffBudget(rawDiff, { maxChars: config.diffBudget });
     const unreleasedPrs = new Set(entries.map((e) => e.pr));
@@ -189,5 +194,5 @@ export async function handlePush(client: GitHubClient, ctx: HandlerContext): Pro
   if (await client.tagExists(merged.version)) return;
 
   const notes = extractReleaseNotes(merged.body);
-  await client.tagAndRelease(merged.version, notes);
+  await client.tagAndRelease(merged.version, notes, merged.mergeSha);
 }

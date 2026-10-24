@@ -1,5 +1,5 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_version$1 = require("./version-BI0BohVt.cjs");
+const require_version$1 = require("./version-Dp5IOXBI.cjs");
 let node_crypto = require("node:crypto");
 require("node:fs");
 let node_child_process = require("node:child_process");
@@ -956,9 +956,10 @@ var require_util$7 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 		for (let i = 0; i < headers.length; i += 2) {
 			const key = headers[i].toString().toLowerCase();
 			let val = obj[key];
-			if (!val) if (Array.isArray(headers[i + 1])) obj[key] = headers[i + 1].map((x) => x.toString("utf8"));
-			else obj[key] = headers[i + 1].toString("utf8");
-			else {
+			if (!val) {
+				if (Array.isArray(headers[i + 1])) obj[key] = headers[i + 1].map((x) => x.toString("utf8"));
+				else obj[key] = headers[i + 1].toString("utf8");
+			} else {
 				if (!Array.isArray(val)) {
 					val = [val];
 					obj[key] = val;
@@ -1579,11 +1580,13 @@ var require_Dicer = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, m
 			else if (start !== end) {
 				++this._parts;
 				this._part.on("end", function() {
-					if (--self._parts === 0) if (self._finished) {
-						self._realFinish = true;
-						self.emit("finish");
-						self._realFinish = false;
-					} else self._unpause();
+					if (--self._parts === 0) {
+						if (self._finished) {
+							self._realFinish = true;
+							self.emit("finish");
+							self._realFinish = false;
+						} else self._unpause();
+					}
 				});
 			}
 			this._part.push(null);
@@ -2184,19 +2187,21 @@ var require_parseParams = /* @__PURE__ */ require_version$1.__commonJSMin(((expo
 		const len = str.length;
 		for (var i = 0; i < len; ++i) {
 			const char = str[i];
-			if (char === "\\" && inquote) if (escaping) escaping = false;
-			else {
-				escaping = true;
-				continue;
-			}
-			else if (char === "\"") if (!escaping) {
-				if (inquote) {
-					inquote = false;
-					state = STATE_KEY;
-				} else inquote = true;
-				continue;
-			} else escaping = false;
-			else {
+			if (char === "\\" && inquote) {
+				if (escaping) escaping = false;
+				else {
+					escaping = true;
+					continue;
+				}
+			} else if (char === "\"") {
+				if (!escaping) {
+					if (inquote) {
+						inquote = false;
+						state = STATE_KEY;
+					} else inquote = true;
+					continue;
+				} else escaping = false;
+			} else {
 				if (escaping && inquote) tmp += "\\";
 				escaping = false;
 				if ((state === STATE_CHARSET || state === STATE_LANG) && char === "'") {
@@ -2630,19 +2635,20 @@ var require_Decoder = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 		let i = 0;
 		let p = 0;
 		const len = str.length;
-		for (; i < len; ++i) if (this.buffer !== void 0) if (!HEX[str.charCodeAt(i)]) {
-			res += "%" + this.buffer;
-			this.buffer = void 0;
-			--i;
-		} else {
-			this.buffer += str[i];
-			++p;
-			if (this.buffer.length === 2) {
-				res += String.fromCharCode(parseInt(this.buffer, 16));
+		for (; i < len; ++i) if (this.buffer !== void 0) {
+			if (!HEX[str.charCodeAt(i)]) {
+				res += "%" + this.buffer;
 				this.buffer = void 0;
+				--i;
+			} else {
+				this.buffer += str[i];
+				++p;
+				if (this.buffer.length === 2) {
+					res += String.fromCharCode(parseInt(this.buffer, 16));
+					this.buffer = void 0;
+				}
 			}
-		}
-		else if (str[i] === "%") {
+		} else if (str[i] === "%") {
 			if (i > p) {
 				res += str.substring(p, i);
 				p = i;
@@ -3370,8 +3376,10 @@ var require_util$6 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 			const algorithm = item.algo;
 			const expectedValue = item.hash;
 			let actualValue = crypto.createHash(algorithm).update(bytes).digest("base64");
-			if (actualValue[actualValue.length - 1] === "=") if (actualValue[actualValue.length - 2] === "=") actualValue = actualValue.slice(0, -2);
-			else actualValue = actualValue.slice(0, -1);
+			if (actualValue[actualValue.length - 1] === "=") {
+				if (actualValue[actualValue.length - 2] === "=") actualValue = actualValue.slice(0, -2);
+				else actualValue = actualValue.slice(0, -1);
+			}
 			if (compareBase64Mixed(actualValue, expectedValue)) return true;
 		}
 		return false;
@@ -4364,9 +4372,10 @@ var require_file = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mo
 			let s = element;
 			if (options.endings === "native") s = convertLineEndingsNative(s);
 			bytes.push(encoder.encode(s));
-		} else if (types$3.isAnyArrayBuffer(element) || types$3.isTypedArray(element)) if (!element.buffer) bytes.push(new Uint8Array(element));
-		else bytes.push(new Uint8Array(element.buffer, element.byteOffset, element.byteLength));
-		else if (isBlobLike(element)) bytes.push(element);
+		} else if (types$3.isAnyArrayBuffer(element) || types$3.isTypedArray(element)) {
+			if (!element.buffer) bytes.push(new Uint8Array(element));
+			else bytes.push(new Uint8Array(element.buffer, element.byteOffset, element.byteLength));
+		} else if (isBlobLike(element)) bytes.push(element);
 		return bytes;
 	}
 	/**
@@ -4663,13 +4672,15 @@ Content-Type: ${value.type || "application/octet-stream"}\r\n\r\n`);
 		};
 	}
 	async function* consumeBody(body) {
-		if (body) if (isUint8Array(body)) yield body;
-		else {
-			const stream = body.stream;
-			if (util.isDisturbed(stream)) throw new TypeError("The body has already been consumed.");
-			if (stream.locked) throw new TypeError("The stream is locked.");
-			stream[kBodyUsed] = true;
-			yield* stream;
+		if (body) {
+			if (isUint8Array(body)) yield body;
+			else {
+				const stream = body.stream;
+				if (util.isDisturbed(stream)) throw new TypeError("The body has already been consumed.");
+				if (stream.locked) throw new TypeError("The stream is locked.");
+				stream[kBodyUsed] = true;
+				yield* stream;
+			}
 		}
 	}
 	function throwIfAborted(state) {
@@ -5116,9 +5127,10 @@ var require_request$1 = /* @__PURE__ */ require_version$1.__commonJSMin(((export
 		else if (key.length === 7 && key.toLowerCase() === "upgrade") throw new InvalidArgumentError("invalid upgrade header");
 		else if (key.length === 6 && key.toLowerCase() === "expect") throw new NotSupportedError("expect header not supported");
 		else if (tokenRegExp.exec(key) === null) throw new InvalidArgumentError("invalid header key");
-		else if (Array.isArray(val)) for (let i = 0; i < val.length; i++) if (skipAppend) if (request.headers[key]) request.headers[key] += `,${processHeaderValue(key, val[i], skipAppend)}`;
-		else request.headers[key] = processHeaderValue(key, val[i], skipAppend);
-		else request.headers += processHeaderValue(key, val[i]);
+		else if (Array.isArray(val)) for (let i = 0; i < val.length; i++) if (skipAppend) {
+			if (request.headers[key]) request.headers[key] += `,${processHeaderValue(key, val[i], skipAppend)}`;
+			else request.headers[key] = processHeaderValue(key, val[i], skipAppend);
+		} else request.headers += processHeaderValue(key, val[i]);
 		else if (skipAppend) request.headers[key] = processHeaderValue(key, val, skipAppend);
 		else request.headers += processHeaderValue(key, val);
 	}
@@ -6803,25 +6815,26 @@ var require_client = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 			request.onBodySent(body);
 			request.onRequestSent();
 			if (!expectsPayload) socket[kReset] = true;
-		} else if (util.isBlobLike(body)) if (typeof body.stream === "function") writeIterable({
-			body: body.stream(),
-			client,
-			request,
-			socket,
-			contentLength,
-			header,
-			expectsPayload
-		});
-		else writeBlob({
-			body,
-			client,
-			request,
-			socket,
-			contentLength,
-			header,
-			expectsPayload
-		});
-		else if (util.isStream(body)) writeStream({
+		} else if (util.isBlobLike(body)) {
+			if (typeof body.stream === "function") writeIterable({
+				body: body.stream(),
+				client,
+				request,
+				socket,
+				contentLength,
+				header,
+				expectsPayload
+			});
+			else writeBlob({
+				body,
+				client,
+				request,
+				socket,
+				contentLength,
+				header,
+				expectsPayload
+			});
+		} else if (util.isStream(body)) writeStream({
 			body,
 			client,
 			request,
@@ -6959,27 +6972,28 @@ var require_client = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 				stream.end();
 				request.onBodySent(body);
 				request.onRequestSent();
-			} else if (util.isBlobLike(body)) if (typeof body.stream === "function") writeIterable({
-				client,
-				request,
-				contentLength,
-				h2stream: stream,
-				expectsPayload,
-				body: body.stream(),
-				socket: client[kSocket],
-				header: ""
-			});
-			else writeBlob({
-				body,
-				client,
-				request,
-				contentLength,
-				expectsPayload,
-				h2stream: stream,
-				header: "",
-				socket: client[kSocket]
-			});
-			else if (util.isStream(body)) writeStream({
+			} else if (util.isBlobLike(body)) {
+				if (typeof body.stream === "function") writeIterable({
+					client,
+					request,
+					contentLength,
+					h2stream: stream,
+					expectsPayload,
+					body: body.stream(),
+					socket: client[kSocket],
+					header: ""
+				});
+				else writeBlob({
+					body,
+					client,
+					request,
+					contentLength,
+					expectsPayload,
+					h2stream: stream,
+					header: "",
+					socket: client[kSocket]
+				});
+			} else if (util.isStream(body)) writeStream({
 				body,
 				client,
 				request,
@@ -7190,11 +7204,14 @@ var require_client = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 			socket[kWriting] = false;
 			if (socket[kError]) throw socket[kError];
 			if (socket.destroyed) return;
-			if (bytesWritten === 0) if (expectsPayload) socket.write(`${header}content-length: 0\r\n\r\n`, "latin1");
-			else socket.write(`${header}\r\n`, "latin1");
-			else if (contentLength === null) socket.write("\r\n0\r\n\r\n", "latin1");
-			if (contentLength !== null && bytesWritten !== contentLength) if (client[kStrictContentLength]) throw new RequestContentLengthMismatchError();
-			else process.emitWarning(new RequestContentLengthMismatchError());
+			if (bytesWritten === 0) {
+				if (expectsPayload) socket.write(`${header}content-length: 0\r\n\r\n`, "latin1");
+				else socket.write(`${header}\r\n`, "latin1");
+			} else if (contentLength === null) socket.write("\r\n0\r\n\r\n", "latin1");
+			if (contentLength !== null && bytesWritten !== contentLength) {
+				if (client[kStrictContentLength]) throw new RequestContentLengthMismatchError();
+				else process.emitWarning(new RequestContentLengthMismatchError());
+			}
 			if (socket[kParser].timeout && socket[kParser].timeoutType === TIMEOUT_HEADERS) {
 				// istanbul ignore else: only for jest
 				if (socket[kParser].timeout.refresh) socket[kParser].timeout.refresh();
@@ -8056,22 +8073,24 @@ var require_api_request = /* @__PURE__ */ require_version$1.__commonJSMin(((expo
 			});
 			this.callback = null;
 			this.res = body;
-			if (callback !== null) if (this.throwOnError && statusCode >= 400) this.runInAsyncScope(getResolveErrorBodyCallback, null, {
-				callback,
-				body,
-				contentType,
-				statusCode,
-				statusMessage,
-				headers
-			});
-			else this.runInAsyncScope(callback, null, null, {
-				statusCode,
-				headers,
-				trailers: this.trailers,
-				opaque,
-				body,
-				context
-			});
+			if (callback !== null) {
+				if (this.throwOnError && statusCode >= 400) this.runInAsyncScope(getResolveErrorBodyCallback, null, {
+					callback,
+					body,
+					contentType,
+					statusCode,
+					statusMessage,
+					headers
+				});
+				else this.runInAsyncScope(callback, null, null, {
+					statusCode,
+					headers,
+					trailers: this.trailers,
+					opaque,
+					body,
+					context
+				});
+			}
 		}
 		onData(chunk) {
 			const { res } = this;
@@ -8896,10 +8915,12 @@ var require_mock_interceptor = /* @__PURE__ */ require_version$1.__commonJSMin((
 			if (typeof opts !== "object") throw new InvalidArgumentError("opts must be an object");
 			if (typeof opts.path === "undefined") throw new InvalidArgumentError("opts.path must be defined");
 			if (typeof opts.method === "undefined") opts.method = "GET";
-			if (typeof opts.path === "string") if (opts.query) opts.path = buildURL(opts.path, opts.query);
-			else {
-				const parsedURL = new URL(opts.path, "data://");
-				opts.path = parsedURL.pathname + parsedURL.search;
+			if (typeof opts.path === "string") {
+				if (opts.query) opts.path = buildURL(opts.path, opts.query);
+				else {
+					const parsedURL = new URL(opts.path, "data://");
+					opts.path = parsedURL.pathname + parsedURL.search;
+				}
 			}
 			if (typeof opts.method === "string") opts.method = opts.method.toUpperCase();
 			this[kDispatchKey] = buildKey(opts);
@@ -9189,9 +9210,10 @@ var require_mock_agent = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 			this[kIsMockActive] = true;
 		}
 		enableNetConnect(matcher) {
-			if (typeof matcher === "string" || typeof matcher === "function" || matcher instanceof RegExp) if (Array.isArray(this[kNetConnect])) this[kNetConnect].push(matcher);
-			else this[kNetConnect] = [matcher];
-			else if (typeof matcher === "undefined") this[kNetConnect] = true;
+			if (typeof matcher === "string" || typeof matcher === "function" || matcher instanceof RegExp) {
+				if (Array.isArray(this[kNetConnect])) this[kNetConnect].push(matcher);
+				else this[kNetConnect] = [matcher];
+			} else if (typeof matcher === "undefined") this[kNetConnect] = true;
 			else throw new InvalidArgumentError("Unsupported matcher. Must be one of String|Function|RegExp.");
 		}
 		disableNetConnect() {
@@ -10859,8 +10881,10 @@ var require_fetch = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, m
 		assert$3(!request.body || request.body.stream);
 		if (request.window === "client") request.window = request.client?.globalObject?.constructor?.name === "Window" ? request.client : "no-window";
 		if (request.origin === "client") request.origin = request.client?.origin;
-		if (request.policyContainer === "client") if (request.client != null) request.policyContainer = clonePolicyContainer(request.client.policyContainer);
-		else request.policyContainer = makePolicyContainer();
+		if (request.policyContainer === "client") {
+			if (request.client != null) request.policyContainer = clonePolicyContainer(request.client.policyContainer);
+			else request.policyContainer = makePolicyContainer();
+		}
 		if (!request.headersList.contains("accept")) request.headersList.append("accept", "*/*");
 		if (!request.headersList.contains("accept-language")) request.headersList.append("accept-language", "*");
 		if (request.priority === null) {}
@@ -11106,8 +11130,10 @@ var require_fetch = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, m
 			if (!httpRequest.headersList.contains("cache-control")) httpRequest.headersList.append("cache-control", "no-cache");
 		}
 		if (httpRequest.headersList.contains("range")) httpRequest.headersList.append("accept-encoding", "identity");
-		if (!httpRequest.headersList.contains("accept-encoding")) if (urlHasHttpsScheme(requestCurrentURL(httpRequest))) httpRequest.headersList.append("accept-encoding", "br, gzip, deflate");
-		else httpRequest.headersList.append("accept-encoding", "gzip, deflate");
+		if (!httpRequest.headersList.contains("accept-encoding")) {
+			if (urlHasHttpsScheme(requestCurrentURL(httpRequest))) httpRequest.headersList.append("accept-encoding", "br, gzip, deflate");
+			else httpRequest.headersList.append("accept-encoding", "gzip, deflate");
+		}
 		httpRequest.headersList.delete("host");
 		if (includeCredentials) {}
 		httpRequest.cache = "no-store";
@@ -13443,8 +13469,10 @@ var require_util$1 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 			failWebsocketConnection(ws, "Received invalid UTF-8 in text frame.");
 			return;
 		}
-		else if (type === opcodes.BINARY) if (ws[kBinaryType] === "blob") dataForEvent = new Blob([data]);
-		else dataForEvent = new Uint8Array(data).buffer;
+		else if (type === opcodes.BINARY) {
+			if (ws[kBinaryType] === "blob") dataForEvent = new Blob([data]);
+			else dataForEvent = new Uint8Array(data).buffer;
+		}
 		fireEvent("message", ws, MessageEvent, {
 			origin: ws[kWebSocketURL].origin,
 			data: dataForEvent
@@ -15623,9 +15651,10 @@ var require_io = /* @__PURE__ */ require_version$1.__commonJSMin(((exports) => {
 			if (destStat && destStat.isFile() && !force) return;
 			const newDest = destStat && destStat.isDirectory() && copySourceDirectory ? path$2.join(dest, path$2.basename(source)) : dest;
 			if (!(yield ioUtil.exists(source))) throw new Error(`no such file or directory: ${source}`);
-			if ((yield ioUtil.stat(source)).isDirectory()) if (!recursive) throw new Error(`Failed to copy. ${source} is a directory, but tried to copy without recursive flag.`);
-			else yield cpDirRecursive(source, newDest, 0, force);
-			else {
+			if ((yield ioUtil.stat(source)).isDirectory()) {
+				if (!recursive) throw new Error(`Failed to copy. ${source} is a directory, but tried to copy without recursive flag.`);
+				else yield cpDirRecursive(source, newDest, 0, force);
+			} else {
 				if (path$2.relative(source, newDest) === "") throw new Error(`'${newDest}' and '${source}' are the same file`);
 				yield copyFile(source, newDest, force);
 			}
@@ -15647,8 +15676,10 @@ var require_io = /* @__PURE__ */ require_version$1.__commonJSMin(((exports) => {
 					dest = path$2.join(dest, path$2.basename(source));
 					destExists = yield ioUtil.exists(dest);
 				}
-				if (destExists) if (options.force == null || options.force) yield rmRF(dest);
-				else throw new Error("Destination already exists");
+				if (destExists) {
+					if (options.force == null || options.force) yield rmRF(dest);
+					else throw new Error("Destination already exists");
+				}
 			}
 			yield mkdirP(path$2.dirname(dest));
 			yield ioUtil.rename(source, dest);
@@ -15705,8 +15736,10 @@ var require_io = /* @__PURE__ */ require_version$1.__commonJSMin(((exports) => {
 			if (!tool) throw new Error("parameter 'tool' is required");
 			if (check) {
 				const result = yield which(tool, false);
-				if (!result) if (ioUtil.IS_WINDOWS) throw new Error(`Unable to locate executable file: ${tool}. Please verify either the file path exists or the file can be found within a directory specified by the PATH environment variable. Also verify the file has a valid extension for an executable file.`);
-				else throw new Error(`Unable to locate executable file: ${tool}. Please verify either the file path exists or the file can be found within a directory specified by the PATH environment variable. Also check the file mode to verify the file is executable.`);
+				if (!result) {
+					if (ioUtil.IS_WINDOWS) throw new Error(`Unable to locate executable file: ${tool}. Please verify either the file path exists or the file can be found within a directory specified by the PATH environment variable. Also verify the file has a valid extension for an executable file.`);
+					else throw new Error(`Unable to locate executable file: ${tool}. Please verify either the file path exists or the file can be found within a directory specified by the PATH environment variable. Also check the file mode to verify the file is executable.`);
+				}
 				return result;
 			}
 			const matches = yield findInPath(tool);
@@ -15870,17 +15903,18 @@ var require_toolrunner = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 			const toolPath = this._getSpawnFileName();
 			const args = this._getSpawnArgs(options);
 			let cmd = noPrefix ? "" : "[command]";
-			if (IS_WINDOWS) if (this._isCmdFile()) {
-				cmd += toolPath;
-				for (const a of args) cmd += ` ${a}`;
-			} else if (options.windowsVerbatimArguments) {
-				cmd += `"${toolPath}"`;
-				for (const a of args) cmd += ` ${a}`;
+			if (IS_WINDOWS) {
+				if (this._isCmdFile()) {
+					cmd += toolPath;
+					for (const a of args) cmd += ` ${a}`;
+				} else if (options.windowsVerbatimArguments) {
+					cmd += `"${toolPath}"`;
+					for (const a of args) cmd += ` ${a}`;
+				} else {
+					cmd += this._windowsQuoteCmdArg(toolPath);
+					for (const a of args) cmd += ` ${this._windowsQuoteCmdArg(a)}`;
+				}
 			} else {
-				cmd += this._windowsQuoteCmdArg(toolPath);
-				for (const a of args) cmd += ` ${this._windowsQuoteCmdArg(a)}`;
-			}
-			else {
 				cmd += toolPath;
 				for (const a of args) cmd += ` ${a}`;
 			}
@@ -16804,10 +16838,12 @@ var require_context = /* @__PURE__ */ require_version$1.__commonJSMin(((exports)
 		constructor() {
 			var _a, _b, _c;
 			this.payload = {};
-			if (process.env.GITHUB_EVENT_PATH) if ((0, fs_1.existsSync)(process.env.GITHUB_EVENT_PATH)) this.payload = JSON.parse((0, fs_1.readFileSync)(process.env.GITHUB_EVENT_PATH, { encoding: "utf8" }));
-			else {
-				const path = process.env.GITHUB_EVENT_PATH;
-				process.stdout.write(`GITHUB_EVENT_PATH ${path} does not exist${os_1.EOL}`);
+			if (process.env.GITHUB_EVENT_PATH) {
+				if ((0, fs_1.existsSync)(process.env.GITHUB_EVENT_PATH)) this.payload = JSON.parse((0, fs_1.readFileSync)(process.env.GITHUB_EVENT_PATH, { encoding: "utf8" }));
+				else {
+					const path = process.env.GITHUB_EVENT_PATH;
+					process.stdout.write(`GITHUB_EVENT_PATH ${path} does not exist${os_1.EOL}`);
+				}
 			}
 			this.eventName = process.env.GITHUB_EVENT_NAME;
 			this.sha = process.env.GITHUB_SHA;
@@ -17115,9 +17151,10 @@ var require_dist_node$8 = /* @__PURE__ */ require_version$1.__commonJSMin(((expo
 	function mergeDeep(defaults, options) {
 		const result = Object.assign({}, defaults);
 		Object.keys(options).forEach((key) => {
-			if (isPlainObject(options[key])) if (!(key in defaults)) Object.assign(result, { [key]: options[key] });
-			else result[key] = mergeDeep(defaults[key], options[key]);
-			else Object.assign(result, { [key]: options[key] });
+			if (isPlainObject(options[key])) {
+				if (!(key in defaults)) Object.assign(result, { [key]: options[key] });
+				else result[key] = mergeDeep(defaults[key], options[key]);
+			} else Object.assign(result, { [key]: options[key] });
 		});
 		return result;
 	}
@@ -17190,31 +17227,33 @@ var require_dist_node$8 = /* @__PURE__ */ require_version$1.__commonJSMin(((expo
 	}
 	function getValues(context, operator, key, modifier) {
 		var value = context[key], result = [];
-		if (isDefined(value) && value !== "") if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
-			value = value.toString();
-			if (modifier && modifier !== "*") value = value.substring(0, parseInt(modifier, 10));
-			result.push(encodeValue(operator, value, isKeyOperator(operator) ? key : ""));
-		} else if (modifier === "*") if (Array.isArray(value)) value.filter(isDefined).forEach(function(value2) {
-			result.push(encodeValue(operator, value2, isKeyOperator(operator) ? key : ""));
-		});
-		else Object.keys(value).forEach(function(k) {
-			if (isDefined(value[k])) result.push(encodeValue(operator, value[k], k));
-		});
-		else {
-			const tmp = [];
-			if (Array.isArray(value)) value.filter(isDefined).forEach(function(value2) {
-				tmp.push(encodeValue(operator, value2));
-			});
-			else Object.keys(value).forEach(function(k) {
-				if (isDefined(value[k])) {
-					tmp.push(encodeUnreserved(k));
-					tmp.push(encodeValue(operator, value[k].toString()));
-				}
-			});
-			if (isKeyOperator(operator)) result.push(encodeUnreserved(key) + "=" + tmp.join(","));
-			else if (tmp.length !== 0) result.push(tmp.join(","));
-		}
-		else if (operator === ";") {
+		if (isDefined(value) && value !== "") {
+			if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
+				value = value.toString();
+				if (modifier && modifier !== "*") value = value.substring(0, parseInt(modifier, 10));
+				result.push(encodeValue(operator, value, isKeyOperator(operator) ? key : ""));
+			} else if (modifier === "*") {
+				if (Array.isArray(value)) value.filter(isDefined).forEach(function(value2) {
+					result.push(encodeValue(operator, value2, isKeyOperator(operator) ? key : ""));
+				});
+				else Object.keys(value).forEach(function(k) {
+					if (isDefined(value[k])) result.push(encodeValue(operator, value[k], k));
+				});
+			} else {
+				const tmp = [];
+				if (Array.isArray(value)) value.filter(isDefined).forEach(function(value2) {
+					tmp.push(encodeValue(operator, value2));
+				});
+				else Object.keys(value).forEach(function(k) {
+					if (isDefined(value[k])) {
+						tmp.push(encodeUnreserved(k));
+						tmp.push(encodeValue(operator, value[k].toString()));
+					}
+				});
+				if (isKeyOperator(operator)) result.push(encodeUnreserved(key) + "=" + tmp.join(","));
+				else if (tmp.length !== 0) result.push(tmp.join(","));
+			}
+		} else if (operator === ";") {
 			if (isDefined(value)) result.push(encodeUnreserved(key));
 		} else if (value === "" && (operator === "&" || operator === "?")) result.push(encodeUnreserved(key) + "=");
 		else if (value === "") result.push("");
@@ -17884,13 +17923,14 @@ var require_dist_node$2 = /* @__PURE__ */ require_version$1.__commonJSMin(((expo
 			this.graphql = (0, import_graphql.withCustomRequest)(this.request).defaults(requestDefaults);
 			this.log = createLogger(options.log);
 			this.hook = hook;
-			if (!options.authStrategy) if (!options.auth) this.auth = async () => ({ type: "unauthenticated" });
-			else {
-				const auth = (0, import_auth_token.createTokenAuth)(options.auth);
-				hook.wrap("request", auth.hook);
-				this.auth = auth;
-			}
-			else {
+			if (!options.authStrategy) {
+				if (!options.auth) this.auth = async () => ({ type: "unauthenticated" });
+				else {
+					const auth = (0, import_auth_token.createTokenAuth)(options.auth);
+					hook.wrap("request", auth.hook);
+					this.auth = auth;
+				}
+			} else {
 				const { authStrategy, ...otherOptions } = options;
 				const auth = authStrategy(Object.assign({
 					request: this.request,
@@ -19821,6 +19861,7 @@ var OctokitClient = class {
 		})).data;
 		return {
 			mergeSha: pr.merge_commit_sha ?? "",
+			headRef: pr.head.ref,
 			input: {
 				number: pr.number,
 				title: pr.title,
@@ -19949,12 +19990,13 @@ var OctokitClient = class {
 			per_page: 5
 		});
 		for (const pr of prs.data) {
-			if (!pr.merged_at) continue;
+			if (!pr.merged_at || !pr.merge_commit_sha) continue;
 			const version = parseReleaseTitle(pr.title);
 			if (version) return {
 				number: pr.number,
 				version,
-				body: pr.body ?? ""
+				body: pr.body ?? "",
+				mergeSha: pr.merge_commit_sha
 			};
 		}
 		return null;
@@ -19970,11 +20012,12 @@ var OctokitClient = class {
 			return false;
 		}
 	}
-	async tagAndRelease(version, notes) {
+	async tagAndRelease(version, notes, target) {
 		const tag = `v${version}`;
 		await this.octokit.rest.repos.createRelease({
 			...this.repo,
 			tag_name: tag,
+			target_commitish: target,
 			name: tag,
 			body: notes
 		});
@@ -20406,7 +20449,11 @@ async function classify(pr, options = {}) {
 			jsonSchema: require_version$1.classificationJsonSchema(),
 			schemaName: "classification",
 			zodSchema: require_version$1.classificationSchema
-		});
+		}).catch((error) => ({
+			ok: false,
+			raw: "",
+			errors: error instanceof Error ? error.message : String(error)
+		}));
 		if (result.ok) {
 			modelKind = result.value.kind;
 			summary = result.value.summary;
@@ -20454,6 +20501,7 @@ async function bootstrapEntries(client, config, provider) {
 	const unreleasedPrs = new Set(numbers);
 	for (const number of numbers) {
 		const merged = await client.getMergedPr(number);
+		if (merged.headRef === config.releaseBranch) continue;
 		const diff = applyDiffBudget(await client.getPrDiff(number).catch(() => ""), { maxChars: config.diffBudget });
 		const entry = await classify({
 			...merged.input,
@@ -20667,7 +20715,7 @@ const SECTION_RE = /<!-- onegai:section id=(?<id>[a-z-]+) hash=(?<hash>[a-z0-9]+
 /** Parse wrapped sections from a body, flagging those a human has edited. */
 function parseSections(body) {
 	const parsed = [];
-	for (const match of body.matchAll(SECTION_RE)) {
+	for (const match of body.replace(/\r\n/g, "\n").matchAll(SECTION_RE)) {
 		const g = match.groups;
 		const content = g.content;
 		parsed.push({
@@ -22584,9 +22632,11 @@ var require_supports_color = /* @__PURE__ */ require_version$1.__commonJSMin(((e
 	let forceColor;
 	if (hasFlag("no-color") || hasFlag("no-colors") || hasFlag("color=false") || hasFlag("color=never")) forceColor = 0;
 	else if (hasFlag("color") || hasFlag("colors") || hasFlag("color=true") || hasFlag("color=always")) forceColor = 1;
-	if ("FORCE_COLOR" in env) if (env.FORCE_COLOR === "true") forceColor = 1;
-	else if (env.FORCE_COLOR === "false") forceColor = 0;
-	else forceColor = env.FORCE_COLOR.length === 0 ? 1 : Math.min(parseInt(env.FORCE_COLOR, 10), 3);
+	if ("FORCE_COLOR" in env) {
+		if (env.FORCE_COLOR === "true") forceColor = 1;
+		else if (env.FORCE_COLOR === "false") forceColor = 0;
+		else forceColor = env.FORCE_COLOR.length === 0 ? 1 : Math.min(parseInt(env.FORCE_COLOR, 10), 3);
+	}
 	function translateLevel(level) {
 		if (level === 0) return false;
 		return {
@@ -23474,11 +23524,12 @@ async function regenerateAndUpsert(client, config, entries, existingBody) {
 /** `pull_request` closed-and-merged: classify the PR, then regenerate. */
 async function handlePullRequestMerged(client, ctx, prNumber) {
 	const config = await client.getConfig(ctx.configPath);
+	const merged = await client.getMergedPr(prNumber);
+	if (merged.headRef === config.releaseBranch) return;
 	const releasePr = await client.findReleasePr(config.releaseBranch);
 	let entries = releasePr ? require_version$1.parseSnapshot(releasePr.body, releasePr.comments) : [];
 	if (!releasePr && entries.length === 0) entries = await bootstrapEntries(client, config, ctx.provider);
 	if (!entries.some((e) => e.pr === prNumber)) {
-		const merged = await client.getMergedPr(prNumber);
 		const diff = applyDiffBudget(await client.getPrDiff(prNumber).catch(() => ""), { maxChars: config.diffBudget });
 		const unreleasedPrs = new Set(entries.map((e) => e.pr));
 		const entry = await classify({
@@ -23546,7 +23597,7 @@ async function handlePush(client, ctx) {
 	if (!merged) return;
 	if (await client.tagExists(merged.version)) return;
 	const notes = extractReleaseNotes(merged.body);
-	await client.tagAndRelease(merged.version, notes);
+	await client.tagAndRelease(merged.version, notes, merged.mergeSha);
 }
 //#endregion
 //#region src/llm/anthropic.ts
@@ -23642,7 +23693,7 @@ var CopilotProvider = class {
 		this.model = config.model;
 		this.command = config.command ?? "copilot";
 		this.args = config.args ?? [
-			"-p",
+			"--silent",
 			"--model",
 			config.model
 		];
@@ -23657,7 +23708,11 @@ var CopilotProvider = class {
 			"Respond with ONLY a JSON object matching this JSON Schema:",
 			JSON.stringify(request.jsonSchema)
 		].join("\n");
-		return this.runner(this.command, this.args, prompt);
+		return this.runner(this.command, [
+			...this.args,
+			"--prompt",
+			prompt
+		], "");
 	}
 };
 //#endregion

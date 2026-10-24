@@ -61,6 +61,16 @@ The `pull_request` and `issue_comment` triggers classify merges and accept corre
 The default is GitHub Copilot, which needs no secrets:
 on org-owned repos with the policy enabled, the built-in `GITHUB_TOKEN` carries `copilot-requests: write`,
 and inference stays inside GitHub.
+The action runs the [Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli-in-actions),
+so install it before the action and pass it the token:
+
+```yaml
+- uses: actions/checkout@v7
+- run: npm install -g @github/copilot
+- uses: owner/onegaishimasu@v1
+  env:
+    GITHUB_TOKEN: ${{ github.token }}
+```
 
 To use a specific model, bring your own key.
 One adapter speaks the OpenAI Chat Completions format (OpenAI, Azure, OpenRouter, Groq, Mistral, DeepSeek, Ollama, vLLM, any gateway);
@@ -127,7 +137,6 @@ Every field is optional; see [.github/onegai.yml](.github/onegai.yml) for the an
 ## The ledger
 
 Entries do not live in your tree.
-Each classification run stores its entry as a workflow artifact keyed by merge SHA.
 The record of truth is the release PR itself:
 each regeneration writes the full entry set into the PR body as fenced YAML inside a `<details>` block.
 When the release PR merges, the closed PR archives the entries.

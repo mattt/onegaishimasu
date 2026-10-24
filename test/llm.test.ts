@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vite-plus/test";
 import { classificationJsonSchema, classificationSchema } from "../src/entry.js";
 import { AnthropicProvider } from "../src/llm/anthropic.js";
 import { completeWithSchema } from "../src/llm/conform.js";
+import { CopilotProvider } from "../src/llm/copilot.js";
 import { OpenAIProvider } from "../src/llm/openai.js";
 import { type CompletionRequest, type Provider, extractJson } from "../src/llm/provider.js";
 import { SYSTEM_PROMPT, buildUserPrompt, sanitize } from "../src/llm/prompt.js";
@@ -141,5 +142,31 @@ describe("anthropic adapter", () => {
     const call = (fetchMock as unknown as ReturnType<typeof vi.fn>).mock.calls[0]!;
     const body = JSON.parse((call[1] as { body: string }).body);
     expect(body.tool_choice).toEqual({ type: "tool", name: "classification" });
+  });
+});
+
+describe("CopilotProvider", () => {
+  it("passes the prompt as the value of --prompt", async () => {
+    const calls: { command: string; args: string[] }[] = [];
+    const provider = new CopilotProvider({
+      model: "auto",
+      runner: async (command, args) => {
+        calls.push({ command, args });
+        return "{}";
+      },
+    });
+    await provider.complete({
+      system: "system text",
+      user: "user text",
+      jsonSchema: {},
+      schemaName: "classification",
+    });
+
+    expect(calls).toHaveLength(1);
+    const { command, args } = calls[0]!;
+    expect(command).toBe("copilot");
+    expect(args.slice(0, 4)).toEqual(["--silent", "--model", "auto", "--prompt"]);
+    expect(args[4]).toContain("system text");
+    expect(args[4]).toContain("user text");
   });
 });

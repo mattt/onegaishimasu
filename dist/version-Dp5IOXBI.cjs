@@ -249,9 +249,10 @@ var require_visit = /* @__PURE__ */ __commonJSMin(((exports) => {
 	function replaceNode(key, path, node) {
 		const parent = path[path.length - 1];
 		if (identity.isCollection(parent)) parent.items[key] = node;
-		else if (identity.isPair(parent)) if (key === "key") parent.key = node;
-		else parent.value = node;
-		else if (identity.isDocument(parent)) parent.contents = node;
+		else if (identity.isPair(parent)) {
+			if (key === "key") parent.key = node;
+			else parent.value = node;
+		} else if (identity.isDocument(parent)) parent.contents = node;
 		else {
 			const pt = identity.isAlias(parent) ? "alias" : "scalar";
 			throw new Error(`Cannot replace node with ${pt} parent`);
@@ -502,30 +503,32 @@ var require_applyReviver = /* @__PURE__ */ __commonJSMin(((exports) => {
 	* Includes extensions for handling Map and Set objects.
 	*/
 	function applyReviver(reviver, obj, key, val) {
-		if (val && typeof val === "object") if (Array.isArray(val)) for (let i = 0, len = val.length; i < len; ++i) {
-			const v0 = val[i];
-			const v1 = applyReviver(reviver, val, String(i), v0);
-			if (v1 === void 0) delete val[i];
-			else if (v1 !== v0) val[i] = v1;
-		}
-		else if (val instanceof Map) for (const k of Array.from(val.keys())) {
-			const v0 = val.get(k);
-			const v1 = applyReviver(reviver, val, k, v0);
-			if (v1 === void 0) val.delete(k);
-			else if (v1 !== v0) val.set(k, v1);
-		}
-		else if (val instanceof Set) for (const v0 of Array.from(val)) {
-			const v1 = applyReviver(reviver, val, v0, v0);
-			if (v1 === void 0) val.delete(v0);
-			else if (v1 !== v0) {
-				val.delete(v0);
-				val.add(v1);
+		if (val && typeof val === "object") {
+			if (Array.isArray(val)) for (let i = 0, len = val.length; i < len; ++i) {
+				const v0 = val[i];
+				const v1 = applyReviver(reviver, val, String(i), v0);
+				if (v1 === void 0) delete val[i];
+				else if (v1 !== v0) val[i] = v1;
 			}
-		}
-		else for (const [k, v0] of Object.entries(val)) {
-			const v1 = applyReviver(reviver, val, k, v0);
-			if (v1 === void 0) delete val[k];
-			else if (v1 !== v0) val[k] = v1;
+			else if (val instanceof Map) for (const k of Array.from(val.keys())) {
+				const v0 = val.get(k);
+				const v1 = applyReviver(reviver, val, k, v0);
+				if (v1 === void 0) val.delete(k);
+				else if (v1 !== v0) val.set(k, v1);
+			}
+			else if (val instanceof Set) for (const v0 of Array.from(val)) {
+				const v1 = applyReviver(reviver, val, v0, v0);
+				if (v1 === void 0) val.delete(v0);
+				else if (v1 !== v0) {
+					val.delete(v0);
+					val.add(v1);
+				}
+			}
+			else for (const [k, v0] of Object.entries(val)) {
+				const v1 = applyReviver(reviver, val, k, v0);
+				if (v1 === void 0) delete val[k];
+				else if (v1 !== v0) val[k] = v1;
+			}
 		}
 		return reviver.call(obj, key, val);
 	}
@@ -946,8 +949,10 @@ var require_foldFlowLines = /* @__PURE__ */ __commonJSMin(((exports) => {
 		const folds = [];
 		const escapedFolds = {};
 		let end = lineWidth - indent.length;
-		if (typeof indentAtStart === "number") if (indentAtStart > lineWidth - Math.max(2, minContentWidth)) folds.push(0);
-		else end = lineWidth - indentAtStart;
+		if (typeof indentAtStart === "number") {
+			if (indentAtStart > lineWidth - Math.max(2, minContentWidth)) folds.push(0);
+			else end = lineWidth - indentAtStart;
+		}
 		let split = void 0;
 		let prev = void 0;
 		let overflow = false;
@@ -984,23 +989,25 @@ var require_foldFlowLines = /* @__PURE__ */ __commonJSMin(((exports) => {
 					const next = text[i + 1];
 					if (next && next !== " " && next !== "\n" && next !== "	") split = i;
 				}
-				if (i >= end) if (split) {
-					folds.push(split);
-					end = split + endStep;
-					split = void 0;
-				} else if (mode === FOLD_QUOTED) {
-					while (prev === " " || prev === "	") {
-						prev = ch;
-						ch = text[i += 1];
-						overflow = true;
-					}
-					const j = i > escEnd + 1 ? i - 2 : escStart - 1;
-					if (escapedFolds[j]) return text;
-					folds.push(j);
-					escapedFolds[j] = true;
-					end = j + endStep;
-					split = void 0;
-				} else overflow = true;
+				if (i >= end) {
+					if (split) {
+						folds.push(split);
+						end = split + endStep;
+						split = void 0;
+					} else if (mode === FOLD_QUOTED) {
+						while (prev === " " || prev === "	") {
+							prev = ch;
+							ch = text[i += 1];
+							overflow = true;
+						}
+						const j = i > escEnd + 1 ? i - 2 : escStart - 1;
+						if (escapedFolds[j]) return text;
+						folds.push(j);
+						escapedFolds[j] = true;
+						end = j + endStep;
+						split = void 0;
+					} else overflow = true;
+				}
 			}
 			prev = ch;
 		}
@@ -1480,8 +1487,10 @@ var require_log = /* @__PURE__ */ __commonJSMin(((exports) => {
 		if (logLevel === "debug") console.log(...messages);
 	}
 	function warn(logLevel, warning) {
-		if (logLevel === "debug" || logLevel === "warn") if (typeof node_process$2.emitWarning === "function") node_process$2.emitWarning(warning);
-		else console.warn(warning);
+		if (logLevel === "debug" || logLevel === "warn") {
+			if (typeof node_process$2.emitWarning === "function") node_process$2.emitWarning(warning);
+			else console.warn(warning);
+		}
 	}
 	exports.debug = debug;
 	exports.warn = warn;
@@ -2308,11 +2317,12 @@ var require_pairs = /* @__PURE__ */ __commonJSMin(((exports) => {
 		if (iterable && Symbol.iterator in Object(iterable)) for (let it of iterable) {
 			if (typeof replacer === "function") it = replacer.call(iterable, String(i++), it);
 			let key, value;
-			if (Array.isArray(it)) if (it.length === 2) {
-				key = it[0];
-				value = it[1];
-			} else throw new TypeError(`Expected [key, value] tuple: ${it}`);
-			else if (it && it instanceof Object) {
+			if (Array.isArray(it)) {
+				if (it.length === 2) {
+					key = it[0];
+					value = it[1];
+				} else throw new TypeError(`Expected [key, value] tuple: ${it}`);
+			} else if (it && it instanceof Object) {
 				const keys = Object.keys(it);
 				if (keys.length === 1) {
 					key = keys[0];
@@ -2388,8 +2398,10 @@ var require_omap = /* @__PURE__ */ __commonJSMin(((exports) => {
 		resolve(seq, onError) {
 			const pairs$1 = pairs.resolvePairs(seq, onError);
 			const seenKeys = [];
-			for (const { key } of pairs$1.items) if (identity.isScalar(key)) if (seenKeys.includes(key.value)) onError(`Ordered maps must not include duplicate keys: ${key.value}`);
-			else seenKeys.push(key.value);
+			for (const { key } of pairs$1.items) if (identity.isScalar(key)) {
+				if (seenKeys.includes(key.value)) onError(`Ordered maps must not include duplicate keys: ${key.value}`);
+				else seenKeys.push(key.value);
+			}
 			return Object.assign(new YAMLOMap(), pairs$1);
 		},
 		createNode: (schema, iterable, ctx) => YAMLOMap.from(schema, iterable, ctx)
@@ -2600,9 +2612,10 @@ var require_set = /* @__PURE__ */ __commonJSMin(((exports) => {
 		tag: "tag:yaml.org,2002:set",
 		createNode: (schema, iterable, ctx) => YAMLSet.from(schema, iterable, ctx),
 		resolve(map, onError) {
-			if (identity.isMap(map)) if (map.hasAllNullValues(true)) return Object.assign(new YAMLSet(), map);
-			else onError("Set items must all have null values");
-			else onError("Expected a mapping for this tag");
+			if (identity.isMap(map)) {
+				if (map.hasAllNullValues(true)) return Object.assign(new YAMLSet(), map);
+				else onError("Set items must all have null values");
+			} else onError("Expected a mapping for this tag");
 			return map;
 		}
 	};
@@ -2794,10 +2807,12 @@ var require_tags = /* @__PURE__ */ __commonJSMin(((exports) => {
 		const schemaTags = schemas.get(schemaName);
 		if (schemaTags && !customTags) return addMergeTag && !schemaTags.includes(merge.merge) ? schemaTags.concat(merge.merge) : schemaTags.slice();
 		let tags = schemaTags;
-		if (!tags) if (Array.isArray(customTags)) tags = [];
-		else {
-			const keys = Array.from(schemas.keys()).filter((key) => key !== "yaml11").map((key) => JSON.stringify(key)).join(", ");
-			throw new Error(`Unknown schema "${schemaName}"; use one of ${keys} or define customTags array`);
+		if (!tags) {
+			if (Array.isArray(customTags)) tags = [];
+			else {
+				const keys = Array.from(schemas.keys()).filter((key) => key !== "yaml11").map((key) => JSON.stringify(key)).join(", ");
+				throw new Error(`Unknown schema "${schemaName}"; use one of ${keys} or define customTags array`);
+			}
 		}
 		if (Array.isArray(customTags)) for (const tag of customTags) tags = tags.concat(tag);
 		else if (typeof customTags === "function") tags = customTags(tags.slice());
@@ -2886,14 +2901,15 @@ var require_stringifyDocument = /* @__PURE__ */ __commonJSMin(((exports) => {
 			if ((body[0] === "|" || body[0] === ">") && lines[lines.length - 1] === "---") lines[lines.length - 1] = `--- ${body}`;
 			else lines.push(body);
 		} else lines.push(stringify.stringify(doc.contents, ctx));
-		if (doc.directives?.docEnd) if (doc.comment) {
-			const cs = commentString(doc.comment);
-			if (cs.includes("\n")) {
-				lines.push("...");
-				lines.push(stringifyComment.indentComment(cs, ""));
-			} else lines.push(`... ${cs}`);
-		} else lines.push("...");
-		else {
+		if (doc.directives?.docEnd) {
+			if (doc.comment) {
+				const cs = commentString(doc.comment);
+				if (cs.includes("\n")) {
+					lines.push("...");
+					lines.push(stringifyComment.indentComment(cs, ""));
+				} else lines.push(`... ${cs}`);
+			} else lines.push("...");
+		} else {
 			let dc = doc.comment;
 			if (dc && chompKeep) dc = dc.replace(/^\n+/, "");
 			if (dc) {
@@ -3432,8 +3448,10 @@ var require_resolve_block_map = /* @__PURE__ */ __commonJSMin(((exports) => {
 				}
 				if (!keyProps.anchor && !keyProps.tag && !sep) {
 					commentEnd = keyProps.end;
-					if (keyProps.comment) if (map.comment) map.comment += "\n" + keyProps.comment;
-					else map.comment = keyProps.comment;
+					if (keyProps.comment) {
+						if (map.comment) map.comment += "\n" + keyProps.comment;
+						else map.comment = keyProps.comment;
+					}
 					continue;
 				}
 				if (keyProps.newlineAfterProp || utilContainsNewline.containsNewline(key)) onError(key ?? start[start.length - 1], "MULTILINE_IMPLICIT_KEY", "Implicit keys need to be on a single line");
@@ -3466,8 +3484,10 @@ var require_resolve_block_map = /* @__PURE__ */ __commonJSMin(((exports) => {
 				map.items.push(pair);
 			} else {
 				if (implicitKey) onError(keyNode.range, "MISSING_CHAR", "Implicit map keys need to be followed by map values");
-				if (valueProps.comment) if (keyNode.comment) keyNode.comment += "\n" + valueProps.comment;
-				else keyNode.comment = valueProps.comment;
+				if (valueProps.comment) {
+					if (keyNode.comment) keyNode.comment += "\n" + valueProps.comment;
+					else keyNode.comment = valueProps.comment;
+				}
 				const pair = new Pair.Pair(keyNode);
 				if (ctx.options.keepSourceTokens) pair.srcToken = collItem;
 				map.items.push(pair);
@@ -3504,12 +3524,15 @@ var require_resolve_block_seq = /* @__PURE__ */ __commonJSMin(((exports) => {
 				parentIndent: bs.indent,
 				startOnNewline: true
 			});
-			if (!props.found) if (props.anchor || props.tag || value) if (value?.type === "block-seq") onError(props.end, "BAD_INDENT", "All sequence items must start at the same column");
-			else onError(offset, "MISSING_CHAR", "Sequence item without - indicator");
-			else {
-				commentEnd = props.end;
-				if (props.comment) seq.comment = props.comment;
-				continue;
+			if (!props.found) {
+				if (props.anchor || props.tag || value) {
+					if (value?.type === "block-seq") onError(props.end, "BAD_INDENT", "All sequence items must start at the same column");
+					else onError(offset, "MISSING_CHAR", "Sequence item without - indicator");
+				} else {
+					commentEnd = props.end;
+					if (props.comment) seq.comment = props.comment;
+					continue;
+				}
 			}
 			const node = value ? composeNode(ctx, value, props, onError) : composeEmptyNode(ctx, props.end, start, null, props, onError);
 			if (ctx.schema.compat) utilFlowIndentCheck.flowIndentCheck(bs.indent, value, onError);
@@ -3601,8 +3624,10 @@ var require_resolve_flow_collection = /* @__PURE__ */ __commonJSMin(((exports) =
 				if (!props.anchor && !props.tag && !sep && !value) {
 					if (i === 0 && props.comma) onError(props.comma, "UNEXPECTED_TOKEN", `Unexpected , in ${fcName}`);
 					else if (i < fc.items.length - 1) onError(props.start, "UNEXPECTED_TOKEN", `Unexpected empty item in ${fcName}`);
-					if (props.comment) if (coll.comment) coll.comment += "\n" + props.comment;
-					else coll.comment = props.comment;
+					if (props.comment) {
+						if (coll.comment) coll.comment += "\n" + props.comment;
+						else coll.comment = props.comment;
+					}
 					offset = props.end;
 					continue;
 				}
@@ -3662,13 +3687,17 @@ var require_resolve_flow_collection = /* @__PURE__ */ __commonJSMin(((exports) =
 						}
 						if (props.start < valueProps.found.offset - 1024) onError(valueProps.found, "KEY_OVER_1024_CHARS", "The : indicator must be at most 1024 chars after the start of an implicit flow sequence key");
 					}
-				} else if (value) if ("source" in value && value.source?.[0] === ":") onError(value, "MISSING_CHAR", `Missing space after : in ${fcName}`);
-				else onError(valueProps.start, "MISSING_CHAR", `Missing , or : between ${fcName} items`);
+				} else if (value) {
+					if ("source" in value && value.source?.[0] === ":") onError(value, "MISSING_CHAR", `Missing space after : in ${fcName}`);
+					else onError(valueProps.start, "MISSING_CHAR", `Missing , or : between ${fcName} items`);
+				}
 				const valueNode = value ? composeNode(ctx, value, valueProps, onError) : valueProps.found ? composeEmptyNode(ctx, valueProps.end, sep, null, valueProps, onError) : null;
 				if (valueNode) {
 					if (isBlock(value)) onError(valueNode.range, "BLOCK_IN_FLOW", blockMsg);
-				} else if (valueProps.comment) if (keyNode.comment) keyNode.comment += "\n" + valueProps.comment;
-				else keyNode.comment = valueProps.comment;
+				} else if (valueProps.comment) {
+					if (keyNode.comment) keyNode.comment += "\n" + valueProps.comment;
+					else keyNode.comment = valueProps.comment;
+				}
 				const pair = new Pair.Pair(keyNode, valueNode);
 				if (ctx.options.keepSourceTokens) pair.srcToken = collItem;
 				if (isMap) {
@@ -3702,8 +3731,10 @@ var require_resolve_flow_collection = /* @__PURE__ */ __commonJSMin(((exports) =
 		}
 		if (ee.length > 0) {
 			const end = resolveEnd.resolveEnd(ee, cePos, ctx.options.strict, onError);
-			if (end.comment) if (coll.comment) coll.comment += "\n" + end.comment;
-			else coll.comment = end.comment;
+			if (end.comment) {
+				if (coll.comment) coll.comment += "\n" + end.comment;
+				else coll.comment = end.comment;
+			}
 			coll.range = [
 				fc.offset,
 				cePos,
@@ -3851,9 +3882,10 @@ var require_resolve_block_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 				value += sep + indent.slice(trimIndent) + content;
 				sep = "\n";
 				prevMoreIndented = true;
-			} else if (content === "") if (sep === "\n") value += "\n";
-			else sep = "\n";
-			else {
+			} else if (content === "") {
+				if (sep === "\n") value += "\n";
+				else sep = "\n";
+			} else {
 				value += sep + content;
 				sep = " ";
 				prevMoreIndented = false;
@@ -4046,9 +4078,10 @@ var require_resolve_flow_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 		let pos = first.lastIndex;
 		line.lastIndex = pos;
 		while (match = line.exec(source)) {
-			if (match[1] === "") if (sep === "\n") res += sep;
-			else sep = "\n";
-			else {
+			if (match[1] === "") {
+				if (sep === "\n") res += sep;
+				else sep = "\n";
+			} else {
 				res += sep + match[1];
 				sep = " ";
 			}
@@ -4184,8 +4217,10 @@ var require_compose_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	function findScalarTagByName(schema, value, tagName, tagToken, onError) {
 		if (tagName === "!") return schema[identity.SCALAR];
 		const matchWithTest = [];
-		for (const tag of schema.tags) if (!tag.collection && tag.tag === tagName) if (tag.default && tag.test) matchWithTest.push(tag);
-		else return tag;
+		for (const tag of schema.tags) if (!tag.collection && tag.tag === tagName) {
+			if (tag.default && tag.test) matchWithTest.push(tag);
+			else return tag;
+		}
 		for (const tag of matchWithTest) if (tag.test?.test(value)) return tag;
 		const kt = schema.knownTags[tagName];
 		if (kt && !kt.collection) {
@@ -4283,8 +4318,10 @@ var require_compose_node = /* @__PURE__ */ __commonJSMin(((exports) => {
 		if (anchor && node.anchor === "") onError(anchor, "BAD_ALIAS", "Anchor cannot be an empty string");
 		if (atKey && ctx.options.stringKeys && (!identity.isScalar(node) || typeof node.value !== "string" || node.tag && node.tag !== "tag:yaml.org,2002:str")) onError(tag ?? token, "NON_STRING_KEY", "With stringKeys, all keys must be strings");
 		if (spaceBefore) node.spaceBefore = true;
-		if (comment) if (token.type === "scalar" && token.source === "") node.comment = comment;
-		else node.commentBefore = comment;
+		if (comment) {
+			if (token.type === "scalar" && token.source === "") node.comment = comment;
+			else node.commentBefore = comment;
+		}
 		if (ctx.options.keepSourceTokens && isSrcToken) node.srcToken = token;
 		return node;
 	}
@@ -5473,11 +5510,13 @@ var require_lexer = /* @__PURE__ */ __commonJSMin(((exports) => {
 				end = i;
 			} else if (isEmpty(ch)) {
 				let next = this.buffer[i + 1];
-				if (ch === "\r") if (next === "\n") {
-					i += 1;
-					ch = "\n";
-					next = this.buffer[i + 1];
-				} else end = i;
+				if (ch === "\r") {
+					if (next === "\n") {
+						i += 1;
+						ch = "\n";
+						next = this.buffer[i + 1];
+					} else end = i;
+				}
 				if (next === "#" || inFlow && flowIndicatorChars.has(next)) break;
 				if (ch === "\n") {
 					const cs = this.continueScalar(i + 1);
@@ -5694,9 +5733,10 @@ var require_parser = /* @__PURE__ */ __commonJSMin(((exports) => {
 			for (const it of fc.items) if (it.sep && !it.value && !includesToken(it.start, "explicit-key-ind") && !includesToken(it.sep, "map-value-ind")) {
 				if (it.key) it.value = it.key;
 				delete it.key;
-				if (isFlowToken(it.value)) if (it.value.end) arrayPushArray(it.value.end, it.sep);
-				else it.value.end = it.sep;
-				else arrayPushArray(it.start, it.sep);
+				if (isFlowToken(it.value)) {
+					if (it.value.end) arrayPushArray(it.value.end, it.sep);
+					else it.value.end = it.sep;
+				} else arrayPushArray(it.start, it.sep);
 				delete it.sep;
 			}
 		}
@@ -6131,13 +6171,31 @@ var require_parser = /* @__PURE__ */ __commonJSMin(((exports) => {
 						this.onKeyLine = true;
 						return;
 					case "map-value-ind":
-						if (it.explicitKey) if (!it.sep) if (includesToken(it.start, "newline")) Object.assign(it, {
-							key: null,
-							sep: [this.sourceToken]
-						});
-						else {
-							const start = getFirstKeyStartProps(it.start);
-							this.stack.push({
+						if (it.explicitKey) {
+							if (!it.sep) {
+								if (includesToken(it.start, "newline")) Object.assign(it, {
+									key: null,
+									sep: [this.sourceToken]
+								});
+								else {
+									const start = getFirstKeyStartProps(it.start);
+									this.stack.push({
+										type: "block-map",
+										offset: this.offset,
+										indent: this.indent,
+										items: [{
+											start,
+											key: null,
+											sep: [this.sourceToken]
+										}]
+									});
+								}
+							} else if (it.value) map.items.push({
+								start: [],
+								key: null,
+								sep: [this.sourceToken]
+							});
+							else if (includesToken(it.sep, "map-value-ind")) this.stack.push({
 								type: "block-map",
 								offset: this.offset,
 								indent: this.indent,
@@ -6147,42 +6205,26 @@ var require_parser = /* @__PURE__ */ __commonJSMin(((exports) => {
 									sep: [this.sourceToken]
 								}]
 							});
-						}
-						else if (it.value) map.items.push({
-							start: [],
-							key: null,
-							sep: [this.sourceToken]
-						});
-						else if (includesToken(it.sep, "map-value-ind")) this.stack.push({
-							type: "block-map",
-							offset: this.offset,
-							indent: this.indent,
-							items: [{
-								start,
-								key: null,
-								sep: [this.sourceToken]
-							}]
-						});
-						else if (isFlowToken(it.key) && !includesToken(it.sep, "newline")) {
-							const start = getFirstKeyStartProps(it.start);
-							const key = it.key;
-							const sep = it.sep;
-							sep.push(this.sourceToken);
-							delete it.key;
-							delete it.sep;
-							this.stack.push({
-								type: "block-map",
-								offset: this.offset,
-								indent: this.indent,
-								items: [{
-									start,
-									key,
-									sep
-								}]
-							});
-						} else if (start.length > 0) it.sep = it.sep.concat(start, this.sourceToken);
-						else it.sep.push(this.sourceToken);
-						else if (!it.sep) Object.assign(it, {
+							else if (isFlowToken(it.key) && !includesToken(it.sep, "newline")) {
+								const start = getFirstKeyStartProps(it.start);
+								const key = it.key;
+								const sep = it.sep;
+								sep.push(this.sourceToken);
+								delete it.key;
+								delete it.sep;
+								this.stack.push({
+									type: "block-map",
+									offset: this.offset,
+									indent: this.indent,
+									items: [{
+										start,
+										key,
+										sep
+									}]
+								});
+							} else if (start.length > 0) it.sep = it.sep.concat(start, this.sourceToken);
+							else it.sep.push(this.sourceToken);
+						} else if (!it.sep) Object.assign(it, {
 							key: null,
 							sep: [this.sourceToken]
 						});
@@ -6555,8 +6597,10 @@ var require_public_api = /* @__PURE__ */ __commonJSMin(((exports) => {
 		const doc = parseDocument(src, options);
 		if (!doc) return null;
 		doc.warnings.forEach((warning) => log.warn(doc.options.logLevel, warning));
-		if (doc.errors.length > 0) if (doc.options.logLevel !== "silent") throw doc.errors[0];
-		else doc.errors = [];
+		if (doc.errors.length > 0) {
+			if (doc.options.logLevel !== "silent") throw doc.errors[0];
+			else doc.errors = [];
+		}
 		return doc.toJS(Object.assign({ reviver: _reviver }, options));
 	}
 	function stringify(value, replacer, options) {
@@ -6857,13 +6901,14 @@ const errorMap = (issue, _ctx) => {
 			message = `Invalid date`;
 			break;
 		case ZodIssueCode.invalid_string:
-			if (typeof issue.validation === "object") if ("includes" in issue.validation) {
-				message = `Invalid input: must include "${issue.validation.includes}"`;
-				if (typeof issue.validation.position === "number") message = `${message} at one or more positions greater than or equal to ${issue.validation.position}`;
-			} else if ("startsWith" in issue.validation) message = `Invalid input: must start with "${issue.validation.startsWith}"`;
-			else if ("endsWith" in issue.validation) message = `Invalid input: must end with "${issue.validation.endsWith}"`;
-			else util.assertNever(issue.validation);
-			else if (issue.validation !== "regex") message = `Invalid ${issue.validation}`;
+			if (typeof issue.validation === "object") {
+				if ("includes" in issue.validation) {
+					message = `Invalid input: must include "${issue.validation.includes}"`;
+					if (typeof issue.validation.position === "number") message = `${message} at one or more positions greater than or equal to ${issue.validation.position}`;
+				} else if ("startsWith" in issue.validation) message = `Invalid input: must start with "${issue.validation.startsWith}"`;
+				else if ("endsWith" in issue.validation) message = `Invalid input: must end with "${issue.validation.endsWith}"`;
+				else util.assertNever(issue.validation);
+			} else if (issue.validation !== "regex") message = `Invalid ${issue.validation}`;
 			else message = "Invalid";
 			break;
 		case ZodIssueCode.too_small:
@@ -7028,8 +7073,10 @@ var ParseInputLazyPath = class {
 		this._key = key;
 	}
 	get path() {
-		if (!this._cachedPath.length) if (Array.isArray(this._key)) this._cachedPath.push(...this._path, ...this._key);
-		else this._cachedPath.push(...this._path, this._key);
+		if (!this._cachedPath.length) {
+			if (Array.isArray(this._key)) this._cachedPath.push(...this._path, ...this._key);
+			else this._cachedPath.push(...this._path, this._key);
+		}
 		return this._cachedPath;
 	}
 };
@@ -9843,30 +9890,32 @@ var ZodEffects = class extends ZodType {
 				});
 			});
 		}
-		if (effect.type === "transform") if (ctx.common.async === false) {
-			const base = this._def.schema._parseSync({
+		if (effect.type === "transform") {
+			if (ctx.common.async === false) {
+				const base = this._def.schema._parseSync({
+					data: ctx.data,
+					path: ctx.path,
+					parent: ctx
+				});
+				if (!isValid(base)) return INVALID;
+				const result = effect.transform(base.value, checkCtx);
+				if (result instanceof Promise) throw new Error(`Asynchronous transform encountered during synchronous parse operation. Use .parseAsync instead.`);
+				return {
+					status: status.value,
+					value: result
+				};
+			} else return this._def.schema._parseAsync({
 				data: ctx.data,
 				path: ctx.path,
 				parent: ctx
+			}).then((base) => {
+				if (!isValid(base)) return INVALID;
+				return Promise.resolve(effect.transform(base.value, checkCtx)).then((result) => ({
+					status: status.value,
+					value: result
+				}));
 			});
-			if (!isValid(base)) return INVALID;
-			const result = effect.transform(base.value, checkCtx);
-			if (result instanceof Promise) throw new Error(`Asynchronous transform encountered during synchronous parse operation. Use .parseAsync instead.`);
-			return {
-				status: status.value,
-				value: result
-			};
-		} else return this._def.schema._parseAsync({
-			data: ctx.data,
-			path: ctx.path,
-			parent: ctx
-		}).then((base) => {
-			if (!isValid(base)) return INVALID;
-			return Promise.resolve(effect.transform(base.value, checkCtx)).then((result) => ({
-				status: status.value,
-				value: result
-			}));
-		});
+		}
 		util.assertNever(effect);
 	}
 };
@@ -10290,17 +10339,19 @@ function parseBigintDef(def, refs) {
 	if (!def.checks) return res;
 	for (const check of def.checks) switch (check.kind) {
 		case "min":
-			if (refs.target === "jsonSchema7") if (check.inclusive) setResponseValueAndErrors(res, "minimum", check.value, check.message, refs);
-			else setResponseValueAndErrors(res, "exclusiveMinimum", check.value, check.message, refs);
-			else {
+			if (refs.target === "jsonSchema7") {
+				if (check.inclusive) setResponseValueAndErrors(res, "minimum", check.value, check.message, refs);
+				else setResponseValueAndErrors(res, "exclusiveMinimum", check.value, check.message, refs);
+			} else {
 				if (!check.inclusive) res.exclusiveMinimum = true;
 				setResponseValueAndErrors(res, "minimum", check.value, check.message, refs);
 			}
 			break;
 		case "max":
-			if (refs.target === "jsonSchema7") if (check.inclusive) setResponseValueAndErrors(res, "maximum", check.value, check.message, refs);
-			else setResponseValueAndErrors(res, "exclusiveMaximum", check.value, check.message, refs);
-			else {
+			if (refs.target === "jsonSchema7") {
+				if (check.inclusive) setResponseValueAndErrors(res, "maximum", check.value, check.message, refs);
+				else setResponseValueAndErrors(res, "exclusiveMaximum", check.value, check.message, refs);
+			} else {
 				if (!check.inclusive) res.exclusiveMaximum = true;
 				setResponseValueAndErrors(res, "maximum", check.value, check.message, refs);
 			}
@@ -10910,17 +10961,19 @@ function parseNumberDef(def, refs) {
 			addErrorMessage(res, "type", check.message, refs);
 			break;
 		case "min":
-			if (refs.target === "jsonSchema7") if (check.inclusive) setResponseValueAndErrors(res, "minimum", check.value, check.message, refs);
-			else setResponseValueAndErrors(res, "exclusiveMinimum", check.value, check.message, refs);
-			else {
+			if (refs.target === "jsonSchema7") {
+				if (check.inclusive) setResponseValueAndErrors(res, "minimum", check.value, check.message, refs);
+				else setResponseValueAndErrors(res, "exclusiveMinimum", check.value, check.message, refs);
+			} else {
 				if (!check.inclusive) res.exclusiveMinimum = true;
 				setResponseValueAndErrors(res, "minimum", check.value, check.message, refs);
 			}
 			break;
 		case "max":
-			if (refs.target === "jsonSchema7") if (check.inclusive) setResponseValueAndErrors(res, "maximum", check.value, check.message, refs);
-			else setResponseValueAndErrors(res, "exclusiveMaximum", check.value, check.message, refs);
-			else {
+			if (refs.target === "jsonSchema7") {
+				if (check.inclusive) setResponseValueAndErrors(res, "maximum", check.value, check.message, refs);
+				else setResponseValueAndErrors(res, "exclusiveMaximum", check.value, check.message, refs);
+			} else {
 				if (!check.inclusive) res.exclusiveMaximum = true;
 				setResponseValueAndErrors(res, "maximum", check.value, check.message, refs);
 			}
@@ -11403,7 +11456,7 @@ function serializeSnapshot(entries, maxChunkSize = DEFAULT_MAX_CHUNK) {
 * Non-chunk text is ignored, so parsing never depends on how GitHub renders the body.
 */
 function parseSnapshot(body, comments = []) {
-	const sources = [body, ...comments];
+	const sources = [body, ...comments].map((s) => s.replace(/\r\n/g, "\n"));
 	const found = [];
 	for (const source of sources) for (const match of source.matchAll(CHUNK_RE)) {
 		const part = Number(match[1]);
@@ -11664,9 +11717,10 @@ var require_semver$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = class SemVer {
 		constructor(version, options) {
 			options = parseOptions(options);
-			if (version instanceof SemVer) if (version.loose === !!options.loose && version.includePrerelease === !!options.includePrerelease) return version;
-			else version = version.version;
-			else if (typeof version !== "string") throw new TypeError(`Invalid version. Must be a string. Got type "${typeof version}".`);
+			if (version instanceof SemVer) {
+				if (version.loose === !!options.loose && version.includePrerelease === !!options.includePrerelease) return version;
+				else version = version.version;
+			} else if (typeof version !== "string") throw new TypeError(`Invalid version. Must be a string. Got type "${typeof version}".`);
 			if (version.length > MAX_LENGTH) throw new TypeError(`version is longer than ${MAX_LENGTH} characters`);
 			debug("SemVer", version, options);
 			this.options = options;
@@ -12168,8 +12222,10 @@ var require_range = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = class Range {
 		constructor(range, options) {
 			options = parseOptions(options);
-			if (range instanceof Range) if (range.loose === !!options.loose && range.includePrerelease === !!options.includePrerelease) return range;
-			else return new Range(range.raw, options);
+			if (range instanceof Range) {
+				if (range.loose === !!options.loose && range.includePrerelease === !!options.includePrerelease) return range;
+				else return new Range(range.raw, options);
+			}
 			if (range instanceof Comparator) {
 				this.raw = range.value;
 				this.set = [[range]];
@@ -12339,18 +12395,21 @@ var require_range = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			let ret;
 			if (isX(M)) ret = "";
 			else if (isX(m)) ret = `>=${M}.0.0${z} <${+M + 1}.0.0-0`;
-			else if (isX(p)) if (M === "0") ret = `>=${M}.${m}.0${z} <${M}.${+m + 1}.0-0`;
-			else ret = `>=${M}.${m}.0${z} <${+M + 1}.0.0-0`;
-			else if (pr) {
+			else if (isX(p)) {
+				if (M === "0") ret = `>=${M}.${m}.0${z} <${M}.${+m + 1}.0-0`;
+				else ret = `>=${M}.${m}.0${z} <${+M + 1}.0.0-0`;
+			} else if (pr) {
 				debug("replaceCaret pr", pr);
-				if (M === "0") if (m === "0") ret = `>=${M}.${m}.${p}-${pr} <${M}.${m}.${+p + 1}-0`;
-				else ret = `>=${M}.${m}.${p}-${pr} <${M}.${+m + 1}.0-0`;
-				else ret = `>=${M}.${m}.${p}-${pr} <${+M + 1}.0.0-0`;
+				if (M === "0") {
+					if (m === "0") ret = `>=${M}.${m}.${p}-${pr} <${M}.${m}.${+p + 1}-0`;
+					else ret = `>=${M}.${m}.${p}-${pr} <${M}.${+m + 1}.0-0`;
+				} else ret = `>=${M}.${m}.${p}-${pr} <${+M + 1}.0.0-0`;
 			} else {
 				debug("no pr");
-				if (M === "0") if (m === "0") ret = `>=${M}.${m}.${p} <${M}.${m}.${+p + 1}-0`;
-				else ret = `>=${M}.${m}.${p} <${M}.${+m + 1}.0-0`;
-				else ret = `>=${M}.${m}.${p} <${+M + 1}.0.0-0`;
+				if (M === "0") {
+					if (m === "0") ret = `>=${M}.${m}.${p} <${M}.${m}.${+p + 1}-0`;
+					else ret = `>=${M}.${m}.${p} <${M}.${+m + 1}.0-0`;
+				} else ret = `>=${M}.${m}.${p} <${+M + 1}.0.0-0`;
 			}
 			debug("caret return", ret);
 			return ret;
@@ -12372,9 +12431,10 @@ var require_range = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			const anyX = xp;
 			if (gtlt === "=" && anyX) gtlt = "";
 			pr = options.includePrerelease ? "-0" : "";
-			if (xM) if (gtlt === ">" || gtlt === "<") ret = "<0.0.0-0";
-			else ret = "*";
-			else if (gtlt && anyX) {
+			if (xM) {
+				if (gtlt === ">" || gtlt === "<") ret = "<0.0.0-0";
+				else ret = "*";
+			} else if (gtlt && anyX) {
 				if (xm) m = 0;
 				p = 0;
 				if (gtlt === ">") {
@@ -12448,8 +12508,10 @@ var require_comparator = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		}
 		constructor(comp, options) {
 			options = parseOptions(options);
-			if (comp instanceof Comparator) if (comp.loose === !!options.loose) return comp;
-			else comp = comp.value;
+			if (comp instanceof Comparator) {
+				if (comp.loose === !!options.loose) return comp;
+				else comp = comp.value;
+			}
 			comp = comp.trim().split(/\s+/).join(" ");
 			debug("comparator", comp, options);
 			this.options = options;
@@ -12769,11 +12831,15 @@ var require_subset = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const minimumVersion = [new Comparator(">=0.0.0")];
 	const simpleSubset = (sub, dom, options) => {
 		if (sub === dom) return true;
-		if (sub.length === 1 && sub[0].semver === ANY) if (dom.length === 1 && dom[0].semver === ANY) return true;
-		else if (options.includePrerelease) sub = minimumVersionWithPreRelease;
-		else sub = minimumVersion;
-		if (dom.length === 1 && dom[0].semver === ANY) if (options.includePrerelease) return true;
-		else dom = minimumVersion;
+		if (sub.length === 1 && sub[0].semver === ANY) {
+			if (dom.length === 1 && dom[0].semver === ANY) return true;
+			else if (options.includePrerelease) sub = minimumVersionWithPreRelease;
+			else sub = minimumVersion;
+		}
+		if (dom.length === 1 && dom[0].semver === ANY) {
+			if (options.includePrerelease) return true;
+			else dom = minimumVersion;
+		}
 		const eqSet = /* @__PURE__ */ new Set();
 		let gt, lt;
 		for (const c of sub) if (c.operator === ">" || c.operator === ">=") gt = higherGT(gt, c, options);

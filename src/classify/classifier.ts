@@ -119,13 +119,19 @@ export async function classify(
       model: options.provider.model,
       promptVersion: options.promptVersion ?? PROMPT_VERSION,
     };
+    // An unreachable provider fails the classification, not the run:
+    // the entry still lands, as `unknown` when no explicit signal exists.
     const result = await completeWithSchema(options.provider, {
       system: SYSTEM_PROMPT,
       user: buildUserPrompt(pr),
       jsonSchema: classificationJsonSchema(),
       schemaName: "classification",
       zodSchema: classificationSchema,
-    });
+    }).catch((error: unknown) => ({
+      ok: false as const,
+      raw: "",
+      errors: error instanceof Error ? error.message : String(error),
+    }));
     if (result.ok) {
       modelKind = result.value.kind;
       summary = result.value.summary;

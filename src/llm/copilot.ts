@@ -28,6 +28,7 @@ export interface CopilotConfig {
   /** Model alias to pass through, e.g. `auto` or `claude-sonnet-4.6`. Coarse by design. */
   model: string;
   command?: string;
+  /** Arguments before the prompt, which is passed last as the value of `--prompt`. */
   args?: string[];
   runner?: CliRunner;
 }
@@ -45,7 +46,7 @@ export class CopilotProvider implements Provider {
   constructor(config: CopilotConfig) {
     this.model = config.model;
     this.command = config.command ?? "copilot";
-    this.args = config.args ?? ["-p", "--model", config.model];
+    this.args = config.args ?? ["--silent", "--model", config.model];
     this.runner = config.runner ?? defaultRunner;
   }
 
@@ -58,6 +59,6 @@ export class CopilotProvider implements Provider {
       "Respond with ONLY a JSON object matching this JSON Schema:",
       JSON.stringify(request.jsonSchema),
     ].join("\n");
-    return this.runner(this.command, this.args, prompt);
+    return this.runner(this.command, [...this.args, "--prompt", prompt], "");
   }
 }
