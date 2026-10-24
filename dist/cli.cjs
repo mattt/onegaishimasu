@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_version = require("./version-BI0BohVt.cjs");
+const require_version = require("./version-Dp5IOXBI.cjs");
 let node_fs = require("node:fs");
 let node_path = require("node:path");
 //#region src/ledger/files.ts
