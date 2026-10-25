@@ -1,3 +1,4 @@
+import Anthropic from "@anthropic-ai/sdk";
 import type { CompletionRequest, Provider } from "./provider.js";
 
 export interface AnthropicConfig {
@@ -10,61 +11,50 @@ export interface AnthropicConfig {
 
 /**
  * A native Anthropic Messages adapter.
- * The OpenAI-compat shim ignores `response_format` and `strict`, so we go native and force a single tool call whose input schema is ours;
- * that is the reliable way to get constrained JSON from the Messages API.
+ * Structured outputs constrain the response to our JSON Schema.
+ * Current models reject a forced `tool_choice` and sampling parameters,
+ * so the request sends neither.
  */
 export class AnthropicProvider implements Provider {
   readonly model: string;
-  private readonly baseUrl: string;
-  private readonly apiKey: string;
+  private readonly client: Anthropic;
   private readonly maxTokens: number;
-  private readonly fetchFn: typeof fetch;
 
   constructor(config: AnthropicConfig) {
     this.model = config.model;
-    this.baseUrl = (config.baseUrl ?? "https://api.anthropic.com").replace(/\/$/, "");
-    this.apiKey = config.apiKey;
-    this.maxTokens = config.maxTokens ?? 1024;
-    this.fetchFn = config.fetch ?? fetch;
+    // Thinking counts against `max_tokens` and is always on for current models,
+    // so leave room beyond the short JSON answer.
+    this.maxTokens = config.maxTokens ?? 16000;
+    this.client = new Anthropic({
+      apiKey: config.apiKey,
+      baseURL: config.baseUrl,
+      fetch: config.fetch,
+    });
   }
 
   async complete(request: CompletionRequest): Promise<string> {
-    const res = await this.fetchFn(`${this.baseUrl}/v1/messages`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-api-key": this.apiKey,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
-        model: this.model,
-        max_tokens: this.maxTokens,
-        temperature: 0,
-        system: request.system,
-        tools: [
-          {
-            name: request.schemaName,
-            description: "Emit the classification as structured data.",
-            input_schema: request.jsonSchema,
-          },
-        ],
-        tool_choice: { type: "tool", name: request.schemaName },
-        messages: [{ role: "user", content: request.user }],
-      }),
+    // `$schema` is metadata, not a constraint.
+    const { $schema: _, ...schema } = request.jsonSchema;
+    const response = await this.client.messages.create({
+      model: this.model,
+      max_tokens: this.maxTokens,
+      system: request.system,
+      output_config: { format: { type: "json_schema", schema } },
+      messages: [{ role: "user", content: request.user }],
     });
 
-    if (!res.ok) {
-      const text = await res.text().catch(() => "");
-      throw new Error(`Anthropic request failed: ${res.status} ${text}`);
+    if (response.stop_reason === "refusal") {
+      const category = response.stop_details?.category ?? "unspecified";
+      throw new Error(`Anthropic declined the request (category: ${category})`);
+    }
+    if (response.stop_reason === "max_tokens") {
+      throw new Error(`Anthropic response hit max_tokens (${this.maxTokens})`);
     }
 
-    const data = (await res.json()) as {
-      content?: { type: string; input?: unknown }[];
-    };
-    const toolUse = data.content?.find((c) => c.type === "tool_use");
-    if (!toolUse || toolUse.input === undefined) {
-      throw new Error("Anthropic response missing tool_use input");
-    }
-    return JSON.stringify(toolUse.input);
+    const text = response.content
+      .flatMap((block) => (block.type === "text" ? [block.text] : []))
+      .join("");
+    if (!text) throw new Error("Anthropic response has no text content");
+    return text;
   }
 }
