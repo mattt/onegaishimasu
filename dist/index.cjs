@@ -1,5 +1,6 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_version$1 = require("./version-jSG3uYdD.cjs");
+const require_version$1 = require("./version-odrbwsqH.cjs");
+const require_promise = require("./promise-BzCuvIAN.cjs");
 let node_crypto = require("node:crypto");
 require("node:fs");
 let node_child_process = require("node:child_process");
@@ -37,8 +38,8 @@ var require_utils$3 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports)
 	exports.toCommandProperties = toCommandProperties;
 }));
 // node_modules/@actions/core/lib/command.js
-var require_command = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$17) => {
-	var __createBinding = this$17 && this$17.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_command = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$19) => {
+	var __createBinding = this$19 && this$19.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		var desc = Object.getOwnPropertyDescriptor(m, k);
 		if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
@@ -52,7 +53,7 @@ var require_command = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$17 && this$17.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$19 && this$19.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -60,7 +61,7 @@ var require_command = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$17 && this$17.__importStar || function(mod) {
+	var __importStar = this$19 && this$19.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -126,8 +127,8 @@ var require_command = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 	}
 }));
 // node_modules/@actions/core/lib/file-command.js
-var require_file_command = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$16) => {
-	var __createBinding = this$16 && this$16.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_file_command = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$18) => {
+	var __createBinding = this$18 && this$18.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		var desc = Object.getOwnPropertyDescriptor(m, k);
 		if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
@@ -141,7 +142,7 @@ var require_file_command = /* @__PURE__ */ require_version$1.__commonJSMin(((exp
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$16 && this$16.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$18 && this$18.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -149,7 +150,7 @@ var require_file_command = /* @__PURE__ */ require_version$1.__commonJSMin(((exp
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$16 && this$16.__importStar || function(mod) {
+	var __importStar = this$18 && this$18.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -1593,7 +1594,7 @@ var require_Dicer = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, m
 	module.exports = Dicer;
 }));
 // node_modules/@fastify/busboy/lib/utils/decodeText.js
-var require_decodeText = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$15) => {
+var require_decodeText = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$17) => {
 	const utf8Decoder = new TextDecoder("utf-8");
 	const textDecoders = /* @__PURE__ */ new Map([["utf-8", utf8Decoder], ["utf8", utf8Decoder]]);
 	function getDecoder(charset) {
@@ -1650,8 +1651,8 @@ var require_decodeText = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 		other: (data, sourceEncoding) => {
 			if (data.length === 0) return "";
 			if (typeof data === "string") data = Buffer.from(data, sourceEncoding);
-			if (textDecoders.has(this$15.toString())) try {
-				return textDecoders.get(this$15).decode(data);
+			if (textDecoders.has(this$17.toString())) try {
+				return textDecoders.get(this$17).decode(data);
 			} catch {}
 			return typeof data === "string" ? data : data.toString();
 		}
@@ -14240,8 +14241,8 @@ var require_undici = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 	module.exports.mockErrors = mockErrors;
 }));
 // node_modules/@actions/http-client/lib/index.js
-var require_lib = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$14) => {
-	var __createBinding = this$14 && this$14.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_lib = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$16) => {
+	var __createBinding = this$16 && this$16.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		var desc = Object.getOwnPropertyDescriptor(m, k);
 		if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
@@ -14255,7 +14256,7 @@ var require_lib = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mod
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$14 && this$14.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$16 && this$16.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -14263,7 +14264,7 @@ var require_lib = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mod
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$14 && this$14.__importStar || function(mod) {
+	var __importStar = this$16 && this$16.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -14272,7 +14273,7 @@ var require_lib = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mod
 		__setModuleDefault(result, mod);
 		return result;
 	};
-	var __awaiter = this$14 && this$14.__awaiter || function(thisArg, _arguments, P, generator) {
+	var __awaiter = this$16 && this$16.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -14776,8 +14777,8 @@ var require_lib = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mod
 	const lowercaseKeys = (obj) => Object.keys(obj).reduce((c, k) => (c[k.toLowerCase()] = obj[k], c), {});
 }));
 // node_modules/@actions/http-client/lib/auth.js
-var require_auth = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$13) => {
-	var __awaiter = this$13 && this$13.__awaiter || function(thisArg, _arguments, P, generator) {
+var require_auth = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$15) => {
+	var __awaiter = this$15 && this$15.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -14863,8 +14864,8 @@ var require_auth = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mo
 	exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHandler;
 }));
 // node_modules/@actions/core/lib/oidc-utils.js
-var require_oidc_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$12) => {
-	var __awaiter = this$12 && this$12.__awaiter || function(thisArg, _arguments, P, generator) {
+var require_oidc_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$14) => {
+	var __awaiter = this$14 && this$14.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -14943,8 +14944,8 @@ var require_oidc_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 	};
 }));
 // node_modules/@actions/core/lib/summary.js
-var require_summary = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$11) => {
-	var __awaiter = this$11 && this$11.__awaiter || function(thisArg, _arguments, P, generator) {
+var require_summary = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$13) => {
+	var __awaiter = this$13 && this$13.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -15237,8 +15238,8 @@ var require_summary = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 	exports.summary = _summary;
 }));
 // node_modules/@actions/core/lib/path-utils.js
-var require_path_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$10) => {
-	var __createBinding = this$10 && this$10.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_path_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$12) => {
+	var __createBinding = this$12 && this$12.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		var desc = Object.getOwnPropertyDescriptor(m, k);
 		if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
@@ -15252,7 +15253,7 @@ var require_path_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$10 && this$10.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$12 && this$12.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -15260,7 +15261,7 @@ var require_path_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$10 && this$10.__importStar || function(mod) {
+	var __importStar = this$12 && this$12.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -15308,8 +15309,8 @@ var require_path_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 	exports.toPlatformPath = toPlatformPath;
 }));
 // node_modules/@actions/io/lib/io-util.js
-var require_io_util = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$9) => {
-	var __createBinding = this$9 && this$9.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_io_util = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$11) => {
+	var __createBinding = this$11 && this$11.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		Object.defineProperty(o, k2, {
 			enumerable: true,
@@ -15321,7 +15322,7 @@ var require_io_util = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$9 && this$9.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$11 && this$11.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -15329,7 +15330,7 @@ var require_io_util = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$9 && this$9.__importStar || function(mod) {
+	var __importStar = this$11 && this$11.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -15338,7 +15339,7 @@ var require_io_util = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 		__setModuleDefault(result, mod);
 		return result;
 	};
-	var __awaiter = this$9 && this$9.__awaiter || function(thisArg, _arguments, P, generator) {
+	var __awaiter = this$11 && this$11.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -15470,8 +15471,8 @@ var require_io_util = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 	exports.getCmdPath = getCmdPath;
 }));
 // node_modules/@actions/io/lib/io.js
-var require_io = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$8) => {
-	var __createBinding = this$8 && this$8.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_io = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$10) => {
+	var __createBinding = this$10 && this$10.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		Object.defineProperty(o, k2, {
 			enumerable: true,
@@ -15483,7 +15484,7 @@ var require_io = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, modu
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$8 && this$8.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$10 && this$10.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -15491,7 +15492,7 @@ var require_io = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, modu
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$8 && this$8.__importStar || function(mod) {
+	var __importStar = this$10 && this$10.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -15500,7 +15501,7 @@ var require_io = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, modu
 		__setModuleDefault(result, mod);
 		return result;
 	};
-	var __awaiter = this$8 && this$8.__awaiter || function(thisArg, _arguments, P, generator) {
+	var __awaiter = this$10 && this$10.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -15716,8 +15717,8 @@ var require_io = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, modu
 	}
 }));
 // node_modules/@actions/exec/lib/toolrunner.js
-var require_toolrunner = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$7) => {
-	var __createBinding = this$7 && this$7.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_toolrunner = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$9) => {
+	var __createBinding = this$9 && this$9.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		Object.defineProperty(o, k2, {
 			enumerable: true,
@@ -15729,7 +15730,7 @@ var require_toolrunner = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$7 && this$7.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$9 && this$9.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -15737,7 +15738,7 @@ var require_toolrunner = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$7 && this$7.__importStar || function(mod) {
+	var __importStar = this$9 && this$9.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -15746,7 +15747,7 @@ var require_toolrunner = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 		__setModuleDefault(result, mod);
 		return result;
 	};
-	var __awaiter = this$7 && this$7.__awaiter || function(thisArg, _arguments, P, generator) {
+	var __awaiter = this$9 && this$9.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -16115,8 +16116,8 @@ var require_toolrunner = /* @__PURE__ */ require_version$1.__commonJSMin(((expor
 	};
 }));
 // node_modules/@actions/exec/lib/exec.js
-var require_exec = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$6) => {
-	var __createBinding = this$6 && this$6.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_exec = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$8) => {
+	var __createBinding = this$8 && this$8.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		Object.defineProperty(o, k2, {
 			enumerable: true,
@@ -16128,7 +16129,7 @@ var require_exec = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mo
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$6 && this$6.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$8 && this$8.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -16136,7 +16137,7 @@ var require_exec = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mo
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$6 && this$6.__importStar || function(mod) {
+	var __importStar = this$8 && this$8.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -16145,7 +16146,7 @@ var require_exec = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mo
 		__setModuleDefault(result, mod);
 		return result;
 	};
-	var __awaiter = this$6 && this$6.__awaiter || function(thisArg, _arguments, P, generator) {
+	var __awaiter = this$8 && this$8.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -16240,8 +16241,8 @@ var require_exec = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mo
 	exports.getExecOutput = getExecOutput;
 }));
 // node_modules/@actions/core/lib/platform.js
-var require_platform = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$5) => {
-	var __createBinding = this$5 && this$5.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_platform = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$7) => {
+	var __createBinding = this$7 && this$7.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		var desc = Object.getOwnPropertyDescriptor(m, k);
 		if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
@@ -16255,7 +16256,7 @@ var require_platform = /* @__PURE__ */ require_version$1.__commonJSMin(((exports
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$5 && this$5.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$7 && this$7.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -16263,7 +16264,7 @@ var require_platform = /* @__PURE__ */ require_version$1.__commonJSMin(((exports
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$5 && this$5.__importStar || function(mod) {
+	var __importStar = this$7 && this$7.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -16272,7 +16273,7 @@ var require_platform = /* @__PURE__ */ require_version$1.__commonJSMin(((exports
 		__setModuleDefault(result, mod);
 		return result;
 	};
-	var __awaiter = this$5 && this$5.__awaiter || function(thisArg, _arguments, P, generator) {
+	var __awaiter = this$7 && this$7.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -16299,7 +16300,7 @@ var require_platform = /* @__PURE__ */ require_version$1.__commonJSMin(((exports
 			step((generator = generator.apply(thisArg, _arguments || [])).next());
 		});
 	};
-	var __importDefault = this$5 && this$5.__importDefault || function(mod) {
+	var __importDefault = this$7 && this$7.__importDefault || function(mod) {
 		return mod && mod.__esModule ? mod : { "default": mod };
 	};
 	Object.defineProperty(exports, "__esModule", { value: true });
@@ -16354,8 +16355,8 @@ var require_platform = /* @__PURE__ */ require_version$1.__commonJSMin(((exports
 	exports.getDetails = getDetails;
 }));
 // node_modules/@actions/core/lib/core.js
-var require_core = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$4) => {
-	var __createBinding = this$4 && this$4.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_core = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$6) => {
+	var __createBinding = this$6 && this$6.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		var desc = Object.getOwnPropertyDescriptor(m, k);
 		if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
@@ -16369,7 +16370,7 @@ var require_core = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mo
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$4 && this$4.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$6 && this$6.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -16377,7 +16378,7 @@ var require_core = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mo
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$4 && this$4.__importStar || function(mod) {
+	var __importStar = this$6 && this$6.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -16386,7 +16387,7 @@ var require_core = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, mo
 		__setModuleDefault(result, mod);
 		return result;
 	};
-	var __awaiter = this$4 && this$4.__awaiter || function(thisArg, _arguments, P, generator) {
+	var __awaiter = this$6 && this$6.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -16772,8 +16773,8 @@ var require_context = /* @__PURE__ */ require_version$1.__commonJSMin(((exports)
 	exports.Context = Context;
 }));
 // node_modules/@actions/github/lib/internal/utils.js
-var require_utils$1 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$3) => {
-	var __createBinding = this$3 && this$3.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_utils$1 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$5) => {
+	var __createBinding = this$5 && this$5.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		var desc = Object.getOwnPropertyDescriptor(m, k);
 		if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
@@ -16787,7 +16788,7 @@ var require_utils$1 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$3 && this$3.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$5 && this$5.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -16795,7 +16796,7 @@ var require_utils$1 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$3 && this$3.__importStar || function(mod) {
+	var __importStar = this$5 && this$5.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -16804,7 +16805,7 @@ var require_utils$1 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports,
 		__setModuleDefault(result, mod);
 		return result;
 	};
-	var __awaiter = this$3 && this$3.__awaiter || function(thisArg, _arguments, P, generator) {
+	var __awaiter = this$5 && this$5.__awaiter || function(thisArg, _arguments, P, generator) {
 		function adopt(value) {
 			return value instanceof P ? value : new P(function(resolve) {
 				resolve(value);
@@ -19495,8 +19496,8 @@ var require_dist_node = /* @__PURE__ */ require_version$1.__commonJSMin(((export
 	});
 }));
 // node_modules/@actions/github/lib/utils.js
-var require_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$2) => {
-	var __createBinding = this$2 && this$2.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$4) => {
+	var __createBinding = this$4 && this$4.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		var desc = Object.getOwnPropertyDescriptor(m, k);
 		if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
@@ -19510,7 +19511,7 @@ var require_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, m
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$2 && this$2.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$4 && this$4.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -19518,7 +19519,7 @@ var require_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, m
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$2 && this$2.__importStar || function(mod) {
+	var __importStar = this$4 && this$4.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -19559,8 +19560,8 @@ var require_utils = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, m
 	exports.getOctokitOptions = getOctokitOptions;
 }));
 // node_modules/@actions/github/lib/github.js
-var require_github = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$1) => {
-	var __createBinding = this$1 && this$1.__createBinding || (Object.create ? (function(o, m, k, k2) {
+var require_github = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$3) => {
+	var __createBinding = this$3 && this$3.__createBinding || (Object.create ? (function(o, m, k, k2) {
 		if (k2 === void 0) k2 = k;
 		var desc = Object.getOwnPropertyDescriptor(m, k);
 		if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) desc = {
@@ -19574,7 +19575,7 @@ var require_github = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 		if (k2 === void 0) k2 = k;
 		o[k2] = m[k];
 	}));
-	var __setModuleDefault = this$1 && this$1.__setModuleDefault || (Object.create ? (function(o, v) {
+	var __setModuleDefault = this$3 && this$3.__setModuleDefault || (Object.create ? (function(o, v) {
 		Object.defineProperty(o, "default", {
 			enumerable: true,
 			value: v
@@ -19582,7 +19583,7 @@ var require_github = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 	}) : function(o, v) {
 		o["default"] = v;
 	});
-	var __importStar = this$1 && this$1.__importStar || function(mod) {
+	var __importStar = this$3 && this$3.__importStar || function(mod) {
 		if (mod && mod.__esModule) return mod;
 		var result = {};
 		if (mod != null) {
@@ -19610,7 +19611,7 @@ var require_github = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 // src/config.ts
 var import_core = /* @__PURE__ */ require_version$1.__toESM(require_core(), 1);
 var import_github = /* @__PURE__ */ require_version$1.__toESM(require_github(), 1);
-var import_dist = require_version$1.require_dist();
+var import_dist$1 = require_version$1.require_dist();
 /** Configuration from `.github/onegai.yml`, with defaults applied. */
 const configSchema = require_version$1.object({
 	provider: require_version$1.object({
@@ -19651,7 +19652,7 @@ const configSchema = require_version$1.object({
 /** Parse config from YAML text, applying defaults. */
 function parseConfig(text) {
 	if (!text || text.trim().length === 0) return configSchema.parse({});
-	return configSchema.parse((0, import_dist.parse)(text) ?? {});
+	return configSchema.parse((0, import_dist$1.parse)(text) ?? {});
 }
 // src/github/api.ts
 /** Parse the version from a release PR title such as "chore: release 1.2.0". */
@@ -23431,60 +23432,23177 @@ async function handlePush(client, ctx) {
 	const notes = extractReleaseNotes(merged.body);
 	await client.tagAndRelease(merged.version, notes, merged.mergeSha);
 }
+// node_modules/@anthropic-ai/sdk/internal/utils/sleep.mjs
+/**
+* Resolve after `ms`, or immediately when `signal` aborts.
+*
+* When a `signal` is passed the abort listener is always removed so repeated
+* calls do not accumulate listeners on a long-lived signal. Resolves (rather
+* than rejects) on abort — callers treat abort as "wake up early," not as a
+* failure; callers that want to unwind should check the signal themselves.
+*/
+const sleep = (ms, signal) => new Promise((resolve) => {
+	if (signal?.aborted) return resolve();
+	const onAbort = () => {
+		clearTimeout(timer);
+		resolve();
+	};
+	const timer = setTimeout(() => {
+		signal?.removeEventListener("abort", onAbort);
+		resolve();
+	}, ms);
+	signal?.addEventListener("abort", onAbort, { once: true });
+});
+// node_modules/@anthropic-ai/sdk/version.mjs
+const VERSION$1 = "1.3.0";
+// node_modules/@anthropic-ai/sdk/internal/detect-platform.mjs
+const isRunningInBrowser = () => {
+	return typeof window !== "undefined" && typeof window.document !== "undefined" && typeof navigator !== "undefined";
+};
+/**
+* Note this does not detect 'browser'; for that, use getBrowserInfo().
+*/
+function getDetectedPlatform() {
+	if (typeof Deno !== "undefined" && Deno.build != null) return "deno";
+	if (typeof EdgeRuntime !== "undefined") return "edge";
+	if (Object.prototype.toString.call(typeof globalThis.process !== "undefined" ? globalThis.process : 0) === "[object process]") return "node";
+	return "unknown";
+}
+const getPlatformProperties = () => {
+	const detectedPlatform = getDetectedPlatform();
+	if (detectedPlatform === "deno") return {
+		"X-Stainless-Lang": "js",
+		"X-Stainless-Package-Version": VERSION$1,
+		"X-Stainless-OS": normalizePlatform(Deno.build.os),
+		"X-Stainless-Arch": normalizeArch(Deno.build.arch),
+		"X-Stainless-Runtime": "deno",
+		"X-Stainless-Runtime-Version": typeof Deno.version === "string" ? Deno.version : Deno.version?.deno ?? "unknown"
+	};
+	if (typeof EdgeRuntime !== "undefined") return {
+		"X-Stainless-Lang": "js",
+		"X-Stainless-Package-Version": VERSION$1,
+		"X-Stainless-OS": "Unknown",
+		"X-Stainless-Arch": `other:${EdgeRuntime}`,
+		"X-Stainless-Runtime": "edge",
+		"X-Stainless-Runtime-Version": globalThis.process?.version ?? "unknown"
+	};
+	if (detectedPlatform === "node") return {
+		"X-Stainless-Lang": "js",
+		"X-Stainless-Package-Version": VERSION$1,
+		"X-Stainless-OS": normalizePlatform(globalThis.process.platform ?? "unknown"),
+		"X-Stainless-Arch": normalizeArch(globalThis.process.arch ?? "unknown"),
+		"X-Stainless-Runtime": "node",
+		"X-Stainless-Runtime-Version": globalThis.process.version ?? "unknown"
+	};
+	const browserInfo = getBrowserInfo();
+	if (browserInfo) return {
+		"X-Stainless-Lang": "js",
+		"X-Stainless-Package-Version": VERSION$1,
+		"X-Stainless-OS": "Unknown",
+		"X-Stainless-Arch": "unknown",
+		"X-Stainless-Runtime": `browser:${browserInfo.browser}`,
+		"X-Stainless-Runtime-Version": browserInfo.version
+	};
+	return {
+		"X-Stainless-Lang": "js",
+		"X-Stainless-Package-Version": VERSION$1,
+		"X-Stainless-OS": "Unknown",
+		"X-Stainless-Arch": "unknown",
+		"X-Stainless-Runtime": "unknown",
+		"X-Stainless-Runtime-Version": "unknown"
+	};
+};
+function getBrowserInfo() {
+	if (typeof navigator === "undefined" || !navigator) return null;
+	for (const { key, pattern } of [
+		{
+			key: "edge",
+			pattern: /Edge(?:\W+(\d+)\.(\d+)(?:\.(\d+))?)?/
+		},
+		{
+			key: "ie",
+			pattern: /MSIE(?:\W+(\d+)\.(\d+)(?:\.(\d+))?)?/
+		},
+		{
+			key: "ie",
+			pattern: /Trident(?:.*rv\:(\d+)\.(\d+)(?:\.(\d+))?)?/
+		},
+		{
+			key: "chrome",
+			pattern: /Chrome(?:\W+(\d+)\.(\d+)(?:\.(\d+))?)?/
+		},
+		{
+			key: "firefox",
+			pattern: /Firefox(?:\W+(\d+)\.(\d+)(?:\.(\d+))?)?/
+		},
+		{
+			key: "safari",
+			pattern: /(?:Version\W+(\d+)\.(\d+)(?:\.(\d+))?)?(?:\W+Mobile\S*)?\W+Safari/
+		}
+	]) {
+		const match = pattern.exec(navigator.userAgent);
+		if (match) return {
+			browser: key,
+			version: `${match[1] || 0}.${match[2] || 0}.${match[3] || 0}`
+		};
+	}
+	return null;
+}
+const normalizeArch = (arch) => {
+	if (arch === "x32") return "x32";
+	if (arch === "x86_64" || arch === "x64") return "x64";
+	if (arch === "arm") return "arm";
+	if (arch === "aarch64" || arch === "arm64") return "arm64";
+	if (arch) return `other:${arch}`;
+	return "unknown";
+};
+const normalizePlatform = (platform) => {
+	platform = platform.toLowerCase();
+	if (platform.includes("ios")) return "iOS";
+	if (platform === "android") return "Android";
+	if (platform === "darwin") return "MacOS";
+	if (platform === "win32") return "Windows";
+	if (platform === "freebsd") return "FreeBSD";
+	if (platform === "openbsd") return "OpenBSD";
+	if (platform === "linux") return "Linux";
+	if (platform) return `Other:${platform}`;
+	return "Unknown";
+};
+let _platformHeaders;
+const getPlatformHeaders = () => {
+	return _platformHeaders ?? (_platformHeaders = getPlatformProperties());
+};
+// node_modules/@anthropic-ai/sdk/internal/request-signal.mjs
+/**
+* Tracks the removal of the per-request abort listener that
+* `fetchWithTimeout` attaches to a caller-provided signal, so the listener's
+* lifetime matches the request instead of the signal.
+*
+* Without removal, a long-lived signal (e.g. one AbortController reused for
+* a whole session) accumulates one `{ once: true }` listener plus its bound
+* AbortController per HTTP attempt until the signal fires or is collected,
+* and Node warns at the 11th listener. The listener must survive until the
+* response body is settled - removing it when fetch resolves (headers) would
+* break aborting an in-flight body read - so the code that finishes the body
+* (response parsing, stream teardown, retry/error handling) calls
+* `releaseRequestSignal` with the request's controller.
+*/
+const cleanups = /* @__PURE__ */ new WeakMap();
+const registry = typeof globalThis.FinalizationRegistry === "function" ? new globalThis.FinalizationRegistry((controller) => releaseRequestSignal(controller)) : null;
+function makeCleanup(signal, listener) {
+	return () => signal.removeEventListener("abort", listener);
+}
+function registerRequestSignalCleanup(controller, signal, listener) {
+	cleanups.set(controller, makeCleanup(signal, listener));
+}
+function armAbandonmentBackstop(body, controller) {
+	if (cleanups.has(controller)) registry?.register(body, controller, controller);
+}
+function releaseRequestSignal(controller) {
+	const cleanup = cleanups.get(controller);
+	if (cleanup) {
+		cleanups.delete(controller);
+		registry?.unregister(controller);
+		cleanup();
+	}
+}
+// node_modules/@anthropic-ai/sdk/internal/shims.mjs
+function getDefaultFetch() {
+	if (typeof fetch !== "undefined") return fetch;
+	throw new Error("`fetch` is not defined as a global; Either pass `fetch` to the client, `new Anthropic({ fetch })` or polyfill the global, `globalThis.fetch = fetch`");
+}
+function makeReadableStream(...args) {
+	const ReadableStream = globalThis.ReadableStream;
+	if (typeof ReadableStream === "undefined") throw new Error("`ReadableStream` is not defined as a global; You will need to polyfill it, `globalThis.ReadableStream = ReadableStream`");
+	return new ReadableStream(...args);
+}
+function ReadableStreamFrom(iterable) {
+	let iter = Symbol.asyncIterator in iterable ? iterable[Symbol.asyncIterator]() : iterable[Symbol.iterator]();
+	return makeReadableStream({
+		start() {},
+		async pull(controller) {
+			const { done, value } = await iter.next();
+			if (done) controller.close();
+			else controller.enqueue(value);
+		},
+		async cancel() {
+			await iter.return?.();
+		}
+	});
+}
+/**
+* Most browsers don't yet have async iterable support for ReadableStream,
+* and Node has a very different way of reading bytes from its "ReadableStream".
+*
+* This polyfill was pulled from https://github.com/MattiasBuelens/web-streams-polyfill/pull/122#issuecomment-1627354490
+*/
+function readableStreamIterator(stream) {
+	if (stream[Symbol.asyncIterator]) return stream[Symbol.asyncIterator]();
+	const reader = stream.getReader();
+	return {
+		async next() {
+			try {
+				const result = await reader.read();
+				if (result?.done) reader.releaseLock();
+				return result;
+			} catch (e) {
+				reader.releaseLock();
+				throw e;
+			}
+		},
+		async return() {
+			const cancelPromise = reader.cancel();
+			reader.releaseLock();
+			await cancelPromise;
+			return {
+				done: true,
+				value: void 0
+			};
+		}
+	};
+}
+const droppedReaders = typeof FinalizationRegistry === "undefined" ? void 0 : /* @__PURE__ */ new FinalizationRegistry(async (iter) => {
+	try {
+		await iter.return?.();
+	} catch {}
+});
+async function* ReadableStreamToAsyncIterable(stream) {
+	const iter = readableStreamIterator(stream);
+	const reader = {};
+	droppedReaders?.register(reader, iter, reader);
+	try {
+		for await (const chunk of { [Symbol.asyncIterator]: () => iter }) yield chunk;
+	} finally {
+		droppedReaders?.unregister(reader);
+	}
+}
+/**
+* Cancels a ReadableStream we don't need to consume.
+* See https://undici.nodejs.org/#/?id=garbage-collection
+*/
+async function CancelReadableStream(stream) {
+	if (stream === null || typeof stream !== "object") return;
+	if (stream[Symbol.asyncIterator]) {
+		await stream[Symbol.asyncIterator]().return?.();
+		return;
+	}
+	const reader = stream.getReader();
+	const cancelPromise = reader.cancel();
+	reader.releaseLock();
+	await cancelPromise;
+}
+// node_modules/@anthropic-ai/sdk/internal/request-options.mjs
+const FallbackEncoder = ({ headers, body }) => {
+	return {
+		bodyHeaders: { "content-type": "application/json" },
+		body: JSON.stringify(body)
+	};
+};
+// node_modules/@opentelemetry/api/dist/version.mjs
+const VERSION = "1.10.0";
+// node_modules/@opentelemetry/api/dist/internal/semver.mjs
+const re = /^(\d+)\.(\d+)\.(\d+)(-(.+))?$/;
+/**
+* Create a function to test an API version to see if it is compatible with the provided ownVersion.
+*
+* The returned function has the following semantics:
+* - Exact match is always compatible
+* - Major versions must match exactly
+*    - 1.x package cannot use global 2.x package
+*    - 2.x package cannot use global 1.x package
+* - The minor version of the API module requesting access to the global API must be less than or equal to the minor version of this API
+*    - 1.3 package may use 1.4 global because the later global contains all functions 1.3 expects
+*    - 1.4 package may NOT use 1.3 global because it may try to call functions which don't exist on 1.3
+* - If the major version is 0, the minor version is treated as the major and the patch is treated as the minor
+* - Patch and build tag differences are not considered at this time
+*
+* @param ownVersion version which should be checked against
+*/
+function _makeCompatibilityCheck(ownVersion) {
+	const acceptedVersions = /* @__PURE__ */ new Set([ownVersion]);
+	const rejectedVersions = /* @__PURE__ */ new Set();
+	const myVersionMatch = ownVersion.match(re);
+	if (!myVersionMatch) return () => false;
+	const ownVersionParsed = {
+		major: +myVersionMatch[1],
+		minor: +myVersionMatch[2],
+		patch: +myVersionMatch[3],
+		prerelease: myVersionMatch[4]
+	};
+	if (ownVersionParsed.prerelease != null) return function isExactmatch(globalVersion) {
+		return globalVersion === ownVersion;
+	};
+	function _reject(v) {
+		rejectedVersions.add(v);
+		return false;
+	}
+	function _accept(v) {
+		acceptedVersions.add(v);
+		return true;
+	}
+	return function isCompatible(globalVersion) {
+		if (acceptedVersions.has(globalVersion)) return true;
+		if (rejectedVersions.has(globalVersion)) return false;
+		const globalVersionMatch = globalVersion.match(re);
+		if (!globalVersionMatch) return _reject(globalVersion);
+		const globalVersionParsed = {
+			major: +globalVersionMatch[1],
+			minor: +globalVersionMatch[2],
+			patch: +globalVersionMatch[3],
+			prerelease: globalVersionMatch[4]
+		};
+		if (globalVersionParsed.prerelease != null) return _reject(globalVersion);
+		if (ownVersionParsed.major !== globalVersionParsed.major) return _reject(globalVersion);
+		if (ownVersionParsed.major === 0) {
+			if (ownVersionParsed.minor === globalVersionParsed.minor && ownVersionParsed.patch <= globalVersionParsed.patch) return _accept(globalVersion);
+			return _reject(globalVersion);
+		}
+		if (ownVersionParsed.minor <= globalVersionParsed.minor) return _accept(globalVersion);
+		return _reject(globalVersion);
+	};
+}
+/**
+* Test an API version to see if it is compatible with this API.
+*
+* - Exact match is always compatible
+* - Major versions must match exactly
+*    - 1.x package cannot use global 2.x package
+*    - 2.x package cannot use global 1.x package
+* - The minor version of the API module requesting access to the global API must be less than or equal to the minor version of this API
+*    - 1.3 package may use 1.4 global because the later global contains all functions 1.3 expects
+*    - 1.4 package may NOT use 1.3 global because it may try to call functions which don't exist on 1.3
+* - If the major version is 0, the minor version is treated as the major and the patch is treated as the minor
+* - Patch and build tag differences are not considered at this time
+*
+* @param version version of the API requesting an instance of the global API
+*/
+const isCompatible = _makeCompatibilityCheck(VERSION);
+// node_modules/@opentelemetry/api/dist/internal/global-utils.mjs
+const major = VERSION.split(".")[0];
+const GLOBAL_OPENTELEMETRY_API_KEY = Symbol.for(`opentelemetry.js.api.${major}`);
+const _global = typeof globalThis === "object" ? globalThis : typeof self === "object" ? self : typeof window === "object" ? window : typeof global === "object" ? global : {};
+function _makeGlobalApi() {
+	return Object.defineProperty({}, "version", {
+		value: VERSION,
+		enumerable: true,
+		writable: false,
+		configurable: false
+	});
+}
+function registerGlobal(type, instance, diag, allowOverride = false) {
+	var _global$GLOBAL_OPENTE;
+	const api = _global[GLOBAL_OPENTELEMETRY_API_KEY] = (_global$GLOBAL_OPENTE = _global[GLOBAL_OPENTELEMETRY_API_KEY]) !== null && _global$GLOBAL_OPENTE !== void 0 ? _global$GLOBAL_OPENTE : _makeGlobalApi();
+	if (!allowOverride && api[type]) {
+		const err = /* @__PURE__ */ new Error(`@opentelemetry/api: Attempted duplicate registration of API: ${type}`);
+		diag.error(err.stack || err.message);
+		return false;
+	}
+	if (api.version !== "1.10.0") {
+		const err = /* @__PURE__ */ new Error(`@opentelemetry/api: Registration of version v${api.version} for ${type} does not match previously registered API v${VERSION}`);
+		diag.error(err.stack || err.message);
+		return false;
+	}
+	api[type] = instance;
+	diag.debug(`@opentelemetry/api: Registered a global for ${type} v${VERSION}.`);
+	return true;
+}
+let _compatibleGlobalApi;
+function getGlobal(type) {
+	const api = _global[GLOBAL_OPENTELEMETRY_API_KEY];
+	if (api == null) return;
+	if (api !== _compatibleGlobalApi) {
+		if (!api.version || !isCompatible(api.version)) return;
+		_compatibleGlobalApi = api;
+	}
+	return api[type];
+}
+function unregisterGlobal(type, diag) {
+	diag.debug(`@opentelemetry/api: Unregistering a global for ${type} v${VERSION}.`);
+	const api = _global[GLOBAL_OPENTELEMETRY_API_KEY];
+	if (api) delete api[type];
+}
+// node_modules/@opentelemetry/api/dist/diag/ComponentLogger.mjs
+/**
+* Component Logger which is meant to be used as part of any component which
+* will add automatically additional namespace in front of the log message.
+* It will then forward all message to global diag logger
+* @example
+* const cLogger = diag.createComponentLogger({ namespace: '@opentelemetry/instrumentation-http' });
+* cLogger.debug('test');
+* // @opentelemetry/instrumentation-http test
+*/
+var DiagComponentLogger = class {
+	constructor(props) {
+		this._namespace = props.namespace || "DiagComponentLogger";
+	}
+	debug(...args) {
+		return logProxy("debug", this._namespace, args);
+	}
+	error(...args) {
+		return logProxy("error", this._namespace, args);
+	}
+	info(...args) {
+		return logProxy("info", this._namespace, args);
+	}
+	warn(...args) {
+		return logProxy("warn", this._namespace, args);
+	}
+	verbose(...args) {
+		return logProxy("verbose", this._namespace, args);
+	}
+};
+function logProxy(funcName, namespace, args) {
+	const logger = getGlobal("diag");
+	if (!logger) return;
+	return logger[funcName](namespace, ...args);
+}
+// node_modules/@opentelemetry/api/dist/diag/internal/logLevelLogger.mjs
+function createLogLevelDiagLogger(maxLevel, logger) {
+	if (maxLevel < 0) maxLevel = 0;
+	else if (maxLevel > 9999) maxLevel = 9999;
+	logger = logger || {};
+	function _filterFunc(funcName, theLevel) {
+		const theFunc = logger[funcName];
+		if (typeof theFunc === "function" && maxLevel >= theLevel) return theFunc.bind(logger);
+		return function() {};
+	}
+	return {
+		error: _filterFunc("error", 30),
+		warn: _filterFunc("warn", 50),
+		info: _filterFunc("info", 60),
+		debug: _filterFunc("debug", 70),
+		verbose: _filterFunc("verbose", 80)
+	};
+}
+// node_modules/@opentelemetry/api/dist/api/diag.mjs
+const API_NAME$3 = "diag";
+/**
+* Singleton object which represents the entry point to the OpenTelemetry internal
+* diagnostic API
+*
+* @since 1.0.0
+*/
+var DiagAPI = class DiagAPI {
+	/** Get the singleton instance of the DiagAPI API */
+	static instance() {
+		if (!this._instance) this._instance = new DiagAPI();
+		return this._instance;
+	}
+	/**
+	* Private internal constructor
+	* @private
+	*/
+	constructor() {
+		function _logProxy(funcName) {
+			return function(...args) {
+				const logger = getGlobal("diag");
+				if (!logger) return;
+				return logger[funcName](...args);
+			};
+		}
+		const self = this;
+		const setLogger = (logger, optionsOrLogLevel = { logLevel: 60 }) => {
+			var _optionsOrLogLevel$lo;
+			if (logger === self) {
+				var _err$stack;
+				const err = /* @__PURE__ */ new Error("Cannot use diag as the logger for itself. Please use a DiagLogger implementation like ConsoleDiagLogger or a custom implementation");
+				self.error((_err$stack = err.stack) !== null && _err$stack !== void 0 ? _err$stack : err.message);
+				return false;
+			}
+			if (typeof optionsOrLogLevel === "number") optionsOrLogLevel = { logLevel: optionsOrLogLevel };
+			const oldLogger = getGlobal("diag");
+			const newLogger = createLogLevelDiagLogger((_optionsOrLogLevel$lo = optionsOrLogLevel.logLevel) !== null && _optionsOrLogLevel$lo !== void 0 ? _optionsOrLogLevel$lo : 60, logger);
+			if (oldLogger && !optionsOrLogLevel.suppressOverrideMessage) {
+				var _Error$stack;
+				const stack = (_Error$stack = (/* @__PURE__ */ new Error()).stack) !== null && _Error$stack !== void 0 ? _Error$stack : "<failed to generate stacktrace>";
+				oldLogger.warn(`Current logger will be overwritten from ${stack}`);
+				newLogger.warn(`Current logger will overwrite one already registered from ${stack}`);
+			}
+			return registerGlobal("diag", newLogger, self, true);
+		};
+		self.setLogger = setLogger;
+		self.disable = () => {
+			unregisterGlobal(API_NAME$3, self);
+		};
+		self.createComponentLogger = (options) => {
+			return new DiagComponentLogger(options);
+		};
+		self.verbose = _logProxy("verbose");
+		self.debug = _logProxy("debug");
+		self.info = _logProxy("info");
+		self.warn = _logProxy("warn");
+		self.error = _logProxy("error");
+	}
+};
+// node_modules/@opentelemetry/api/dist/baggage/internal/baggage-impl.mjs
+var BaggageImpl = class BaggageImpl {
+	constructor(entries) {
+		this._entries = entries ? new Map(entries) : /* @__PURE__ */ new Map();
+	}
+	getEntry(key) {
+		const entry = this._entries.get(key);
+		if (!entry) return;
+		return Object.assign({}, entry);
+	}
+	getAllEntries() {
+		return Array.from(this._entries.entries());
+	}
+	setEntry(key, entry) {
+		const newBaggage = new BaggageImpl(this._entries);
+		newBaggage._entries.set(key, entry);
+		return newBaggage;
+	}
+	removeEntry(key) {
+		const newBaggage = new BaggageImpl(this._entries);
+		newBaggage._entries.delete(key);
+		return newBaggage;
+	}
+	removeEntries(...keys) {
+		const newBaggage = new BaggageImpl(this._entries);
+		for (const key of keys) newBaggage._entries.delete(key);
+		return newBaggage;
+	}
+	clear() {
+		return new BaggageImpl();
+	}
+};
+DiagAPI.instance();
+/**
+* Create a new Baggage with optional entries
+*
+* @param entries An array of baggage entries the new baggage should contain
+*/
+function createBaggage(entries = {}) {
+	return new BaggageImpl(new Map(Object.entries(entries)));
+}
+// node_modules/@opentelemetry/api/dist/context/context.mjs
+/**
+* Get a key to uniquely identify a context value
+*
+* @since 1.0.0
+*/
+function createContextKey(description) {
+	return Symbol.for(description);
+}
+/**
+* The root context is used as the default parent context when there is no active context
+*
+* @since 1.0.0
+*/
+const ROOT_CONTEXT = new class BaseContext {
+	/**
+	* Construct a new context which inherits values from an optional parent context.
+	*
+	* @param parentContext a context from which to inherit values
+	*/
+	constructor(parentContext) {
+		const self = this;
+		self._currentContext = parentContext ? new Map(parentContext) : /* @__PURE__ */ new Map();
+		self.getValue = (key) => self._currentContext.get(key);
+		self.setValue = (key, value) => {
+			const context = new BaseContext(self._currentContext);
+			context._currentContext.set(key, value);
+			return context;
+		};
+		self.deleteValue = (key) => {
+			const context = new BaseContext(self._currentContext);
+			context._currentContext.delete(key);
+			return context;
+		};
+	}
+}();
+// node_modules/@opentelemetry/api/dist/propagation/TextMapPropagator.mjs
+/**
+* @since 1.0.0
+*/
+const defaultTextMapGetter = {
+	get(carrier, key) {
+		if (carrier == null) return;
+		return carrier[key];
+	},
+	keys(carrier) {
+		if (carrier == null) return [];
+		return Object.keys(carrier);
+	}
+};
+/**
+* @since 1.0.0
+*/
+const defaultTextMapSetter = { set(carrier, key, value) {
+	if (carrier == null) return;
+	carrier[key] = value;
+} };
+/**
+* @since 1.0.0
+*/
+const INVALID_SPAN_CONTEXT = {
+	traceId: "00000000000000000000000000000000",
+	spanId: "0000000000000000",
+	traceFlags: 0
+};
+// node_modules/@opentelemetry/api/dist/trace/NonRecordingSpan.mjs
+/**
+* The NonRecordingSpan is the default {@link Span} that is used when no Span
+* implementation is available. All operations are no-op including context
+* propagation.
+*/
+var NonRecordingSpan = class {
+	constructor(spanContext = INVALID_SPAN_CONTEXT) {
+		this._spanContext = spanContext;
+	}
+	spanContext() {
+		return this._spanContext;
+	}
+	setAttribute(_key, _value) {
+		return this;
+	}
+	setAttributes(_attributes) {
+		return this;
+	}
+	addEvent(_name, _attributes) {
+		return this;
+	}
+	addLink(_link) {
+		return this;
+	}
+	addLinks(_links) {
+		return this;
+	}
+	setStatus(_status) {
+		return this;
+	}
+	updateName(_name) {
+		return this;
+	}
+	end(_endTime) {}
+	isRecording() {
+		return false;
+	}
+	recordException(_exception, _time) {}
+};
+// node_modules/@opentelemetry/api/dist/trace/spancontext-utils.mjs
+const isHex = new Uint8Array([
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1
+]);
+function isValidHex(id, length) {
+	if (typeof id !== "string" || id.length !== length) return false;
+	let r = 0;
+	for (let i = 0; i < id.length; i += 4) r += (isHex[id.charCodeAt(i)] | 0) + (isHex[id.charCodeAt(i + 1)] | 0) + (isHex[id.charCodeAt(i + 2)] | 0) + (isHex[id.charCodeAt(i + 3)] | 0);
+	return r === length;
+}
+/**
+* @since 1.0.0
+*/
+function isValidTraceId(traceId) {
+	return isValidHex(traceId, 32) && traceId !== "00000000000000000000000000000000";
+}
+/**
+* @since 1.0.0
+*/
+function isValidSpanId(spanId) {
+	return isValidHex(spanId, 16) && spanId !== "0000000000000000";
+}
+/**
+* Returns true if this {@link SpanContext} is valid.
+* @return true if this {@link SpanContext} is valid.
+*
+* @since 1.0.0
+*/
+function isSpanContextValid(spanContext) {
+	return isValidTraceId(spanContext.traceId) && isValidSpanId(spanContext.spanId);
+}
+/**
+* Wrap the given {@link SpanContext} in a new non-recording {@link Span}
+*
+* @param spanContext span context to be wrapped
+* @returns a new non-recording {@link Span} with the provided context
+*/
+function wrapSpanContext(spanContext) {
+	return new NonRecordingSpan(spanContext);
+}
+// node_modules/@opentelemetry/api/dist/context/NoopContextManager.mjs
+var NoopContextManager = class {
+	active() {
+		return ROOT_CONTEXT;
+	}
+	with(_context, fn, thisArg, ...args) {
+		return fn.call(thisArg, ...args);
+	}
+	bind(_context, target) {
+		return target;
+	}
+	enable() {
+		return this;
+	}
+	disable() {
+		return this;
+	}
+	/** @experimental This API is experimental and may change in minor releases without prior notice. */
+	attach(_context) {
+		return { dispose() {} };
+	}
+};
+// node_modules/@opentelemetry/api/dist/api/context.mjs
+const API_NAME$2 = "context";
+const NOOP_CONTEXT_MANAGER = new NoopContextManager();
+const NOOP_TOKEN = Object.freeze({ dispose: () => {} });
+/**
+* Singleton object which represents the entry point to the OpenTelemetry Context API
+*
+* @since 1.0.0
+*/
+var ContextAPI = class ContextAPI {
+	/** Empty private constructor prevents end users from constructing a new instance of the API */
+	constructor() {
+		this._attachUnsupportedWarned = false;
+	}
+	/** Get the singleton instance of the Context API */
+	static getInstance() {
+		if (!this._instance) this._instance = new ContextAPI();
+		return this._instance;
+	}
+	/**
+	* Set the current context manager.
+	*
+	* @returns true if the context manager was successfully registered, else false
+	*/
+	setGlobalContextManager(contextManager) {
+		return registerGlobal(API_NAME$2, contextManager, DiagAPI.instance());
+	}
+	/**
+	* Get the currently active context
+	*/
+	active() {
+		return this._getContextManager().active();
+	}
+	/**
+	* Execute a function with an active context
+	*
+	* @param context context to be active during function execution
+	* @param fn function to execute in a context
+	* @param thisArg optional receiver to be used for calling fn
+	* @param args optional arguments forwarded to fn
+	*/
+	with(context, fn, thisArg, ...args) {
+		return this._getContextManager().with(context, fn, thisArg, ...args);
+	}
+	/**
+	* Bind a context to a target function or event emitter
+	*
+	* @param context context to bind to the event emitter or function. Defaults to the currently active context
+	* @param target function or event emitter to bind
+	*/
+	bind(context, target) {
+		return this._getContextManager().bind(context, target);
+	}
+	/**
+	* Imperatively sets `context` as active, returning a {@link ContextManagementToken} whose
+	* {@link ContextManagementToken.dispose} restores the previous context.
+	*
+	* This is a delicate, low-level API - prefer {@link with}/{@link bind}, which
+	* restore context automatically. Use `attach` only to bridge callback
+	* boundaries that `with` cannot wrap. Call `token.dispose()` when the
+	* operation is done.
+	*
+	* **Caveat for async functions:** If called inside an async function before
+	* the first `await`, the context change may leak into the caller's context
+	* and remain active there. Prefer {@link with} for async code.
+	*
+	* Support is best-effort and varies by the active ContextManager (see
+	* {@link ContextManager.attach}); if it does not implement `attach`, this logs
+	* a warning and returns a no-op token.
+	*
+	* @param context The Context to attach
+	* @returns A {@link ContextManagementToken} whose dispose() restores the previous Context
+	* @since 1.10.0
+	* @experimental This API is experimental and may change in minor releases without prior notice.
+	*/
+	attach(context) {
+		const contextManager = this._getContextManager();
+		if (contextManager.attach) return contextManager.attach(context);
+		if (!this._attachUnsupportedWarned) {
+			this._attachUnsupportedWarned = true;
+			DiagAPI.instance().warn("The current ContextManager does not implement attach(). The context will not be attached. Use a ContextManager that supports attach() (e.g. AsyncLocalStorageContextManager) or use with()/bind() instead.");
+		}
+		return NOOP_TOKEN;
+	}
+	_getContextManager() {
+		return getGlobal(API_NAME$2) || NOOP_CONTEXT_MANAGER;
+	}
+	/** Disable and remove the global context manager */
+	disable() {
+		this._getContextManager().disable();
+		unregisterGlobal(API_NAME$2, DiagAPI.instance());
+	}
+};
+// node_modules/@opentelemetry/api/dist/trace/context-utils.mjs
+/**
+* span key
+*/
+const SPAN_KEY = createContextKey("OpenTelemetry Context Key SPAN");
+/**
+* Return the span if one exists
+*
+* @param context context to get span from
+*/
+function getSpan(context) {
+	return context.getValue(SPAN_KEY) || void 0;
+}
+/**
+* Gets the span from the current context, if one exists.
+*/
+function getActiveSpan() {
+	return getSpan(ContextAPI.getInstance().active());
+}
+/**
+* Set the span on a context
+*
+* @param context context to use as parent
+* @param span span to set active
+*/
+function setSpan(context, span) {
+	return context.setValue(SPAN_KEY, span);
+}
+/**
+* Remove current span stored in the context
+*
+* @param context context to delete span from
+*/
+function deleteSpan(context) {
+	return context.deleteValue(SPAN_KEY);
+}
+/**
+* Wrap span context in a NoopSpan and set as span in a new
+* context
+*
+* @param context context to set active span on
+* @param spanContext span context to be wrapped
+*/
+function setSpanContext(context, spanContext) {
+	return setSpan(context, new NonRecordingSpan(spanContext));
+}
+/**
+* Get the span context of the span if it exists.
+*
+* @param context context to get values from
+*/
+function getSpanContext(context) {
+	var _getSpan;
+	return (_getSpan = getSpan(context)) === null || _getSpan === void 0 ? void 0 : _getSpan.spanContext();
+}
+// node_modules/@opentelemetry/api/dist/trace/NoopTracer.mjs
+const contextApi = ContextAPI.getInstance();
+/**
+* No-op implementations of {@link Tracer}.
+*/
+var NoopTracer = class {
+	startSpan(name, options, context = contextApi.active()) {
+		if (Boolean(options === null || options === void 0 ? void 0 : options.root)) return new NonRecordingSpan();
+		const parentFromContext = context && getSpanContext(context);
+		if (isSpanContext(parentFromContext) && isSpanContextValid(parentFromContext)) return new NonRecordingSpan(parentFromContext);
+		else return new NonRecordingSpan();
+	}
+	startActiveSpan(name, arg2, arg3, arg4) {
+		var _ctx;
+		let opts;
+		let ctx;
+		let fn;
+		if (arguments.length < 2) return;
+		else if (arguments.length === 2) fn = arg2;
+		else if (arguments.length === 3) {
+			opts = arg2;
+			fn = arg3;
+		} else {
+			opts = arg2;
+			ctx = arg3;
+			fn = arg4;
+		}
+		const parentContext = (_ctx = ctx) !== null && _ctx !== void 0 ? _ctx : contextApi.active();
+		const span = this.startSpan(name, opts, parentContext);
+		const contextWithSpanSet = setSpan(parentContext, span);
+		return contextApi.with(contextWithSpanSet, fn, void 0, span);
+	}
+};
+function isSpanContext(spanContext) {
+	return spanContext !== null && typeof spanContext === "object" && "spanId" in spanContext && typeof spanContext["spanId"] === "string" && "traceId" in spanContext && typeof spanContext["traceId"] === "string" && "traceFlags" in spanContext && typeof spanContext["traceFlags"] === "number";
+}
+// node_modules/@opentelemetry/api/dist/trace/ProxyTracer.mjs
+const NOOP_TRACER = new NoopTracer();
+/**
+* Proxy tracer provided by the proxy tracer provider
+*
+* @since 1.0.0
+*/
+var ProxyTracer = class {
+	constructor(provider, name, version, options) {
+		this._provider = provider;
+		this.name = name;
+		this.version = version;
+		this.options = options;
+	}
+	startSpan(name, options, context) {
+		return this._getTracer().startSpan(name, options, context);
+	}
+	startActiveSpan(_name, _options, _context, _fn) {
+		const tracer = this._getTracer();
+		return Reflect.apply(tracer.startActiveSpan, tracer, arguments);
+	}
+	/**
+	* Try to get a tracer from the proxy tracer provider.
+	* If the proxy tracer provider has no delegate, return a noop tracer.
+	*/
+	_getTracer() {
+		if (this._delegate) return this._delegate;
+		const tracer = this._provider.getDelegateTracer(this.name, this.version, this.options);
+		if (!tracer) return NOOP_TRACER;
+		this._delegate = tracer;
+		return this._delegate;
+	}
+};
+// node_modules/@opentelemetry/api/dist/trace/span_kind.mjs
+/**
+* @since 1.0.0
+*/
+let SpanKind = /* @__PURE__ */ function(SpanKind) {
+	/** Default value. Indicates that the span is used internally. */
+	SpanKind[SpanKind["INTERNAL"] = 0] = "INTERNAL";
+	/**
+	* Indicates that the span covers server-side handling of an RPC or other
+	* remote request.
+	*/
+	SpanKind[SpanKind["SERVER"] = 1] = "SERVER";
+	/**
+	* Indicates that the span covers the client-side wrapper around an RPC or
+	* other remote request.
+	*/
+	SpanKind[SpanKind["CLIENT"] = 2] = "CLIENT";
+	/**
+	* Indicates that the span describes producer sending a message to a
+	* broker. Unlike client and server, there is no direct critical path latency
+	* relationship between producer and consumer spans.
+	*/
+	SpanKind[SpanKind["PRODUCER"] = 3] = "PRODUCER";
+	/**
+	* Indicates that the span describes consumer receiving a message from a
+	* broker. Unlike client and server, there is no direct critical path latency
+	* relationship between producer and consumer spans.
+	*/
+	SpanKind[SpanKind["CONSUMER"] = 4] = "CONSUMER";
+	return SpanKind;
+}({});
+// node_modules/@opentelemetry/api/dist/trace/status.mjs
+/**
+* An enumeration of status codes.
+*
+* @since 1.0.0
+*/
+let SpanStatusCode = /* @__PURE__ */ function(SpanStatusCode) {
+	/**
+	* The default status.
+	*/
+	SpanStatusCode[SpanStatusCode["UNSET"] = 0] = "UNSET";
+	/**
+	* The operation has been validated by an Application developer or
+	* Operator to have completed successfully.
+	*/
+	SpanStatusCode[SpanStatusCode["OK"] = 1] = "OK";
+	/**
+	* The operation contains an error.
+	*/
+	SpanStatusCode[SpanStatusCode["ERROR"] = 2] = "ERROR";
+	return SpanStatusCode;
+}({});
+// node_modules/@opentelemetry/api/dist/trace/NoopTracerProvider.mjs
+/**
+* An implementation of the {@link TracerProvider} which returns an impotent
+* Tracer for all calls to `getTracer`.
+*
+* All operations are no-op.
+*/
+var NoopTracerProvider = class {
+	getTracer(_name, _version, _options) {
+		return new NoopTracer();
+	}
+};
+// node_modules/@opentelemetry/api/dist/trace/ProxyTracerProvider.mjs
+const NOOP_TRACER_PROVIDER = new NoopTracerProvider();
+/**
+* Tracer provider which provides {@link ProxyTracer}s.
+*
+* Before a delegate is set, tracers provided are NoOp.
+*   When a delegate is set, traces are provided from the delegate.
+*   When a delegate is set after tracers have already been provided,
+*   all tracers already provided will use the provided delegate implementation.
+*
+* @deprecated This will be removed in the next major version.
+* @since 1.0.0
+*/
+var ProxyTracerProvider = class {
+	/**
+	* Get a {@link ProxyTracer}
+	*/
+	getTracer(name, version, options) {
+		var _this$getDelegateTrac;
+		return (_this$getDelegateTrac = this.getDelegateTracer(name, version, options)) !== null && _this$getDelegateTrac !== void 0 ? _this$getDelegateTrac : new ProxyTracer(this, name, version, options);
+	}
+	getDelegate() {
+		var _this$_delegate;
+		return (_this$_delegate = this._delegate) !== null && _this$_delegate !== void 0 ? _this$_delegate : NOOP_TRACER_PROVIDER;
+	}
+	/**
+	* Set the delegate tracer provider
+	*/
+	setDelegate(delegate) {
+		this._delegate = delegate;
+	}
+	getDelegateTracer(name, version, options) {
+		var _this$_delegate2;
+		return (_this$_delegate2 = this._delegate) === null || _this$_delegate2 === void 0 ? void 0 : _this$_delegate2.getTracer(name, version, options);
+	}
+};
+// node_modules/@opentelemetry/api/dist/context-api.mjs
+/**
+* Entrypoint for context API
+* @since 1.0.0
+*/
+const context = ContextAPI.getInstance();
+// node_modules/@opentelemetry/api/dist/propagation/NoopTextMapPropagator.mjs
+/**
+* No-op implementations of {@link TextMapPropagator}.
+*/
+var NoopTextMapPropagator = class {
+	/** Noop inject function does nothing */
+	inject(_context, _carrier) {}
+	/** Noop extract function does nothing and returns the input context */
+	extract(context, _carrier) {
+		return context;
+	}
+	fields() {
+		return [];
+	}
+};
+// node_modules/@opentelemetry/api/dist/baggage/context-helpers.mjs
+/**
+* Baggage key
+*/
+const BAGGAGE_KEY = createContextKey("OpenTelemetry Baggage Key");
+/**
+* Retrieve the current baggage from the given context
+*
+* @param {Context} Context that manage all context values
+* @returns {Baggage} Extracted baggage from the context
+*/
+function getBaggage(context) {
+	return context.getValue(BAGGAGE_KEY) || void 0;
+}
+/**
+* Retrieve the current baggage from the active/current context
+*
+* @returns {Baggage} Extracted baggage from the context
+*/
+function getActiveBaggage() {
+	return getBaggage(ContextAPI.getInstance().active());
+}
+/**
+* Store a baggage in the given context
+*
+* @param {Context} Context that manage all context values
+* @param {Baggage} baggage that will be set in the actual context
+*/
+function setBaggage(context, baggage) {
+	return context.setValue(BAGGAGE_KEY, baggage);
+}
+/**
+* Delete the baggage stored in the given context
+*
+* @param {Context} Context that manage all context values
+*/
+function deleteBaggage(context) {
+	return context.deleteValue(BAGGAGE_KEY);
+}
+// node_modules/@opentelemetry/api/dist/api/propagation.mjs
+const API_NAME$1 = "propagation";
+const NOOP_TEXT_MAP_PROPAGATOR = new NoopTextMapPropagator();
+// node_modules/@opentelemetry/api/dist/propagation-api.mjs
+/**
+* Entrypoint for propagation API
+*
+* @since 1.0.0
+*/
+const propagation = class PropagationAPI {
+	/** Empty private constructor prevents end users from constructing a new instance of the API */
+	constructor() {
+		this.createBaggage = createBaggage;
+		this.getBaggage = getBaggage;
+		this.getActiveBaggage = getActiveBaggage;
+		this.setBaggage = setBaggage;
+		this.deleteBaggage = deleteBaggage;
+	}
+	/** Get the singleton instance of the Propagator API */
+	static getInstance() {
+		if (!this._instance) this._instance = new PropagationAPI();
+		return this._instance;
+	}
+	/**
+	* Set the current propagator.
+	*
+	* @returns true if the propagator was successfully registered, else false
+	*/
+	setGlobalPropagator(propagator) {
+		return registerGlobal(API_NAME$1, propagator, DiagAPI.instance());
+	}
+	/**
+	* Inject context into a carrier to be propagated inter-process
+	*
+	* @param context Context carrying tracing data to inject
+	* @param carrier carrier to inject context into
+	* @param setter Function used to set values on the carrier
+	*/
+	inject(context, carrier, setter = defaultTextMapSetter) {
+		return this._getGlobalPropagator().inject(context, carrier, setter);
+	}
+	/**
+	* Extract context from a carrier
+	*
+	* @param context Context which the newly created context will inherit from
+	* @param carrier Carrier to extract context from
+	* @param getter Function used to extract keys from a carrier
+	*/
+	extract(context, carrier, getter = defaultTextMapGetter) {
+		return this._getGlobalPropagator().extract(context, carrier, getter);
+	}
+	/**
+	* Return a list of all fields which may be used by the propagator.
+	*/
+	fields() {
+		return this._getGlobalPropagator().fields();
+	}
+	/** Remove the global propagator */
+	disable() {
+		unregisterGlobal(API_NAME$1, DiagAPI.instance());
+	}
+	_getGlobalPropagator() {
+		return getGlobal(API_NAME$1) || NOOP_TEXT_MAP_PROPAGATOR;
+	}
+}.getInstance();
+// node_modules/@opentelemetry/api/dist/api/trace.mjs
+const API_NAME = "trace";
+// node_modules/@opentelemetry/api/dist/trace-api.mjs
+/**
+* Entrypoint for trace API
+*
+* @since 1.0.0
+*/
+const trace = class TraceAPI {
+	/** Empty private constructor prevents end users from constructing a new instance of the API */
+	constructor() {
+		this._proxyTracerProvider = new ProxyTracerProvider();
+		this.wrapSpanContext = wrapSpanContext;
+		this.isSpanContextValid = isSpanContextValid;
+		this.deleteSpan = deleteSpan;
+		this.getSpan = getSpan;
+		this.getActiveSpan = getActiveSpan;
+		this.getSpanContext = getSpanContext;
+		this.setSpan = setSpan;
+		this.setSpanContext = setSpanContext;
+	}
+	/** Get the singleton instance of the Trace API */
+	static getInstance() {
+		if (!this._instance) this._instance = new TraceAPI();
+		return this._instance;
+	}
+	/**
+	* Set the current global tracer.
+	*
+	* @returns true if the tracer provider was successfully registered, else false
+	*/
+	setGlobalTracerProvider(provider) {
+		const success = registerGlobal(API_NAME, this._proxyTracerProvider, DiagAPI.instance());
+		if (success) this._proxyTracerProvider.setDelegate(provider);
+		return success;
+	}
+	/**
+	* Returns the global tracer provider.
+	*/
+	getTracerProvider() {
+		return getGlobal(API_NAME) || this._proxyTracerProvider;
+	}
+	/**
+	* Returns a tracer from the global tracer provider.
+	*/
+	getTracer(name, version) {
+		return this.getTracerProvider().getTracer(name, version);
+	}
+	/** Remove the global tracer provider */
+	disable() {
+		unregisterGlobal(API_NAME, DiagAPI.instance());
+		this._proxyTracerProvider = new ProxyTracerProvider();
+	}
+}.getInstance();
+// node_modules/@anthropic-ai/sdk/internal/decoders/line.mjs
+var _LineDecoder_buffer;
+var _LineDecoder_carriageReturnIndex;
+/**
+* A re-implementation of httpx's `LineDecoder` in Python that handles incrementally
+* reading lines from text.
+*
+* https://github.com/encode/httpx/blob/920333ea98118e9cf617f246905d7b202510941c/httpx/_decoders.py#L258
+*/
+var LineDecoder = /* @__PURE__ */ (() => {
+	/**
+	* A re-implementation of httpx's `LineDecoder` in Python that handles incrementally
+	* reading lines from text.
+	*
+	* https://github.com/encode/httpx/blob/920333ea98118e9cf617f246905d7b202510941c/httpx/_decoders.py#L258
+	*/
+	class LineDecoder {
+		constructor() {
+			_LineDecoder_buffer.set(this, void 0);
+			_LineDecoder_carriageReturnIndex.set(this, void 0);
+			require_promise.__classPrivateFieldSet(this, _LineDecoder_buffer, /* @__PURE__ */ new Uint8Array(), "f");
+			require_promise.__classPrivateFieldSet(this, _LineDecoder_carriageReturnIndex, null, "f");
+		}
+		decode(chunk) {
+			if (chunk == null) return [];
+			const binaryChunk = chunk instanceof ArrayBuffer ? new Uint8Array(chunk) : typeof chunk === "string" ? require_promise.encodeUTF8(chunk) : chunk;
+			require_promise.__classPrivateFieldSet(this, _LineDecoder_buffer, require_promise.concatBytes([require_promise.__classPrivateFieldGet(this, _LineDecoder_buffer, "f"), binaryChunk]), "f");
+			const lines = [];
+			let patternIndex;
+			while ((patternIndex = findNewlineIndex(require_promise.__classPrivateFieldGet(this, _LineDecoder_buffer, "f"), require_promise.__classPrivateFieldGet(this, _LineDecoder_carriageReturnIndex, "f"))) != null) {
+				if (patternIndex.carriage && require_promise.__classPrivateFieldGet(this, _LineDecoder_carriageReturnIndex, "f") == null) {
+					require_promise.__classPrivateFieldSet(this, _LineDecoder_carriageReturnIndex, patternIndex.index, "f");
+					continue;
+				}
+				if (require_promise.__classPrivateFieldGet(this, _LineDecoder_carriageReturnIndex, "f") != null && (patternIndex.index !== require_promise.__classPrivateFieldGet(this, _LineDecoder_carriageReturnIndex, "f") + 1 || patternIndex.carriage)) {
+					lines.push(require_promise.decodeUTF8(require_promise.__classPrivateFieldGet(this, _LineDecoder_buffer, "f").subarray(0, require_promise.__classPrivateFieldGet(this, _LineDecoder_carriageReturnIndex, "f") - 1)));
+					require_promise.__classPrivateFieldSet(this, _LineDecoder_buffer, require_promise.__classPrivateFieldGet(this, _LineDecoder_buffer, "f").subarray(require_promise.__classPrivateFieldGet(this, _LineDecoder_carriageReturnIndex, "f")), "f");
+					require_promise.__classPrivateFieldSet(this, _LineDecoder_carriageReturnIndex, null, "f");
+					continue;
+				}
+				const endIndex = require_promise.__classPrivateFieldGet(this, _LineDecoder_carriageReturnIndex, "f") !== null ? patternIndex.preceding - 1 : patternIndex.preceding;
+				const line = require_promise.decodeUTF8(require_promise.__classPrivateFieldGet(this, _LineDecoder_buffer, "f").subarray(0, endIndex));
+				lines.push(line);
+				require_promise.__classPrivateFieldSet(this, _LineDecoder_buffer, require_promise.__classPrivateFieldGet(this, _LineDecoder_buffer, "f").subarray(patternIndex.index), "f");
+				require_promise.__classPrivateFieldSet(this, _LineDecoder_carriageReturnIndex, null, "f");
+			}
+			return lines;
+		}
+		flush() {
+			if (!require_promise.__classPrivateFieldGet(this, _LineDecoder_buffer, "f").length) return [];
+			return this.decode("\n");
+		}
+	}
+	_LineDecoder_buffer = /* @__PURE__ */ new WeakMap(), _LineDecoder_carriageReturnIndex = /* @__PURE__ */ new WeakMap();
+	LineDecoder.NEWLINE_CHARS = /* @__PURE__ */ new Set(["\n", "\r"]);
+	LineDecoder.NEWLINE_REGEXP = /\r\n|[\n\r]/g;
+	return LineDecoder;
+})();
+/**
+* This function searches the buffer for the end patterns, (\r or \n)
+* and returns an object with the index preceding the matched newline and the
+* index after the newline char. `null` is returned if no new line is found.
+*
+* ```ts
+* findNewLineIndex('abc\ndef') -> { preceding: 2, index: 3 }
+* ```
+*/
+function findNewlineIndex(buffer, startIndex) {
+	const newline = 10;
+	const carriage = 13;
+	for (let i = startIndex ?? 0; i < buffer.length; i++) {
+		if (buffer[i] === newline) return {
+			preceding: i,
+			index: i + 1,
+			carriage: false
+		};
+		if (buffer[i] === carriage) return {
+			preceding: i,
+			index: i + 1,
+			carriage: true
+		};
+	}
+	return null;
+}
+// node_modules/@anthropic-ai/sdk/core/streaming.mjs
+var _Stream_client;
+var Stream = /* @__PURE__ */ (() => {
+	class Stream {
+		constructor(iterator, controller, client) {
+			this.iterator = iterator;
+			_Stream_client.set(this, void 0);
+			this.controller = controller;
+			require_promise.__classPrivateFieldSet(this, _Stream_client, client, "f");
+		}
+		/**
+		* Iterate the raw Server-Sent Events from `response` — `{event, data, raw}`
+		* objects, before any JSON parsing or event-name filtering.
+		*
+		* This reads `response.body` directly (not a clone), so the response is
+		* consumed. Use this in middleware that fully replaces the stream body; for
+		* read-only observation of parsed events, use `ctx.parse()` instead.
+		*/
+		static rawEvents(response, controller = new AbortController()) {
+			return _iterSSEMessages(response, controller);
+		}
+		static fromSSEResponse(response, controller, client) {
+			let consumed = false;
+			const logger = client ? require_promise.loggerFor(client) : console;
+			async function* iterator() {
+				if (consumed) throw new require_promise.AnthropicError("Cannot iterate over a consumed stream, use `.tee()` to split the stream.");
+				consumed = true;
+				let done = false;
+				try {
+					for await (const sse of _iterSSEMessages(response, controller)) {
+						if (sse.event === "ping") continue;
+						if (sse.event === null) continue;
+						if (sse.event === "error") {
+							const body = require_promise.safeJSON(sse.data) ?? sse.data;
+							const type = body?.error?.type;
+							throw new require_promise.APIError(void 0, body, void 0, response.headers, type);
+						} else {
+							if (!sse.data) continue;
+							try {
+								yield JSON.parse(sse.data);
+							} catch (e) {
+								logger.error(`Could not parse message into JSON:`, sse.data);
+								logger.error(`From chunk:`, sse.raw);
+								throw e;
+							}
+						}
+					}
+					done = true;
+				} catch (e) {
+					if (require_promise.isAbortError(e)) return;
+					throw e;
+				} finally {
+					if (!done) controller.abort();
+					releaseRequestSignal(controller);
+				}
+			}
+			return new Stream(iterator, controller, client);
+		}
+		/**
+		* Generates a Stream from a newline-separated ReadableStream
+		* where each item is a JSON value.
+		*/
+		static fromReadableStream(readableStream, controller, client) {
+			let consumed = false;
+			async function* iterLines() {
+				const lineDecoder = new LineDecoder();
+				const iter = ReadableStreamToAsyncIterable(readableStream);
+				for await (const chunk of iter) for (const line of lineDecoder.decode(chunk)) yield line;
+				for (const line of lineDecoder.flush()) yield line;
+			}
+			async function* iterator() {
+				if (consumed) throw new require_promise.AnthropicError("Cannot iterate over a consumed stream, use `.tee()` to split the stream.");
+				consumed = true;
+				let done = false;
+				try {
+					for await (const line of iterLines()) {
+						if (done) continue;
+						if (line) yield JSON.parse(line);
+					}
+					done = true;
+				} catch (e) {
+					if (require_promise.isAbortError(e)) return;
+					throw e;
+				} finally {
+					if (!done) controller.abort();
+					releaseRequestSignal(controller);
+				}
+			}
+			return new Stream(iterator, controller, client);
+		}
+		[(_Stream_client = /* @__PURE__ */ new WeakMap(), Symbol.asyncIterator)]() {
+			return this.iterator();
+		}
+		/**
+		* Splits the stream into two streams which can be
+		* independently read from at different speeds.
+		*/
+		tee() {
+			const left = [];
+			const right = [];
+			const iterator = this[Symbol.asyncIterator]();
+			const teeIterator = (queue) => {
+				return { next: () => {
+					if (queue.length === 0) {
+						const result = iterator.next();
+						left.push(result);
+						right.push(result);
+					}
+					return queue.shift();
+				} };
+			};
+			return [new Stream(() => teeIterator(left), this.controller, require_promise.__classPrivateFieldGet(this, _Stream_client, "f")), new Stream(() => teeIterator(right), this.controller, require_promise.__classPrivateFieldGet(this, _Stream_client, "f"))];
+		}
+		/**
+		* Converts this stream to a newline-separated ReadableStream of
+		* JSON stringified values in the stream
+		* which can be turned back into a Stream with `Stream.fromReadableStream()`.
+		*/
+		toReadableStream() {
+			const self = this;
+			let iter;
+			return makeReadableStream({
+				async start() {
+					iter = self[Symbol.asyncIterator]();
+				},
+				async pull(ctrl) {
+					try {
+						const { value, done } = await iter.next();
+						if (done) return ctrl.close();
+						const bytes = require_promise.encodeUTF8(JSON.stringify(value) + "\n");
+						ctrl.enqueue(bytes);
+					} catch (err) {
+						ctrl.error(err);
+					}
+				},
+				async cancel() {
+					await iter.return?.();
+				}
+			});
+		}
+	}
+	return Stream;
+})();
+async function* _iterSSEMessages(response, controller) {
+	if (!response.body) {
+		controller.abort();
+		if (typeof globalThis.navigator !== "undefined" && globalThis.navigator.product === "ReactNative") throw new require_promise.AnthropicError(`The default react-native fetch implementation does not support streaming. Please use expo/fetch: https://docs.expo.dev/versions/latest/sdk/expo/#expofetch-api`);
+		throw new require_promise.AnthropicError(`Attempted to iterate over a response with no body`);
+	}
+	const sseDecoder = new SSEDecoder();
+	const lineDecoder = new LineDecoder();
+	const iter = ReadableStreamToAsyncIterable(response.body);
+	for await (const chunk of iter) for (const line of lineDecoder.decode(chunk)) {
+		const sse = sseDecoder.decode(line);
+		if (sse) yield sse;
+	}
+	for (const line of lineDecoder.flush()) {
+		const sse = sseDecoder.decode(line);
+		if (sse) yield sse;
+	}
+}
+var SSEDecoder = class {
+	constructor() {
+		this.event = null;
+		this.data = [];
+		this.chunks = [];
+	}
+	decode(line) {
+		if (line.endsWith("\r")) line = line.substring(0, line.length - 1);
+		if (!line) {
+			if (!this.event && !this.data.length) return null;
+			const sse = {
+				event: this.event,
+				data: this.data.join("\n"),
+				raw: this.chunks
+			};
+			this.event = null;
+			this.data = [];
+			this.chunks = [];
+			return sse;
+		}
+		this.chunks.push(line);
+		if (line.startsWith(":")) return null;
+		let [fieldname, _, value] = partition(line, ":");
+		if (value.startsWith(" ")) value = value.substring(1);
+		if (fieldname === "event") this.event = value;
+		else if (fieldname === "data") this.data.push(value);
+		return null;
+	}
+};
+function partition(str, delimiter) {
+	const index = str.indexOf(delimiter);
+	if (index !== -1) return [
+		str.substring(0, index),
+		delimiter,
+		str.substring(index + delimiter.length)
+	];
+	return [
+		str,
+		"",
+		""
+	];
+}
+// node_modules/@anthropic-ai/sdk/internal/headers.mjs
+const brand_privateNullableHeaders = Symbol.for("brand.privateNullableHeaders");
+function* iterateHeaders(headers) {
+	if (!headers) return;
+	if (brand_privateNullableHeaders in headers) {
+		const { values, nulls } = headers;
+		yield* values.entries();
+		for (const name of nulls) yield [name, null];
+		return;
+	}
+	let shouldClear = false;
+	let iter;
+	if (headers instanceof Headers) iter = headers.entries();
+	else if (require_promise.isReadonlyArray(headers)) iter = headers;
+	else {
+		shouldClear = true;
+		iter = Object.entries(headers ?? {});
+	}
+	for (let row of iter) {
+		const name = row[0];
+		if (typeof name !== "string") throw new TypeError("expected header name to be a string");
+		const values = require_promise.isReadonlyArray(row[1]) ? row[1] : [row[1]];
+		let didClear = false;
+		for (const value of values) {
+			if (value === void 0) continue;
+			if (shouldClear && !didClear) {
+				didClear = true;
+				yield [name, clearSentinel];
+			}
+			yield [name, value];
+		}
+	}
+}
+/** Distinguishes iterateHeaders' synthetic clear-before-set from a user `null`. */
+const clearSentinel = Symbol("clear");
+/**
+* Headers whose values accumulate across {@link buildHeaders} sources instead
+* of the later source's value replacing the earlier one. Values are
+* comma-appended (deduplicated, order-preserving) into a single header line.
+*/
+const APPEND_HEADERS = /* @__PURE__ */ new Set(["x-stainless-helper"]);
+const appendHeaderValue = (existing, addition) => {
+	const tokens = existing ? existing.split(",").map((t) => t.trim()).filter(Boolean) : [];
+	for (const tok of addition.split(",").map((t) => t.trim())) if (tok && !tokens.includes(tok)) tokens.push(tok);
+	return tokens.join(", ");
+};
+const buildHeaders = (newHeaders) => {
+	const targetHeaders = new Headers();
+	const nullHeaders = /* @__PURE__ */ new Set();
+	for (const headers of newHeaders) {
+		const seenHeaders = /* @__PURE__ */ new Set();
+		for (const [name, value] of iterateHeaders(headers)) {
+			const lowerName = name.toLowerCase();
+			if (APPEND_HEADERS.has(lowerName)) {
+				if (value === clearSentinel) continue;
+				if (value === null) {
+					targetHeaders.delete(name);
+					nullHeaders.add(lowerName);
+				} else {
+					targetHeaders.set(name, appendHeaderValue(targetHeaders.get(name), value));
+					nullHeaders.delete(lowerName);
+				}
+				continue;
+			}
+			if (value === clearSentinel || !seenHeaders.has(lowerName)) {
+				targetHeaders.delete(name);
+				seenHeaders.add(lowerName);
+				if (value === clearSentinel) continue;
+			}
+			if (value === null) {
+				targetHeaders.delete(name);
+				nullHeaders.add(lowerName);
+			} else {
+				targetHeaders.append(name, value);
+				nullHeaders.delete(lowerName);
+			}
+		}
+	}
+	return {
+		[brand_privateNullableHeaders]: true,
+		values: targetHeaders,
+		nulls: nullHeaders
+	};
+};
+// node_modules/@anthropic-ai/sdk/internal/tracing.mjs
+/**
+* OpenTelemetry tracing of the client's API calls.
+*
+* Two terms recur in this file, and wherever else the SDK documents its spans:
+*
+* - An "API call" is one invocation of an SDK method that sends a request to the API. It
+*   includes every retry, and reading the stream that the method returns. Its span, a `CLIENT`
+*   span named after the method, is the "call span".
+* - An "attempt" is one HTTP request within an API call, with its response when it receives
+*   one. An API call that the SDK retries makes several attempts. This SDK emits no span per
+*   attempt. The application's HTTP instrumentation, when it has one, emits each "attempt span"
+*   as a child of the call span.
+*
+* Each SDK method starts the call span of the API call it makes (`startApiCallSpan`) and passes it
+* down in the call's request options (`__span`), so every part of the call records on it as things
+* happen. The client sends its trace context with each attempt (`injectTraceHeaders`), unless the
+* `propagation` option is off, and ends it with the call's result: at once when the call fails or
+* the response body has been parsed (`endApiCallSpan`), or, for a streamed body, when the
+* application has read or closed the stream (`endApiCallSpanWhenStreamEnds`).
+*/
+const INSTRUMENTATION_SCOPE = "com.anthropic.sdk.typescript";
+const ATTR_ERROR_TYPE = "error.type";
+const ATTR_GEN_AI_CONVERSATION_ID = "gen_ai.conversation.id";
+const ATTR_GEN_AI_PROVIDER_NAME = "gen_ai.provider.name";
+const ATTR_HTTP_REQUEST_METHOD = "http.request.method";
+const ATTR_HTTP_REQUEST_RESEND_COUNT = "http.request.resend_count";
+const ATTR_HTTP_RESPONSE_STATUS_CODE = "http.response.status_code";
+const ATTR_HTTP_ROUTE = "http.route";
+const ATTR_SERVER_ADDRESS = "server.address";
+const ATTR_SERVER_PORT = "server.port";
+const ATTR_URL_FULL = "url.full";
+const ATTR_URL_PATH = "url.path";
+const ATTR_URL_QUERY = "url.query";
+const ATTR_URL_SCHEME = "url.scheme";
+const ATTR_ANTHROPIC_SESSION_THREAD_ID = "anthropic.session.thread.id";
+/** The default `traces.maxContentBytes`. */
+const DEFAULT_MAX_CONTENT_BYTES = 75e4;
+/**
+* Settles `propagation` and the `traces` field of `option`, the `openTelemetry` client option. The
+* environment variables apply only to a client that is given no option. An option that is given is
+* complete: a field that it leaves unset has the default, whatever the environment says. A content
+* mode or a size that is not valid is the default one.
+*
+* A client calls this once, when it is constructed, and keeps the result, which a
+* `withOptions()` copy without its own option takes as it is. So a later change to the environment
+* affects neither the client nor such a copy. The result is frozen.
+*/
+function resolveOpenTelemetryOptions(option) {
+	const { tracerProvider, propagation, traces } = option === false ? { traces: false } : option ?? optionFromEnv();
+	const { enabled, contentMode, maxContentBytes } = typeof traces === "boolean" ? { enabled: traces } : traces ?? {};
+	return Object.freeze({
+		tracerProvider,
+		propagation: propagation ?? true,
+		traces: Object.freeze({
+			enabled: enabled ?? true,
+			contentMode: contentMode === "content" ? "content" : "metadata_only",
+			maxContentBytes: maxContentBytes !== void 0 && Number.isInteger(maxContentBytes) && maxContentBytes >= 1 ? maxContentBytes : DEFAULT_MAX_CONTENT_BYTES
+		})
+	});
+}
+/** What the environment variables give, for a client that is given no `openTelemetry` option. */
+function optionFromEnv() {
+	return {
+		propagation: require_promise.readEnv("ANTHROPIC_OPEN_TELEMETRY_PROPAGATION")?.toLowerCase() !== "false",
+		traces: {
+			enabled: require_promise.readEnv("ANTHROPIC_OPEN_TELEMETRY")?.toLowerCase() !== "false",
+			contentMode: require_promise.readEnv("ANTHROPIC_OPEN_TELEMETRY_TRACES_CONTENT_MODE")?.toLowerCase() === "content" ? "content" : "metadata_only",
+			maxContentBytes: Number(/^\d+$/.exec(require_promise.readEnv("ANTHROPIC_OPEN_TELEMETRY_TRACES_MAX_CONTENT_BYTES") ?? "")?.[0] ?? NaN)
+		}
+	};
+}
+/**
+* The tracer for a client with the settled `openTelemetry` option `option`, or `undefined` when
+* the client's spans are disabled.
+* `version` is the SDK's version. It is a parameter because some packages build
+* `src/internal` without `src/version.ts`. The client of another platform's package gives
+* `platform`, which the name of the tracer's scope then ends with, and that package's `version`.
+*/
+function getTracer(option, version, platform) {
+	if (!option.traces.enabled) return;
+	const scope = platform !== void 0 ? `${INSTRUMENTATION_SCOPE}.${platform}` : INSTRUMENTATION_SCOPE;
+	return (option.tracerProvider ?? trace.getTracerProvider()).getTracer(scope, version);
+}
+/**
+* Runs `step`, a step of tracing that calls the application's OpenTelemetry code: its tracer
+* provider, sampler, span processors or propagator. A failure of telemetry never fails an API call,
+* so what `step` throws goes to the logger of `client`, when there is one, and the result is then
+* `undefined`: the SDK goes on as if tracing were off for that step.
+*/
+function guardTracing(client, step) {
+	try {
+		return step();
+	} catch (problem) {
+		if (client) require_promise.loggerFor(client).debug("could not record telemetry", problem);
+		return;
+	}
+}
+/**
+* Starts the call span of the API call that an SDK method of `client` is about to make with
+* `options`, as a child of the current span. `name` is the span's name, and `settings` is what
+* else the method says of the call. The method passes the result down in the call's request
+* options, as `__span`.
+*
+* When `options` already has a span, that span is the result: a helper that calls an SDK method
+* starts the span itself, to record on it, and the method's API call uses that span instead of
+* starting another.
+*
+* Returns `undefined` when the client's spans are disabled, when the span failed to start
+* ({@link guardTracing}), or when the span neither records nor propagates a trace context: such a
+* span has no effect, so the API call runs as if tracing were off. With `propagation` off, a span
+* with a valid context counts as propagating: it is the active span during the attempts, which the
+* application's HTTP instrumentation continues.
+*/
+function startApiCallSpan(client, name, options, settings) {
+	if (options?.__span) return options.__span;
+	const tracer = client._tracer;
+	if (!tracer) return;
+	return guardTracing(client, () => {
+		const startTime = Date.now();
+		const threadID = settings?.attributes?.[ATTR_ANTHROPIC_SESSION_THREAD_ID];
+		const conversationId = options?.openTelemetry?.conversationId ?? (typeof threadID === "string" ? threadID : void 0);
+		const span = tracer.startSpan(name, {
+			kind: SpanKind.CLIENT,
+			attributes: {
+				[ATTR_GEN_AI_PROVIDER_NAME]: client._genAIProviderName,
+				...serverAttributes(client.baseURL),
+				...conversationId != null ? { [ATTR_GEN_AI_CONVERSATION_ID]: conversationId } : void 0,
+				...settings?.route != null ? { [ATTR_HTTP_ROUTE]: settings.route } : void 0,
+				...settings?.attributes
+			}
+		});
+		if (!span.isRecording() && !(client.openTelemetry.propagation ? Object.keys(injectContext(span)).length > 0 : trace.isSpanContextValid(span.spanContext()))) return;
+		return {
+			...settings,
+			span,
+			name,
+			startTime
+		};
+	});
+}
+/**
+* Sets on `call`, the call span of an API call whose method creates one object, the ID of that
+* object from `data`, the call's parsed response: its `id`, or the field that the method named.
+* Does nothing for any other call, or when `data` has no string there.
+*/
+function setCreatedIDAttribute(call, data) {
+	if (call.createdIDAttribute === void 0 || typeof data !== "object" || data === null) return;
+	const id = data[call.createdIDField ?? "id"];
+	if (typeof id === "string") call.span.setAttribute(call.createdIDAttribute, id);
+}
+/**
+* `server.address` and `server.port` for the server at `url`, a client's base URL.
+*/
+function serverAttributes(url) {
+	try {
+		const { hostname, port, protocol } = new URL(url);
+		return {
+			[ATTR_SERVER_ADDRESS]: hostname.replace(/^\[(.*)\]$/, "$1"),
+			[ATTR_SERVER_PORT]: port ? Number(port) : protocol === "http:" ? 80 : 443
+		};
+	} catch {
+		return {};
+	}
+}
+/**
+* Records on `call` that the client is about to make an attempt of the call: a request with
+* `method` to `url`. The first attempt gives the span `http.request.method` and the `url.*`
+* attributes, which a later attempt never replaces. Each later attempt, whatever its reason,
+* counts in `http.request.resend_count`, which a call with one attempt does not have.
+*
+* A query with a parameter whose value is content ({@link CONTENT_QUERY_PARAMS}, and the call's own
+* `contentQueryParams`) makes `url.query` and `url.full` content too, which the span has only when
+* `recordsContent` is true.
+*/
+function recordAttempt(call, method, url, recordsContent = false) {
+	call.attempts = (call.attempts ?? 0) + 1;
+	if (call.attempts > 1) {
+		call.span.setAttribute(ATTR_HTTP_REQUEST_RESEND_COUNT, call.attempts - 1);
+		return;
+	}
+	call.span.setAttribute(ATTR_HTTP_REQUEST_METHOD, method);
+	try {
+		const { protocol, host, pathname, search } = new URL(url);
+		const query = definedQuery(search.slice(1), call.queryParams, call.contentQueryParams);
+		call.span.setAttributes({
+			[ATTR_URL_SCHEME]: protocol.slice(0, -1),
+			[ATTR_URL_PATH]: pathname
+		});
+		if (query?.content && !recordsContent) return;
+		call.span.setAttributes({
+			...query !== void 0 ? { [ATTR_URL_QUERY]: query.value } : void 0,
+			[ATTR_URL_FULL]: `${protocol}//${host}${pathname}${query !== void 0 ? `?${query.value}` : ""}`
+		});
+	} catch {}
+}
+/**
+* The query parameters whose value is content on every endpoint that defines them.
+*/
+const CONTENT_QUERY_PARAMS = [
+	"email",
+	"path_prefix",
+	"expected_content_sha256"
+];
+/**
+* The parts of `query`, a query string as sent, whose parameter is one of `defined`, as they were
+* sent and in their order, or `undefined` when there is none. A part's parameter is its
+* percent-decoded name, or that name without a final `[]`, which is how an array parameter `ids`
+* is sent: a name with other brackets, such as `created_at[gte]`, has to be one of `defined` as it
+* is. `content` says whether one of those parameters is one of {@link CONTENT_QUERY_PARAMS} or of
+* `contentParams`.
+*/
+function definedQuery(query, defined, contentParams) {
+	if (!query || !defined?.length) return;
+	let content = false;
+	const parts = query.split("&").filter((part) => {
+		try {
+			const name = decodeURIComponent(part.split("=", 1)[0]);
+			const param = defined.includes(name) || !name.endsWith("[]") ? name : name.slice(0, -2);
+			if (!defined.includes(param)) return false;
+			content || (content = CONTENT_QUERY_PARAMS.includes(param) || !!contentParams?.includes(param));
+			return true;
+		} catch {
+			return false;
+		}
+	});
+	return parts.length ? {
+		value: parts.join("&"),
+		content
+	} : void 0;
+}
+/**
+* Returns `headers` with the trace context of `span` injected, as the propagator the
+* application registered writes it, in place of any such headers already present. The client
+* sends these with each attempt, so a retry carries the context afresh.
+*/
+function injectTraceHeaders(span, headers) {
+	const values = buildHeaders([headers]).values;
+	for (const [key, value] of Object.entries(injectContext(span))) values.set(key, value);
+	return values;
+}
+/**
+* Ends `span`, the call span of an API call, now that the call has `result`. The span gets
+* `http.response.status_code` when a response arrived, and its status: `ERROR` with `error.type`
+* when the call failed, none when the application aborted it, and `OK` otherwise. The span of a
+* streamed body that the application has yet to read ends through
+* {@link endApiCallSpanWhenStreamEnds} instead.
+*
+* Does nothing to a span that is not recording, such as one that already ended.
+*/
+function endApiCallSpan(span, result) {
+	if (!span.isRecording()) return;
+	setResponseStatusCode(span, result);
+	switch (result.status) {
+		case "success":
+			span.setStatus({ code: SpanStatusCode.OK });
+			break;
+		case "error": setErrorStatus(span, result.error);
+	}
+	span.end();
+}
+/**
+* Reports the application's read of `stream` to `observer`, by replacing the iterator of `stream`
+* in place. `signal` is the abort signal of the request that `stream` reads. Only the first
+* iterator is observed. What the callbacks throw is dropped.
+*/
+function observeStream(stream, signal, observer) {
+	const iterate = stream[Symbol.asyncIterator];
+	let ended = false;
+	const end = (how) => {
+		if (ended) return;
+		ended = true;
+		signal.removeEventListener("abort", cancel);
+		try {
+			observer.onEnd(how);
+		} catch {}
+	};
+	const cancel = () => end({ reason: "canceled" });
+	if (signal.aborted) return cancel();
+	signal.addEventListener("abort", cancel, { once: true });
+	let observed = false;
+	stream[Symbol.asyncIterator] = function() {
+		const source = iterate.call(this);
+		if (observed) return source;
+		observed = true;
+		signal.removeEventListener("abort", cancel);
+		const iterator = {
+			async next() {
+				let result;
+				try {
+					result = await source.next();
+				} catch (error) {
+					end({
+						reason: "failed",
+						error
+					});
+					throw error;
+				}
+				if (result.done) end({ reason: signal.aborted ? "canceled" : "completed" });
+				else if (!ended) try {
+					observer.onItem?.(result.value);
+				} catch {}
+				return result;
+			},
+			async return(value) {
+				cancel();
+				return await source.return?.(value) ?? {
+					done: true,
+					value
+				};
+			},
+			async throw(error) {
+				cancel();
+				if (source.throw) return source.throw(error);
+				throw error;
+			},
+			[Symbol.asyncIterator]: () => iterator
+		};
+		return iterator;
+	};
+}
+/**
+* Ends `span`, the call span of an API call, when the application's read of its streamed response
+* body `stream` ends. Server-sent events have no end event, so the server ending them is not `OK`;
+* any other body is complete at its end.
+*/
+function endApiCallSpanWhenStreamEnds(span, stream, props) {
+	if (!span.isRecording()) return;
+	span.setAttribute(ATTR_HTTP_RESPONSE_STATUS_CODE, props.response.status);
+	const isSSE = stream instanceof Stream;
+	observeStream(stream, props.controller.signal, { onEnd(end) {
+		if (end.reason === "failed") setErrorStatus(span, end.error);
+		else if (end.reason === "completed" && !isSSE) span.setStatus({ code: SpanStatusCode.OK });
+		span.end();
+	} });
+}
+/**
+* Sets `http.response.status_code` on the call span from the response in `result`, or from its
+* error when that is an error response.
+*/
+function setResponseStatusCode(span, result) {
+	const status = result.response?.status ?? (result.status === "error" && result.error instanceof require_promise.APIError ? result.error.status : void 0);
+	if (status !== void 0) span.setAttribute(ATTR_HTTP_RESPONSE_STATUS_CODE, status);
+}
+/**
+* Gives `span` the status of an operation that failed with `error`: `ERROR`, with `error.type`
+* set to `type` or else derived from `error`. An abort by the application is a cancellation,
+* not a failure, and leaves the status unset.
+*/
+function setErrorStatus(span, error, type) {
+	if (error instanceof require_promise.APIUserAbortError || require_promise.isAbortError(error)) return;
+	span.setStatus({ code: SpanStatusCode.ERROR });
+	span.setAttribute(ATTR_ERROR_TYPE, type ?? errorType(error));
+}
+/**
+* The headers that carry `span`'s trace context, from the propagator the application registered.
+*/
+function injectContext(span) {
+	const carrier = {};
+	propagation.inject(trace.setSpan(context.active(), span), carrier);
+	return carrier;
+}
+/**
+* The `error.type` of an operation that failed with `error`. An error response has the type of
+* its error envelope when the API sent one, and its status code otherwise.
+*/
+function errorType(error) {
+	if (error instanceof require_promise.APIConnectionTimeoutError) return "client_timeout_error";
+	if (error instanceof require_promise.APIConnectionError) return "connection_error";
+	if (error instanceof require_promise.APIError) {
+		if (error.type) return error.type;
+		if (error.status !== void 0) return String(error.status);
+	}
+	return "client_error";
+}
+// node_modules/@anthropic-ai/sdk/internal/qs/formats.mjs
+const default_format = "RFC3986";
+const default_formatter = (v) => String(v);
+const formatters = {
+	RFC1738: (v) => String(v).replace(/%20/g, "+"),
+	RFC3986: default_formatter
+};
+// node_modules/@anthropic-ai/sdk/internal/qs/utils.mjs
+let has = (obj, key) => (has = Object.hasOwn ?? Function.prototype.call.bind(Object.prototype.hasOwnProperty), has(obj, key));
+const hex_table = /* @__PURE__ */ (() => {
+	const array = [];
+	for (let i = 0; i < 256; ++i) array.push("%" + ((i < 16 ? "0" : "") + i.toString(16)).toUpperCase());
+	return array;
+})();
+const limit = 1024;
+const encode = (str, _defaultEncoder, charset, _kind, format) => {
+	if (str.length === 0) return str;
+	let string = str;
+	if (typeof str === "symbol") string = Symbol.prototype.toString.call(str);
+	else if (typeof str !== "string") string = String(str);
+	if (charset === "iso-8859-1") return escape(string).replace(/%u[0-9a-f]{4}/gi, function($0) {
+		return "%26%23" + parseInt($0.slice(2), 16) + "%3B";
+	});
+	let out = "";
+	for (let j = 0; j < string.length; j += limit) {
+		const segment = string.length >= limit ? string.slice(j, j + limit) : string;
+		const arr = [];
+		for (let i = 0; i < segment.length; ++i) {
+			let c = segment.charCodeAt(i);
+			if (c === 45 || c === 46 || c === 95 || c === 126 || c >= 48 && c <= 57 || c >= 65 && c <= 90 || c >= 97 && c <= 122 || format === "RFC1738" && (c === 40 || c === 41)) {
+				arr[arr.length] = segment.charAt(i);
+				continue;
+			}
+			if (c < 128) {
+				arr[arr.length] = hex_table[c];
+				continue;
+			}
+			if (c < 2048) {
+				arr[arr.length] = hex_table[192 | c >> 6] + hex_table[128 | c & 63];
+				continue;
+			}
+			if (c < 55296 || c >= 57344) {
+				arr[arr.length] = hex_table[224 | c >> 12] + hex_table[128 | c >> 6 & 63] + hex_table[128 | c & 63];
+				continue;
+			}
+			i += 1;
+			c = 65536 + ((c & 1023) << 10 | segment.charCodeAt(i) & 1023);
+			arr[arr.length] = hex_table[240 | c >> 18] + hex_table[128 | c >> 12 & 63] + hex_table[128 | c >> 6 & 63] + hex_table[128 | c & 63];
+		}
+		out += arr.join("");
+	}
+	return out;
+};
+function is_buffer(obj) {
+	if (!obj || typeof obj !== "object") return false;
+	return !!(obj.constructor && obj.constructor.isBuffer && obj.constructor.isBuffer(obj));
+}
+function maybe_map(val, fn) {
+	if (require_promise.isArray(val)) {
+		const mapped = [];
+		for (let i = 0; i < val.length; i += 1) mapped.push(fn(val[i]));
+		return mapped;
+	}
+	return fn(val);
+}
+// node_modules/@anthropic-ai/sdk/internal/qs/stringify.mjs
+const array_prefix_generators = {
+	brackets(prefix) {
+		return String(prefix) + "[]";
+	},
+	comma: "comma",
+	indices(prefix, key) {
+		return String(prefix) + "[" + key + "]";
+	},
+	repeat(prefix) {
+		return String(prefix);
+	}
+};
+const push_to_array = function(arr, value_or_array) {
+	Array.prototype.push.apply(arr, require_promise.isArray(value_or_array) ? value_or_array : [value_or_array]);
+};
+let toISOString;
+const defaults = {
+	addQueryPrefix: false,
+	allowDots: false,
+	allowEmptyArrays: false,
+	arrayFormat: "indices",
+	charset: "utf-8",
+	charsetSentinel: false,
+	delimiter: "&",
+	encode: true,
+	encodeDotInKeys: false,
+	encoder: encode,
+	encodeValuesOnly: false,
+	format: default_format,
+	formatter: default_formatter,
+	/** @deprecated */
+	indices: false,
+	serializeDate(date) {
+		return (toISOString ?? (toISOString = Function.prototype.call.bind(Date.prototype.toISOString)))(date);
+	},
+	skipNulls: false,
+	strictNullHandling: false
+};
+function is_non_nullish_primitive(v) {
+	return typeof v === "string" || typeof v === "number" || typeof v === "boolean" || typeof v === "symbol" || typeof v === "bigint";
+}
+const sentinel = {};
+function inner_stringify(object, prefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, encoder, filter, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, sideChannel) {
+	let obj = object;
+	let tmp_sc = sideChannel;
+	let step = 0;
+	let find_flag = false;
+	while ((tmp_sc = tmp_sc.get(sentinel)) !== void 0 && !find_flag) {
+		const pos = tmp_sc.get(object);
+		step += 1;
+		if (typeof pos !== "undefined") {
+			if (pos === step) throw new RangeError("Cyclic object value");
+			else find_flag = true;
+		}
+		if (typeof tmp_sc.get(sentinel) === "undefined") step = 0;
+	}
+	if (typeof filter === "function") obj = filter(prefix, obj);
+	else if (obj instanceof Date) obj = serializeDate?.(obj);
+	else if (generateArrayPrefix === "comma" && require_promise.isArray(obj)) obj = maybe_map(obj, function(value) {
+		if (value instanceof Date) return serializeDate?.(value);
+		return value;
+	});
+	if (obj === null) {
+		if (strictNullHandling) return encoder && !encodeValuesOnly ? encoder(prefix, defaults.encoder, charset, "key", format) : prefix;
+		obj = "";
+	}
+	if (is_non_nullish_primitive(obj) || is_buffer(obj)) {
+		if (encoder) {
+			const key_value = encodeValuesOnly ? prefix : encoder(prefix, defaults.encoder, charset, "key", format);
+			return [formatter?.(key_value) + "=" + formatter?.(encoder(obj, defaults.encoder, charset, "value", format))];
+		}
+		return [formatter?.(prefix) + "=" + formatter?.(String(obj))];
+	}
+	const values = [];
+	if (typeof obj === "undefined") return values;
+	let obj_keys;
+	if (generateArrayPrefix === "comma" && require_promise.isArray(obj)) {
+		if (encodeValuesOnly && encoder) obj = maybe_map(obj, encoder);
+		obj_keys = [{ value: obj.length > 0 ? obj.join(",") || null : void 0 }];
+	} else if (require_promise.isArray(filter)) obj_keys = filter;
+	else {
+		const keys = Object.keys(obj);
+		obj_keys = sort ? keys.sort(sort) : keys;
+	}
+	const encoded_prefix = encodeDotInKeys ? String(prefix).replace(/\./g, "%2E") : String(prefix);
+	const adjusted_prefix = commaRoundTrip && require_promise.isArray(obj) && obj.length === 1 ? encoded_prefix + "[]" : encoded_prefix;
+	if (allowEmptyArrays && require_promise.isArray(obj) && obj.length === 0) return adjusted_prefix + "[]";
+	for (let j = 0; j < obj_keys.length; ++j) {
+		const key = obj_keys[j];
+		const value = typeof key === "object" && typeof key.value !== "undefined" ? key.value : obj[key];
+		if (skipNulls && value === null) continue;
+		const encoded_key = allowDots && encodeDotInKeys ? key.replace(/\./g, "%2E") : key;
+		const key_prefix = require_promise.isArray(obj) ? typeof generateArrayPrefix === "function" ? generateArrayPrefix(adjusted_prefix, encoded_key) : adjusted_prefix : adjusted_prefix + (allowDots ? "." + encoded_key : "[" + encoded_key + "]");
+		sideChannel.set(object, step);
+		const valueSideChannel = /* @__PURE__ */ new WeakMap();
+		valueSideChannel.set(sentinel, sideChannel);
+		push_to_array(values, inner_stringify(value, key_prefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, generateArrayPrefix === "comma" && encodeValuesOnly && require_promise.isArray(obj) ? null : encoder, filter, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, valueSideChannel));
+	}
+	return values;
+}
+function normalize_stringify_options(opts = defaults) {
+	if (typeof opts.allowEmptyArrays !== "undefined" && typeof opts.allowEmptyArrays !== "boolean") throw new TypeError("`allowEmptyArrays` option can only be `true` or `false`, when provided");
+	if (typeof opts.encodeDotInKeys !== "undefined" && typeof opts.encodeDotInKeys !== "boolean") throw new TypeError("`encodeDotInKeys` option can only be `true` or `false`, when provided");
+	if (opts.encoder !== null && typeof opts.encoder !== "undefined" && typeof opts.encoder !== "function") throw new TypeError("Encoder has to be a function.");
+	const charset = opts.charset || defaults.charset;
+	if (typeof opts.charset !== "undefined" && opts.charset !== "utf-8" && opts.charset !== "iso-8859-1") throw new TypeError("The charset option must be either utf-8, iso-8859-1, or undefined");
+	let format = default_format;
+	if (typeof opts.format !== "undefined") {
+		if (!has(formatters, opts.format)) throw new TypeError("Unknown format option provided.");
+		format = opts.format;
+	}
+	const formatter = formatters[format];
+	let filter = defaults.filter;
+	if (typeof opts.filter === "function" || require_promise.isArray(opts.filter)) filter = opts.filter;
+	let arrayFormat;
+	if (opts.arrayFormat && opts.arrayFormat in array_prefix_generators) arrayFormat = opts.arrayFormat;
+	else if ("indices" in opts) arrayFormat = opts.indices ? "indices" : "repeat";
+	else arrayFormat = defaults.arrayFormat;
+	if ("commaRoundTrip" in opts && typeof opts.commaRoundTrip !== "boolean") throw new TypeError("`commaRoundTrip` must be a boolean, or absent");
+	const allowDots = typeof opts.allowDots === "undefined" ? !!opts.encodeDotInKeys === true ? true : defaults.allowDots : !!opts.allowDots;
+	return {
+		addQueryPrefix: typeof opts.addQueryPrefix === "boolean" ? opts.addQueryPrefix : defaults.addQueryPrefix,
+		allowDots,
+		allowEmptyArrays: typeof opts.allowEmptyArrays === "boolean" ? !!opts.allowEmptyArrays : defaults.allowEmptyArrays,
+		arrayFormat,
+		charset,
+		charsetSentinel: typeof opts.charsetSentinel === "boolean" ? opts.charsetSentinel : defaults.charsetSentinel,
+		commaRoundTrip: !!opts.commaRoundTrip,
+		delimiter: typeof opts.delimiter === "undefined" ? defaults.delimiter : opts.delimiter,
+		encode: typeof opts.encode === "boolean" ? opts.encode : defaults.encode,
+		encodeDotInKeys: typeof opts.encodeDotInKeys === "boolean" ? opts.encodeDotInKeys : defaults.encodeDotInKeys,
+		encoder: typeof opts.encoder === "function" ? opts.encoder : defaults.encoder,
+		encodeValuesOnly: typeof opts.encodeValuesOnly === "boolean" ? opts.encodeValuesOnly : defaults.encodeValuesOnly,
+		filter,
+		format,
+		formatter,
+		serializeDate: typeof opts.serializeDate === "function" ? opts.serializeDate : defaults.serializeDate,
+		skipNulls: typeof opts.skipNulls === "boolean" ? opts.skipNulls : defaults.skipNulls,
+		sort: typeof opts.sort === "function" ? opts.sort : null,
+		strictNullHandling: typeof opts.strictNullHandling === "boolean" ? opts.strictNullHandling : defaults.strictNullHandling
+	};
+}
+function stringify(object, opts = {}) {
+	let obj = object;
+	const options = normalize_stringify_options(opts);
+	let obj_keys;
+	let filter;
+	if (typeof options.filter === "function") {
+		filter = options.filter;
+		obj = filter("", obj);
+	} else if (require_promise.isArray(options.filter)) {
+		filter = options.filter;
+		obj_keys = filter;
+	}
+	const keys = [];
+	if (typeof obj !== "object" || obj === null) return "";
+	const generateArrayPrefix = array_prefix_generators[options.arrayFormat];
+	const commaRoundTrip = generateArrayPrefix === "comma" && options.commaRoundTrip;
+	if (!obj_keys) obj_keys = Object.keys(obj);
+	if (options.sort) obj_keys.sort(options.sort);
+	const sideChannel = /* @__PURE__ */ new WeakMap();
+	for (let i = 0; i < obj_keys.length; ++i) {
+		const key = obj_keys[i];
+		if (options.skipNulls && obj[key] === null) continue;
+		push_to_array(keys, inner_stringify(obj[key], key, generateArrayPrefix, commaRoundTrip, options.allowEmptyArrays, options.strictNullHandling, options.skipNulls, options.encodeDotInKeys, options.encode ? options.encoder : null, options.filter, options.sort, options.allowDots, options.serializeDate, options.format, options.formatter, options.encodeValuesOnly, options.charset, sideChannel));
+	}
+	const joined = keys.join(options.delimiter);
+	let prefix = options.addQueryPrefix === true ? "?" : "";
+	if (options.charsetSentinel) {
+		if (options.charset === "iso-8859-1") prefix += "utf8=%26%2310003%3B&";
+		else prefix += "utf8=%E2%9C%93&";
+	}
+	return joined.length > 0 ? prefix + joined : "";
+}
+// node_modules/@anthropic-ai/sdk/internal/utils/query.mjs
+function stringifyQuery(query) {
+	return stringify(query, { arrayFormat: "brackets" });
+}
+// node_modules/@anthropic-ai/sdk/lib/credentials/types.mjs
+const GRANT_TYPE_JWT_BEARER = "urn:ietf:params:oauth:grant-type:jwt-bearer";
+const GRANT_TYPE_REFRESH_TOKEN = "refresh_token";
+const TOKEN_ENDPOINT = "/v1/oauth/token";
+/**
+* `anthropic-beta` value required on authenticated API requests using an
+* OAuth bearer token, and on `refresh_token` grants against the token endpoint.
+*/
+const OAUTH_API_BETA_HEADER = "oauth-2025-04-20";
+/**
+* `anthropic-beta` value required on jwt-bearer exchanges against the token
+* endpoint. It routes the request to the federation service; it must NOT be
+* sent on `refresh_token` grants, which are handled by a different backend.
+*/
+const FEDERATION_BETA_HEADER = "oidc-federation-2026-04-01";
+const MAX_TOKEN_RESPONSE_BYTES = 1 << 20;
+/**
+* Rejects base URLs that would cause a JWT assertion or refresh token to be
+* sent over cleartext HTTP. Loopback hosts are allowed for local development.
+*/
+function requireSecureTokenEndpoint(baseURL) {
+	if (!baseURL) return;
+	let u;
+	try {
+		u = new URL(baseURL);
+	} catch (err) {
+		throw new WorkloadIdentityError(`Invalid token endpoint base URL "${baseURL}": ${err}`);
+	}
+	if (u.protocol === "https:") return;
+	const host = u.hostname.toLowerCase().replace(/^\[|\]$/g, "");
+	if (u.protocol === "http:" && (host === "localhost" || host === "127.0.0.1" || host === "::1")) return;
+	throw new WorkloadIdentityError(`Refusing to send credential over non-https token endpoint "${baseURL}"`);
+}
+/**
+* Reads the response body as text, parses it as a token-endpoint JSON
+* response, validates `access_token` is present, and rejects a non-Bearer
+* `token_type` when one is provided. Reads at most
+* {@link MAX_TOKEN_RESPONSE_BYTES} from the body stream.
+*/
+async function parseTokenResponse(resp, requestId) {
+	const text = await readLimitedText(resp);
+	let data;
+	try {
+		data = JSON.parse(text);
+	} catch {
+		throw new WorkloadIdentityError(`Token endpoint returned non-JSON response (status ${resp.status})`, resp.status, redactSensitive(text), requestId);
+	}
+	if (!data.access_token) throw new WorkloadIdentityError(`Token endpoint response missing access_token: ${JSON.stringify(redactSensitive(data))}`, resp.status, redactSensitive(data), requestId);
+	if (data.token_type && data.token_type.toLowerCase() !== "bearer") throw new WorkloadIdentityError(`Token endpoint response: unsupported token_type "${data.token_type}" (want Bearer)`, resp.status, redactSensitive(data), requestId);
+	return data;
+}
+const MAX_ERROR_BODY_CHARS = 2e3;
+const SAFE_ERROR_KEYS = /* @__PURE__ */ new Set([
+	"error",
+	"error_description",
+	"error_uri"
+]);
+/**
+* Returns a redacted copy of a token-endpoint error body for safe inclusion
+* in an exception. Strings are truncated; objects keep only the RFC 6749
+* §5.2 error fields.
+*/
+function redactSensitive(body) {
+	if (body == null) return body;
+	if (typeof body === "string") {
+		let parsed;
+		try {
+			parsed = JSON.parse(body);
+		} catch {
+			if (body.length <= MAX_ERROR_BODY_CHARS) return body;
+			return body.slice(0, MAX_ERROR_BODY_CHARS) + `... <${body.length - MAX_ERROR_BODY_CHARS} more chars>`;
+		}
+		return JSON.stringify(redactSensitive(parsed));
+	}
+	if (typeof body === "object" && !Array.isArray(body)) {
+		const out = {};
+		for (const [k, v] of Object.entries(body)) if (SAFE_ERROR_KEYS.has(k)) out[k] = v;
+		return out;
+	}
+	return null;
+}
+/**
+* Best-effort safety check on a credentials file before reading it.
+*
+* On POSIX: resolves symlinks (so containerized deployments that mount the
+* credential as a symlink to a tmpfs-backed file keep working), then rejects
+* the resolved target if it is group- or world- readable or writable. A uid
+* mismatch on the resolved target is surfaced via `onWarn` since
+* root-written/app-read is common in init-container setups. No-op on Windows.
+*/
+async function checkCredentialsFileSafety(path, onWarn = (m) => console.warn(`anthropic-sdk: ${m}`)) {
+	if (typeof process === "undefined" || process.platform === "win32") return;
+	const { fs } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	let resolved = path;
+	let st;
+	try {
+		resolved = await fs.promises.realpath(path);
+		st = await fs.promises.stat(resolved);
+	} catch {
+		return;
+	}
+	const mode = st.mode & 511;
+	if (mode & 18) throw new WorkloadIdentityError(`Credentials file at ${resolved} is group/world-writable (mode 0o${mode.toString(8)}); this allows other local users to plant tokens. Run \`chmod 600 ${resolved}\`.`);
+	if (mode & 36) throw new WorkloadIdentityError(`Credentials file at ${resolved} is group/world-readable (mode 0o${mode.toString(8)}); run \`chmod 600 ${resolved}\` before retrying.`);
+	if (typeof process.getuid === "function" && st.uid !== process.getuid()) onWarn(`credentials file at ${resolved} is owned by uid ${st.uid} (current process uid ${process.getuid()}); verify this is intentional.`);
+}
+/**
+* Atomically writes JSON to `targetPath` via a `.tmp` sibling + rename,
+* with fsync on the file and (best-effort) on the parent directory.
+* Creates the parent directory with mode 0700 and the file with mode 0600.
+*/
+async function writeCredentialsFileAtomic(targetPath, data) {
+	const { fs, path } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	const dir = path.dirname(targetPath);
+	await fs.promises.mkdir(dir, {
+		recursive: true,
+		mode: 448
+	});
+	const tmpPath = `${targetPath}.${process.pid}.${Math.random().toString(36).slice(2)}.tmp`;
+	try {
+		const fh = await fs.promises.open(tmpPath, "w", 384);
+		try {
+			await fh.writeFile(JSON.stringify(data, null, 2));
+			await fh.sync();
+		} finally {
+			await fh.close();
+		}
+		await fs.promises.rename(tmpPath, targetPath);
+	} catch (err) {
+		await fs.promises.unlink(tmpPath).catch(() => {});
+		throw err;
+	}
+	try {
+		const dirFh = await fs.promises.open(dir, "r");
+		try {
+			await dirFh.sync();
+		} finally {
+			await dirFh.close();
+		}
+	} catch {}
+}
+async function readLimitedText(resp) {
+	if (!resp.body) return "";
+	const reader = resp.body.getReader();
+	const chunks = [];
+	let received = 0;
+	for (;;) {
+		const { done, value } = await reader.read();
+		if (done) break;
+		if (received + value.length > MAX_TOKEN_RESPONSE_BYTES) {
+			const remaining = MAX_TOKEN_RESPONSE_BYTES - received;
+			if (remaining > 0) chunks.push(value.subarray(0, remaining));
+			await reader.cancel();
+			break;
+		}
+		chunks.push(value);
+		received += value.length;
+	}
+	let merged;
+	if (chunks.length === 1) merged = chunks[0];
+	else {
+		merged = new Uint8Array(chunks.reduce((n, c) => n + c.length, 0));
+		let offset = 0;
+		for (const c of chunks) {
+			merged.set(c, offset);
+			offset += c.length;
+		}
+	}
+	return new TextDecoder("utf-8").decode(merged);
+}
+var WorkloadIdentityError = class extends require_promise.AnthropicError {
+	constructor(message, statusCode = null, body = null, requestId = null) {
+		super(message);
+		this.statusCode = statusCode;
+		this.body = body;
+		this.requestId = requestId;
+	}
+};
+// node_modules/@anthropic-ai/sdk/internal/utils/time.mjs
+/** Current time as unix epoch seconds. */
+function nowAsSeconds() {
+	return Math.floor(Date.now() / 1e3);
+}
+// node_modules/@anthropic-ai/sdk/lib/credentials/token-cache.mjs
+/**
+* Wraps an {@link AccessTokenProvider} with two-tier proactive refresh
+* and concurrent deduplication.
+*
+* Refresh policy on each {@link getToken} call:
+*
+* - No cached token → call provider (blocking), cache, return.
+* - Cached with `expiresAt == null` → return cached forever.
+* - More than 120s remaining → return cached.
+* - 30–120s remaining (advisory window) → return stale token immediately,
+*   kick off background refresh. On failure, log and keep stale.
+* - Less than 30s remaining or expired (mandatory) → block and refresh.
+*   On failure, throw.
+*
+* Concurrent mandatory callers coalesce into a single provider call.
+*/
+var TokenCache = class {
+	constructor(provider, onAdvisoryRefreshError) {
+		this.cached = null;
+		this.pendingRefresh = null;
+		this.nextForce = false;
+		this.lastAdvisoryError = 0;
+		this.provider = provider;
+		this.onAdvisoryRefreshError = onAdvisoryRefreshError;
+	}
+	async getToken() {
+		const force = this.nextForce;
+		this.nextForce = false;
+		const cached = this.cached;
+		if (force || cached == null) return (await this.refresh(force)).token;
+		if (cached.expiresAt == null) return cached.token;
+		const remaining = cached.expiresAt - nowAsSeconds();
+		if (remaining > 120) return cached.token;
+		if (remaining > 30) {
+			this.backgroundRefresh();
+			return cached.token;
+		}
+		return (await this.refresh()).token;
+	}
+	/**
+	* Clears the cached token and marks the next {@link getToken} as a forced
+	* refresh, so the underlying provider bypasses any on-disk freshness check.
+	* Called after a 401 — the server has just told us the token is bad even
+	* if its `expires_at` still looks fresh.
+	*/
+	invalidate() {
+		this.cached = null;
+		this.nextForce = true;
+	}
+	/**
+	* Mandatory refresh. Joins any in-flight refresh unless forced — a forced
+	* refresh must not coalesce into a non-forced one that may re-serve the
+	* same stale disk token.
+	*/
+	refresh(force = false) {
+		if (this.pendingRefresh && !force) return this.pendingRefresh;
+		return this.doRefresh(force);
+	}
+	/**
+	* Advisory background refresh. Shares the same in-flight promise as
+	* mandatory refreshes for deduplication, but swallows errors so the
+	* stale cached token keeps being served. Backs off for
+	* {@link ADVISORY_REFRESH_BACKOFF_IN_SECONDS} after a failure so an
+	* outage during the advisory window doesn't hammer the token endpoint.
+	*/
+	backgroundRefresh() {
+		if (this.pendingRefresh) return;
+		if (nowAsSeconds() - this.lastAdvisoryError < 5) return;
+		this.doRefresh().catch((err) => {
+			this.lastAdvisoryError = nowAsSeconds();
+			this.onAdvisoryRefreshError?.(err);
+		});
+	}
+	/**
+	* Core refresh. Sets {@link pendingRefresh} so concurrent callers
+	* (both advisory and mandatory) coalesce into a single provider call.
+	*/
+	doRefresh(force = false) {
+		this.pendingRefresh = this.provider(force ? { forceRefresh: true } : void 0).then((token) => {
+			this.cached = token;
+			this.pendingRefresh = null;
+			return token;
+		}, (err) => {
+			this.pendingRefresh = null;
+			throw err;
+		});
+		return this.pendingRefresh;
+	}
+};
+// node_modules/@anthropic-ai/sdk/lib/internal/tracing/attributes.mjs
+const ATTR_GEN_AI_AGENT_NAME = "gen_ai.agent.name";
+const ATTR_GEN_AI_INPUT_MESSAGES = "gen_ai.input.messages";
+const ATTR_GEN_AI_OPERATION_NAME = "gen_ai.operation.name";
+const ATTR_GEN_AI_OUTPUT_MESSAGES = "gen_ai.output.messages";
+const ATTR_GEN_AI_OUTPUT_TYPE = "gen_ai.output.type";
+const ATTR_GEN_AI_REQUEST_MAX_TOKENS = "gen_ai.request.max_tokens";
+const ATTR_GEN_AI_REQUEST_MODEL = "gen_ai.request.model";
+const ATTR_GEN_AI_REQUEST_REASONING_LEVEL = "gen_ai.request.reasoning.level";
+const ATTR_GEN_AI_REQUEST_STOP_SEQUENCES = "gen_ai.request.stop_sequences";
+const ATTR_GEN_AI_REQUEST_STREAM = "gen_ai.request.stream";
+const ATTR_GEN_AI_RESPONSE_ID = "gen_ai.response.id";
+const ATTR_GEN_AI_RESPONSE_MODEL = "gen_ai.response.model";
+const ATTR_GEN_AI_RESPONSE_TIME_TO_FIRST_CHUNK = "gen_ai.response.time_to_first_chunk";
+const ATTR_GEN_AI_SYSTEM_INSTRUCTIONS = "gen_ai.system_instructions";
+const ATTR_GEN_AI_TOOL_CALL_ARGUMENTS = "gen_ai.tool.call.arguments";
+const ATTR_GEN_AI_TOOL_CALL_ID = "gen_ai.tool.call.id";
+const ATTR_GEN_AI_TOOL_DESCRIPTION = "gen_ai.tool.description";
+const ATTR_GEN_AI_TOOL_NAME = "gen_ai.tool.name";
+const ATTR_GEN_AI_TOOL_TYPE = "gen_ai.tool.type";
+const ATTR_GEN_AI_USAGE_CACHE_WRITE_INPUT_TOKENS = "gen_ai.usage.cache_write.input_tokens";
+const ATTR_GEN_AI_USAGE_CACHE_READ_INPUT_TOKENS = "gen_ai.usage.cache_read.input_tokens";
+const ATTR_GEN_AI_USAGE_INPUT_TOKENS = "gen_ai.usage.input_tokens";
+const ATTR_GEN_AI_USAGE_OUTPUT_TOKENS = "gen_ai.usage.output_tokens";
+const ATTR_GEN_AI_USAGE_REASONING_OUTPUT_TOKENS = "gen_ai.usage.reasoning.output_tokens";
+const GEN_AI_OPERATION_NAME_VALUE_CHAT = "chat";
+const GEN_AI_OPERATION_NAME_VALUE_EXECUTE_TOOL = "execute_tool";
+const GEN_AI_OPERATION_NAME_VALUE_INVOKE_AGENT = "invoke_agent";
+const GEN_AI_OUTPUT_TYPE_VALUE_JSON = "json";
+const GEN_AI_TOOL_TYPE_VALUE_FUNCTION = "function";
+const ATTR_ANTHROPIC_REQUEST_ID = "anthropic.request.id";
+const ATTR_ANTHROPIC_ORGANIZATION_ID = "anthropic.organization.id";
+const ATTR_ANTHROPIC_WORKSPACE_ID = "anthropic.workspace.id";
+const ATTR_ANTHROPIC_BETA = "anthropic.beta";
+const ATTR_ANTHROPIC_CONTENT_TRUNCATED = "anthropic.content.truncated";
+const ATTR_ANTHROPIC_MESSAGE_STOP_REASON = "anthropic.message.stop_reason";
+const ATTR_ANTHROPIC_MESSAGE_COUNT_TOKENS_INPUT_TOKENS = "anthropic.message.count_tokens.input_tokens";
+const ATTR_ANTHROPIC_REQUEST_SERVICE_TIER = "anthropic.request.service_tier";
+const ATTR_ANTHROPIC_RESPONSE_SERVICE_TIER = "anthropic.response.service_tier";
+const ATTR_ANTHROPIC_THINKING_BUDGET_TOKENS = "anthropic.thinking.budget_tokens";
+const ATTR_ANTHROPIC_THINKING_TYPE = "anthropic.thinking.type";
+const ATTR_ANTHROPIC_TOOL_RESULT_CONTENT = "anthropic.tool_result.content";
+const ATTR_ANTHROPIC_TOOLSET_NAME = "anthropic.toolset.name";
+const ATTR_ANTHROPIC_USAGE_CACHE_CREATION_EPHEMERAL_1H_INPUT_TOKENS = "anthropic.usage.cache_creation.ephemeral_1h_input_tokens";
+const ATTR_ANTHROPIC_USAGE_CACHE_CREATION_EPHEMERAL_5M_INPUT_TOKENS = "anthropic.usage.cache_creation.ephemeral_5m_input_tokens";
+const ATTR_ANTHROPIC_USAGE_COMPACTION_INPUT_TOKENS = "anthropic.usage.compaction.input_tokens";
+const ATTR_ANTHROPIC_USAGE_COMPACTION_OUTPUT_TOKENS = "anthropic.usage.compaction.output_tokens";
+const RESPONSE_HEADER_ATTRIBUTES = [
+	[ATTR_ANTHROPIC_REQUEST_ID, "request-id"],
+	[ATTR_ANTHROPIC_ORGANIZATION_ID, "anthropic-organization-id"],
+	[ATTR_ANTHROPIC_WORKSPACE_ID, "anthropic-workspace-id"]
+];
+// node_modules/@anthropic-ai/sdk/lib/internal/tracing/content.mjs
+/**
+* Sets the content attributes of a `messages.create` API call, within `limit` bytes: first
+* with the request alone, and again with `output`, the response's content blocks. The second call
+* sets only the output when that fits beside the request's content, and otherwise sets everything
+* again to remove more of it.
+*/
+function setMessageContentAttributes(call, body, output, limit) {
+	const span = call.span;
+	const requestSize = call.requestContentSize;
+	if (output !== void 0 && requestSize !== void 0) {
+		const outputMessages = JSON.stringify([{
+			role: "assistant",
+			parts: contentParts(output)
+		}]);
+		if (requestSize + 3 * outputMessages.length <= limit || requestSize + utf8Length(outputMessages) <= limit) {
+			span.setAttribute(ATTR_GEN_AI_OUTPUT_MESSAGES, outputMessages);
+			return;
+		}
+	}
+	const size = setContentAttributes(span, {
+		[ATTR_GEN_AI_REQUEST_STOP_SEQUENCES]: body.stop_sequences?.length ? [...body.stop_sequences] : void 0,
+		[ATTR_GEN_AI_SYSTEM_INSTRUCTIONS]: body.system === void 0 ? void 0 : contentParts(body.system),
+		[ATTR_GEN_AI_INPUT_MESSAGES]: body.messages.map((message) => ({
+			role: message.role,
+			parts: contentParts(message.content)
+		})),
+		[ATTR_GEN_AI_OUTPUT_MESSAGES]: output === void 0 ? void 0 : [{
+			role: "assistant",
+			parts: contentParts(output)
+		}]
+	}, limit);
+	if (output === void 0) call.requestContentSize = size;
+}
+function contentParts(content) {
+	if (typeof content === "string") return [{
+		type: "text",
+		content
+	}];
+	return content?.map(blockPart) ?? [];
+}
+/**
+* The part of a content block. A block that the conventions have no part for is a part with only
+* a type: image and document data is large and binary, and redacted thinking is encrypted.
+*/
+function blockPart(block) {
+	switch (block.type) {
+		case "text": return {
+			type: "text",
+			content: block.text
+		};
+		case "thinking": return {
+			type: "reasoning",
+			content: block.thinking
+		};
+		case "tool_use": return {
+			type: "tool_call",
+			id: block.id,
+			name: block.name,
+			arguments: block.input,
+			...typeof block.toolset_name === "string" ? { anthropic_toolset_name: block.toolset_name } : void 0
+		};
+		case "server_tool_use": return {
+			type: "tool_call",
+			id: block.id,
+			name: block.name,
+			arguments: block.input
+		};
+		case "mcp_tool_use": return {
+			type: "tool_call",
+			id: block.id,
+			name: block.name,
+			arguments: block.input,
+			anthropic_mcp_server_name: block.server_name
+		};
+		case "tool_result": return {
+			type: "tool_call_response",
+			id: block.tool_use_id,
+			response: toolResultContentBlocks(block.content)
+		};
+		default:
+			if (typeof block.type !== "string") return { type: "anthropic_unknown" };
+			if (block.type.endsWith("_tool_result") && "tool_use_id" in block) return {
+				type: "tool_call_response",
+				id: block.tool_use_id,
+				response: resultBlockContent(block.content)
+			};
+			return { type: `anthropic_${block.type}` };
+	}
+}
+/**
+* The content blocks of a tool result, always as a list: a result with no content has none. A text
+* block and a search result block keep their fields ({@link withoutLeftOutFields}), and any other
+* block has only its type.
+*/
+function toolResultContentBlocks(content) {
+	if (content === void 0 || content === null) return [];
+	if (typeof content === "string") return [{
+		type: "text",
+		text: content
+	}];
+	return content.map((block) => {
+		if (block.type === "text" || block.type === "search_result") return withoutLeftOutFields(block);
+		if (typeof block.type !== "string") return { type: "unknown" };
+		return { type: block.type };
+	});
+}
+/**
+* What a span holds of the content of a server tool's or an MCP tool's result block, which is a
+* string, a list of blocks, or one object such as a code execution result or an error: always a
+* list, which holds that one object alone.
+*/
+function resultBlockContent(content) {
+	if (content === void 0 || content === null) return [];
+	if (typeof content === "string") return [{
+		type: "text",
+		text: content
+	}];
+	if (!Array.isArray(content)) return [withoutLeftOutFields(content)];
+	return content.map((block) => {
+		if (block.type === "text" || block.type === "search_result" || block.type === "web_search_result") return withoutLeftOutFields(block);
+		if (typeof block.type !== "string") return { type: "unknown" };
+		return { type: block.type };
+	});
+}
+/**
+* `value` without, at any depth, the fields whose name starts with `encrypted_`, which are opaque,
+* and without image and document data, which is large and binary.
+*/
+function withoutLeftOutFields(value) {
+	if (Array.isArray(value)) return value.map(withoutLeftOutFields);
+	if (typeof value !== "object" || value === null) return value;
+	const { type, file_type } = value;
+	if (type === "image" || type === "document") return { type };
+	const isImageOrDocumentView = type === "text_editor_code_execution_view_result" && (file_type === "image" || file_type === "pdf");
+	return Object.fromEntries(Object.entries(value).filter(([name]) => !name.startsWith("encrypted_") && !(name === "content" && isImageOrDocumentView)).map(([name, field]) => [name, withoutLeftOutFields(field)]));
+}
+/**
+* Sets the content attributes of `span` within `limit` bytes of UTF-8.
+* `gen_ai.request.stop_sequences` alone is not JSON: the conventions type it as an array of
+* strings, which every backend takes, and its size is that of its strings. Each other attribute is
+* one JSON string.
+*
+* A UTF-16 code unit takes at most three bytes, so content whose `length` is at most a third of
+* the limit fits, as most does, and is not measured. Other content is measured in bytes
+* ({@link utf8Length}).
+*
+* First, the stop sequences, and an attribute that {@link ContentAttributes} does not name, are
+* left out whole when they alone are over the limit. Then message parts are removed to fit
+* ({@link withoutFirstParts}), and on a tool span the last blocks of the tool result
+* ({@link truncateToolResultContent}). A span that lost any of these gets
+* `anthropic.content.truncated`. Only what stays after that can leave a span over the limit: an
+* emptied list, a message without parts, and the last text part, cut from its end.
+*
+* Returns the size of what it set, or more than that when it did not measure.
+*/
+function setContentAttributes(span, attributes, limit) {
+	const { [ATTR_GEN_AI_REQUEST_STOP_SEQUENCES]: stopSequences, [ATTR_GEN_AI_SYSTEM_INSTRUCTIONS]: instructions, [ATTR_GEN_AI_INPUT_MESSAGES]: input, [ATTR_GEN_AI_OUTPUT_MESSAGES]: output, [ATTR_ANTHROPIC_TOOL_RESULT_CONTENT]: toolResult, ...others } = attributes;
+	const messages = {
+		[ATTR_GEN_AI_SYSTEM_INSTRUCTIONS]: instructions,
+		[ATTR_GEN_AI_INPUT_MESSAGES]: input,
+		[ATTR_GEN_AI_OUTPUT_MESSAGES]: output
+	};
+	const values = {};
+	const blocks = toolResult?.map((block) => JSON.stringify(block));
+	const sizeOf = 3 * ([...stopSequences ?? [], ...blocks ?? []].reduce((sum, text) => sum + text.length + 1, 2) + serialize(others, values) + serialize(messages, values)) <= limit ? (text) => 3 * text.length : utf8Length;
+	const sizeOfMessages = () => Object.keys(messages).reduce((sum, key) => sum + sizeOf(values[key] ?? ""), 0);
+	const stopSequencesSize = stopSequences?.reduce((sum, each) => sum + sizeOf(each), 0) ?? 0;
+	const keepsStopSequences = stopSequences !== void 0 && stopSequencesSize <= limit;
+	let size = keepsStopSequences ? stopSequencesSize : 0;
+	let truncated = stopSequences !== void 0 && !keepsStopSequences;
+	for (const key of Object.keys(others)) {
+		const jsonSize = sizeOf(values[key] ?? "");
+		if (jsonSize > limit) {
+			delete values[key];
+			truncated = true;
+		} else size += jsonSize;
+	}
+	let messagesSize = sizeOfMessages();
+	if (size + messagesSize > limit) {
+		const { truncated: lostParts, ...fitted } = withoutFirstParts(messages, size + messagesSize - limit);
+		truncated || (truncated = lostParts);
+		serialize(fitted, values);
+		messagesSize = sizeOfMessages();
+	}
+	size += messagesSize;
+	if (blocks !== void 0) {
+		const kept = truncateToolResultContent(blocks, limit - size, sizeOf);
+		values[ATTR_ANTHROPIC_TOOL_RESULT_CONTENT] = kept.json;
+		size += kept.size;
+		truncated || (truncated = kept.truncated);
+	}
+	if (truncated) span.setAttribute(ATTR_ANTHROPIC_CONTENT_TRUNCATED, true);
+	if (keepsStopSequences) span.setAttribute(ATTR_GEN_AI_REQUEST_STOP_SEQUENCES, stopSequences);
+	for (const [key, value] of Object.entries(values)) span.setAttribute(key, value);
+	return size;
+}
+/** Puts the JSON of each defined attribute in `values`, and returns the `length` of what it put there. */
+function serialize(attributes, values) {
+	let length = 0;
+	for (const [key, value] of Object.entries(attributes)) if (value !== void 0) {
+		values[key] = JSON.stringify(value);
+		length += values[key].length;
+	}
+	return length;
+}
+/**
+* `attributes` with `excess` bytes less of JSON. The parts of the system instructions, the
+* input messages and the output messages are one list, which loses whole parts from its start. The
+* last part left, when it is a text part, keeps the start of its `content` that fits.
+*/
+function withoutFirstParts(attributes, excess) {
+	const withOwnParts = (messages) => messages?.map((message) => ({
+		...message,
+		parts: [...message.parts]
+	}));
+	const instructions = attributes[ATTR_GEN_AI_SYSTEM_INSTRUCTIONS]?.slice();
+	const input = withOwnParts(attributes[ATTR_GEN_AI_INPUT_MESSAGES]);
+	const output = withOwnParts(attributes[ATTR_GEN_AI_OUTPUT_MESSAGES]);
+	const lists = [instructions ?? [], ...[...input ?? [], ...output ?? []].map(({ parts }) => parts)];
+	let left = lists.reduce((sum, parts) => sum + parts.length, 0);
+	let truncated = false;
+	for (const parts of lists) {
+		let removed = 0;
+		while (excess > 0 && removed < parts.length) {
+			const part = parts[removed];
+			const size = utf8Length(JSON.stringify(part));
+			const content = part["content"];
+			if (left === 1 && part.type === "text" && typeof content === "string") {
+				const kept = startThatFits(part, content, size - excess);
+				if (kept !== content) {
+					parts[removed] = {
+						...part,
+						content: kept
+					};
+					truncated = true;
+				}
+				break;
+			}
+			excess -= size + (removed + 1 < parts.length ? 1 : 0);
+			removed++;
+			left--;
+			truncated = true;
+		}
+		parts.splice(0, removed);
+	}
+	return {
+		[ATTR_GEN_AI_SYSTEM_INSTRUCTIONS]: instructions,
+		[ATTR_GEN_AI_INPUT_MESSAGES]: input,
+		[ATTR_GEN_AI_OUTPUT_MESSAGES]: output,
+		truncated
+	};
+}
+/**
+* The longest start of `content` with which the JSON of the text part `part` fits in `limit`
+* bytes. It never ends between the two halves of a surrogate pair.
+*/
+function startThatFits(part, content, limit) {
+	const room = limit - utf8Length(JSON.stringify({
+		...part,
+		content: ""
+	}));
+	const head = content.slice(0, Math.max(room, 0));
+	const escaped = JSON.stringify(head);
+	let length = 0;
+	let escapedLength = 0;
+	let size = 0;
+	while (length < head.length) {
+		const point = escaped.codePointAt(1 + escapedLength);
+		const units = point > 65535 ? 2 : 1;
+		const escapedUnits = point !== 92 ? units : escaped[2 + escapedLength] === "u" ? 6 : 2;
+		size += point < 128 ? escapedUnits : point < 2048 ? 2 : point < 65536 ? 3 : 4;
+		if (size > room) break;
+		escapedLength += escapedUnits;
+		length += units;
+	}
+	return content.slice(0, length);
+}
+/**
+* The JSON of the first of `blocks`, each the JSON of a content block of a tool result, that fit
+* in `limit` bytes, the size of that JSON as `sizeOf` measures it, and whether it is not all of them.
+*/
+function truncateToolResultContent(blocks, limit, sizeOf) {
+	const kept = [];
+	let size = 2;
+	for (const block of blocks) {
+		const next = size + (kept.length === 0 ? 0 : 1) + sizeOf(block);
+		if (next > limit) break;
+		kept.push(block);
+		size = next;
+	}
+	return {
+		json: "[" + kept.join(",") + "]",
+		size,
+		truncated: kept.length < blocks.length
+	};
+}
+/** The size of `text` in UTF-8, in bytes. It makes no copy of the text to measure it. */
+function utf8Length(text) {
+	let size = 0;
+	for (let index = 0; index < text.length; index++) {
+		const unit = text.charCodeAt(index);
+		if (unit < 128) size += 1;
+		else if (unit < 2048) size += 2;
+		else if (unit >= 55296 && unit < 56320 && (text.charCodeAt(index + 1) & 64512) === 56320) {
+			size += 4;
+			index++;
+		} else size += 3;
+	}
+	return size;
+}
+// node_modules/@anthropic-ai/sdk/lib/internal/tracing/response.mjs
+/**
+* Sets the attributes that come from a Message. The stop reason and the output usage are final
+* only from the `message_delta` of a streamed Message on, and are set only when `complete` is true.
+*/
+function setResponseAttributes(span, message, usage, complete) {
+	span.setAttribute(ATTR_GEN_AI_RESPONSE_ID, message.id);
+	span.setAttribute(ATTR_GEN_AI_RESPONSE_MODEL, message.model);
+	span.setAttribute(ATTR_GEN_AI_USAGE_INPUT_TOKENS, usage.input_tokens + (usage.cache_read_input_tokens ?? 0) + (usage.cache_creation_input_tokens ?? 0));
+	if (usage.cache_creation_input_tokens != null) span.setAttribute(ATTR_GEN_AI_USAGE_CACHE_WRITE_INPUT_TOKENS, usage.cache_creation_input_tokens);
+	if (usage.cache_read_input_tokens != null) span.setAttribute(ATTR_GEN_AI_USAGE_CACHE_READ_INPUT_TOKENS, usage.cache_read_input_tokens);
+	const written = usage.cache_creation;
+	if (written != null) {
+		span.setAttribute(ATTR_ANTHROPIC_USAGE_CACHE_CREATION_EPHEMERAL_5M_INPUT_TOKENS, written.ephemeral_5m_input_tokens);
+		span.setAttribute(ATTR_ANTHROPIC_USAGE_CACHE_CREATION_EPHEMERAL_1H_INPUT_TOKENS, written.ephemeral_1h_input_tokens);
+	}
+	if (usage.service_tier != null) span.setAttribute(ATTR_ANTHROPIC_RESPONSE_SERVICE_TIER, usage.service_tier);
+	if (!complete) return;
+	span.setAttribute(ATTR_GEN_AI_USAGE_OUTPUT_TOKENS, usage.output_tokens);
+	const details = usage.output_tokens_details;
+	if (details != null) span.setAttribute(ATTR_GEN_AI_USAGE_REASONING_OUTPUT_TOKENS, details.thinking_tokens);
+	const compactions = usage.iterations?.filter((each) => each.type === "compaction") ?? [];
+	if (compactions.length > 0) {
+		span.setAttribute(ATTR_ANTHROPIC_USAGE_COMPACTION_INPUT_TOKENS, compactions.reduce((sum, each) => sum + each.input_tokens + each.cache_read_input_tokens + each.cache_creation_input_tokens, 0));
+		span.setAttribute(ATTR_ANTHROPIC_USAGE_COMPACTION_OUTPUT_TOKENS, compactions.reduce((sum, each) => sum + each.output_tokens, 0));
+	}
+	if (message.stop_reason != null) span.setAttribute(ATTR_ANTHROPIC_MESSAGE_STOP_REASON, message.stop_reason);
+}
+// node_modules/@anthropic-ai/sdk/lib/internal/tracing/api-call.mjs
+/**
+* Sets the IDs in the response headers of `result` on `span`, the call span of any API call.
+* A failure to record, here and below, is logged and never fails the API call.
+*/
+function setAnthropicSpanAttributes(client, span, result) {
+	if (!span.isRecording()) return;
+	try {
+		const error = result.status === "error" ? result.error : void 0;
+		const headers = result.response?.headers ?? (error instanceof require_promise.APIError ? error.headers : void 0);
+		for (const [attribute, header] of RESPONSE_HEADER_ATTRIBUTES) {
+			const value = headers?.get(header);
+			if (value) span.setAttribute(attribute, value);
+		}
+	} catch (problem) {
+		require_promise.loggerFor(client).debug("could not record the API call on its span", problem);
+	}
+}
+/**
+* The attributes that a `messages.create` span starts with, from the request's `body` and
+* `headers`. A sampler sees only the attributes that a span starts with.
+*/
+function messagesCreateSpanSettings(client, body, headers) {
+	const attributes = {
+		[ATTR_GEN_AI_OPERATION_NAME]: GEN_AI_OPERATION_NAME_VALUE_CHAT,
+		[ATTR_GEN_AI_REQUEST_MODEL]: body.model
+	};
+	try {
+		const betas = (buildHeaders([client._options.defaultHeaders, headers]).values.get("anthropic-beta") ?? "").split(",").map((beta) => beta.trim()).filter(Boolean);
+		if (betas.length) attributes[ATTR_ANTHROPIC_BETA] = betas;
+		attributes[ATTR_GEN_AI_REQUEST_MAX_TOKENS] = body.max_tokens;
+		if (body.stream === true) attributes[ATTR_GEN_AI_REQUEST_STREAM] = true;
+		if (body.output_config?.format?.type === "json_schema") attributes[ATTR_GEN_AI_OUTPUT_TYPE] = GEN_AI_OUTPUT_TYPE_VALUE_JSON;
+		const effort = body.output_config?.effort;
+		if (effort != null) attributes[ATTR_GEN_AI_REQUEST_REASONING_LEVEL] = effort;
+		if (body.service_tier != null) attributes[ATTR_ANTHROPIC_REQUEST_SERVICE_TIER] = body.service_tier;
+		const thinking = body.thinking;
+		if (thinking != null) attributes[ATTR_ANTHROPIC_THINKING_TYPE] = thinking.type;
+		if (thinking?.type === "enabled") attributes[ATTR_ANTHROPIC_THINKING_BUDGET_TOKENS] = thinking.budget_tokens;
+	} catch (problem) {
+		require_promise.loggerFor(client).debug("could not record the request on its span", problem);
+	}
+	return {
+		route: "/v1/messages",
+		attributes
+	};
+}
+/**
+* In content mode, sets the request's content on `call`. The span does not start with it, because
+* the size limit counts it together with the response's content. Returns `call`.
+*/
+function recordMessagesCreateRequest(client, call, body) {
+	if (!call?.span.isRecording()) return call;
+	try {
+		const { contentMode, maxContentBytes } = client.openTelemetry.traces;
+		if (contentMode === "content") setMessageContentAttributes(call, body, void 0, maxContentBytes);
+	} catch (problem) {
+		require_promise.loggerFor(client).debug("could not record the request on its span", problem);
+	}
+	return call;
+}
+/**
+* Sets the response attributes and, in content mode, the response's content on `call`. A streamed
+* response is recorded as the application reads it (`endAnthropicApiCallSpanWhenStreamEnds`).
+*/
+function recordMessagesCreateResponse(client, call, body, data) {
+	if (!call?.span.isRecording() || data instanceof Stream) return;
+	const span = call.span;
+	try {
+		setResponseAttributes(span, data, data.usage, true);
+		const { contentMode, maxContentBytes } = client.openTelemetry.traces;
+		if (contentMode === "content") setMessageContentAttributes(call, body, data.content, maxContentBytes);
+	} catch (problem) {
+		require_promise.loggerFor(client).debug("could not record the response on its span", problem);
+	}
+}
+/** Sets the token count of a `messages.countTokens` response on `call`. */
+function recordCountTokensResponse(client, call, count) {
+	try {
+		call?.span.setAttribute(ATTR_ANTHROPIC_MESSAGE_COUNT_TOKENS_INPUT_TOKENS, count.input_tokens);
+	} catch (problem) {
+		require_promise.loggerFor(client).debug("could not record the response on its span", problem);
+	}
+}
+/** Sets the Agent's name and model on `call`, as the created `session` resolved them. */
+function recordSessionsCreateResponse(client, call, session) {
+	try {
+		call?.span.setAttributes({
+			[ATTR_GEN_AI_AGENT_NAME]: session.agent.name,
+			[ATTR_GEN_AI_REQUEST_MODEL]: session.agent.model.id
+		});
+	} catch (problem) {
+		require_promise.loggerFor(client).debug("could not record the response on its span", problem);
+	}
+}
+// node_modules/@anthropic-ai/sdk/internal/trace-headers.mjs
+/**
+* The names, in lower case, of the headers that carry a trace context: those of W3C Trace Context
+* and Baggage, and any other that the propagator the application registered writes. An HTTP
+* instrumentation may add to them or replace them after a request is signed, so a signature must not
+* cover them. A propagator that fails to list its fields adds none.
+*/
+function traceHeaderNames() {
+	const names = /* @__PURE__ */ new Set([
+		"traceparent",
+		"tracestate",
+		"baggage"
+	]);
+	try {
+		for (const name of propagation.fields()) names.add(name.toLowerCase());
+	} catch (problem) {
+		require_promise.defaultLogger().debug("could not record telemetry", problem);
+	}
+	return names;
+}
+// node_modules/@anthropic-ai/sdk/lib/internal/tracing/headers.mjs
+/**
+* Removes the trace-context headers ({@link traceHeaderNames}) from `headers` and returns them.
+*/
+function takeTraceHeaders(headers) {
+	const names = traceHeaderNames();
+	const taken = Array.from(headers.entries()).filter(([name]) => names.has(name));
+	for (const [name] of taken) headers.delete(name);
+	return taken;
+}
+/**
+* Returns a middleware that runs `middleware`, which may sign the request, without the trace-context
+* headers, and sets them again on what `middleware` passes on.
+*/
+function withoutTraceHeaders(middleware) {
+	return (request, next, ctx) => {
+		const headers = new Headers(request.headers);
+		const traceHeaders = takeTraceHeaders(headers);
+		return middleware({
+			...request,
+			headers
+		}, (inner) => {
+			const restored = new Headers(inner.headers);
+			for (const [name, value] of traceHeaders) restored.set(name, value);
+			return next({
+				...inner,
+				headers: restored
+			});
+		}, ctx);
+	};
+}
+// node_modules/@anthropic-ai/sdk/lib/internal/tracing/streaming.mjs
+/**
+* In content mode, records `message`, which a stream helper accumulated, as the response content
+* of `call`, under the same size limit as a response that is not streamed.
+*/
+function recordStreamedMessageContent(client, call, body, message) {
+	if (!call.span.isRecording() || client.openTelemetry.traces.contentMode !== "content") return;
+	try {
+		setMessageContentAttributes(call, body, message.content, client.openTelemetry.traces.maxContentBytes);
+	} catch (problem) {
+		require_promise.loggerFor(client).debug("could not record the streamed message on its span", problem);
+	}
+}
+/**
+* Ends `span` when the application's read of `stream` ends. Only the stream of `messages.create`
+* has events that the span records.
+*/
+function endAnthropicApiCallSpanWhenStreamEnds(client, span, stream, props) {
+	if (props.options.__span?.name === "anthropic.messages.create" && stream instanceof Stream) endMessagesCreateSpanWhenStreamEnds(client, span, stream, props);
+	else endApiCallSpanWhenStreamEnds(span, stream, props);
+}
+/**
+* Ends the span of a `messages.create` API call when the application's read of `stream` ends, with
+* the attributes of the Message that the events reconstruct, as far as it was read. The content is
+* that of a stream helper's Message: the helper records it at `message_stop`
+* (`recordStreamedMessageContent`), and a stream that ends earlier records it here.
+*/
+function endMessagesCreateSpanWhenStreamEnds(client, span, stream, props) {
+	if (!span.isRecording()) return;
+	span.setAttribute(ATTR_HTTP_RESPONSE_STATUS_CODE, props.response.status);
+	const call = props.options.__span;
+	const startTime = call?.startTime;
+	let message;
+	let usage;
+	let sawDelta = false;
+	let sawMessageDelta = false;
+	let sawStop = false;
+	observeStream(stream, props.controller.signal, {
+		onItem(event) {
+			try {
+				switch (event.type) {
+					case "message_start": {
+						const { id, model, stop_reason } = event.message;
+						message = {
+							id,
+							model,
+							stop_reason
+						};
+						usage = { ...event.message.usage };
+						break;
+					}
+					case "content_block_start":
+						if (message && event.content_block.type === "fallback") message.model = event.content_block.to.model;
+						break;
+					case "message_delta":
+						if (message && usage) {
+							usage.output_tokens = event.usage.output_tokens;
+							if (event.usage.input_tokens != null) usage.input_tokens = event.usage.input_tokens;
+							if (event.usage.cache_creation_input_tokens != null) usage.cache_creation_input_tokens = event.usage.cache_creation_input_tokens;
+							if (event.usage.cache_read_input_tokens != null) usage.cache_read_input_tokens = event.usage.cache_read_input_tokens;
+							if (event.usage.output_tokens_details != null) usage.output_tokens_details = event.usage.output_tokens_details;
+							if ("iterations" in event.usage && event.usage.iterations != null) usage.iterations = event.usage.iterations;
+							if (event.delta.stop_reason != null) message.stop_reason = event.delta.stop_reason;
+							sawMessageDelta = true;
+						}
+						break;
+					case "message_stop":
+						sawStop = true;
+						break;
+					case "content_block_delta":
+						if (!sawDelta && startTime !== void 0) span.setAttribute(ATTR_GEN_AI_RESPONSE_TIME_TO_FIRST_CHUNK, (Date.now() - startTime) / 1e3);
+						sawDelta = true;
+				}
+			} catch (problem) {
+				require_promise.loggerFor(client).debug("could not record the stream on its span", problem);
+			}
+		},
+		onEnd(end) {
+			try {
+				if (message && usage) setResponseAttributes(span, message, usage, sawMessageDelta || sawStop);
+			} catch (problem) {
+				require_promise.loggerFor(client).debug("could not record the stream on its span", problem);
+			}
+			const failure = call?.failure;
+			if (!sawStop && call?.streamed && failure === void 0) recordStreamedMessageContent(client, call, call.streamed.body, call.streamed.message);
+			if (end.reason === "failed") setErrorStatus(span, end.error);
+			else if (failure !== void 0) setErrorStatus(span, failure, "client_error");
+			else if (end.reason === "completed") {
+				if (sawStop) span.setStatus({ code: SpanStatusCode.OK });
+				else setErrorStatus(span, new require_promise.AnthropicError("The stream ended before message_stop."), "api_error");
+			}
+			guardTracing(client, () => span.end());
+		}
+	});
+}
+// node_modules/@anthropic-ai/sdk/lib/internal/tracing/environments.mjs
+/**
+* Starts the span of `work`, a Work item that the work poller just claimed, under `parentContext`:
+* the context of whoever asked the poller for the item.
+*/
+function startEnvironmentWorkSpan(client, work, parentContext) {
+	return client._tracer?.startSpan("anthropic.environment.work", {
+		kind: SpanKind.INTERNAL,
+		attributes: {
+			[ATTR_GEN_AI_PROVIDER_NAME]: client._genAIProviderName,
+			"anthropic.environment.id": work.environment_id,
+			"anthropic.environment.work.id": work.id,
+			"anthropic.session.id": work.data.id
+		}
+	}, parentContext);
+}
+/**
+* Ends the span of a Work item that is finished with as `OK`. The status stays unset when `signal`,
+* the work poller's, was aborted first: the item was then neither finished with nor failed.
+*/
+function endEnvironmentWorkSpan(span, signal) {
+	if (!span?.isRecording()) return;
+	if (!signal.aborted) span.setStatus({ code: SpanStatusCode.OK });
+	span.end();
+}
+/**
+* Ends the span of a Work item whose handling failed with `error`. The status stays unset when
+* `signal`, the work poller's, was aborted first, or `error` is such an abort.
+*/
+function failEnvironmentWorkSpan(span, signal, error) {
+	if (!span?.isRecording()) return;
+	if (!signal.aborted) setErrorStatus(span, error);
+	span.end();
+}
+/**
+* Runs `handle`, the environment worker's handling of a Work item, with the item's span current,
+* and ends the span with how that went.
+*/
+async function withEnvironmentWorkSpan(client, span, signal, handle) {
+	if (!span) return handle();
+	try {
+		await context.with(trace.setSpan(context.active(), span), handle);
+	} catch (error) {
+		guardTracing(client, () => failEnvironmentWorkSpan(span, signal, error));
+		throw error;
+	}
+	guardTracing(client, () => endEnvironmentWorkSpan(span, signal));
+}
+// node_modules/@anthropic-ai/sdk/internal/stainless-helper-header.mjs
+/**
+* Single source of truth for the `x-stainless-helper` telemetry header — the
+* key, the closed value vocabulary, and per-object helper tagging. The
+* append-don't-clobber merge for the header itself lives in
+* {@link import('../internal/headers').buildHeaders} via `APPEND_HEADERS`.
+*/
+/**
+* Telemetry header naming the SDK helper(s) a request came from. Always this
+* lowercase form; `buildHeaders` matches it case-insensitively for its append
+* semantics, but a single canonical casing keeps every call site greppable.
+*/
+const STAINLESS_HELPER_HEADER = "x-stainless-helper";
+/** Telemetry header naming the SDK method (e.g. `stream`) in use. */
+const STAINLESS_HELPER_METHOD_HEADER = "x-stainless-helper-method";
+/**
+* The `{ 'x-stainless-helper': value }` header dict, for passing into
+* `buildHeaders` (which comma-appends `x-stainless-helper` across sources)
+* or as `defaultHeaders`/per-request `headers`.
+*/
+function helperHeader(value) {
+	return { [STAINLESS_HELPER_HEADER]: value };
+}
+/**
+* Symbol used to mark objects created by SDK helpers for tracking.
+* The value is the helper name (e.g., 'mcpTool', 'betaZodTool').
+*/
+const SDK_HELPER_SYMBOL = Symbol("anthropic.sdk.stainlessHelper");
+function wasCreatedByStainlessHelper(value) {
+	return typeof value === "object" && value !== null && SDK_HELPER_SYMBOL in value;
+}
+/**
+* Collects helper names from tools and messages arrays, including tools that a
+* `tool_addition` block in a message defines by value.
+* Returns a deduplicated array of helper names found.
+*/
+function collectStainlessHelpers(tools, messages) {
+	const helpers = /* @__PURE__ */ new Set();
+	if (tools) {
+		for (const tool of tools) if (wasCreatedByStainlessHelper(tool)) helpers.add(tool[SDK_HELPER_SYMBOL]);
+	}
+	if (messages) for (const message of messages) {
+		if (wasCreatedByStainlessHelper(message)) helpers.add(message[SDK_HELPER_SYMBOL]);
+		const content = message.content;
+		if (Array.isArray(content)) for (const block of content) {
+			if (wasCreatedByStainlessHelper(block)) helpers.add(block[SDK_HELPER_SYMBOL]);
+			const definition = block?.tool?.definition;
+			if (wasCreatedByStainlessHelper(definition)) helpers.add(definition[SDK_HELPER_SYMBOL]);
+		}
+	}
+	return Array.from(helpers);
+}
+/**
+* Builds x-stainless-helper header value from tools and messages.
+* Returns an empty object if no helpers are found.
+*/
+function stainlessHelperHeader(tools, messages) {
+	const helpers = collectStainlessHelpers(tools, messages);
+	if (helpers.length === 0) return {};
+	return { [STAINLESS_HELPER_HEADER]: helpers.join(", ") };
+}
+/**
+* Builds x-stainless-helper header value from a file object.
+* Returns an empty object if the file is not marked with a helper.
+*/
+function stainlessHelperHeaderFromFile(file) {
+	if (wasCreatedByStainlessHelper(file)) return { [STAINLESS_HELPER_HEADER]: file[SDK_HELPER_SYMBOL] };
+	return {};
+}
+// node_modules/@anthropic-ai/sdk/lib/internal/tracing/tools.mjs
+/**
+* Starts the `anthropic.messages.tool_runner` span of one loop of the Messages tool runner, as a
+* child of the current span. The runner sets its status and ends it.
+*/
+function startToolRunnerSpan(client, params, conversationId) {
+	if (!client._tracer) return void 0;
+	const hasJSONOutput = params.output_config?.format?.type === "json_schema" || params.output_format?.type === "json_schema";
+	return client._tracer.startSpan("anthropic.messages.tool_runner", {
+		kind: SpanKind.INTERNAL,
+		attributes: {
+			[ATTR_GEN_AI_OPERATION_NAME]: GEN_AI_OPERATION_NAME_VALUE_INVOKE_AGENT,
+			[ATTR_GEN_AI_PROVIDER_NAME]: client._genAIProviderName,
+			[ATTR_GEN_AI_REQUEST_MODEL]: params.model,
+			...hasJSONOutput ? { [ATTR_GEN_AI_OUTPUT_TYPE]: GEN_AI_OUTPUT_TYPE_VALUE_JSON } : void 0,
+			...conversationId != null ? { [ATTR_GEN_AI_CONVERSATION_ID]: conversationId } : void 0
+		}
+	});
+}
+/**
+* Runs `run`, one client tool run of a tool runner, with the run's span current, and returns its
+* result. An error result fails the span with `tool_error`, unless the application has aborted
+* `signal`: a canceled run gets no status and no result.
+*/
+async function withToolUseSpan(client, tool, toolUse, options, run) {
+	const tracer = client._tracer;
+	if (!tracer) return run();
+	const { signal, conversationId, sessionID, parentContext = context.active() } = options;
+	const description = "description" in tool ? tool.description : void 0;
+	const attributes = {
+		[ATTR_GEN_AI_OPERATION_NAME]: GEN_AI_OPERATION_NAME_VALUE_EXECUTE_TOOL,
+		[ATTR_GEN_AI_PROVIDER_NAME]: client._genAIProviderName,
+		[ATTR_GEN_AI_TOOL_NAME]: toolUse.name,
+		..."toolset_name" in toolUse && typeof toolUse.toolset_name === "string" ? { [ATTR_ANTHROPIC_TOOLSET_NAME]: toolUse.toolset_name } : void 0,
+		...description ? { [ATTR_GEN_AI_TOOL_DESCRIPTION]: description } : void 0,
+		[ATTR_GEN_AI_TOOL_CALL_ID]: toolUse.id,
+		[ATTR_GEN_AI_TOOL_TYPE]: GEN_AI_TOOL_TYPE_VALUE_FUNCTION,
+		...conversationId != null ? { [ATTR_GEN_AI_CONVERSATION_ID]: conversationId } : void 0,
+		...sessionID != null ? { "anthropic.session.id": sessionID } : void 0,
+		..."session_thread_id" in toolUse && toolUse.session_thread_id != null ? { "anthropic.session.thread.id": toolUse.session_thread_id } : void 0
+	};
+	const operation = toolUse.type === "agent.tool_use" ? "anthropic.tool_use" : wasCreatedByStainlessHelper(tool) && tool[SDK_HELPER_SYMBOL] === "mcpTool" ? "anthropic.mcp_tool_use" : "anthropic.custom_tool_use";
+	const span = guardTracing(client, () => tracer.startSpan(`${operation} ${toolUse.name}`, {
+		kind: SpanKind.INTERNAL,
+		attributes
+	}, parentContext));
+	if (!span) return run();
+	let result;
+	try {
+		result = await context.with(trace.setSpan(parentContext, span), run);
+		return result;
+	} finally {
+		const succeeded = result !== void 0 && !result.isError;
+		const canceled = !succeeded && signal?.aborted === true;
+		const { contentMode, maxContentBytes } = client.openTelemetry.traces;
+		if (contentMode === "content" && span.isRecording()) try {
+			setContentAttributes(span, {
+				[ATTR_GEN_AI_TOOL_CALL_ARGUMENTS]: toolUse.input,
+				[ATTR_ANTHROPIC_TOOL_RESULT_CONTENT]: result && !canceled ? toolResultContentBlocks(result.content) : void 0
+			}, maxContentBytes);
+		} catch (problem) {
+			require_promise.loggerFor(client).debug("could not record the tool run on its span", problem);
+		}
+		guardTracing(client, () => {
+			if (succeeded) span.setStatus({ code: SpanStatusCode.OK });
+			else if (!canceled) setErrorStatus(span, result, "tool_error");
+			span.end();
+		});
+	}
+}
+// node_modules/@anthropic-ai/sdk/internal/utils/base64.mjs
+const fromBase64 = (str) => {
+	if (typeof globalThis.Buffer !== "undefined") {
+		const buf = globalThis.Buffer.from(str, "base64");
+		return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength);
+	}
+	if (typeof atob !== "undefined") {
+		const bstr = atob(str);
+		const buf = new Uint8Array(bstr.length);
+		for (let i = 0; i < bstr.length; i++) buf[i] = bstr.charCodeAt(i);
+		return buf;
+	}
+	throw new require_promise.AnthropicError("Cannot decode base64 string; Expected `Buffer` or `atob` to be defined");
+};
+// node_modules/@anthropic-ai/sdk/internal/utils/uuid.mjs
+/**
+* https://stackoverflow.com/a/2117523
+*/
+let uuid4 = function() {
+	const { crypto } = globalThis;
+	if (crypto?.randomUUID) {
+		uuid4 = crypto.randomUUID.bind(crypto);
+		return crypto.randomUUID();
+	}
+	const u8 = /* @__PURE__ */ new Uint8Array(1);
+	const randomByte = crypto ? () => crypto.getRandomValues(u8)[0] : () => Math.random() * 255 & 255;
+	return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) => (+c ^ randomByte() & 15 >> +c / 4).toString(16));
+};
+// node_modules/@anthropic-ai/sdk/core/credentials.mjs
+const PROFILE_NAME_PATTERN = /^[A-Za-z0-9_.-]+$/;
+function validateProfileName(name) {
+	if (!name) throw new Error("profile name is empty");
+	if (name === "." || name === "..") throw new Error(`profile name "${name}" is not allowed`);
+	if (name.includes("/") || name.includes("\\")) throw new Error(`profile name "${name}" must not contain path separators`);
+	if (!PROFILE_NAME_PATTERN.test(name)) throw new Error(`profile name "${name}" contains disallowed characters (allowed: letters, digits, '_', '.', '-')`);
+}
+/**
+* Same as {@link loadConfig}, but also reports whether the config was loaded
+* from a profile file on disk (`fromFile: true`) or synthesized entirely from
+* environment variables (`fromFile: false`).
+*/
+const loadConfigWithSource = async (profile) => {
+	var _a, _b;
+	const rootConfigPath = await getRootConfigPath();
+	if (rootConfigPath === null) return null;
+	const namedInEnv = profile == null && require_promise.readEnv("ANTHROPIC_PROFILE") != null;
+	let fromEnv = null;
+	if (profile == null && !namedInEnv) {
+		const organizationId = require_promise.readEnv("ANTHROPIC_ORGANIZATION_ID");
+		const identityTokenFile = require_promise.readEnv("ANTHROPIC_IDENTITY_TOKEN_FILE");
+		const federationRuleId = require_promise.readEnv("ANTHROPIC_FEDERATION_RULE_ID");
+		if (federationRuleId && organizationId) {
+			fromEnv = {
+				fromFile: false,
+				config: {
+					organization_id: organizationId,
+					workspace_id: require_promise.readEnv("ANTHROPIC_WORKSPACE_ID"),
+					base_url: require_promise.readEnv("ANTHROPIC_BASE_URL"),
+					authentication: {
+						type: "oidc_federation",
+						federation_rule_id: federationRuleId,
+						service_account_id: require_promise.readEnv("ANTHROPIC_SERVICE_ACCOUNT_ID"),
+						identity_token: identityTokenFile ? {
+							source: "file",
+							path: identityTokenFile
+						} : void 0,
+						scope: require_promise.readEnv("ANTHROPIC_SCOPE")
+					}
+				}
+			};
+			if (identityTokenFile || require_promise.readEnv("ANTHROPIC_IDENTITY_TOKEN")) return fromEnv;
+		}
+	}
+	const profileName = profile ?? await getActiveProfileName();
+	if (profileName === null) return null;
+	validateProfileName(profileName);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	const configPath = path.join(rootConfigPath, "configs", `${profileName}.json`);
+	let configRaw;
+	try {
+		configRaw = await fs.promises.readFile(configPath, "utf-8");
+	} catch (err) {
+		if (err?.code !== "ENOENT") throw new Error(`failed to read config file ${configPath}: ${err}`);
+		if (namedInEnv) throw new require_promise.AnthropicError(`ANTHROPIC_PROFILE names the profile "${profileName}", but ${configPath} does not exist. Set ANTHROPIC_PROFILE to a profile that exists, or unset it.`, { cause: err });
+		return fromEnv;
+	}
+	let config;
+	try {
+		config = JSON.parse(configRaw);
+	} catch (err) {
+		throw new Error(`failed to parse config file ${configPath}: ${err}`);
+	}
+	if (!config.authentication) throw new Error(`config file ${configPath} is missing "authentication"`);
+	const authType = config.authentication.type;
+	if (authType !== "oidc_federation" && authType !== "user_oauth") throw new Error(`authentication.type "${authType}" is not a known authentication type`);
+	config.organization_id ?? (config.organization_id = require_promise.readEnv("ANTHROPIC_ORGANIZATION_ID"));
+	config.workspace_id ?? (config.workspace_id = require_promise.readEnv("ANTHROPIC_WORKSPACE_ID"));
+	config.base_url ?? (config.base_url = require_promise.readEnv("ANTHROPIC_BASE_URL"));
+	(_a = config.authentication).scope ?? (_a.scope = require_promise.readEnv("ANTHROPIC_SCOPE"));
+	if (config.authentication.type === "oidc_federation") {
+		if (!config.authentication.identity_token) {
+			const identityTokenFile = require_promise.readEnv("ANTHROPIC_IDENTITY_TOKEN_FILE");
+			if (identityTokenFile) config.authentication.identity_token = {
+				source: "file",
+				path: identityTokenFile
+			};
+		}
+		if (!config.authentication.federation_rule_id) config.authentication.federation_rule_id = require_promise.readEnv("ANTHROPIC_FEDERATION_RULE_ID") ?? "";
+		(_b = config.authentication).service_account_id ?? (_b.service_account_id = require_promise.readEnv("ANTHROPIC_SERVICE_ACCOUNT_ID"));
+	}
+	return {
+		config,
+		fromFile: true
+	};
+};
+/**
+* Resolves the credentials file path for the given config.
+*
+* Uses `authentication.credentials_path` from the config if set, otherwise
+* falls back to `<config_dir>/credentials/<profile>.json`.
+*
+* Returns `null` when running in a browser or the path cannot be resolved.
+*/
+const getCredentialsPath = async (config, profile) => {
+	if (config?.authentication.credentials_path) return config.authentication.credentials_path;
+	const rootConfigPath = await getRootConfigPath();
+	if (!rootConfigPath) return null;
+	const profileName = profile ?? await getActiveProfileName();
+	if (!profileName) return null;
+	validateProfileName(profileName);
+	const { path } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	return path.join(rootConfigPath, "credentials", `${profileName}.json`);
+};
+const getRootConfigPath = async () => {
+	if (!supportsLocalConfigFiles()) return null;
+	const { path } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	const configDir = require_promise.readEnv("ANTHROPIC_CONFIG_DIR");
+	if (configDir) return configDir;
+	if (getPlatformHeaders()["X-Stainless-OS"] === "Windows") {
+		const appData = require_promise.readEnv("APPDATA");
+		if (appData) return path.join(appData, "Anthropic");
+		const userProfile = require_promise.readEnv("USERPROFILE");
+		if (userProfile) return path.join(userProfile, "AppData", "Roaming", "Anthropic");
+		return null;
+	}
+	const xdgConfigHome = require_promise.readEnv("XDG_CONFIG_HOME");
+	if (xdgConfigHome) return path.join(xdgConfigHome, "anthropic");
+	const home = require_promise.readEnv("HOME");
+	if (home) return path.join(home, ".config", "anthropic");
+	return null;
+};
+const supportsLocalConfigFiles = () => {
+	const runtime = getPlatformHeaders()["X-Stainless-Runtime"];
+	return runtime === "node" || runtime === "deno";
+};
+const getActiveProfileName = async () => {
+	const rootConfigPath = await getRootConfigPath();
+	if (!rootConfigPath) return null;
+	const profileName = require_promise.readEnv("ANTHROPIC_PROFILE");
+	if (profileName) return profileName;
+	const { fs, path } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	const filePath = path.join(rootConfigPath, "active_config");
+	try {
+		return (await fs.promises.readFile(filePath, "utf-8")).trim() || "default";
+	} catch (err) {
+		if (err?.code !== "ENOENT") throw new Error(`failed to read ${filePath}: ${err}`);
+		return "default";
+	}
+};
+// node_modules/@anthropic-ai/sdk/lib/credentials/identity-token.mjs
+/**
+* Reads a JWT from a file on every call. Supports automatic rotation
+* (e.g. Kubernetes projected service-account tokens).
+*/
+function identityTokenFromFile(path) {
+	if (!path) throw new require_promise.AnthropicError("Identity token file path is empty");
+	return async () => {
+		const { fs } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+		let content;
+		try {
+			content = await fs.promises.readFile(path, "utf-8");
+		} catch (err) {
+			throw new require_promise.AnthropicError(`Failed to read identity token file at ${path}: ${err}`);
+		}
+		const token = content.trim();
+		if (!token) throw new require_promise.AnthropicError(`Identity token file at ${path} is empty`);
+		return token;
+	};
+}
+/**
+* Wraps a static JWT string as an {@link IdentityTokenProvider}.
+*/
+function identityTokenFromValue(token) {
+	if (!token) throw new require_promise.AnthropicError("Identity token value is empty");
+	return () => token;
+}
+// node_modules/@anthropic-ai/sdk/lib/credentials/oidc-federation.mjs
+/**
+* Exchanges an external OIDC JWT for an Anthropic access token via the
+* RFC 7523 jwt-bearer grant.
+*
+* Each invocation performs a fresh token exchange. Wrap in a
+* {@link TokenCache} to avoid exchanging on every request.
+*
+* Federation grants do not return a refresh token — callers re-exchange
+* their assertion on expiry.
+*/
+function oidcFederationProvider(config) {
+	return async () => {
+		requireSecureTokenEndpoint(config.baseURL);
+		const jwt = await config.identityTokenProvider();
+		if (jwt.length > 16384) throw new WorkloadIdentityError(`Identity token is ${Math.ceil(jwt.length / 1024)} KiB, exceeds the 16 KiB assertion limit`);
+		const body = {
+			grant_type: GRANT_TYPE_JWT_BEARER,
+			assertion: jwt,
+			federation_rule_id: config.federationRuleId,
+			organization_id: config.organizationId
+		};
+		if (config.serviceAccountId) body["service_account_id"] = config.serviceAccountId;
+		if (config.workspaceId) body["workspace_id"] = config.workspaceId;
+		const url = `${config.baseURL}${TOKEN_ENDPOINT}`;
+		let resp;
+		try {
+			resp = await config.fetch(url, {
+				method: "POST",
+				redirect: "manual",
+				headers: {
+					"Content-Type": "application/json",
+					"anthropic-beta": `${OAUTH_API_BETA_HEADER},${FEDERATION_BETA_HEADER}`,
+					"User-Agent": config.userAgent || `anthropic-sdk-typescript/1.3.0 oidcFederationProvider`
+				},
+				body: JSON.stringify(body)
+			});
+		} catch (err) {
+			throw new WorkloadIdentityError(`Failed to reach token endpoint ${url}: ${err}`);
+		}
+		const requestId = resp.headers.get("Request-Id");
+		if (!resp.ok) {
+			const redacted = redactSensitive(await resp.text().catch(() => ""));
+			let hint = "";
+			if (resp.status === 401) hint = ` Ensure your federation rule matches your identity token. ${config.workspaceId ? "" : "If your federation rule is scoped to multiple workspaces, set the ANTHROPIC_WORKSPACE_ID environment variable, the 'workspace_id' config key, or the `workspaceId` option. "}View your authentication events in the Workload identity page of Claude Console for more details.`;
+			throw new WorkloadIdentityError(`Token exchange failed with status ${resp.status}${requestId ? ` (request-id ${requestId})` : ""}: ${redacted}${hint}`, resp.status, redacted, requestId);
+		}
+		const data = await parseTokenResponse(resp, requestId);
+		const expiresIn = Number(data.expires_in);
+		if (!Number.isFinite(expiresIn)) throw new WorkloadIdentityError(`Token endpoint response missing required fields: ${JSON.stringify(redactSensitive(data))}`, resp.status, redactSensitive(data), requestId);
+		return {
+			token: data.access_token,
+			expiresAt: nowAsSeconds() + expiresIn
+		};
+	};
+}
+// node_modules/@anthropic-ai/sdk/lib/credentials/user-oauth.mjs
+/**
+* Reads a user-oauth credential file. Returns the cached access token while
+* fresh; on expiry performs a `refresh_token` grant and writes the new
+* tokens back to the credentials file (atomic replace, fsync'd).
+*
+* If `clientId` is empty, the access token is treated as static — the
+* credentials file is read on every call but no refresh is attempted, and
+* an expired token without a `refresh_token` raises.
+*/
+function userOAuthProvider(config) {
+	return async (opts) => {
+		const { fs } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+		await checkCredentialsFileSafety(config.credentialsPath, config.onSafetyWarning);
+		let raw;
+		try {
+			raw = await fs.promises.readFile(config.credentialsPath, "utf-8");
+		} catch (err) {
+			throw new WorkloadIdentityError(`Credentials file not found at ${config.credentialsPath}: ${err}`);
+		}
+		let creds;
+		try {
+			creds = JSON.parse(raw);
+		} catch (err) {
+			throw new WorkloadIdentityError(`Credentials file at ${config.credentialsPath} is not valid JSON: ${err}`);
+		}
+		const accessToken = creds.access_token;
+		if (!accessToken) throw new WorkloadIdentityError(`Credentials file at ${config.credentialsPath} must include 'access_token'`);
+		const expiresAt = creds.expires_at;
+		if (!opts?.forceRefresh && (expiresAt == null || nowAsSeconds() < expiresAt - 30)) return {
+			token: accessToken,
+			expiresAt: expiresAt ?? null
+		};
+		const refreshToken = creds.refresh_token;
+		if (!config.clientId || !refreshToken) throw new WorkloadIdentityError(`Access token at ${config.credentialsPath} has expired and no refresh is available (client_id ${config.clientId ? "set" : "empty"}, refresh_token ${refreshToken ? "set" : "empty"})`);
+		requireSecureTokenEndpoint(config.baseURL);
+		const body = {
+			grant_type: GRANT_TYPE_REFRESH_TOKEN,
+			refresh_token: refreshToken,
+			client_id: config.clientId
+		};
+		const url = `${config.baseURL}${TOKEN_ENDPOINT}`;
+		let resp;
+		try {
+			resp = await config.fetch(url, {
+				method: "POST",
+				redirect: "manual",
+				headers: {
+					"Content-Type": "application/json",
+					"anthropic-beta": OAUTH_API_BETA_HEADER,
+					"User-Agent": config.userAgent || `anthropic-sdk-typescript/1.3.0 userOAuthProvider`
+				},
+				body: JSON.stringify(body)
+			});
+		} catch (err) {
+			throw new WorkloadIdentityError(`User OAuth refresh failed to reach token endpoint: ${err}`);
+		}
+		const requestId = resp.headers.get("Request-Id");
+		if (!resp.ok) {
+			const text = await resp.text().catch(() => "");
+			throw new WorkloadIdentityError(`User OAuth refresh failed (HTTP ${resp.status}): ${redactSensitive(text)}`, resp.status, redactSensitive(text), requestId);
+		}
+		const data = await parseTokenResponse(resp, requestId);
+		const expiresIn = Number(data.expires_in);
+		if (!Number.isFinite(expiresIn)) throw new WorkloadIdentityError(`User OAuth refresh response missing or invalid expires_in: ${JSON.stringify(redactSensitive(data))}`, resp.status, redactSensitive(data), requestId);
+		const newExpiresAt = nowAsSeconds() + expiresIn;
+		const newRefreshToken = data.refresh_token || refreshToken;
+		await writeCredentialsFileAtomic(config.credentialsPath, {
+			...creds,
+			version: "1.0",
+			type: "oauth_token",
+			access_token: data.access_token,
+			expires_at: newExpiresAt,
+			refresh_token: newRefreshToken
+		});
+		return {
+			token: data.access_token,
+			expiresAt: newExpiresAt
+		};
+	};
+}
+// node_modules/@anthropic-ai/sdk/lib/credentials/credential-chain.mjs
+function resolveCredentialsFromConfig(config, options) {
+	const provider = buildProvider(config, config.authentication.credentials_path ?? null, (config.base_url || options.baseURL).replace(/\/+$/, ""), options);
+	const extraHeaders = {};
+	if (config.workspace_id && config.authentication.type === "user_oauth") extraHeaders["anthropic-workspace-id"] = config.workspace_id;
+	return {
+		provider,
+		extraHeaders,
+		baseURL: config.base_url || void 0
+	};
+}
+/**
+* Resolves a {@link CredentialResult} from the environment. Returns `null`
+* when no credentials can be resolved.
+*
+* Resolution order:
+*
+*   1. Config file for the profile `ANTHROPIC_PROFILE` names
+*      → dispatch on `authentication.type` (`oidc_federation`, `user_oauth`).
+*      A missing file throws
+*   2. Environment variables `ANTHROPIC_FEDERATION_RULE_ID` +
+*      `ANTHROPIC_ORGANIZATION_ID` (+ identity token) → OIDC federation
+*   3. Config file for the active profile (the one `active_config` names,
+*      otherwise `default`) → dispatch on `authentication.type`
+*   4. Nothing matches → `null`
+*
+* Passing `profile` selects `<config_dir>/configs/<profile>.json` directly,
+* skipping steps 1 to 3.
+*/
+async function defaultCredentials(options, profile) {
+	const loaded = await loadConfigWithSource(profile);
+	if (!loaded) return null;
+	const { config, fromFile } = loaded;
+	return resolveCredentialsFromConfig(config.authentication.credentials_path || !fromFile ? config : {
+		...config,
+		authentication: {
+			...config.authentication,
+			credentials_path: await getCredentialsPath(config, profile) ?? void 0
+		}
+	}, options);
+}
+function buildProvider(config, credentialsPath, baseURL, options) {
+	switch (config.authentication.type) {
+		case "oidc_federation": {
+			const auth = config.authentication;
+			const identityProvider = resolveIdentityTokenProvider(auth);
+			if (!identityProvider) throw new WorkloadIdentityError("oidc_federation config requires an identity token (set authentication.identity_token, ANTHROPIC_IDENTITY_TOKEN_FILE, or ANTHROPIC_IDENTITY_TOKEN)");
+			if (!auth.federation_rule_id) throw new WorkloadIdentityError("oidc_federation config requires 'federation_rule_id'. Set it in authentication.federation_rule_id in your profile, or via ANTHROPIC_FEDERATION_RULE_ID (profile takes precedence).");
+			if (!config.organization_id) throw new WorkloadIdentityError("oidc_federation config requires organization_id (set ANTHROPIC_ORGANIZATION_ID or config.organization_id)");
+			const exchange = oidcFederationProvider({
+				identityTokenProvider: identityProvider,
+				federationRuleId: auth.federation_rule_id,
+				organizationId: config.organization_id,
+				serviceAccountId: auth.service_account_id,
+				workspaceId: config.workspace_id,
+				baseURL,
+				fetch: options.fetch,
+				userAgent: options.userAgent
+			});
+			if (credentialsPath) return cachedExchangeProvider(exchange, credentialsPath, options.onCacheWriteError, options.onSafetyWarning);
+			return exchange;
+		}
+		case "user_oauth":
+			if (!credentialsPath) throw new WorkloadIdentityError("user_oauth config requires authentication.credentials_path (or load via a profile so it defaults to <config_dir>/credentials/<profile>.json)");
+			return userOAuthProvider({
+				credentialsPath,
+				clientId: config.authentication.client_id,
+				baseURL,
+				fetch: options.fetch,
+				userAgent: options.userAgent,
+				onSafetyWarning: options.onSafetyWarning
+			});
+		default: {
+			const t = config.authentication.type;
+			throw new WorkloadIdentityError(`authentication.type "${t}" is not a known authentication type`);
+		}
+	}
+}
+/**
+* Resolves the identity token provider from config fields or environment variables.
+*
+* Resolution order:
+*   1. `identity_token.path` from the config (source: "file")
+*   2. `ANTHROPIC_IDENTITY_TOKEN_FILE` env var
+*   3. `ANTHROPIC_IDENTITY_TOKEN` env var (static value)
+*/
+function resolveIdentityTokenProvider(auth) {
+	if (auth.identity_token) {
+		const source = auth.identity_token.source;
+		if (source !== "file") throw new WorkloadIdentityError(`identity_token.source "${source}" is not supported by this SDK version (only "file")`);
+		if (!auth.identity_token.path) throw new WorkloadIdentityError(`identity_token.source "file" requires a non-empty path`);
+		return identityTokenFromFile(auth.identity_token.path);
+	}
+	const tokenFile = require_promise.readEnv("ANTHROPIC_IDENTITY_TOKEN_FILE");
+	if (tokenFile) return identityTokenFromFile(tokenFile);
+	const tokenValue = require_promise.readEnv("ANTHROPIC_IDENTITY_TOKEN");
+	if (tokenValue) return identityTokenFromValue(tokenValue);
+	return null;
+}
+/**
+* Wraps a federation exchange provider with credential file caching.
+* Checks the file for a fresh token before exchanging, and writes the
+* result back after a successful exchange (best-effort, atomic replace).
+*
+* Note: this is not cross-process serialized — two SDK instances that
+* miss the cache simultaneously will both perform a full exchange and
+* the last writer wins. That is acceptable: federation exchanges are
+* idempotent and the cache is an optimization, not a correctness gate.
+*/
+function cachedExchangeProvider(exchange, credentialsPath, onCacheWriteError, onSafetyWarning) {
+	return async (opts) => {
+		const { fs } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+		await checkCredentialsFileSafety(credentialsPath, onSafetyWarning);
+		let existing;
+		try {
+			const raw = await fs.promises.readFile(credentialsPath, "utf-8");
+			existing = JSON.parse(raw);
+			const token = existing?.["access_token"];
+			if (token && !opts?.forceRefresh) {
+				const expiresAt = existing?.["expires_at"];
+				if (expiresAt == null || nowAsSeconds() < expiresAt - 30) return {
+					token,
+					expiresAt: expiresAt ?? null
+				};
+			}
+		} catch (err) {
+			if (err?.code !== "ENOENT" && !(err instanceof SyntaxError)) onCacheWriteError?.(err);
+		}
+		const result = await exchange(opts);
+		try {
+			await writeCredentialsFileAtomic(credentialsPath, {
+				...existing ?? {},
+				version: "1.0",
+				type: "oauth_token",
+				access_token: result.token,
+				expires_at: result.expiresAt
+			});
+		} catch (err) {
+			onCacheWriteError?.(err);
+		}
+		return result;
+	};
+}
+// node_modules/@anthropic-ai/sdk/internal/parse.mjs
+async function defaultParseResponse(client, props) {
+	const { response, requestLogID, retryOfRequestLogID, startTime } = props;
+	const body = await (async () => {
+		if (props.options.stream) {
+			require_promise.loggerFor(client).debug("response", response.status, response.url, response.headers, response.body);
+			return Stream.fromSSEResponse(response, props.controller, client);
+		}
+		if (response.status === 204) return null;
+		if (props.options.__binaryResponse) return response;
+		const mediaType = response.headers.get("content-type")?.split(";")[0]?.trim();
+		if (mediaType?.includes("application/json") || mediaType?.endsWith("+json")) {
+			if (response.headers.get("content-length") === "0") return;
+			return addResponseIDs(await response.json(), response);
+		}
+		return await response.text();
+	})().finally(() => {
+		if (!props.options.stream && !props.options.__binaryResponse) releaseRequestSignal(props.controller);
+	});
+	require_promise.debugLogRequestDetails(require_promise.loggerFor(client), `[${requestLogID}] response parsed`, {
+		retryOfRequestLogID,
+		url: response.url,
+		status: response.status,
+		body,
+		durationMs: Date.now() - startTime
+	});
+	return body;
+}
+function addResponseIDs(value, response) {
+	if (!value || typeof value !== "object" || Array.isArray(value)) return value;
+	return Object.defineProperties(value, {
+		_request_id: {
+			value: response.headers.get("request-id"),
+			enumerable: false
+		},
+		_workspace_id: {
+			value: response.headers.get("anthropic-workspace-id"),
+			enumerable: false
+		}
+	});
+}
+// node_modules/@anthropic-ai/sdk/core/middleware.mjs
+/**
+* Errors thrown by the underlying `fetch`, as opposed to by a middleware.
+*
+* Tracked so the client can apply its connection-error retry policy to
+* transport failures while letting errors thrown by middleware propagate to
+* the caller untouched.
+*/
+const fetchOriginErrors = /* @__PURE__ */ new WeakSet();
+/** Whether `err` was thrown by the underlying `fetch` rather than by a middleware. */
+function isFetchOriginError(err) {
+	return typeof err === "object" && err !== null && fetchOriginErrors.has(err);
+}
+/**
+* Whether an error thrown by middleware should stay on the SDK's
+* connection-error retry policy: fetch-origin, abort, `APIConnectionError`, or
+* `RetryableError` — checked through the error's `cause` chain.
+*/
+function isRetryableError(err) {
+	const seen = /* @__PURE__ */ new Set();
+	while (typeof err === "object" && err !== null && !seen.has(err)) {
+		seen.add(err);
+		if (isFetchOriginError(err) || require_promise.isAbortError(err) || err instanceof require_promise.APIConnectionError || err instanceof require_promise.RetryableError) return true;
+		err = err.cause;
+	}
+	return false;
+}
+/**
+* Wraps `fetchFn` so each call runs through `middleware`, keeping the same
+* call signature as `fetch` itself.
+*
+* With no middleware, calls are passed straight through to `fetchFn`.
+* Otherwise the arguments are normalized into an {@link APIRequest} (headers
+* coerced to a `Headers` instance, URL stringified) before entering the
+* chain. The chain is composed per call, so mutations of a `middleware`
+* array are picked up by later requests.
+*
+* `options` — the SDK request options behind this call, when there are any —
+* is surfaced to middleware as `ctx.options` and drives `ctx.parse`.
+*
+* `client` supplies `ctx.logger` (the client's level-filtered logger);
+* without it, `ctx.logger` falls back to the client defaults: `console`,
+* filtered to `ANTHROPIC_LOG` or `'warn'`.
+*/
+function wrapFetchWithMiddleware(fetchFn, middleware, options, client) {
+	return async (url, init = {}) => {
+		if (middleware.length === 0) return fetchFn.call(void 0, url, init);
+		const headers = init.headers instanceof Headers ? init.headers : new Headers(init.headers);
+		const response = await applyMiddleware(fetchFn, middleware, options, client)({
+			...init,
+			headers,
+			url: typeof url === "string" ? url : url instanceof URL ? url.href : url.url
+		});
+		if (response.bodyUsed || response.body?.locked) throw new require_promise.AnthropicError("middleware consumed the response body; use response.clone() to inspect it, or return new Response(body, response) to consume and replace it");
+		return response;
+	};
+}
+/**
+* Creates the {@link MiddlewareContext} shared by every middleware in one chain.
+*/
+function createMiddlewareContext(options, client) {
+	const cache = /* @__PURE__ */ new WeakMap();
+	return {
+		options,
+		logger: client ? require_promise.loggerFor(client) : require_promise.defaultLogger(),
+		parse(response) {
+			if (options?.stream && response.ok) return parseMiddlewareResponse(response, options, client);
+			let parsed = cache.get(response);
+			if (!parsed) {
+				parsed = parseMiddlewareResponse(response, options, client);
+				cache.set(response, parsed);
+			}
+			return parsed;
+		}
+	};
+}
+/**
+* Mirrors the client's own response parsing (`defaultParseResponse` in
+* `internal/parse.ts`), reading through a clone so the body stays available
+* to the rest of the chain and the client itself.
+*/
+async function parseMiddlewareResponse(response, options, client) {
+	if (response.bodyUsed || response.body?.locked) throw new require_promise.AnthropicError("cannot ctx.parse() a response whose body was already consumed; call ctx.parse() instead of reading the body, or read via response.clone()");
+	if (options?.stream && response.ok) return Stream.fromSSEResponse(response.clone(), new AbortController(), client);
+	if (response.status === 204) return null;
+	if (options?.__binaryResponse) return response;
+	const mediaType = response.headers.get("content-type")?.split(";")[0]?.trim();
+	if (mediaType?.includes("application/json") || mediaType?.endsWith("+json")) {
+		if (response.headers.get("content-length") === "0") return;
+		return addResponseIDs(await response.clone().json(), response);
+	}
+	return await response.clone().text();
+}
+/**
+* Composes `middleware` around `fetchFn` and returns the entry point of the chain.
+*/
+function applyMiddleware(fetchFn, middleware, options, client) {
+	let next = async ({ url, ...init }) => {
+		try {
+			return await fetchFn.call(void 0, url, init);
+		} catch (err) {
+			const error = require_promise.castToError(err);
+			fetchOriginErrors.add(error);
+			throw error;
+		}
+	};
+	const ctx = createMiddlewareContext(options, client);
+	for (let i = middleware.length - 1; i >= 0; i--) {
+		const mw = middleware[i];
+		const nextInner = next;
+		next = async (request) => mw(request, nextInner, ctx);
+	}
+	return next;
+}
+// node_modules/@anthropic-ai/sdk/internal/uploads.mjs
+const checkFileSupport = () => {
+	if (typeof File === "undefined") {
+		const { process } = globalThis;
+		const isOldNode = typeof process?.versions?.node === "string" && parseInt(process.versions.node.split(".")) < 20;
+		throw new Error("`File` is not defined as a global, which is required for file uploads." + (isOldNode ? " Update to Node 20 LTS or newer, or set `globalThis.File` to `import('node:buffer').File`." : ""));
+	}
+};
+/**
+* Construct a `File` instance. This is used to ensure a helpful error is thrown
+* for environments that don't define a global `File` yet.
+*/
+function makeFile(fileBits, fileName, options) {
+	checkFileSupport();
+	return new File(fileBits, fileName ?? "", options);
+}
+function getName(value, stripPath) {
+	const val = typeof value === "object" && value !== null && ("name" in value && value.name && String(value.name) || "url" in value && value.url && String(value.url) || "filename" in value && value.filename && String(value.filename) || "path" in value && value.path && String(value.path)) || "";
+	return stripPath ? val.split(/[\\/]/).pop() || void 0 : val;
+}
+const isAsyncIterable = (value) => value != null && typeof value === "object" && typeof value[Symbol.asyncIterator] === "function";
+const multipartFormRequestOptions = async (opts, fetch, stripFilenames = true) => {
+	try {
+		return {
+			...opts,
+			body: await createForm(opts.body, fetch, stripFilenames)
+		};
+	} catch (error) {
+		const span = opts.__span?.span;
+		if (span) guardTracing(typeof fetch === "function" ? void 0 : fetch, () => endApiCallSpan(span, {
+			status: "error",
+			options: opts,
+			error
+		}));
+		throw error;
+	}
+};
+const supportsFormDataMap = /* @__PURE__ */ new WeakMap();
+/**
+* node-fetch doesn't support the global FormData object in recent node versions. Instead of sending
+* properly-encoded form data, it just stringifies the object, resulting in a request body of "[object FormData]".
+* This function detects if the fetch function provided supports the global FormData object to avoid
+* confusing error messages later on.
+*/
+function supportsFormData(fetchObject) {
+	const fetch = typeof fetchObject === "function" ? fetchObject : fetchObject.fetch;
+	const cached = supportsFormDataMap.get(fetch);
+	if (cached) return cached;
+	const promise = (async () => {
+		try {
+			const FetchResponse = "Response" in fetch ? fetch.Response : (await fetch("data:,")).constructor;
+			const data = new FormData();
+			if (data.toString() === await new FetchResponse(data).text()) return false;
+			return true;
+		} catch {
+			return true;
+		}
+	})();
+	supportsFormDataMap.set(fetch, promise);
+	return promise;
+}
+const createForm = async (body, fetch, stripFilenames = true) => {
+	if (!await supportsFormData(fetch)) throw new TypeError("The provided fetch function does not support file uploads with the current global FormData class.");
+	const form = new FormData();
+	await Promise.all(Object.entries(body || {}).map(([key, value]) => addFormValue(form, key, value, stripFilenames)));
+	return form;
+};
+const addFormValue = async (form, key, value, stripFilenames) => {
+	if (value === void 0) return;
+	if (value == null) throw new TypeError(`Received null for "${key}"; to pass null in FormData, you must use the string 'null'`);
+	if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") form.append(key, String(value));
+	else if (value instanceof Response) {
+		let options = {};
+		const contentType = value.headers.get("Content-Type");
+		if (contentType) options = { type: contentType };
+		form.append(key, makeFile([await value.blob()], getName(value, stripFilenames), options));
+	} else if (isAsyncIterable(value)) form.append(key, makeFile([await new Response(ReadableStreamFrom(value)).blob()], getName(value, stripFilenames)));
+	else if (value instanceof Blob) {
+		const name = typeof File !== "undefined" && value instanceof File ? value.name : getName(value, stripFilenames);
+		form.append(key, makeFile([value], name, { type: value.type }));
+	} else if (Array.isArray(value)) await Promise.all(value.map((entry) => addFormValue(form, key + "[]", entry, stripFilenames)));
+	else if (typeof value.then === "function") throw new TypeError(`Received a Promise for "${key}"; await it first, e.g. \`await toFile(...)\``);
+	else if (value instanceof ArrayBuffer || ArrayBuffer.isView(value)) throw new TypeError(`Received ${value.constructor.name} for "${key}"; to upload raw bytes, wrap them with \`await toFile(bytes, 'filename')\``);
+	else if (typeof value === "object") await Promise.all(Object.entries(value).map(([name, prop]) => addFormValue(form, `${key}[${name}]`, prop, stripFilenames)));
+	else throw new TypeError(`Invalid value given to form, expected a string, number, boolean, object, Array, File or Blob but got ${value} instead`);
+};
+// node_modules/@anthropic-ai/sdk/core/api-promise.mjs
+var _APIPromise_client;
+/**
+* A subclass of `Promise` providing additional helper methods
+* for interacting with the SDK.
+*/
+var APIPromise = /* @__PURE__ */ (() => {
+	/**
+	* A subclass of `Promise` providing additional helper methods
+	* for interacting with the SDK.
+	*/
+	class APIPromise extends Promise {
+		constructor(client, responsePromise, parseResponse = defaultParseResponse) {
+			super((resolve) => {
+				resolve(null);
+			});
+			this.responsePromise = responsePromise;
+			this.parseResponse = parseResponse;
+			_APIPromise_client.set(this, void 0);
+			require_promise.__classPrivateFieldSet(this, _APIPromise_client, client, "f");
+		}
+		/** @internal The unparsed response with its request metadata, for helpers that build one request on another. */
+		_responseProps() {
+			return this.responsePromise;
+		}
+		_thenUnwrap(transform) {
+			return new APIPromise(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), this.responsePromise, async (client, props) => addResponseIDs(transform(await this.parseResponse(client, props), props), props.response));
+		}
+		/**
+		* Gets the raw `Response` instance instead of parsing the response
+		* data.
+		*
+		* If you want to parse the response body but still get the `Response`
+		* instance, you can use {@link withResponse()}.
+		*
+		* 👋 Getting the wrong TypeScript type for `Response`?
+		* Try setting `"moduleResolution": "NodeNext"` or add `"lib": ["DOM"]`
+		* to your `tsconfig.json`.
+		*/
+		asResponse() {
+			return this.responsePromise.then((props) => {
+				const span = props.options.__span?.span;
+				if (span && !this.parsedPromise) {
+					const result = {
+						status: "success",
+						...props,
+						data: void 0
+					};
+					setAnthropicSpanAttributes(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), span, result);
+					guardTracing(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), () => endApiCallSpan(span, result));
+				}
+				return props.response;
+			});
+		}
+		/**
+		* Gets the parsed response data, the raw `Response` instance and the ID of the request,
+		* returned via the `request-id` header which is useful for debugging requests and resporting
+		* issues to Anthropic.
+		*
+		* If you just want to get the raw `Response` instance without parsing it,
+		* you can use {@link asResponse()}.
+		*
+		* 👋 Getting the wrong TypeScript type for `Response`?
+		* Try setting `"moduleResolution": "NodeNext"` or add `"lib": ["DOM"]`
+		* to your `tsconfig.json`.
+		*/
+		async withResponse() {
+			const [data, response] = await Promise.all([this.parse(), this.asResponse()]);
+			return {
+				data,
+				response,
+				request_id: response.headers.get("request-id"),
+				workspace_id: response.headers.get("anthropic-workspace-id")
+			};
+		}
+		parse() {
+			if (!this.parsedPromise) this.parsedPromise = this.responsePromise.then((props) => this.parseResponseTraced(props));
+			return this.parsedPromise;
+		}
+		/**
+		* Parses the body of an API call. When the call has a span, the span ends with the parse, or,
+		* when the parse returns a streamed body, when the application has read that stream.
+		*/
+		async parseResponseTraced(props) {
+			const call = props.options.__span;
+			if (!call) return this.parseResponse(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), props);
+			const { span } = call;
+			let data;
+			try {
+				data = await this.parseResponse(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), props);
+			} catch (error) {
+				const result = {
+					status: "error",
+					...props,
+					error
+				};
+				setAnthropicSpanAttributes(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), span, result);
+				guardTracing(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), () => endApiCallSpan(span, result));
+				throw error;
+			}
+			const result = {
+				status: "success",
+				...props,
+				data
+			};
+			guardTracing(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), () => setCreatedIDAttribute(call, data));
+			setAnthropicSpanAttributes(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), span, result);
+			if (props.options.stream && isAsyncIterable(data)) guardTracing(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), () => endAnthropicApiCallSpanWhenStreamEnds(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), span, data, props));
+			else guardTracing(require_promise.__classPrivateFieldGet(this, _APIPromise_client, "f"), () => endApiCallSpan(span, result));
+			return data;
+		}
+		then(onfulfilled, onrejected) {
+			return this.parse().then(onfulfilled, onrejected);
+		}
+		catch(onrejected) {
+			return this.parse().catch(onrejected);
+		}
+		finally(onfinally) {
+			return this.parse().finally(onfinally);
+		}
+	}
+	_APIPromise_client = /* @__PURE__ */ new WeakMap();
+	return APIPromise;
+})();
+// node_modules/@anthropic-ai/sdk/core/pagination.mjs
+var _AbstractPage_client;
+var AbstractPage = /* @__PURE__ */ (() => {
+	class AbstractPage {
+		constructor(client, response, body, options) {
+			_AbstractPage_client.set(this, void 0);
+			require_promise.__classPrivateFieldSet(this, _AbstractPage_client, client, "f");
+			this.options = options;
+			this.response = response;
+			this.body = body;
+		}
+		hasNextPage() {
+			if (!this.getPaginatedItems().length) return false;
+			return this.nextPageRequestOptions() != null;
+		}
+		async getNextPage() {
+			const nextOptions = this.nextPageRequestOptions();
+			if (!nextOptions) throw new require_promise.AnthropicError("No next page expected; please check `.hasNextPage()` before calling `.getNextPage()`.");
+			const span = this.options.__span;
+			return await require_promise.__classPrivateFieldGet(this, _AbstractPage_client, "f").requestAPIList(this.constructor, {
+				...nextOptions,
+				__span: span && startApiCallSpan(require_promise.__classPrivateFieldGet(this, _AbstractPage_client, "f"), span.name, { openTelemetry: this.options.openTelemetry }, {
+					route: span.route,
+					queryParams: span.queryParams,
+					contentQueryParams: span.contentQueryParams,
+					attributes: span.attributes
+				})
+			});
+		}
+		async *iterPages() {
+			let page = this;
+			yield page;
+			while (page.hasNextPage()) {
+				page = await page.getNextPage();
+				yield page;
+			}
+		}
+		async *[(_AbstractPage_client = /* @__PURE__ */ new WeakMap(), Symbol.asyncIterator)]() {
+			for await (const page of this.iterPages()) for (const item of page.getPaginatedItems()) yield item;
+		}
+	}
+	return AbstractPage;
+})();
+/**
+* This subclass of Promise will resolve to an instantiated Page once the request completes.
+*
+* It also implements AsyncIterable to allow auto-paginating iteration on an unawaited list call, eg:
+*
+*    for await (const item of client.items.list()) {
+*      console.log(item)
+*    }
+*/
+var PagePromise = /* @__PURE__ */ (() => {
+	/**
+	* This subclass of Promise will resolve to an instantiated Page once the request completes.
+	*
+	* It also implements AsyncIterable to allow auto-paginating iteration on an unawaited list call, eg:
+	*
+	*    for await (const item of client.items.list()) {
+	*      console.log(item)
+	*    }
+	*/
+	class PagePromise extends APIPromise {
+		constructor(client, request, Page) {
+			super(client, request, async (client, props) => new Page(client, props.response, await defaultParseResponse(client, props), props.options));
+		}
+		/**
+		* Allow auto-paginating iteration on an unawaited list call, eg:
+		*
+		*    for await (const item of client.items.list()) {
+		*      console.log(item)
+		*    }
+		*/
+		async *[Symbol.asyncIterator]() {
+			const page = await this;
+			for await (const item of page) yield item;
+		}
+	}
+	return PagePromise;
+})();
+var Page = class extends AbstractPage {
+	constructor(client, response, body, options) {
+		super(client, response, body, options);
+		this.data = body.data || [];
+		this.has_more = body.has_more || false;
+		this.first_id = body.first_id || null;
+		this.last_id = body.last_id || null;
+	}
+	getPaginatedItems() {
+		return this.data ?? [];
+	}
+	hasNextPage() {
+		if (this.has_more === false) return false;
+		return super.hasNextPage();
+	}
+	nextPageRequestOptions() {
+		if (this.options.query?.["before_id"]) {
+			const first_id = this.first_id;
+			if (!first_id) return null;
+			return {
+				...this.options,
+				query: {
+					...require_promise.maybeObj(this.options.query),
+					before_id: first_id
+				}
+			};
+		}
+		const cursor = this.last_id;
+		if (!cursor) return null;
+		return {
+			...this.options,
+			query: {
+				...require_promise.maybeObj(this.options.query),
+				after_id: cursor
+			}
+		};
+	}
+};
+var PageCursor = class extends AbstractPage {
+	constructor(client, response, body, options) {
+		super(client, response, body, options);
+		this.data = body.data || [];
+		this.next_page = body.next_page || null;
+	}
+	getPaginatedItems() {
+		return this.data ?? [];
+	}
+	hasNextPage() {
+		return this.nextPageRequestOptions() != null;
+	}
+	nextPageRequestOptions() {
+		const cursor = this.next_page;
+		if (!cursor) return null;
+		return {
+			...this.options,
+			query: {
+				...require_promise.maybeObj(this.options.query),
+				page: cursor
+			}
+		};
+	}
+};
+var BidirectionalPageCursor = class extends AbstractPage {
+	constructor(client, response, body, options) {
+		super(client, response, body, options);
+		this.data = body.data || [];
+		this.next_page = body.next_page || null;
+		this.prev_page = body.prev_page || null;
+	}
+	getPaginatedItems() {
+		return this.data ?? [];
+	}
+	hasNextPage() {
+		return this.nextPageRequestOptions() != null;
+	}
+	nextPageRequestOptions() {
+		const cursor = this.next_page;
+		if (!cursor) return null;
+		return {
+			...this.options,
+			query: {
+				...require_promise.maybeObj(this.options.query),
+				page: cursor
+			}
+		};
+	}
+};
+var ReportPageCursor = class extends AbstractPage {
+	constructor(client, response, body, options) {
+		super(client, response, body, options);
+		this.data = body.data || [];
+		this.next_page = body.next_page || null;
+		this.has_more = body.has_more || false;
+		this.data_refreshed_at = body.data_refreshed_at || null;
+	}
+	getPaginatedItems() {
+		return this.data ?? [];
+	}
+	hasNextPage() {
+		if (this.has_more === false) return false;
+		return this.nextPageRequestOptions() != null;
+	}
+	nextPageRequestOptions() {
+		const cursor = this.next_page;
+		if (!cursor) return null;
+		return {
+			...this.options,
+			query: {
+				...require_promise.maybeObj(this.options.query),
+				page: cursor
+			}
+		};
+	}
+};
+// node_modules/@anthropic-ai/sdk/internal/to-file.mjs
+/**
+* This check adds the arrayBuffer() method type because it is available and used at runtime
+*/
+const isBlobLike = (value) => value != null && typeof value === "object" && typeof value.size === "number" && typeof value.type === "string" && typeof value.text === "function" && typeof value.slice === "function" && typeof value.arrayBuffer === "function";
+/**
+* This check adds the arrayBuffer() method type because it is available and used at runtime
+*/
+const isFileLike = (value) => value != null && typeof value === "object" && typeof value.name === "string" && typeof value.lastModified === "number" && isBlobLike(value);
+const isResponseLike = (value) => value != null && typeof value === "object" && typeof value.url === "string" && typeof value.blob === "function";
+/**
+* Helper for creating a {@link File} to pass to an SDK upload method from a variety of different data formats
+* @param value the raw content of the file. Can be an {@link Uploadable}, BlobLikePart, or AsyncIterable of BlobLikeParts
+* @param {string=} name the name of the file. If omitted, toFile will try to determine a file name from bits if possible
+* @param {Object=} options additional properties
+* @param {string=} options.type the MIME type of the content
+* @param {number=} options.lastModified the last modified timestamp
+* @returns a {@link File} with the given properties
+*/
+async function toFile(value, name, options) {
+	checkFileSupport();
+	value = await value;
+	name || (name = value instanceof File ? value.name : getName(value, true));
+	if (isFileLike(value)) {
+		if (value instanceof File && name == null && options == null) return value;
+		return makeFile([await value.arrayBuffer()], name ?? value.name, {
+			type: value.type,
+			lastModified: value.lastModified,
+			...options
+		});
+	}
+	if (isResponseLike(value)) {
+		const blob = await value.blob();
+		name || (name = new URL(value.url).pathname.split(/[\\/]/).pop());
+		return makeFile(await getBytes(blob), name, options);
+	}
+	const parts = await getBytes(value);
+	if (!options?.type) {
+		const type = parts.find((part) => typeof part === "object" && "type" in part && part.type);
+		if (typeof type === "string") options = {
+			...options,
+			type
+		};
+	}
+	return makeFile(parts, name, options);
+}
+async function getBytes(value) {
+	let parts = [];
+	if (typeof value === "string" || ArrayBuffer.isView(value) || value instanceof ArrayBuffer) parts.push(value);
+	else if (isBlobLike(value)) parts.push(value instanceof Blob ? value : await value.arrayBuffer());
+	else if (isAsyncIterable(value)) for await (const chunk of value) parts.push(...await getBytes(chunk));
+	else {
+		const constructor = value?.constructor?.name;
+		throw new Error(`Unexpected data type: ${typeof value}${constructor ? `; constructor: ${constructor}` : ""}${propsForError(value)}`);
+	}
+	return parts;
+}
+function propsForError(value) {
+	if (typeof value !== "object" || value === null) return "";
+	return `; props: [${Object.getOwnPropertyNames(value).map((p) => `"${p}"`).join(", ")}]`;
+}
+// node_modules/@anthropic-ai/sdk/core/resource.mjs
+var APIResource = class {
+	constructor(client) {
+		this._client = client;
+	}
+};
+// node_modules/@anthropic-ai/sdk/lib/internal/messages-request.mjs
+/**
+* The headers of a `messages.create` request. `create()` and `stream()` build them before they
+* start the span, so that what throws here throws while no span is open.
+*/
+function messagesCreateHeaders$1(params, options) {
+	const { user_profile_id, workspace_id, tools, messages } = params;
+	return buildHeaders([
+		{
+			...user_profile_id != null ? { "anthropic-user-profile-id": user_profile_id } : void 0,
+			...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+		},
+		stainlessHelperHeader(tools, messages),
+		options?.headers
+	]);
+}
+/**
+* Starts the call span of the request that a stream helper sends `body` with. The helper calls this
+* as it sends the request, so that what throws here fails the stream. It records the final message
+* on the span, which its `create()` call uses too.
+*/
+function startMessagesStreamSpan$1(client, body, options) {
+	if (!client._tracer) return void 0;
+	const headers = messagesCreateHeaders$1(body, options);
+	return startApiCallSpan(client, "anthropic.messages.create", options, messagesCreateSpanSettings(client, {
+		...body,
+		stream: true
+	}, headers));
+}
+// node_modules/@anthropic-ai/sdk/lib/parser.mjs
+function getOutputFormat$1(params) {
+	return params?.output_config?.format;
+}
+function maybeParseMessage(message, params, opts) {
+	const outputFormat = getOutputFormat$1(params);
+	if (!params || !("parse" in (outputFormat ?? {}))) return {
+		...message,
+		content: message.content.map((block) => {
+			if (block.type === "text") return Object.defineProperty({ ...block }, "parsed_output", {
+				value: null,
+				enumerable: false
+			});
+			return block;
+		}),
+		parsed_output: null
+	};
+	return parseMessage(message, params, opts);
+}
+function parseMessage(message, params, opts) {
+	let firstParsedOutput = null;
+	const content = message.content.map((block) => {
+		if (block.type === "text") {
+			const parsedOutput = parseOutputFormat(params, block.text);
+			if (firstParsedOutput === null) firstParsedOutput = parsedOutput;
+			return Object.defineProperty({ ...block }, "parsed_output", {
+				value: parsedOutput,
+				enumerable: false
+			});
+		}
+		return block;
+	});
+	return {
+		...message,
+		content,
+		parsed_output: firstParsedOutput
+	};
+}
+function parseOutputFormat(params, content) {
+	const outputFormat = getOutputFormat$1(params);
+	if (outputFormat?.type !== "json_schema") return null;
+	try {
+		if ("parse" in outputFormat) return outputFormat.parse(content);
+		return JSON.parse(content);
+	} catch (error) {
+		throw new require_promise.AnthropicError(`Failed to parse structured output: ${error}`);
+	}
+}
+// node_modules/@anthropic-ai/sdk/_vendor/partial-json-parser/parser.mjs
+const tokenize = (input) => {
+	let current = 0;
+	let tokens = [];
+	while (current < input.length) {
+		let char = input[current];
+		if (char === "\\") {
+			current++;
+			continue;
+		}
+		if (char === "{") {
+			tokens.push({
+				type: "brace",
+				value: "{"
+			});
+			current++;
+			continue;
+		}
+		if (char === "}") {
+			tokens.push({
+				type: "brace",
+				value: "}"
+			});
+			current++;
+			continue;
+		}
+		if (char === "[") {
+			tokens.push({
+				type: "paren",
+				value: "["
+			});
+			current++;
+			continue;
+		}
+		if (char === "]") {
+			tokens.push({
+				type: "paren",
+				value: "]"
+			});
+			current++;
+			continue;
+		}
+		if (char === ":") {
+			tokens.push({
+				type: "separator",
+				value: ":"
+			});
+			current++;
+			continue;
+		}
+		if (char === ",") {
+			tokens.push({
+				type: "delimiter",
+				value: ","
+			});
+			current++;
+			continue;
+		}
+		if (char === "\"") {
+			const start = current + 1;
+			let end = start;
+			let danglingQuote = false;
+			while (true) {
+				end = input.indexOf("\"", end);
+				if (end === -1) {
+					danglingQuote = true;
+					break;
+				}
+				let backslashes = 0;
+				let i = end - 1;
+				while (i >= start && input[i] === "\\") {
+					backslashes++;
+					i--;
+				}
+				if (backslashes % 2 === 0) break;
+				end++;
+			}
+			if (danglingQuote) current = input.length;
+			else {
+				tokens.push({
+					type: "string",
+					value: input.slice(start, end)
+				});
+				current = end + 1;
+			}
+			continue;
+		}
+		if (char && /\s/.test(char)) {
+			current++;
+			continue;
+		}
+		let NUMBERS = /[0-9]/;
+		if (char && NUMBERS.test(char) || char === "-" || char === ".") {
+			let value = "";
+			if (char === "-") {
+				value += char;
+				char = input[++current];
+			}
+			while (char && (NUMBERS.test(char) || char === "." || char === "e" || char === "E" || (char === "-" || char === "+") && (value[value.length - 1] === "e" || value[value.length - 1] === "E"))) {
+				value += char;
+				char = input[++current];
+			}
+			tokens.push({
+				type: "number",
+				value,
+				unterminated: current === input.length
+			});
+			continue;
+		}
+		let LETTERS = /[a-z]/i;
+		if (char && LETTERS.test(char)) {
+			let value = "";
+			while (char && LETTERS.test(char)) {
+				if (current === input.length) break;
+				value += char;
+				char = input[++current];
+			}
+			if (value == "true" || value == "false" || value === "null") tokens.push({
+				type: "name",
+				value
+			});
+			else {
+				current++;
+				continue;
+			}
+			continue;
+		}
+		current++;
+	}
+	return tokens;
+};
+const strip = (tokens) => {
+	let open = [];
+	for (const token of tokens) if (token.type === "brace" || token.type === "paren") {
+		if (token.value === "{" || token.value === "[") open.push(token.value);
+		else open.pop();
+	}
+	let innermostOpenBracket = open[open.length - 1];
+	let length = tokens.length;
+	let JSON_NUMBER = /^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][-+]?[0-9]+)?$/;
+	while (length > 0) {
+		let lastToken = tokens[length - 1];
+		switch (lastToken.type) {
+			case "separator":
+				length--;
+				continue;
+			case "number":
+				if (lastToken.unterminated || !JSON_NUMBER.test(lastToken.value)) {
+					length--;
+					continue;
+				}
+				break;
+			case "string":
+				let tokenBeforeTheLastToken = tokens[length - 2];
+				if (innermostOpenBracket === "{" && (tokenBeforeTheLastToken?.type === "delimiter" || tokenBeforeTheLastToken?.type === "brace" && tokenBeforeTheLastToken.value === "{")) {
+					length--;
+					continue;
+				}
+				break;
+			case "delimiter": length--;
+		}
+		break;
+	}
+	return tokens.slice(0, length);
+};
+const unstrip = (tokens) => {
+	let tail = [];
+	tokens.map((token) => {
+		if (token.type === "brace") {
+			if (token.value === "{") tail.push("}");
+			else tail.splice(tail.lastIndexOf("}"), 1);
+		}
+		if (token.type === "paren") {
+			if (token.value === "[") tail.push("]");
+			else tail.splice(tail.lastIndexOf("]"), 1);
+		}
+	});
+	if (tail.length > 0) tail.reverse().map((item) => {
+		if (item === "}") tokens.push({
+			type: "brace",
+			value: "}"
+		});
+		else if (item === "]") tokens.push({
+			type: "paren",
+			value: "]"
+		});
+	});
+	return tokens;
+};
+const generate = (tokens) => {
+	let output = "";
+	tokens.map((token) => {
+		switch (token.type) {
+			case "string":
+				output += "\"" + token.value + "\"";
+				break;
+			default: output += token.value;
+		}
+	});
+	return output;
+};
+const partialParse = (input) => JSON.parse(generate(unstrip(strip(tokenize(input)))));
+// node_modules/@anthropic-ai/sdk/internal/message-stream-utils.mjs
+const JSON_BUF_PROPERTY = "__json_buf";
+/**
+* Copies a tool-use block with an updated `__json_buf`, installing `.input` as
+* a memoized getter so the partial-JSON parse happens on first read instead of
+* on every delta.
+*/
+function withLazyInput(prev, jsonBuf) {
+	const next = {};
+	for (const key of Object.keys(prev)) if (key !== "input") next[key] = prev[key];
+	Object.defineProperty(next, JSON_BUF_PROPERTY, {
+		value: jsonBuf,
+		enumerable: false,
+		writable: true
+	});
+	let input;
+	let parsed = false;
+	Object.defineProperty(next, "input", {
+		enumerable: true,
+		configurable: true,
+		get() {
+			if (!parsed) {
+				input = jsonBuf ? partialParse(jsonBuf) : {};
+				parsed = true;
+			}
+			return input;
+		}
+	});
+	return next;
+}
+// node_modules/@anthropic-ai/sdk/lib/MessageStream.mjs
+var _MessageStream_instances;
+var _MessageStream_currentMessageSnapshot;
+var _MessageStream_params;
+var _MessageStream_connectedPromise;
+var _MessageStream_resolveConnectedPromise;
+var _MessageStream_rejectConnectedPromise;
+var _MessageStream_endPromise;
+var _MessageStream_resolveEndPromise;
+var _MessageStream_rejectEndPromise;
+var _MessageStream_listeners;
+var _MessageStream_ended;
+var _MessageStream_errored;
+var _MessageStream_aborted;
+var _MessageStream_catchingPromiseCreated;
+var _MessageStream_response;
+var _MessageStream_request_id;
+var _MessageStream_workspace_id;
+var _MessageStream_logger;
+var _MessageStream_client;
+var _MessageStream_span;
+var _MessageStream_getFinalMessage;
+var _MessageStream_getFinalText;
+var _MessageStream_handleError;
+var _MessageStream_beginRequest;
+var _MessageStream_addStreamEvent;
+var _MessageStream_endRequest;
+var _MessageStream_accumulateMessage;
+function tracksToolInput$1(content) {
+	return content.type === "tool_use" || content.type === "server_tool_use";
+}
+var MessageStream = /* @__PURE__ */ (() => {
+	class MessageStream {
+		constructor(params, opts) {
+			_MessageStream_instances.add(this);
+			this.messages = [];
+			this.receivedMessages = [];
+			_MessageStream_currentMessageSnapshot.set(this, void 0);
+			_MessageStream_params.set(this, null);
+			this.controller = new AbortController();
+			_MessageStream_connectedPromise.set(this, void 0);
+			_MessageStream_resolveConnectedPromise.set(this, () => {});
+			_MessageStream_rejectConnectedPromise.set(this, () => {});
+			_MessageStream_endPromise.set(this, void 0);
+			_MessageStream_resolveEndPromise.set(this, () => {});
+			_MessageStream_rejectEndPromise.set(this, () => {});
+			_MessageStream_listeners.set(this, {});
+			_MessageStream_ended.set(this, false);
+			_MessageStream_errored.set(this, false);
+			_MessageStream_aborted.set(this, false);
+			_MessageStream_catchingPromiseCreated.set(this, false);
+			_MessageStream_response.set(this, void 0);
+			_MessageStream_request_id.set(this, void 0);
+			_MessageStream_workspace_id.set(this, void 0);
+			_MessageStream_logger.set(this, void 0);
+			_MessageStream_client.set(this, void 0);
+			_MessageStream_span.set(this, void 0);
+			_MessageStream_handleError.set(this, (error) => {
+				require_promise.__classPrivateFieldSet(this, _MessageStream_errored, true, "f");
+				if (require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f")) require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f").streamed = void 0;
+				if (require_promise.isAbortError(error)) error = new require_promise.APIUserAbortError();
+				if (error instanceof require_promise.APIUserAbortError) {
+					require_promise.__classPrivateFieldSet(this, _MessageStream_aborted, true, "f");
+					return this._emit("abort", error);
+				}
+				if (error instanceof require_promise.AnthropicError) return this._emit("error", error);
+				if (error instanceof Error) {
+					const anthropicError = new require_promise.AnthropicError(error.message);
+					anthropicError.cause = error;
+					return this._emit("error", anthropicError);
+				}
+				return this._emit("error", new require_promise.AnthropicError(String(error)));
+			});
+			require_promise.__classPrivateFieldSet(this, _MessageStream_connectedPromise, new Promise((resolve, reject) => {
+				require_promise.__classPrivateFieldSet(this, _MessageStream_resolveConnectedPromise, resolve, "f");
+				require_promise.__classPrivateFieldSet(this, _MessageStream_rejectConnectedPromise, reject, "f");
+			}), "f");
+			require_promise.__classPrivateFieldSet(this, _MessageStream_endPromise, new Promise((resolve, reject) => {
+				require_promise.__classPrivateFieldSet(this, _MessageStream_resolveEndPromise, resolve, "f");
+				require_promise.__classPrivateFieldSet(this, _MessageStream_rejectEndPromise, reject, "f");
+			}), "f");
+			require_promise.__classPrivateFieldGet(this, _MessageStream_connectedPromise, "f").catch(() => {});
+			require_promise.__classPrivateFieldGet(this, _MessageStream_endPromise, "f").catch(() => {});
+			require_promise.__classPrivateFieldSet(this, _MessageStream_params, params, "f");
+			require_promise.__classPrivateFieldSet(this, _MessageStream_logger, opts?.logger ?? console, "f");
+			require_promise.__classPrivateFieldSet(this, _MessageStream_client, opts?.client, "f");
+		}
+		get response() {
+			return require_promise.__classPrivateFieldGet(this, _MessageStream_response, "f");
+		}
+		get request_id() {
+			return require_promise.__classPrivateFieldGet(this, _MessageStream_request_id, "f");
+		}
+		get workspace_id() {
+			return require_promise.__classPrivateFieldGet(this, _MessageStream_workspace_id, "f");
+		}
+		/**
+		* Returns the `MessageStream` data, the raw `Response` instance and the ID of the request,
+		* returned vie the `request-id` header which is useful for debugging requests and resporting
+		* issues to Anthropic.
+		*
+		* This is the same as the `APIPromise.withResponse()` method.
+		*
+		* This method will raise an error if you created the stream using `MessageStream.fromReadableStream`
+		* as no `Response` is available.
+		*/
+		async withResponse() {
+			require_promise.__classPrivateFieldSet(this, _MessageStream_catchingPromiseCreated, true, "f");
+			const response = await require_promise.__classPrivateFieldGet(this, _MessageStream_connectedPromise, "f");
+			if (!response) throw new Error("Could not resolve a `Response` object");
+			return {
+				data: this,
+				response,
+				request_id: response.headers.get("request-id"),
+				workspace_id: response.headers.get("anthropic-workspace-id")
+			};
+		}
+		/**
+		* Intended for use on the frontend, consuming a stream produced with
+		* `.toReadableStream()` on the backend.
+		*
+		* Note that messages sent to the model do not appear in `.on('message')`
+		* in this context.
+		*/
+		static fromReadableStream(stream) {
+			const runner = new MessageStream(null);
+			runner._run(() => runner._fromReadableStream(stream));
+			return runner;
+		}
+		static createMessage(messages, params, options, { logger, client } = {}) {
+			const runner = new MessageStream(params, {
+				logger,
+				client
+			});
+			for (const message of params.messages) runner._addMessageParam(message);
+			require_promise.__classPrivateFieldSet(runner, _MessageStream_params, {
+				...params,
+				stream: true
+			}, "f");
+			runner._run(() => runner._createMessage(messages, {
+				...params,
+				stream: true
+			}, {
+				...options,
+				headers: {
+					...options?.headers,
+					[STAINLESS_HELPER_METHOD_HEADER]: "stream"
+				}
+			}));
+			return runner;
+		}
+		_run(executor) {
+			executor().then(() => {
+				this._emitFinal();
+				this._emit("end");
+			}, require_promise.__classPrivateFieldGet(this, _MessageStream_handleError, "f"));
+		}
+		_addMessageParam(message) {
+			this.messages.push(message);
+		}
+		_addMessage(message, emit = true) {
+			this.receivedMessages.push(message);
+			if (emit) this._emit("message", message);
+		}
+		async _createMessage(messages, params, options) {
+			const signal = options?.signal;
+			let abortHandler;
+			if (signal) {
+				if (signal.aborted) this.controller.abort();
+				abortHandler = this.controller.abort.bind(this.controller);
+				signal.addEventListener("abort", abortHandler);
+			}
+			try {
+				require_promise.__classPrivateFieldGet(this, _MessageStream_instances, "m", _MessageStream_beginRequest).call(this);
+				require_promise.__classPrivateFieldSet(this, _MessageStream_span, options?.__span ?? (require_promise.__classPrivateFieldGet(this, _MessageStream_client, "f") && startMessagesStreamSpan$1(require_promise.__classPrivateFieldGet(this, _MessageStream_client, "f"), params, options)), "f");
+				const { response, data: stream } = await messages.create({
+					...params,
+					stream: true
+				}, {
+					...options,
+					__span: require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f"),
+					signal: this.controller.signal
+				}).withResponse();
+				try {
+					this._connected(response);
+				} catch (error) {
+					if (require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f")) require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f").failure = error;
+					stream.controller.abort();
+					throw error;
+				}
+				for await (const event of stream) try {
+					require_promise.__classPrivateFieldGet(this, _MessageStream_instances, "m", _MessageStream_addStreamEvent).call(this, event);
+				} catch (error) {
+					if (require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f")) require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f").failure = error;
+					throw error;
+				}
+				if (stream.controller.signal?.aborted) throw new require_promise.APIUserAbortError();
+				require_promise.__classPrivateFieldGet(this, _MessageStream_instances, "m", _MessageStream_endRequest).call(this);
+			} finally {
+				if (signal && abortHandler) signal.removeEventListener("abort", abortHandler);
+			}
+		}
+		_connected(response) {
+			if (this.ended) return;
+			require_promise.__classPrivateFieldSet(this, _MessageStream_response, response, "f");
+			require_promise.__classPrivateFieldSet(this, _MessageStream_request_id, response?.headers.get("request-id"), "f");
+			require_promise.__classPrivateFieldSet(this, _MessageStream_workspace_id, response?.headers.get("anthropic-workspace-id"), "f");
+			require_promise.__classPrivateFieldGet(this, _MessageStream_resolveConnectedPromise, "f").call(this, response);
+			this._emit("connect");
+		}
+		get ended() {
+			return require_promise.__classPrivateFieldGet(this, _MessageStream_ended, "f");
+		}
+		get errored() {
+			return require_promise.__classPrivateFieldGet(this, _MessageStream_errored, "f");
+		}
+		get aborted() {
+			return require_promise.__classPrivateFieldGet(this, _MessageStream_aborted, "f");
+		}
+		abort() {
+			this.controller.abort();
+		}
+		/**
+		* Adds the listener function to the end of the listeners array for the event.
+		* No checks are made to see if the listener has already been added. Multiple calls passing
+		* the same combination of event and listener will result in the listener being added, and
+		* called, multiple times.
+		* @returns this MessageStream, so that calls can be chained
+		*/
+		on(event, listener) {
+			(require_promise.__classPrivateFieldGet(this, _MessageStream_listeners, "f")[event] || (require_promise.__classPrivateFieldGet(this, _MessageStream_listeners, "f")[event] = [])).push({ listener });
+			return this;
+		}
+		/**
+		* Removes the specified listener from the listener array for the event.
+		* off() will remove, at most, one instance of a listener from the listener array. If any single
+		* listener has been added multiple times to the listener array for the specified event, then
+		* off() must be called multiple times to remove each instance.
+		* @returns this MessageStream, so that calls can be chained
+		*/
+		off(event, listener) {
+			const listeners = require_promise.__classPrivateFieldGet(this, _MessageStream_listeners, "f")[event];
+			if (!listeners) return this;
+			const index = listeners.findIndex((l) => l.listener === listener);
+			if (index >= 0) listeners.splice(index, 1);
+			return this;
+		}
+		/**
+		* Adds a one-time listener function for the event. The next time the event is triggered,
+		* this listener is removed and then invoked.
+		* @returns this MessageStream, so that calls can be chained
+		*/
+		once(event, listener) {
+			(require_promise.__classPrivateFieldGet(this, _MessageStream_listeners, "f")[event] || (require_promise.__classPrivateFieldGet(this, _MessageStream_listeners, "f")[event] = [])).push({
+				listener,
+				once: true
+			});
+			return this;
+		}
+		/**
+		* This is similar to `.once()`, but returns a Promise that resolves the next time
+		* the event is triggered, instead of calling a listener callback.
+		* @returns a Promise that resolves the next time given event is triggered,
+		* or rejects if an error is emitted.  (If you request the 'error' event,
+		* returns a promise that resolves with the error).
+		*
+		* Example:
+		*
+		*   const message = await stream.emitted('message') // rejects if the stream errors
+		*/
+		emitted(event) {
+			return new Promise((resolve, reject) => {
+				require_promise.__classPrivateFieldSet(this, _MessageStream_catchingPromiseCreated, true, "f");
+				if (event !== "error") this.once("error", reject);
+				this.once(event, resolve);
+			});
+		}
+		async done() {
+			require_promise.__classPrivateFieldSet(this, _MessageStream_catchingPromiseCreated, true, "f");
+			await require_promise.__classPrivateFieldGet(this, _MessageStream_endPromise, "f");
+		}
+		get currentMessage() {
+			return require_promise.__classPrivateFieldGet(this, _MessageStream_currentMessageSnapshot, "f");
+		}
+		/**
+		* @returns a promise that resolves with the the final assistant Message response,
+		* or rejects if an error occurred or the stream ended prematurely without producing a Message.
+		* If structured outputs were used, this will be a ParsedMessage with a `parsed_output` field.
+		*/
+		async finalMessage() {
+			await this.done();
+			return require_promise.__classPrivateFieldGet(this, _MessageStream_instances, "m", _MessageStream_getFinalMessage).call(this);
+		}
+		/**
+		* @returns a promise that resolves with the the final assistant Message's text response, concatenated
+		* together if there are more than one text blocks.
+		* Rejects if an error occurred or the stream ended prematurely without producing a Message.
+		*/
+		async finalText() {
+			await this.done();
+			return require_promise.__classPrivateFieldGet(this, _MessageStream_instances, "m", _MessageStream_getFinalText).call(this);
+		}
+		_emit(event, ...args) {
+			if (require_promise.__classPrivateFieldGet(this, _MessageStream_ended, "f")) return;
+			if (event === "end") {
+				require_promise.__classPrivateFieldSet(this, _MessageStream_ended, true, "f");
+				require_promise.__classPrivateFieldGet(this, _MessageStream_resolveEndPromise, "f").call(this);
+			}
+			const listeners = require_promise.__classPrivateFieldGet(this, _MessageStream_listeners, "f")[event];
+			if (listeners) {
+				require_promise.__classPrivateFieldGet(this, _MessageStream_listeners, "f")[event] = listeners.filter((l) => !l.once);
+				listeners.forEach(({ listener }) => listener(...args));
+			}
+			if (event === "abort") {
+				const error = args[0];
+				if (!require_promise.__classPrivateFieldGet(this, _MessageStream_catchingPromiseCreated, "f") && !listeners?.length) Promise.reject(error);
+				require_promise.__classPrivateFieldGet(this, _MessageStream_rejectConnectedPromise, "f").call(this, error);
+				require_promise.__classPrivateFieldGet(this, _MessageStream_rejectEndPromise, "f").call(this, error);
+				this._emit("end");
+				return;
+			}
+			if (event === "error") {
+				const error = args[0];
+				if (!require_promise.__classPrivateFieldGet(this, _MessageStream_catchingPromiseCreated, "f") && !listeners?.length) Promise.reject(error);
+				require_promise.__classPrivateFieldGet(this, _MessageStream_rejectConnectedPromise, "f").call(this, error);
+				require_promise.__classPrivateFieldGet(this, _MessageStream_rejectEndPromise, "f").call(this, error);
+				this._emit("end");
+			}
+		}
+		_emitFinal() {
+			if (this.receivedMessages.at(-1)) this._emit("finalMessage", require_promise.__classPrivateFieldGet(this, _MessageStream_instances, "m", _MessageStream_getFinalMessage).call(this));
+		}
+		async _fromReadableStream(readableStream, options) {
+			const signal = options?.signal;
+			let abortHandler;
+			if (signal) {
+				if (signal.aborted) this.controller.abort();
+				abortHandler = this.controller.abort.bind(this.controller);
+				signal.addEventListener("abort", abortHandler);
+			}
+			try {
+				require_promise.__classPrivateFieldGet(this, _MessageStream_instances, "m", _MessageStream_beginRequest).call(this);
+				this._connected(null);
+				const stream = Stream.fromReadableStream(readableStream, this.controller);
+				for await (const event of stream) require_promise.__classPrivateFieldGet(this, _MessageStream_instances, "m", _MessageStream_addStreamEvent).call(this, event);
+				if (stream.controller.signal?.aborted) throw new require_promise.APIUserAbortError();
+				require_promise.__classPrivateFieldGet(this, _MessageStream_instances, "m", _MessageStream_endRequest).call(this);
+			} finally {
+				if (signal && abortHandler) signal.removeEventListener("abort", abortHandler);
+			}
+		}
+		[(_MessageStream_currentMessageSnapshot = /* @__PURE__ */ new WeakMap(), _MessageStream_params = /* @__PURE__ */ new WeakMap(), _MessageStream_connectedPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_resolveConnectedPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_rejectConnectedPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_endPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_resolveEndPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_rejectEndPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_listeners = /* @__PURE__ */ new WeakMap(), _MessageStream_ended = /* @__PURE__ */ new WeakMap(), _MessageStream_errored = /* @__PURE__ */ new WeakMap(), _MessageStream_aborted = /* @__PURE__ */ new WeakMap(), _MessageStream_catchingPromiseCreated = /* @__PURE__ */ new WeakMap(), _MessageStream_response = /* @__PURE__ */ new WeakMap(), _MessageStream_request_id = /* @__PURE__ */ new WeakMap(), _MessageStream_workspace_id = /* @__PURE__ */ new WeakMap(), _MessageStream_logger = /* @__PURE__ */ new WeakMap(), _MessageStream_client = /* @__PURE__ */ new WeakMap(), _MessageStream_span = /* @__PURE__ */ new WeakMap(), _MessageStream_handleError = /* @__PURE__ */ new WeakMap(), _MessageStream_instances = /* @__PURE__ */ new WeakSet(), _MessageStream_getFinalMessage = function _MessageStream_getFinalMessage() {
+			if (this.receivedMessages.length === 0) throw new require_promise.AnthropicError("stream ended without producing a Message with role=assistant");
+			return this.receivedMessages.at(-1);
+		}, _MessageStream_getFinalText = function _MessageStream_getFinalText() {
+			if (this.receivedMessages.length === 0) throw new require_promise.AnthropicError("stream ended without producing a Message with role=assistant");
+			const textBlocks = this.receivedMessages.at(-1).content.filter((block) => block.type === "text").map((block) => block.text);
+			if (textBlocks.length === 0) throw new require_promise.AnthropicError("stream ended without producing a content block with type=text");
+			return textBlocks.join(" ");
+		}, _MessageStream_beginRequest = function _MessageStream_beginRequest() {
+			if (this.ended) return;
+			require_promise.__classPrivateFieldSet(this, _MessageStream_currentMessageSnapshot, void 0, "f");
+		}, _MessageStream_addStreamEvent = function _MessageStream_addStreamEvent(event) {
+			if (this.ended) return;
+			const messageSnapshot = require_promise.__classPrivateFieldGet(this, _MessageStream_instances, "m", _MessageStream_accumulateMessage).call(this, event);
+			this._emit("_rawEvent", event);
+			if (!messageSnapshot) return;
+			this._emit("streamEvent", event, messageSnapshot);
+			switch (event.type) {
+				case "content_block_delta": {
+					const content = messageSnapshot.content.at(-1);
+					switch (event.delta.type) {
+						case "text_delta":
+							if (content.type === "text") this._emit("text", event.delta.text, content.text || "");
+							break;
+						case "citations_delta":
+							if (content.type === "text") this._emit("citation", event.delta.citation, content.citations ?? []);
+							break;
+						case "input_json_delta":
+							if (tracksToolInput$1(content) && require_promise.__classPrivateFieldGet(this, _MessageStream_listeners, "f").inputJson?.length) this._emit("inputJson", event.delta.partial_json, content.input);
+							break;
+						case "thinking_delta":
+							if (content.type === "thinking") this._emit("thinking", event.delta.thinking, content.thinking);
+							break;
+						case "signature_delta":
+							if (content.type === "thinking") this._emit("signature", content.signature);
+							break;
+						default: event.delta;
+					}
+					break;
+				}
+				case "message_stop":
+					if (require_promise.__classPrivateFieldGet(this, _MessageStream_client, "f") && require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f") && require_promise.__classPrivateFieldGet(this, _MessageStream_params, "f")) recordStreamedMessageContent(require_promise.__classPrivateFieldGet(this, _MessageStream_client, "f"), require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f"), require_promise.__classPrivateFieldGet(this, _MessageStream_params, "f"), messageSnapshot);
+					this._addMessageParam(messageSnapshot);
+					this._addMessage(maybeParseMessage(messageSnapshot, require_promise.__classPrivateFieldGet(this, _MessageStream_params, "f"), { logger: require_promise.__classPrivateFieldGet(this, _MessageStream_logger, "f") }), true);
+					break;
+				case "content_block_stop":
+					this._emit("contentBlock", messageSnapshot.content.at(-1));
+					break;
+				case "message_start":
+					require_promise.__classPrivateFieldSet(this, _MessageStream_currentMessageSnapshot, messageSnapshot, "f");
+					if (require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f") && require_promise.__classPrivateFieldGet(this, _MessageStream_params, "f")) require_promise.__classPrivateFieldGet(this, _MessageStream_span, "f").streamed = {
+						body: require_promise.__classPrivateFieldGet(this, _MessageStream_params, "f"),
+						message: messageSnapshot
+					};
+			}
+		}, _MessageStream_endRequest = function _MessageStream_endRequest() {
+			if (this.ended) throw new require_promise.AnthropicError(`stream has ended, this shouldn't happen`);
+			const snapshot = require_promise.__classPrivateFieldGet(this, _MessageStream_currentMessageSnapshot, "f");
+			if (!snapshot) throw new require_promise.AnthropicError(`request ended without sending any chunks`);
+			require_promise.__classPrivateFieldSet(this, _MessageStream_currentMessageSnapshot, void 0, "f");
+			return maybeParseMessage(snapshot, require_promise.__classPrivateFieldGet(this, _MessageStream_params, "f"), { logger: require_promise.__classPrivateFieldGet(this, _MessageStream_logger, "f") });
+		}, _MessageStream_accumulateMessage = function _MessageStream_accumulateMessage(event) {
+			let snapshot = require_promise.__classPrivateFieldGet(this, _MessageStream_currentMessageSnapshot, "f");
+			if (event.type === "message_start") {
+				if (snapshot) throw new require_promise.AnthropicError(`Unexpected event order, got ${event.type} before receiving "message_stop"`);
+				return event.message;
+			}
+			if (!snapshot) return;
+			switch (event.type) {
+				case "message_stop": return snapshot;
+				case "message_delta":
+					snapshot.stop_reason = event.delta.stop_reason;
+					snapshot.stop_sequence = event.delta.stop_sequence;
+					snapshot.stop_details = event.delta.stop_details;
+					snapshot.usage.output_tokens = event.usage.output_tokens;
+					if (event.delta.container != null) snapshot.container = event.delta.container;
+					if (event.usage.input_tokens != null) snapshot.usage.input_tokens = event.usage.input_tokens;
+					if (event.usage.cache_creation_input_tokens != null) snapshot.usage.cache_creation_input_tokens = event.usage.cache_creation_input_tokens;
+					if (event.usage.cache_read_input_tokens != null) snapshot.usage.cache_read_input_tokens = event.usage.cache_read_input_tokens;
+					if (event.usage.server_tool_use != null) snapshot.usage.server_tool_use = event.usage.server_tool_use;
+					if (event.usage.output_tokens_details != null) snapshot.usage.output_tokens_details = event.usage.output_tokens_details;
+					return snapshot;
+				case "content_block_start":
+					snapshot.content.push({ ...event.content_block });
+					return snapshot;
+				case "content_block_delta": {
+					const snapshotContent = snapshot.content.at(event.index);
+					switch (event.delta.type) {
+						case "text_delta":
+							if (snapshotContent?.type === "text") snapshot.content[event.index] = {
+								...snapshotContent,
+								text: (snapshotContent.text || "") + event.delta.text
+							};
+							break;
+						case "citations_delta":
+							if (snapshotContent?.type === "text") snapshot.content[event.index] = {
+								...snapshotContent,
+								citations: [...snapshotContent.citations ?? [], event.delta.citation]
+							};
+							break;
+						case "input_json_delta":
+							if (snapshotContent && tracksToolInput$1(snapshotContent)) {
+								const jsonBuf = (snapshotContent["__json_buf"] || "") + event.delta.partial_json;
+								snapshot.content[event.index] = withLazyInput(snapshotContent, jsonBuf);
+							}
+							break;
+						case "thinking_delta":
+							if (snapshotContent?.type === "thinking") snapshot.content[event.index] = {
+								...snapshotContent,
+								thinking: snapshotContent.thinking + event.delta.thinking
+							};
+							break;
+						case "signature_delta":
+							if (snapshotContent?.type === "thinking") snapshot.content[event.index] = {
+								...snapshotContent,
+								signature: event.delta.signature
+							};
+							break;
+						default: event.delta;
+					}
+					return snapshot;
+				}
+				case "content_block_stop": {
+					const snapshotContent = snapshot.content.at(event.index);
+					if (snapshotContent && tracksToolInput$1(snapshotContent) && "__json_buf" in snapshotContent) Object.defineProperty(snapshotContent, "input", {
+						value: snapshotContent.input,
+						enumerable: true,
+						configurable: true,
+						writable: true
+					});
+					return snapshot;
+				}
+				default: return snapshot;
+			}
+		}, Symbol.asyncIterator)]() {
+			const pushQueue = [];
+			const readQueue = [];
+			let done = false;
+			this.on("_rawEvent", (event) => {
+				const reader = readQueue.shift();
+				if (reader) reader.resolve(event);
+				else pushQueue.push(event);
+			});
+			this.on("end", () => {
+				done = true;
+				for (const reader of readQueue) reader.resolve(void 0);
+				readQueue.length = 0;
+			});
+			this.on("abort", (err) => {
+				done = true;
+				for (const reader of readQueue) reader.reject(err);
+				readQueue.length = 0;
+			});
+			this.on("error", (err) => {
+				done = true;
+				for (const reader of readQueue) reader.reject(err);
+				readQueue.length = 0;
+			});
+			return {
+				next: async () => {
+					if (!pushQueue.length) {
+						if (done) return {
+							value: void 0,
+							done: true
+						};
+						return new Promise((resolve, reject) => readQueue.push({
+							resolve,
+							reject
+						})).then((chunk) => chunk ? {
+							value: chunk,
+							done: false
+						} : {
+							value: void 0,
+							done: true
+						});
+					}
+					return {
+						value: pushQueue.shift(),
+						done: false
+					};
+				},
+				return: async () => {
+					this.abort();
+					return {
+						value: void 0,
+						done: true
+					};
+				}
+			};
+		}
+		toReadableStream() {
+			return new Stream(this[Symbol.asyncIterator].bind(this), this.controller).toReadableStream();
+		}
+	}
+	return MessageStream;
+})();
+// node_modules/@anthropic-ai/sdk/internal/decoders/jsonl.mjs
+var JSONLDecoder = /* @__PURE__ */ (() => {
+	class JSONLDecoder {
+		constructor(iterator, controller, response) {
+			this.iterator = iterator;
+			this.response = response;
+			this.controller = controller;
+		}
+		async *decoder() {
+			const iterator = this.iterator;
+			if (!iterator) throw new require_promise.AnthropicError("Cannot iterate over a consumed stream.");
+			this.iterator = void 0;
+			const lineDecoder = new LineDecoder();
+			for await (const chunk of iterator) for (const line of lineDecoder.decode(chunk)) yield JSON.parse(line);
+			for (const line of lineDecoder.flush()) yield JSON.parse(line);
+		}
+		[Symbol.asyncIterator]() {
+			return this.decoder();
+		}
+		static fromResponse(response, controller) {
+			if (!response.body) {
+				controller.abort();
+				if (typeof globalThis.navigator !== "undefined" && globalThis.navigator.product === "ReactNative") throw new require_promise.AnthropicError(`The default react-native fetch implementation does not support streaming. Please use expo/fetch: https://docs.expo.dev/versions/latest/sdk/expo/#expofetch-api`);
+				throw new require_promise.AnthropicError(`Attempted to iterate over a response with no body`);
+			}
+			return new JSONLDecoder(ReadableStreamToAsyncIterable(response.body), controller, response);
+		}
+	}
+	return JSONLDecoder;
+})();
+// node_modules/@anthropic-ai/sdk/internal/utils/path.mjs
+/**
+* Percent-encode everything that isn't safe to have in a path without encoding safe chars.
+*
+* Taken from https://datatracker.ietf.org/doc/html/rfc3986#section-3.3:
+* > unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"
+* > sub-delims  = "!" / "$" / "&" / "'" / "(" / ")" / "*" / "+" / "," / ";" / "="
+* > pchar       = unreserved / pct-encoded / sub-delims / ":" / "@"
+*/
+function encodeURIPath(str) {
+	return str.replace(/[^A-Za-z0-9\-._~!$&'()*+,;=:@]+/g, encodeURIComponent);
+}
+const EMPTY = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.create(null));
+const createPathTagFunction = (pathEncoder = encodeURIPath) => function path(statics, ...params) {
+	if (statics.length === 1) return statics[0];
+	let postPath = false;
+	const invalidSegments = [];
+	const path = statics.reduce((previousValue, currentValue, index) => {
+		if (/[?#]/.test(currentValue)) postPath = true;
+		const value = params[index];
+		let encoded = (postPath ? encodeURIComponent : pathEncoder)("" + value);
+		if (index !== params.length && (value == null || typeof value === "object" && value.toString === Object.getPrototypeOf(Object.getPrototypeOf(value.hasOwnProperty ?? EMPTY) ?? EMPTY)?.toString)) {
+			encoded = value + "";
+			invalidSegments.push({
+				start: previousValue.length + currentValue.length,
+				length: encoded.length,
+				error: `Value of type ${Object.prototype.toString.call(value).slice(8, -1)} is not a valid path parameter`
+			});
+		}
+		if (!postPath && encoded === "") invalidSegments.push({
+			start: previousValue.length + currentValue.length,
+			length: 0,
+			error: "Value \"\" can't be safely passed as a path parameter"
+		});
+		return previousValue + currentValue + (index === params.length ? "" : encoded);
+	}, "");
+	const pathOnly = path.split(/[?#]/, 1)[0];
+	const invalidSegmentPattern = /(?<=^|\/)(?:\.|%2e){1,2}(?=\/|$)/gi;
+	let match;
+	while ((match = invalidSegmentPattern.exec(pathOnly)) !== null) invalidSegments.push({
+		start: match.index,
+		length: match[0].length,
+		error: `Value "${match[0]}" can\'t be safely passed as a path parameter`
+	});
+	invalidSegments.sort((a, b) => a.start - b.start);
+	if (invalidSegments.length > 0) {
+		const marks = [];
+		for (const segment of invalidSegments) for (let i = segment.start; i < segment.start + Math.max(1, segment.length); i++) marks[i] = "^";
+		const underline = Array.from(marks, (mark) => mark ?? " ").join("");
+		throw new require_promise.AnthropicError(`Path parameters result in path with invalid segments:\n${invalidSegments.map((e) => e.error).join("\n")}\n${path}\n${underline}`);
+	}
+	return path;
+};
+/**
+* URI-encodes path params and ensures that none before any ? or # is empty and none introduces an unsafe /./ or /../ path segment.
+*/
+const path = /* @__PURE__ */ createPathTagFunction(encodeURIPath);
+// node_modules/@anthropic-ai/sdk/resources/messages/batches.mjs
+var Batches$1 = class extends APIResource {
+	/**
+	* Send a batch of Message creation requests.
+	*
+	* The Message Batches API can be used to process multiple Messages API requests at
+	* once. Once a Message Batch is created, it begins processing immediately. Batches
+	* can take up to 24 hours to complete.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* const messageBatch = await client.messages.batches.create({
+	*   requests: [
+	*     {
+	*       custom_id: 'my-custom-id-1',
+	*       params: {
+	*         max_tokens: 1024,
+	*         messages: [
+	*           { content: 'Hello, world', role: 'user' },
+	*         ],
+	*         model: 'claude-opus-5-5',
+	*       },
+	*     },
+	*   ],
+	* });
+	* ```
+	*/
+	create(params, options) {
+		const { user_profile_id, workspace_id, ...body } = params;
+		return this._client.post("/v1/messages/batches", {
+			body,
+			...options,
+			headers: buildHeaders([{
+				...user_profile_id != null ? { "anthropic-user-profile-id": user_profile_id } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.create", options, {
+				route: "/v1/messages/batches",
+				attributes: { "anthropic.message.batch.request_count": body.requests?.length },
+				createdIDAttribute: "anthropic.message.batch.id"
+			})
+		});
+	}
+	/**
+	* This endpoint is idempotent and can be used to poll for Message Batch
+	* completion. To access the results of a Message Batch, make a request to the
+	* `results_url` field in the response.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* const messageBatch = await client.messages.batches.retrieve(
+	*   'message_batch_id',
+	* );
+	* ```
+	*/
+	retrieve(messageBatchID, params = {}, options) {
+		const { workspace_id } = params ?? {};
+		return this._client.get(path`/v1/messages/batches/${messageBatchID}`, {
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.retrieve", options, {
+				route: "/v1/messages/batches/{message_batch_id}",
+				attributes: { "anthropic.message.batch.id": messageBatchID }
+			})
+		});
+	}
+	/**
+	* List all Message Batches within a Workspace. Most recently created batches are
+	* returned first.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const messageBatch of client.messages.batches.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/messages/batches", Page, {
+			query,
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.list", options, {
+				route: "/v1/messages/batches",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"limit"
+				]
+			})
+		});
+	}
+	/**
+	* Delete a Message Batch.
+	*
+	* Message Batches can only be deleted once they've finished processing. If you'd
+	* like to delete an in-progress batch, you must first cancel it.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* const deletedMessageBatch =
+	*   await client.messages.batches.delete('message_batch_id');
+	* ```
+	*/
+	delete(messageBatchID, params = {}, options) {
+		const { workspace_id } = params ?? {};
+		return this._client.delete(path`/v1/messages/batches/${messageBatchID}`, {
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.delete", options, {
+				route: "/v1/messages/batches/{message_batch_id}",
+				attributes: { "anthropic.message.batch.id": messageBatchID }
+			})
+		});
+	}
+	/**
+	* Batches may be canceled any time before processing ends. Once cancellation is
+	* initiated, the batch enters a `canceling` state, at which time the system may
+	* complete any in-progress, non-interruptible requests before finalizing
+	* cancellation.
+	*
+	* The number of canceled requests is specified in `request_counts`. To determine
+	* which requests were canceled, check the individual results within the batch.
+	* Note that cancellation may not result in any canceled requests if they were
+	* non-interruptible.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* const messageBatch = await client.messages.batches.cancel(
+	*   'message_batch_id',
+	* );
+	* ```
+	*/
+	cancel(messageBatchID, params = {}, options) {
+		const { workspace_id } = params ?? {};
+		return this._client.post(path`/v1/messages/batches/${messageBatchID}/cancel`, {
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.cancel", options, {
+				route: "/v1/messages/batches/{message_batch_id}/cancel",
+				attributes: { "anthropic.message.batch.id": messageBatchID }
+			})
+		});
+	}
+	/**
+	* Streams the results of a Message Batch as a `.jsonl` file.
+	*
+	* Each line in the file is a JSON object containing the result of a single request
+	* in the Message Batch. Results are not guaranteed to be in the same order as
+	* requests. Use the `custom_id` field to match results to requests.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* const stream = await client.messages.batches.results(
+	*   'message_batch_id',
+	* );
+	* for await (const messageBatchIndividualResponse of stream) {
+	*   // ...
+	* }
+	* ```
+	*/
+	async results(messageBatchID, params = {}, options) {
+		const batch = await this.retrieve(messageBatchID, params, options);
+		if (!batch.results_url) throw new require_promise.AnthropicError(`No batch \`results_url\`; Has it finished processing? ${batch.processing_status} - ${batch.id}`);
+		const { workspace_id } = params ?? {};
+		return this._client.get(batch.results_url, {
+			...options,
+			headers: buildHeaders([{
+				Accept: "application/binary",
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			stream: true,
+			__binaryResponse: true,
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.results", options, {
+				route: "/v1/messages/batches/{message_batch_id}/results",
+				attributes: { "anthropic.message.batch.id": messageBatchID }
+			})
+		})._thenUnwrap((_, props) => JSONLDecoder.fromResponse(props.response, props.controller));
+	}
+};
+// node_modules/@anthropic-ai/sdk/internal/constants.mjs
+/**
+* Model-specific timeout constraints for non-streaming requests
+*/
+const MODEL_NONSTREAMING_TOKENS = {
+	"claude-opus-4@20250514": 8192,
+	"anthropic.claude-opus-4-1-20250805-v1:0": 8192,
+	"claude-opus-4-1@20250805": 8192
+};
+// node_modules/@anthropic-ai/sdk/resources/messages/messages.mjs
+var Messages$1 = /* @__PURE__ */ (() => {
+	class Messages extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.batches = new Batches$1(this._client);
+		}
+		create(params, options) {
+			const { user_profile_id, workspace_id, ...body } = params;
+			if (body.model in DEPRECATED_MODELS$1) console.warn(`The model '${body.model}' is deprecated and will reach end-of-life on ${DEPRECATED_MODELS$1[body.model]}\nPlease migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.`);
+			if (MODELS_TO_WARN_WITH_THINKING_ENABLED$1.includes(body.model) && body.thinking && body.thinking.type === "enabled") console.warn(`Using Claude with ${body.model} and 'thinking.type=enabled' is deprecated. Use 'thinking.type=adaptive' instead which results in better model performance in our testing: https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking`);
+			let timeout = options?.timeout ?? this._client._options.timeout;
+			if (!body.stream && timeout == null) {
+				const maxNonstreamingTokens = MODEL_NONSTREAMING_TOKENS[body.model] ?? void 0;
+				timeout = this._client.calculateNonstreamingTimeout(body.max_tokens, maxNonstreamingTokens);
+			}
+			const headers = messagesCreateHeaders$1(params, options);
+			const call = this._client._tracer && startApiCallSpan(this._client, "anthropic.messages.create", options, messagesCreateSpanSettings(this._client, body, headers));
+			recordMessagesCreateRequest(this._client, call, body);
+			const request = this._client.post("/v1/messages", {
+				body,
+				timeout: timeout ?? 6e5,
+				...options,
+				__span: call,
+				headers,
+				stream: params.stream ?? false
+			});
+			return call ? request._thenUnwrap((data) => {
+				recordMessagesCreateResponse(this._client, call, body, data);
+				return data;
+			}) : request;
+		}
+		/**
+		* Send a structured list of input messages with text and/or image content, along with an expected `output_config.format` and
+		* the response will be automatically parsed and available in the `parsed_output` property of the message.
+		*
+		* @example
+		* ```ts
+		* const message = await client.messages.parse({
+		*   model: 'claude-sonnet-5-5',
+		*   max_tokens: 1024,
+		*   messages: [{ role: 'user', content: 'What is 2+2?' }],
+		*   output_config: {
+		*     format: zodOutputFormat(z.object({ answer: z.number() })),
+		*   },
+		* });
+		*
+		* console.log(message.parsed_output?.answer); // 4
+		* ```
+		*/
+		parse(params, options) {
+			return this.create(params, options).then((message) => parseMessage(message, params, { logger: this._client.logger ?? console }));
+		}
+		/**
+		* Create a Message stream.
+		*
+		* If `output_config.format` is provided with a parseable format (like `zodOutputFormat()`),
+		* the final message will include a `parsed_output` property with the parsed content.
+		*
+		* @example
+		* ```ts
+		* const stream = client.messages.stream({
+		*   model: 'claude-sonnet-5-5',
+		*   max_tokens: 1024,
+		*   messages: [{ role: 'user', content: 'What is 2+2?' }],
+		*   output_config: {
+		*     format: zodOutputFormat(z.object({ answer: z.number() })),
+		*   },
+		* });
+		*
+		* const message = await stream.finalMessage();
+		* console.log(message.parsed_output?.answer); // 4
+		* ```
+		*/
+		stream(body, options) {
+			const params = body;
+			return MessageStream.createMessage(this, params, options, {
+				logger: this._client.logger ?? console,
+				client: this._client
+			});
+		}
+		/**
+		* Count the number of tokens in a Message.
+		*
+		* The Token Count API can be used to count the number of tokens in a Message,
+		* including tools, images, and documents, without creating it.
+		*
+		* Learn more about token counting in our
+		* [user guide](https://platform.claude.com/docs/en/build-with-claude/token-counting)
+		*
+		* @example
+		* ```ts
+		* const messageTokensCount =
+		*   await client.messages.countTokens({
+		*     messages: [{ content: 'Hello, world', role: 'user' }],
+		*     model: 'claude-opus-5-5',
+		*   });
+		* ```
+		*/
+		countTokens(params, options) {
+			const { user_profile_id, workspace_id, ...body } = params;
+			const headers = buildHeaders([{
+				...user_profile_id != null ? { "anthropic-user-profile-id": user_profile_id } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]);
+			const call = startApiCallSpan(this._client, "anthropic.messages.count_tokens", options, {
+				route: "/v1/messages/count_tokens",
+				attributes: { [ATTR_GEN_AI_REQUEST_MODEL]: body.model }
+			});
+			const request = this._client.post("/v1/messages/count_tokens", {
+				body,
+				...options,
+				__span: call,
+				headers
+			});
+			return call ? request._thenUnwrap((count) => {
+				recordCountTokensResponse(this._client, call, count);
+				return count;
+			}) : request;
+		}
+	}
+	Messages.Batches = Batches$1;
+	return Messages;
+})();
+const DEPRECATED_MODELS$1 = {
+	"claude-sonnet-4-5": "November 30th, 2026",
+	"claude-sonnet-4-5-20250929": "November 30th, 2026"
+};
+const MODELS_TO_WARN_WITH_THINKING_ENABLED$1 = ["claude-mythos-preview", "claude-opus-4-6"];
+// node_modules/@anthropic-ai/sdk/resources/beta/deployment-runs.mjs
+var DeploymentRuns = class extends APIResource {
+	/**
+	* Get Deployment Run
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeploymentRun =
+	*   await client.beta.deploymentRuns.retrieve(
+	*     'deployment_run_id',
+	*   );
+	* ```
+	*/
+	retrieve(deploymentRunID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.get(path`/v1/deployment_runs/${deploymentRunID}`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.deployment_runs.retrieve", options, {
+				route: "/v1/deployment_runs/{deployment_run_id}",
+				attributes: { "anthropic.deployment_run.id": deploymentRunID }
+			})
+		});
+	}
+	/**
+	* List Deployment Runs
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaManagedAgentsDeploymentRun of client.beta.deploymentRuns.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/deployment_runs", PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.deployment_runs.list", options, {
+				route: "/v1/deployment_runs",
+				queryParams: [
+					"created_at[gt]",
+					"created_at[gte]",
+					"created_at[lt]",
+					"created_at[lte]",
+					"deployment_id",
+					"has_error",
+					"limit",
+					"page",
+					"trigger_type"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/deployments.mjs
+var Deployments = class extends APIResource {
+	/**
+	* Create Deployment
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeployment =
+	*   await client.beta.deployments.create({
+	*     agent: 'string',
+	*     environment_id: 'x',
+	*     initial_events: [
+	*       {
+	*         content: [
+	*           {
+	*             text: 'Where is my order #1234?',
+	*             type: 'text',
+	*           },
+	*         ],
+	*         type: 'user.message',
+	*       },
+	*     ],
+	*     name: 'x',
+	*   });
+	* ```
+	*/
+	create(params, options) {
+		const { betas, workspace_id, ...body } = params;
+		return this._client.post("/v1/deployments", {
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.deployments.create", options, {
+				route: "/v1/deployments",
+				createdIDAttribute: "anthropic.deployment.id"
+			})
+		});
+	}
+	/**
+	* Get Deployment
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeployment =
+	*   await client.beta.deployments.retrieve(
+	*     'depl_011CZkZcDH3vPqd7xnEfwTai',
+	*   );
+	* ```
+	*/
+	retrieve(deploymentID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.get(path`/v1/deployments/${deploymentID}`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.deployments.retrieve", options, {
+				route: "/v1/deployments/{deployment_id}",
+				attributes: { "anthropic.deployment.id": deploymentID }
+			})
+		});
+	}
+	/**
+	* Update Deployment
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeployment =
+	*   await client.beta.deployments.update(
+	*     'depl_011CZkZcDH3vPqd7xnEfwTai',
+	*   );
+	* ```
+	*/
+	update(deploymentID, params, options) {
+		const { betas, workspace_id, ...body } = params;
+		return this._client.post(path`/v1/deployments/${deploymentID}`, {
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.deployments.update", options, {
+				route: "/v1/deployments/{deployment_id}",
+				attributes: { "anthropic.deployment.id": deploymentID }
+			})
+		});
+	}
+	/**
+	* List Deployments
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaManagedAgentsDeployment of client.beta.deployments.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/deployments", PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.deployments.list", options, {
+				route: "/v1/deployments",
+				queryParams: [
+					"agent_id",
+					"created_at[gte]",
+					"created_at[lte]",
+					"include_archived",
+					"limit",
+					"page",
+					"status"
+				]
+			})
+		});
+	}
+	/**
+	* Archive Deployment
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeployment =
+	*   await client.beta.deployments.archive(
+	*     'depl_011CZkZcDH3vPqd7xnEfwTai',
+	*   );
+	* ```
+	*/
+	archive(deploymentID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.post(path`/v1/deployments/${deploymentID}/archive`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.deployments.archive", options, {
+				route: "/v1/deployments/{deployment_id}/archive",
+				attributes: { "anthropic.deployment.id": deploymentID }
+			})
+		});
+	}
+	/**
+	* Pause Deployment
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeployment =
+	*   await client.beta.deployments.pause(
+	*     'depl_011CZkZcDH3vPqd7xnEfwTai',
+	*   );
+	* ```
+	*/
+	pause(deploymentID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.post(path`/v1/deployments/${deploymentID}/pause`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.deployments.pause", options, {
+				route: "/v1/deployments/{deployment_id}/pause",
+				attributes: { "anthropic.deployment.id": deploymentID }
+			})
+		});
+	}
+	/**
+	* Run Deployment Now
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeploymentRun =
+	*   await client.beta.deployments.run(
+	*     'depl_011CZkZcDH3vPqd7xnEfwTai',
+	*   );
+	* ```
+	*/
+	run(deploymentID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.post(path`/v1/deployments/${deploymentID}/run`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.deployments.run", options, {
+				route: "/v1/deployments/{deployment_id}/run",
+				attributes: { "anthropic.deployment.id": deploymentID }
+			})
+		});
+	}
+	/**
+	* Unpause Deployment
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeployment =
+	*   await client.beta.deployments.unpause(
+	*     'depl_011CZkZcDH3vPqd7xnEfwTai',
+	*   );
+	* ```
+	*/
+	unpause(deploymentID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.post(path`/v1/deployments/${deploymentID}/unpause`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.deployments.unpause", options, {
+				route: "/v1/deployments/{deployment_id}/unpause",
+				attributes: { "anthropic.deployment.id": deploymentID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/dreams.mjs
+var Dreams = class extends APIResource {
+	/**
+	* Start an asynchronous job that uses past sessions to produce a reorganized
+	* version of a memory store and get back the dream to poll for the result.
+	*
+	* By default the dream writes its result to a new memory store and doesn't change
+	* the input memory store. The response has `status` set to `pending` and an empty
+	* `outputs` array. Poll the dream until `status` is `completed`, `failed`, or
+	* `canceled`.
+	*
+	* See the
+	* [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#create-a-dream)
+	* to learn more about creating dreams.
+	*
+	* @example
+	* ```ts
+	* const betaDream = await client.beta.dreams.create({
+	*   inputs: [{ memory_store_id: 'x', type: 'memory_store' }],
+	*   model: 'string',
+	* });
+	* ```
+	*/
+	create(params, options) {
+		const { betas, workspace_id, ...body } = params;
+		return this._client.post("/v1/dreams", {
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "dreaming-2026-04-21"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.dreams.create", options, {
+				route: "/v1/dreams",
+				createdIDAttribute: "anthropic.dream.id"
+			})
+		});
+	}
+	/**
+	* Get a dream by ID to check its status, output memory store, and token usage.
+	*
+	* Archived dreams are returned too.
+	*
+	* See the
+	* [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#track-progress)
+	* for how to poll a dream and what each status means.
+	*
+	* @example
+	* ```ts
+	* const betaDream = await client.beta.dreams.retrieve(
+	*   'dream_id',
+	* );
+	* ```
+	*/
+	retrieve(dreamID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.get(path`/v1/dreams/${dreamID}`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "dreaming-2026-04-21"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.dreams.retrieve", options, {
+				route: "/v1/dreams/{dream_id}",
+				attributes: { "anthropic.dream.id": dreamID }
+			})
+		});
+	}
+	/**
+	* List the dreams in the workspace, newest first.
+	*
+	* Archived dreams are left out unless `include_archived` is `true`.
+	*
+	* See the
+	* [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#list-dreams)
+	* for how to page through dreams.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaDream of client.beta.dreams.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/dreams", PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "dreaming-2026-04-21"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.dreams.list", options, {
+				route: "/v1/dreams",
+				queryParams: [
+					"created_at[gt]",
+					"created_at[lt]",
+					"include_archived",
+					"limit",
+					"page",
+					"statuses"
+				]
+			})
+		});
+	}
+	/**
+	* Hide a `completed`, `failed`, or `canceled` dream from the default list of
+	* dreams.
+	*
+	* Archiving a `pending` or `running` dream returns a 400 error, so cancel it
+	* first. Archiving an archived dream returns it unchanged. An archived dream can
+	* still be fetched by ID. Archiving can't be undone.
+	*
+	* See the
+	* [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#archive-a-dream)
+	* to learn more about archiving dreams.
+	*
+	* @example
+	* ```ts
+	* const betaDream = await client.beta.dreams.archive(
+	*   'dream_id',
+	* );
+	* ```
+	*/
+	archive(dreamID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.post(path`/v1/dreams/${dreamID}/archive`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "dreaming-2026-04-21"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.dreams.archive", options, {
+				route: "/v1/dreams/{dream_id}/archive",
+				attributes: { "anthropic.dream.id": dreamID }
+			})
+		});
+	}
+	/**
+	* Stop a `pending` or `running` dream.
+	*
+	* The response shows `status` as `canceled`, unless the dream reached `completed`
+	* or `failed` first. `usage` can keep changing after the response. Canceling a
+	* `canceled` dream returns it unchanged. Canceling a `completed` or `failed` dream
+	* returns a 400 error.
+	*
+	* See the
+	* [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams#cancel-a-dream)
+	* to learn more about canceling dreams.
+	*
+	* @example
+	* ```ts
+	* const betaDream = await client.beta.dreams.cancel(
+	*   'dream_id',
+	* );
+	* ```
+	*/
+	cancel(dreamID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.post(path`/v1/dreams/${dreamID}/cancel`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "dreaming-2026-04-21"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.dreams.cancel", options, {
+				route: "/v1/dreams/{dream_id}/cancel",
+				attributes: { "anthropic.dream.id": dreamID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/files.mjs
+var Files$1 = class extends APIResource {
+	/**
+	* List Files
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaFileMetadata of client.beta.files.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/files", PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.files.list", options, {
+				route: "/v1/files",
+				queryParams: [
+					"ids",
+					"limit",
+					"page",
+					"scope_id"
+				]
+			})
+		});
+	}
+	/**
+	* Delete File
+	*
+	* @example
+	* ```ts
+	* const betaDeletedFile = await client.beta.files.delete(
+	*   'file_id',
+	* );
+	* ```
+	*/
+	delete(fileID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.delete(path`/v1/files/${fileID}`, {
+			...options,
+			headers: buildHeaders([{
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.files.delete", options, {
+				route: "/v1/files/{file_id}",
+				attributes: { "anthropic.file.id": fileID }
+			})
+		});
+	}
+	/**
+	* Download File
+	*
+	* @example
+	* ```ts
+	* const response = await client.beta.files.download(
+	*   'file_id',
+	* );
+	*
+	* const content = await response.blob();
+	* console.log(content);
+	* ```
+	*/
+	download(fileID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.get(path`/v1/files/${fileID}/content`, {
+			...options,
+			headers: buildHeaders([{
+				Accept: "application/binary",
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__binaryResponse: true,
+			__span: startApiCallSpan(this._client, "anthropic.files.download", options, {
+				route: "/v1/files/{file_id}/content",
+				attributes: { "anthropic.file.id": fileID }
+			})
+		});
+	}
+	/**
+	* Get File Metadata
+	*
+	* @example
+	* ```ts
+	* const betaFileMetadata =
+	*   await client.beta.files.retrieveMetadata('file_id');
+	* ```
+	*/
+	retrieveMetadata(fileID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.get(path`/v1/files/${fileID}`, {
+			...options,
+			headers: buildHeaders([{
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.files.retrieve_metadata", options, {
+				route: "/v1/files/{file_id}",
+				attributes: { "anthropic.file.id": fileID }
+			})
+		});
+	}
+	/**
+	* Upload File
+	*
+	* @example
+	* ```ts
+	* const betaFileMetadata = await client.beta.files.upload({
+	*   file: fs.createReadStream('path/to/file'),
+	* });
+	* ```
+	*/
+	upload(params, options) {
+		const { betas, workspace_id, ...body } = params;
+		return this._client.post("/v1/files", multipartFormRequestOptions({
+			body,
+			...options,
+			headers: buildHeaders([
+				{
+					...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				},
+				stainlessHelperHeaderFromFile(body.file),
+				options?.headers
+			]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.files.upload", options, {
+				route: "/v1/files",
+				createdIDAttribute: "anthropic.file.id"
+			})
+		}, this._client));
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/models.mjs
+var Models$1 = class extends APIResource {
+	/**
+	* Get a specific model.
+	*
+	* The Models API response can be used to determine information about a specific
+	* model or resolve a model alias to a model ID.
+	*
+	* @example
+	* ```ts
+	* const betaModelInfo = await client.beta.models.retrieve(
+	*   'model_id',
+	* );
+	* ```
+	*/
+	retrieve(modelID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.get(path`/v1/models/${modelID}`, {
+			...options,
+			headers: buildHeaders([{
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.models.retrieve", options, {
+				route: "/v1/models/{model_id}",
+				attributes: { "anthropic.model.id": modelID }
+			})
+		});
+	}
+	/**
+	* List available models.
+	*
+	* The Models API response can be used to determine which models are available for
+	* use in the API. More recently released models are listed first.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaModelInfo of client.beta.models.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/models", Page, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.models.list", options, {
+				route: "/v1/models",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"lifecycle",
+					"limit"
+				]
+			})
+		});
+	}
+};
+// node_modules/@stablelib/base64/lib/base64.js
+var require_base64 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$2) => {
+	var __extends = this$2 && this$2.__extends || (function() {
+		var extendStatics = function(d, b) {
+			extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d, b) {
+				d.__proto__ = b;
+			} || function(d, b) {
+				for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+			};
+			return extendStatics(d, b);
+		};
+		return function(d, b) {
+			extendStatics(d, b);
+			function __() {
+				this.constructor = d;
+			}
+			d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+		};
+	})();
+	Object.defineProperty(exports, "__esModule", { value: true });
+	/**
+	* Package base64 implements Base64 encoding and decoding.
+	*/
+	var INVALID_BYTE = 256;
+	/**
+	* Implements standard Base64 encoding.
+	*
+	* Operates in constant time.
+	*/
+	var Coder = function() {
+		function Coder(_paddingCharacter) {
+			if (_paddingCharacter === void 0) _paddingCharacter = "=";
+			this._paddingCharacter = _paddingCharacter;
+		}
+		Coder.prototype.encodedLength = function(length) {
+			if (!this._paddingCharacter) return (length * 8 + 5) / 6 | 0;
+			return (length + 2) / 3 * 4 | 0;
+		};
+		Coder.prototype.encode = function(data) {
+			var out = "";
+			var i = 0;
+			for (; i < data.length - 2; i += 3) {
+				var c = data[i] << 16 | data[i + 1] << 8 | data[i + 2];
+				out += this._encodeByte(c >>> 18 & 63);
+				out += this._encodeByte(c >>> 12 & 63);
+				out += this._encodeByte(c >>> 6 & 63);
+				out += this._encodeByte(c >>> 0 & 63);
+			}
+			var left = data.length - i;
+			if (left > 0) {
+				var c = data[i] << 16 | (left === 2 ? data[i + 1] << 8 : 0);
+				out += this._encodeByte(c >>> 18 & 63);
+				out += this._encodeByte(c >>> 12 & 63);
+				if (left === 2) out += this._encodeByte(c >>> 6 & 63);
+				else out += this._paddingCharacter || "";
+				out += this._paddingCharacter || "";
+			}
+			return out;
+		};
+		Coder.prototype.maxDecodedLength = function(length) {
+			if (!this._paddingCharacter) return (length * 6 + 7) / 8 | 0;
+			return length / 4 * 3 | 0;
+		};
+		Coder.prototype.decodedLength = function(s) {
+			return this.maxDecodedLength(s.length - this._getPaddingLength(s));
+		};
+		Coder.prototype.decode = function(s) {
+			if (s.length === 0) return /* @__PURE__ */ new Uint8Array(0);
+			var paddingLength = this._getPaddingLength(s);
+			var length = s.length - paddingLength;
+			var out = new Uint8Array(this.maxDecodedLength(length));
+			var op = 0;
+			var i = 0;
+			var haveBad = 0;
+			var v0 = 0, v1 = 0, v2 = 0, v3 = 0;
+			for (; i < length - 4; i += 4) {
+				v0 = this._decodeChar(s.charCodeAt(i + 0));
+				v1 = this._decodeChar(s.charCodeAt(i + 1));
+				v2 = this._decodeChar(s.charCodeAt(i + 2));
+				v3 = this._decodeChar(s.charCodeAt(i + 3));
+				out[op++] = v0 << 2 | v1 >>> 4;
+				out[op++] = v1 << 4 | v2 >>> 2;
+				out[op++] = v2 << 6 | v3;
+				haveBad |= v0 & INVALID_BYTE;
+				haveBad |= v1 & INVALID_BYTE;
+				haveBad |= v2 & INVALID_BYTE;
+				haveBad |= v3 & INVALID_BYTE;
+			}
+			if (i < length - 1) {
+				v0 = this._decodeChar(s.charCodeAt(i));
+				v1 = this._decodeChar(s.charCodeAt(i + 1));
+				out[op++] = v0 << 2 | v1 >>> 4;
+				haveBad |= v0 & INVALID_BYTE;
+				haveBad |= v1 & INVALID_BYTE;
+			}
+			if (i < length - 2) {
+				v2 = this._decodeChar(s.charCodeAt(i + 2));
+				out[op++] = v1 << 4 | v2 >>> 2;
+				haveBad |= v2 & INVALID_BYTE;
+			}
+			if (i < length - 3) {
+				v3 = this._decodeChar(s.charCodeAt(i + 3));
+				out[op++] = v2 << 6 | v3;
+				haveBad |= v3 & INVALID_BYTE;
+			}
+			if (haveBad !== 0) throw new Error("Base64Coder: incorrect characters for decoding");
+			return out;
+		};
+		Coder.prototype._encodeByte = function(b) {
+			var result = b;
+			result += 65;
+			result += 25 - b >>> 8 & 6;
+			result += 51 - b >>> 8 & -75;
+			result += 61 - b >>> 8 & -15;
+			result += 62 - b >>> 8 & 3;
+			return String.fromCharCode(result);
+		};
+		Coder.prototype._decodeChar = function(c) {
+			var result = INVALID_BYTE;
+			result += (42 - c & c - 44) >>> 8 & -INVALID_BYTE + c - 43 + 62;
+			result += (46 - c & c - 48) >>> 8 & -INVALID_BYTE + c - 47 + 63;
+			result += (47 - c & c - 58) >>> 8 & -INVALID_BYTE + c - 48 + 52;
+			result += (64 - c & c - 91) >>> 8 & -INVALID_BYTE + c - 65 + 0;
+			result += (96 - c & c - 123) >>> 8 & -INVALID_BYTE + c - 97 + 26;
+			return result;
+		};
+		Coder.prototype._getPaddingLength = function(s) {
+			var paddingLength = 0;
+			if (this._paddingCharacter) {
+				for (var i = s.length - 1; i >= 0; i--) {
+					if (s[i] !== this._paddingCharacter) break;
+					paddingLength++;
+				}
+				if (s.length < 4 || paddingLength > 2) throw new Error("Base64Coder: incorrect padding");
+			}
+			return paddingLength;
+		};
+		return Coder;
+	}();
+	exports.Coder = Coder;
+	var stdCoder = new Coder();
+	function encode(data) {
+		return stdCoder.encode(data);
+	}
+	exports.encode = encode;
+	function decode(s) {
+		return stdCoder.decode(s);
+	}
+	exports.decode = decode;
+	/**
+	* Implements URL-safe Base64 encoding.
+	* (Same as Base64, but '+' is replaced with '-', and '/' with '_').
+	*
+	* Operates in constant time.
+	*/
+	var URLSafeCoder = function(_super) {
+		__extends(URLSafeCoder, _super);
+		function URLSafeCoder() {
+			return _super !== null && _super.apply(this, arguments) || this;
+		}
+		URLSafeCoder.prototype._encodeByte = function(b) {
+			var result = b;
+			result += 65;
+			result += 25 - b >>> 8 & 6;
+			result += 51 - b >>> 8 & -75;
+			result += 61 - b >>> 8 & -13;
+			result += 62 - b >>> 8 & 49;
+			return String.fromCharCode(result);
+		};
+		URLSafeCoder.prototype._decodeChar = function(c) {
+			var result = INVALID_BYTE;
+			result += (44 - c & c - 46) >>> 8 & -INVALID_BYTE + c - 45 + 62;
+			result += (94 - c & c - 96) >>> 8 & -INVALID_BYTE + c - 95 + 63;
+			result += (47 - c & c - 58) >>> 8 & -INVALID_BYTE + c - 48 + 52;
+			result += (64 - c & c - 91) >>> 8 & -INVALID_BYTE + c - 65 + 0;
+			result += (96 - c & c - 123) >>> 8 & -INVALID_BYTE + c - 97 + 26;
+			return result;
+		};
+		return URLSafeCoder;
+	}(Coder);
+	exports.URLSafeCoder = URLSafeCoder;
+	var urlSafeCoder = new URLSafeCoder();
+	function encodeURLSafe(data) {
+		return urlSafeCoder.encode(data);
+	}
+	exports.encodeURLSafe = encodeURLSafe;
+	function decodeURLSafe(s) {
+		return urlSafeCoder.decode(s);
+	}
+	exports.decodeURLSafe = decodeURLSafe;
+	exports.encodedLength = function(length) {
+		return stdCoder.encodedLength(length);
+	};
+	exports.maxDecodedLength = function(length) {
+		return stdCoder.maxDecodedLength(length);
+	};
+	exports.decodedLength = function(s) {
+		return stdCoder.decodedLength(s);
+	};
+}));
+// node_modules/fast-sha256/sha256.js
+var require_sha256 = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module, this$1) => {
+	(function(root, factory) {
+		var exports = {};
+		factory(exports);
+		var sha256 = exports["default"];
+		for (var k in exports) sha256[k] = exports[k];
+		if (typeof module === "object" && typeof module.exports === "object") module.exports = sha256;
+		else if (typeof define === "function" && define.amd) define(function() {
+			return sha256;
+		});
+		else root.sha256 = sha256;
+	})(this$1, function(exports) {
+		"use strict";
+		exports.__esModule = true;
+		exports.digestLength = 32;
+		exports.blockSize = 64;
+		var K = new Uint32Array([
+			1116352408,
+			1899447441,
+			3049323471,
+			3921009573,
+			961987163,
+			1508970993,
+			2453635748,
+			2870763221,
+			3624381080,
+			310598401,
+			607225278,
+			1426881987,
+			1925078388,
+			2162078206,
+			2614888103,
+			3248222580,
+			3835390401,
+			4022224774,
+			264347078,
+			604807628,
+			770255983,
+			1249150122,
+			1555081692,
+			1996064986,
+			2554220882,
+			2821834349,
+			2952996808,
+			3210313671,
+			3336571891,
+			3584528711,
+			113926993,
+			338241895,
+			666307205,
+			773529912,
+			1294757372,
+			1396182291,
+			1695183700,
+			1986661051,
+			2177026350,
+			2456956037,
+			2730485921,
+			2820302411,
+			3259730800,
+			3345764771,
+			3516065817,
+			3600352804,
+			4094571909,
+			275423344,
+			430227734,
+			506948616,
+			659060556,
+			883997877,
+			958139571,
+			1322822218,
+			1537002063,
+			1747873779,
+			1955562222,
+			2024104815,
+			2227730452,
+			2361852424,
+			2428436474,
+			2756734187,
+			3204031479,
+			3329325298
+		]);
+		function hashBlocks(w, v, p, pos, len) {
+			var a, b, c, d, e, f, g, h, u, i, j, t1, t2;
+			while (len >= 64) {
+				a = v[0];
+				b = v[1];
+				c = v[2];
+				d = v[3];
+				e = v[4];
+				f = v[5];
+				g = v[6];
+				h = v[7];
+				for (i = 0; i < 16; i++) {
+					j = pos + i * 4;
+					w[i] = (p[j] & 255) << 24 | (p[j + 1] & 255) << 16 | (p[j + 2] & 255) << 8 | p[j + 3] & 255;
+				}
+				for (i = 16; i < 64; i++) {
+					u = w[i - 2];
+					t1 = (u >>> 17 | u << 15) ^ (u >>> 19 | u << 13) ^ u >>> 10;
+					u = w[i - 15];
+					t2 = (u >>> 7 | u << 25) ^ (u >>> 18 | u << 14) ^ u >>> 3;
+					w[i] = (t1 + w[i - 7] | 0) + (t2 + w[i - 16] | 0);
+				}
+				for (i = 0; i < 64; i++) {
+					t1 = (((e >>> 6 | e << 26) ^ (e >>> 11 | e << 21) ^ (e >>> 25 | e << 7)) + (e & f ^ ~e & g) | 0) + (h + (K[i] + w[i] | 0) | 0) | 0;
+					t2 = ((a >>> 2 | a << 30) ^ (a >>> 13 | a << 19) ^ (a >>> 22 | a << 10)) + (a & b ^ a & c ^ b & c) | 0;
+					h = g;
+					g = f;
+					f = e;
+					e = d + t1 | 0;
+					d = c;
+					c = b;
+					b = a;
+					a = t1 + t2 | 0;
+				}
+				v[0] += a;
+				v[1] += b;
+				v[2] += c;
+				v[3] += d;
+				v[4] += e;
+				v[5] += f;
+				v[6] += g;
+				v[7] += h;
+				pos += 64;
+				len -= 64;
+			}
+			return pos;
+		}
+		var Hash = function() {
+			function Hash() {
+				this.digestLength = exports.digestLength;
+				this.blockSize = exports.blockSize;
+				this.state = /* @__PURE__ */ new Int32Array(8);
+				this.temp = /* @__PURE__ */ new Int32Array(64);
+				this.buffer = /* @__PURE__ */ new Uint8Array(128);
+				this.bufferLength = 0;
+				this.bytesHashed = 0;
+				this.finished = false;
+				this.reset();
+			}
+			Hash.prototype.reset = function() {
+				this.state[0] = 1779033703;
+				this.state[1] = 3144134277;
+				this.state[2] = 1013904242;
+				this.state[3] = 2773480762;
+				this.state[4] = 1359893119;
+				this.state[5] = 2600822924;
+				this.state[6] = 528734635;
+				this.state[7] = 1541459225;
+				this.bufferLength = 0;
+				this.bytesHashed = 0;
+				this.finished = false;
+				return this;
+			};
+			Hash.prototype.clean = function() {
+				for (var i = 0; i < this.buffer.length; i++) this.buffer[i] = 0;
+				for (var i = 0; i < this.temp.length; i++) this.temp[i] = 0;
+				this.reset();
+			};
+			Hash.prototype.update = function(data, dataLength) {
+				if (dataLength === void 0) dataLength = data.length;
+				if (this.finished) throw new Error("SHA256: can't update because hash was finished.");
+				var dataPos = 0;
+				this.bytesHashed += dataLength;
+				if (this.bufferLength > 0) {
+					while (this.bufferLength < 64 && dataLength > 0) {
+						this.buffer[this.bufferLength++] = data[dataPos++];
+						dataLength--;
+					}
+					if (this.bufferLength === 64) {
+						hashBlocks(this.temp, this.state, this.buffer, 0, 64);
+						this.bufferLength = 0;
+					}
+				}
+				if (dataLength >= 64) {
+					dataPos = hashBlocks(this.temp, this.state, data, dataPos, dataLength);
+					dataLength %= 64;
+				}
+				while (dataLength > 0) {
+					this.buffer[this.bufferLength++] = data[dataPos++];
+					dataLength--;
+				}
+				return this;
+			};
+			Hash.prototype.finish = function(out) {
+				if (!this.finished) {
+					var bytesHashed = this.bytesHashed;
+					var left = this.bufferLength;
+					var bitLenHi = bytesHashed / 536870912 | 0;
+					var bitLenLo = bytesHashed << 3;
+					var padLength = bytesHashed % 64 < 56 ? 64 : 128;
+					this.buffer[left] = 128;
+					for (var i = left + 1; i < padLength - 8; i++) this.buffer[i] = 0;
+					this.buffer[padLength - 8] = bitLenHi >>> 24 & 255;
+					this.buffer[padLength - 7] = bitLenHi >>> 16 & 255;
+					this.buffer[padLength - 6] = bitLenHi >>> 8 & 255;
+					this.buffer[padLength - 5] = bitLenHi >>> 0 & 255;
+					this.buffer[padLength - 4] = bitLenLo >>> 24 & 255;
+					this.buffer[padLength - 3] = bitLenLo >>> 16 & 255;
+					this.buffer[padLength - 2] = bitLenLo >>> 8 & 255;
+					this.buffer[padLength - 1] = bitLenLo >>> 0 & 255;
+					hashBlocks(this.temp, this.state, this.buffer, 0, padLength);
+					this.finished = true;
+				}
+				for (var i = 0; i < 8; i++) {
+					out[i * 4 + 0] = this.state[i] >>> 24 & 255;
+					out[i * 4 + 1] = this.state[i] >>> 16 & 255;
+					out[i * 4 + 2] = this.state[i] >>> 8 & 255;
+					out[i * 4 + 3] = this.state[i] >>> 0 & 255;
+				}
+				return this;
+			};
+			Hash.prototype.digest = function() {
+				var out = new Uint8Array(this.digestLength);
+				this.finish(out);
+				return out;
+			};
+			Hash.prototype._saveState = function(out) {
+				for (var i = 0; i < this.state.length; i++) out[i] = this.state[i];
+			};
+			Hash.prototype._restoreState = function(from, bytesHashed) {
+				for (var i = 0; i < this.state.length; i++) this.state[i] = from[i];
+				this.bytesHashed = bytesHashed;
+				this.finished = false;
+				this.bufferLength = 0;
+			};
+			return Hash;
+		}();
+		exports.Hash = Hash;
+		var HMAC = function() {
+			function HMAC(key) {
+				this.inner = new Hash();
+				this.outer = new Hash();
+				this.blockSize = this.inner.blockSize;
+				this.digestLength = this.inner.digestLength;
+				var pad = new Uint8Array(this.blockSize);
+				if (key.length > this.blockSize) new Hash().update(key).finish(pad).clean();
+				else for (var i = 0; i < key.length; i++) pad[i] = key[i];
+				for (var i = 0; i < pad.length; i++) pad[i] ^= 54;
+				this.inner.update(pad);
+				for (var i = 0; i < pad.length; i++) pad[i] ^= 106;
+				this.outer.update(pad);
+				this.istate = /* @__PURE__ */ new Uint32Array(8);
+				this.ostate = /* @__PURE__ */ new Uint32Array(8);
+				this.inner._saveState(this.istate);
+				this.outer._saveState(this.ostate);
+				for (var i = 0; i < pad.length; i++) pad[i] = 0;
+			}
+			HMAC.prototype.reset = function() {
+				this.inner._restoreState(this.istate, this.inner.blockSize);
+				this.outer._restoreState(this.ostate, this.outer.blockSize);
+				return this;
+			};
+			HMAC.prototype.clean = function() {
+				for (var i = 0; i < this.istate.length; i++) this.ostate[i] = this.istate[i] = 0;
+				this.inner.clean();
+				this.outer.clean();
+			};
+			HMAC.prototype.update = function(data) {
+				this.inner.update(data);
+				return this;
+			};
+			HMAC.prototype.finish = function(out) {
+				if (this.outer.finished) this.outer.finish(out);
+				else {
+					this.inner.finish(out);
+					this.outer.update(out, this.digestLength).finish(out);
+				}
+				return this;
+			};
+			HMAC.prototype.digest = function() {
+				var out = new Uint8Array(this.digestLength);
+				this.finish(out);
+				return out;
+			};
+			return HMAC;
+		}();
+		exports.HMAC = HMAC;
+		function hash(data) {
+			var h = new Hash().update(data);
+			var digest = h.digest();
+			h.clean();
+			return digest;
+		}
+		exports.hash = hash;
+		exports["default"] = hash;
+		function hmac(key, data) {
+			var h = new HMAC(key).update(data);
+			var digest = h.digest();
+			h.clean();
+			return digest;
+		}
+		exports.hmac = hmac;
+		function fillBuffer(buffer, hmac, info, counter) {
+			var num = counter[0];
+			if (num === 0) throw new Error("hkdf: cannot expand more");
+			hmac.reset();
+			if (num > 1) hmac.update(buffer);
+			if (info) hmac.update(info);
+			hmac.update(counter);
+			hmac.finish(buffer);
+			counter[0]++;
+		}
+		var hkdfSalt = new Uint8Array(exports.digestLength);
+		function hkdf(key, salt, info, length) {
+			if (salt === void 0) salt = hkdfSalt;
+			if (length === void 0) length = 32;
+			var counter = new Uint8Array([1]);
+			var hmac_ = new HMAC(hmac(salt, key));
+			var buffer = new Uint8Array(hmac_.digestLength);
+			var bufpos = buffer.length;
+			var out = new Uint8Array(length);
+			for (var i = 0; i < length; i++) {
+				if (bufpos === buffer.length) {
+					fillBuffer(buffer, hmac_, info, counter);
+					bufpos = 0;
+				}
+				out[i] = buffer[bufpos++];
+			}
+			hmac_.clean();
+			buffer.fill(0);
+			counter.fill(0);
+			return out;
+		}
+		exports.hkdf = hkdf;
+		function pbkdf2(password, salt, iterations, dkLen) {
+			var prf = new HMAC(password);
+			var len = prf.digestLength;
+			var ctr = /* @__PURE__ */ new Uint8Array(4);
+			var t = new Uint8Array(len);
+			var u = new Uint8Array(len);
+			var dk = new Uint8Array(dkLen);
+			for (var i = 0; i * len < dkLen; i++) {
+				var c = i + 1;
+				ctr[0] = c >>> 24 & 255;
+				ctr[1] = c >>> 16 & 255;
+				ctr[2] = c >>> 8 & 255;
+				ctr[3] = c >>> 0 & 255;
+				prf.reset();
+				prf.update(salt);
+				prf.update(ctr);
+				prf.finish(u);
+				for (var j = 0; j < len; j++) t[j] = u[j];
+				for (var j = 2; j <= iterations; j++) {
+					prf.reset();
+					prf.update(u).finish(u);
+					for (var k = 0; k < len; k++) t[k] ^= u[k];
+				}
+				for (var j = 0; j < len && i * len + j < dkLen; j++) dk[i * len + j] = t[j];
+			}
+			for (var i = 0; i < len; i++) t[i] = u[i] = 0;
+			for (var i = 0; i < 4; i++) ctr[i] = 0;
+			prf.clean();
+			return dk;
+		}
+		exports.pbkdf2 = pbkdf2;
+	});
+}));
+// node_modules/standardwebhooks/dist/timing_safe_equal.js
+var require_timing_safe_equal = /* @__PURE__ */ require_version$1.__commonJSMin(((exports) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.timingSafeEqual = timingSafeEqual;
+	function assert(expr, msg = "") {
+		if (!expr) throw new Error(msg);
+	}
+	function timingSafeEqual(a, b) {
+		if (a.byteLength !== b.byteLength) return false;
+		if (!(a instanceof DataView)) a = new DataView(ArrayBuffer.isView(a) ? a.buffer : a);
+		if (!(b instanceof DataView)) b = new DataView(ArrayBuffer.isView(b) ? b.buffer : b);
+		assert(a instanceof DataView);
+		assert(b instanceof DataView);
+		const length = a.byteLength;
+		let out = 0;
+		let i = -1;
+		while (++i < length) out |= a.getUint8(i) ^ b.getUint8(i);
+		return out === 0;
+	}
+}));
+// node_modules/@anthropic-ai/sdk/resources/beta/webhooks.mjs
+var import_dist = (/* @__PURE__ */ require_version$1.__commonJSMin(((exports) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.Webhook = exports.WebhookVerificationError = void 0;
+	const base64 = require_base64();
+	const sha256 = require_sha256();
+	const timing_safe_equal_1 = require_timing_safe_equal();
+	const WEBHOOK_TOLERANCE_IN_SECONDS = 300;
+	var ExtendableError = class ExtendableError extends Error {
+		constructor(message) {
+			super(message);
+			Object.setPrototypeOf(this, ExtendableError.prototype);
+			this.name = "ExtendableError";
+			this.stack = new Error(message).stack;
+		}
+	};
+	var WebhookVerificationError = class WebhookVerificationError extends ExtendableError {
+		constructor(message) {
+			super(message);
+			Object.setPrototypeOf(this, WebhookVerificationError.prototype);
+			this.name = "WebhookVerificationError";
+		}
+	};
+	exports.WebhookVerificationError = WebhookVerificationError;
+	var Webhook = class Webhook {
+		constructor(secret, options) {
+			if ((options === null || options === void 0 ? void 0 : options.format) === "raw") {
+				if (secret instanceof Uint8Array) this.key = secret;
+				else this.key = Uint8Array.from(secret, (c) => c.charCodeAt(0));
+			} else {
+				if (typeof secret !== "string") throw new Error("Expected secret to be of type string");
+				if (secret.startsWith(Webhook.prefix)) secret = secret.substring(Webhook.prefix.length);
+				this.key = base64.decode(secret);
+			}
+			if (this.key.length === 0) throw new Error("Secret can't be empty.");
+		}
+		verify(payload, headers, options) {
+			var _a;
+			const jsonParse = (_a = options === null || options === void 0 ? void 0 : options.jsonParse) !== null && _a !== void 0 ? _a : true;
+			const normalizedHeaders = {};
+			for (const key of Object.keys(headers)) normalizedHeaders[key.toLowerCase()] = headers[key];
+			const msgId = normalizedHeaders["webhook-id"];
+			const msgSignature = normalizedHeaders["webhook-signature"];
+			const msgTimestamp = normalizedHeaders["webhook-timestamp"];
+			if (!msgSignature || !msgId || !msgTimestamp) throw new WebhookVerificationError("Missing required headers");
+			const timestamp = this.verifyTimestamp(msgTimestamp);
+			const expectedSignature = this.sign(msgId, timestamp, payload).split(",")[1];
+			const passedSignatures = msgSignature.split(" ");
+			const encoder = new globalThis.TextEncoder();
+			for (const versionedSignature of passedSignatures) {
+				const [version, signature] = versionedSignature.split(",");
+				if (version !== "v1") continue;
+				if ((0, timing_safe_equal_1.timingSafeEqual)(encoder.encode(signature), encoder.encode(expectedSignature))) {
+					const payloadString = payload.toString();
+					if (payloadString === "") return;
+					if (jsonParse) return JSON.parse(payloadString);
+					else return;
+				}
+			}
+			throw new WebhookVerificationError("No matching signature found");
+		}
+		sign(msgId, timestamp, payload) {
+			if (typeof payload === "string") {} else if (payload.constructor.name === "Buffer") payload = payload.toString();
+			else throw new Error("Expected payload to be of type string or Buffer.");
+			const encoder = new TextEncoder();
+			const timestampNumber = Math.floor(timestamp.getTime() / 1e3);
+			const toSign = encoder.encode(`${msgId}.${timestampNumber}.${payload}`);
+			return `v1,${base64.encode(sha256.hmac(this.key, toSign))}`;
+		}
+		verifyTimestamp(timestampHeader) {
+			const now = Math.floor(Date.now() / 1e3);
+			const timestamp = parseInt(timestampHeader, 10);
+			if (Number.isNaN(timestamp)) throw new WebhookVerificationError("Invalid Signature Headers");
+			if (now - timestamp > WEBHOOK_TOLERANCE_IN_SECONDS) throw new WebhookVerificationError("Message timestamp too old");
+			if (timestamp > now + WEBHOOK_TOLERANCE_IN_SECONDS) throw new WebhookVerificationError("Message timestamp too new");
+			return /* @__PURE__ */ new Date(timestamp * 1e3);
+		}
+	};
+	exports.Webhook = Webhook;
+	Webhook.prefix = "whsec_";
+})))();
+var Webhooks$1 = class extends APIResource {
+	/**
+	* Parses a webhook payload into an event without verifying its signature. Prefer
+	* `unwrap()` unless you have already verified the signature yourself.
+	*/
+	parseUnverified(body) {
+		return JSON.parse(body);
+	}
+	/**
+	* Verifies the webhook signature from the `webhook-id`, `webhook-timestamp` and
+	* `webhook-signature` headers using your webhook signing key, then parses the
+	* payload into an event. Fails if the signature is missing or invalid.
+	*/
+	unwrap(body, options) {
+		const headers = options?.headers;
+		if (headers == null) throw new Error("Webhook headers are required in order to verify the signature");
+		const keyStr = options.key === void 0 ? this._client.webhookKey : options.key;
+		if (!keyStr) throw new Error("Webhook key must not be null or empty in order to unwrap");
+		new import_dist.Webhook(keyStr).verify(body, headers);
+		return JSON.parse(body);
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/agents/versions.mjs
+var Versions$3 = class extends APIResource {
+	/**
+	* List Agent Versions
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaManagedAgentsAgent of client.beta.agents.versions.list(
+	*   'agent_011CZkYpogX7uDKUyvBTophP',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(agentID, params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/agents/${agentID}/versions`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.agents.versions.list", options, {
+				route: "/v1/agents/{agent_id}/versions",
+				queryParams: ["limit", "page"],
+				attributes: { "gen_ai.agent.id": agentID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/agents/agents.mjs
+var Agents = /* @__PURE__ */ (() => {
+	class Agents extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.versions = new Versions$3(this._client);
+		}
+		/**
+		* Create Agent
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsAgent =
+		*   await client.beta.agents.create({
+		*     model: 'claude-opus-5-5',
+		*     name: 'My First Agent',
+		*   });
+		* ```
+		*/
+		create(params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post("/v1/agents", {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.agents.create", options, {
+					route: "/v1/agents",
+					createdIDAttribute: "gen_ai.agent.id"
+				})
+			});
+		}
+		/**
+		* Get Agent
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsAgent =
+		*   await client.beta.agents.retrieve(
+		*     'agent_011CZkYpogX7uDKUyvBTophP',
+		*   );
+		* ```
+		*/
+		retrieve(agentID, params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.get(path`/v1/agents/${agentID}`, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.agents.retrieve", options, {
+					route: "/v1/agents/{agent_id}",
+					queryParams: ["version"],
+					attributes: { "gen_ai.agent.id": agentID }
+				})
+			});
+		}
+		/**
+		* Update Agent
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsAgent =
+		*   await client.beta.agents.update(
+		*     'agent_011CZkYpogX7uDKUyvBTophP',
+		*     { description: 'updated' },
+		*   );
+		* ```
+		*/
+		update(agentID, params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post(path`/v1/agents/${agentID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.agents.update", options, {
+					route: "/v1/agents/{agent_id}",
+					attributes: { "gen_ai.agent.id": agentID }
+				})
+			});
+		}
+		/**
+		* List Agents
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaManagedAgentsAgent of client.beta.agents.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/agents", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.agents.list", options, {
+					route: "/v1/agents",
+					queryParams: [
+						"created_at[gte]",
+						"created_at[lte]",
+						"include_archived",
+						"limit",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* Archive Agent
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsAgent =
+		*   await client.beta.agents.archive(
+		*     'agent_011CZkYpogX7uDKUyvBTophP',
+		*   );
+		* ```
+		*/
+		archive(agentID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.post(path`/v1/agents/${agentID}/archive`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.agents.archive", options, {
+					route: "/v1/agents/{agent_id}/archive",
+					attributes: { "gen_ai.agent.id": agentID }
+				})
+			});
+		}
+	}
+	Agents.Versions = Versions$3;
+	return Agents;
+})();
+// node_modules/@anthropic-ai/sdk/internal/utils/abort.mjs
+/**
+* Chain an external {@link AbortSignal} into a local {@link AbortController}:
+* the controller aborts whenever `external` aborts (synchronously if it is
+* already aborted).
+*
+* Returns a cleanup function that detaches the listener. Callers MUST invoke it
+* on their normal teardown path — `{ once: true }` only removes the listener if
+* abort actually fires, so a long-lived `external` signal (e.g. a daemon-wide
+* signal reused across many short-lived controllers) would otherwise leak one
+* listener per controller.
+*/
+function linkAbort(external, controller) {
+	if (!external) return () => {};
+	if (external.aborted) {
+		controller.abort();
+		return () => {};
+	}
+	const onAbort = () => controller.abort();
+	external.addEventListener("abort", onAbort);
+	return () => external.removeEventListener("abort", onAbort);
+}
+// node_modules/@anthropic-ai/sdk/lib/helper-client.mjs
+/**
+* Return a `withOptions()` clone of `client` set up for use *by* one of the
+* runner helpers: authenticated with `authToken` as Bearer credentials in
+* place of the parent's own credential, and tagged with the helper's
+* `x-stainless-helper` value on every outgoing request.
+*
+* The returned sub-client inherits the parent's full configuration
+* (`baseURL`, `timeout`, `maxRetries`, `fetch`, `fetchOptions`, custom
+* `defaultHeaders`, `defaultQuery`). Overrides applied:
+*
+* - `authToken: authToken` — the new credential, which replaces the parent's.
+* - `baseURL: client.baseURL` — pins the parent's resolved host (auth override otherwise resets it).
+* - `defaultHeaders` is rebuilt as `parent._authState.extraHeaders ⊕ parent.defaultHeaders ⊕
+*   {'x-stainless-helper': helper}`. `withOptions` *replaces* (does not
+*   merge) `defaultHeaders`, so we merge here so any custom headers the
+*   caller set on the parent client survive on the sub-client, except a
+*   hand-set `X-Api-Key` and a hand-set or omitted (`null`) `Authorization`.
+*/
+function copyClientForHelper(client, { authToken, helper }) {
+	if (!authToken) throw new require_promise.AnthropicError(`copyClientForHelper: expected a non-empty authToken but received ${JSON.stringify(authToken)}`);
+	const parentDefaults = client._options.defaultHeaders;
+	const parentAuthExtraHeaders = client._authState?.extraHeaders;
+	const inheritedAuthExtraHeaders = parentAuthExtraHeaders ? Object.fromEntries(Object.entries(parentAuthExtraHeaders).filter(([name]) => {
+		const lower = name.toLowerCase();
+		return lower !== "authorization" && lower !== "x-api-key";
+	})) : void 0;
+	const defaultHeaders = buildHeaders([
+		inheritedAuthExtraHeaders,
+		parentDefaults,
+		{ [STAINLESS_HELPER_HEADER]: helper }
+	]);
+	defaultHeaders.values.delete("x-api-key");
+	defaultHeaders.values.delete("authorization");
+	defaultHeaders.nulls.delete("authorization");
+	return client.withOptions({
+		authToken,
+		baseURL: client.baseURL,
+		defaultHeaders
+	});
+}
+// node_modules/@anthropic-ai/sdk/lib/environments/poller.mjs
+var _WorkPoller_runnerClient;
+var _WorkPoller_consumed;
+var _WorkPoller_controller;
+var _WorkPoller_detachExternal;
+var _WorkPoller_autoStop;
+var _WorkPoller_drain;
+var _WorkPoller_blockMs;
+var _WorkPoller_reclaimOlderThanMs;
+var _WorkPoller_requestOpts;
+var _IdleLog_log;
+var _IdleLog_environmentId;
+var _IdleLog_idleSince;
+var _IdleLog_lastReport;
+const POLL_BACKOFF_BASE_MS = 1e3;
+const POLL_BACKOFF_CAP_MS = 6e4;
+const IDLE_REPORT_INTERVAL_MS = 3e5;
+/**
+* Async-iterable that long-polls a self-hosted environment for work, ack's
+* each item, yields the {@link BetaSelfHostedWork} item, and posts `stop` after
+* the consumer's loop body returns (or when the consumer `break`s).
+*
+* A yielded item may carry a per-item `secret` payload (populated only by the
+* poll response); the poller passes it through untouched — consumers such as
+* {@link EnvironmentWorker} extract the sessions token it carries and prefer
+* that over the environment key for the item's downstream calls. Treat it as
+* opaque and never log it.
+*
+* @example
+* ```ts
+* for await (const work of client.beta.environments.work.poller({
+*   environmentId,
+*   environmentKey,
+* })) {
+*   // ...service the work...
+* }
+* ```
+*/
+var WorkPoller = /* @__PURE__ */ (() => {
+	/**
+	* Async-iterable that long-polls a self-hosted environment for work, ack's
+	* each item, yields the {@link BetaSelfHostedWork} item, and posts `stop` after
+	* the consumer's loop body returns (or when the consumer `break`s).
+	*
+	* A yielded item may carry a per-item `secret` payload (populated only by the
+	* poll response); the poller passes it through untouched — consumers such as
+	* {@link EnvironmentWorker} extract the sessions token it carries and prefer
+	* that over the environment key for the item's downstream calls. Treat it as
+	* opaque and never log it.
+	*
+	* @example
+	* ```ts
+	* for await (const work of client.beta.environments.work.poller({
+	*   environmentId,
+	*   environmentKey,
+	* })) {
+	*   // ...service the work...
+	* }
+	* ```
+	*/
+	class WorkPoller {
+		constructor(opts) {
+			_WorkPoller_runnerClient.set(this, void 0);
+			_WorkPoller_consumed.set(this, false);
+			_WorkPoller_controller.set(this, void 0);
+			_WorkPoller_detachExternal.set(this, void 0);
+			_WorkPoller_autoStop.set(this, void 0);
+			_WorkPoller_drain.set(this, void 0);
+			_WorkPoller_blockMs.set(this, void 0);
+			_WorkPoller_reclaimOlderThanMs.set(this, void 0);
+			_WorkPoller_requestOpts.set(this, void 0);
+			this.client = opts.client;
+			this.environmentId = opts.environmentId;
+			this.environmentKey = opts.environmentKey;
+			this.workerId = opts.workerId ?? defaultWorkerId();
+			require_promise.__classPrivateFieldSet(this, _WorkPoller_runnerClient, copyClientForHelper(opts.client, {
+				authToken: opts.environmentKey,
+				helper: "environments-work-poller"
+			}), "f");
+			require_promise.__classPrivateFieldSet(this, _WorkPoller_autoStop, opts.autoStop ?? true, "f");
+			require_promise.__classPrivateFieldSet(this, _WorkPoller_drain, opts.drain ?? false, "f");
+			require_promise.__classPrivateFieldSet(this, _WorkPoller_blockMs, opts.blockMs === void 0 ? 999 : opts.blockMs, "f");
+			require_promise.__classPrivateFieldSet(this, _WorkPoller_reclaimOlderThanMs, opts.reclaimOlderThanMs ?? null, "f");
+			require_promise.__classPrivateFieldSet(this, _WorkPoller_requestOpts, opts.requestOptions, "f");
+			require_promise.__classPrivateFieldSet(this, _WorkPoller_controller, new AbortController(), "f");
+			require_promise.__classPrivateFieldSet(this, _WorkPoller_detachExternal, linkAbort(opts.signal, require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f")), "f");
+		}
+		/** Read-only view of this iterator's abort signal. */
+		get signal() {
+			return require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f").signal;
+		}
+		/** Abort the iterator. The current `for await` will exit cleanly. */
+		abort() {
+			require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f").abort();
+		}
+		async *[(_WorkPoller_runnerClient = /* @__PURE__ */ new WeakMap(), _WorkPoller_consumed = /* @__PURE__ */ new WeakMap(), _WorkPoller_controller = /* @__PURE__ */ new WeakMap(), _WorkPoller_detachExternal = /* @__PURE__ */ new WeakMap(), _WorkPoller_autoStop = /* @__PURE__ */ new WeakMap(), _WorkPoller_drain = /* @__PURE__ */ new WeakMap(), _WorkPoller_blockMs = /* @__PURE__ */ new WeakMap(), _WorkPoller_reclaimOlderThanMs = /* @__PURE__ */ new WeakMap(), _WorkPoller_requestOpts = /* @__PURE__ */ new WeakMap(), Symbol.asyncIterator)]() {
+			if (require_promise.__classPrivateFieldGet(this, _WorkPoller_consumed, "f")) throw new require_promise.AnthropicError("Cannot iterate over a consumed WorkPoller");
+			require_promise.__classPrivateFieldSet(this, _WorkPoller_consumed, true, "f");
+			let callerOtelContext = context.active();
+			const log = require_promise.loggerFor(this.client);
+			log.info("poller starting", {
+				component: "work-poller",
+				environment_id: this.environmentId
+			});
+			const idle = new IdleLog(log, this.environmentId);
+			try {
+				let attempt = 0;
+				while (!require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f").signal.aborted) {
+					let work;
+					try {
+						work = await require_promise.__classPrivateFieldGet(this, _WorkPoller_runnerClient, "f").beta.environments.work.poll(this.environmentId, {
+							"Anthropic-Worker-ID": this.workerId,
+							...require_promise.__classPrivateFieldGet(this, _WorkPoller_blockMs, "f") !== null ? { block_ms: require_promise.__classPrivateFieldGet(this, _WorkPoller_blockMs, "f") } : {},
+							...require_promise.__classPrivateFieldGet(this, _WorkPoller_reclaimOlderThanMs, "f") !== null ? { reclaim_older_than_ms: require_promise.__classPrivateFieldGet(this, _WorkPoller_reclaimOlderThanMs, "f") } : {}
+						}, {
+							headers: buildHeaders([require_promise.__classPrivateFieldGet(this, _WorkPoller_requestOpts, "f")?.headers]),
+							signal: require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f").signal
+						});
+					} catch (e) {
+						if (require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f").signal.aborted) return;
+						if (require_promise.isFatal4xx(e)) {
+							log.error("poll failed permanently, stopping poller", { error: String(e) });
+							throw e;
+						}
+						const wait = require_promise.applyJitter(backoff(attempt));
+						log.warn("poll failed, backing off", {
+							error: String(e),
+							backoff_ms: wait
+						});
+						attempt++;
+						await sleep(wait, require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f").signal);
+						continue;
+					}
+					attempt = 0;
+					if (work == null) {
+						if (require_promise.__classPrivateFieldGet(this, _WorkPoller_drain, "f")) return;
+						idle.onEmptyPoll();
+						await sleep(require_promise.jitter(1e3, 3e3), require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f").signal);
+						continue;
+					}
+					idle.onClaim();
+					this._workSpan = guardTracing(this.client, () => startEnvironmentWorkSpan(this.client, work, callerOtelContext));
+					log.info("claimed work", {
+						component: "work-poller",
+						environment_id: this.environmentId,
+						work_id: work.id,
+						work_type: work.data.type
+					});
+					try {
+						await require_promise.__classPrivateFieldGet(this, _WorkPoller_runnerClient, "f").beta.environments.work.ack(work.id, { environment_id: work.environment_id }, {
+							headers: buildHeaders([require_promise.__classPrivateFieldGet(this, _WorkPoller_requestOpts, "f")?.headers]),
+							signal: require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f").signal
+						});
+					} catch (e) {
+						log.error("ack failed", {
+							work_id: work.id,
+							error: String(e)
+						});
+						guardTracing(this.client, () => failEnvironmentWorkSpan(this._workSpan, require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f").signal, e));
+						continue;
+					}
+					try {
+						yield work;
+						callerOtelContext = context.active();
+					} finally {
+						if (require_promise.__classPrivateFieldGet(this, _WorkPoller_autoStop, "f")) try {
+							await require_promise.__classPrivateFieldGet(this, _WorkPoller_runnerClient, "f").beta.environments.work.stop(work.id, { environment_id: work.environment_id }, { headers: buildHeaders([require_promise.__classPrivateFieldGet(this, _WorkPoller_requestOpts, "f")?.headers]) });
+						} catch (e) {
+							if (!require_promise.isStatus(e, 409)) log.warn("stop failed", {
+								work_id: work.id,
+								error: String(e)
+							});
+						}
+						guardTracing(this.client, () => endEnvironmentWorkSpan(this._workSpan, require_promise.__classPrivateFieldGet(this, _WorkPoller_controller, "f").signal));
+					}
+				}
+			} finally {
+				require_promise.__classPrivateFieldGet(this, _WorkPoller_detachExternal, "f").call(this);
+			}
+		}
+	}
+	return WorkPoller;
+})();
+/** Exponential poll backoff: 1s, 2s, 4s … clamped to a 60s cap. */
+function backoff(attempt) {
+	return require_promise.backoff(attempt, POLL_BACKOFF_BASE_MS, POLL_BACKOFF_CAP_MS);
+}
+var IdleLog = /* @__PURE__ */ (() => {
+	/**
+	* Keeps an idle poll loop visible in the logs without an INFO line per poll:
+	* the first empty poll after start-up or after a claim logs at INFO and later
+	* ones at DEBUG, with an INFO reminder every `IDLE_REPORT_INTERVAL_MS` while
+	* the loop stays idle.
+	*/
+	class IdleLog {
+		constructor(log, environmentId) {
+			_IdleLog_log.set(this, void 0);
+			_IdleLog_environmentId.set(this, void 0);
+			_IdleLog_idleSince.set(this, void 0);
+			_IdleLog_lastReport.set(this, 0);
+			require_promise.__classPrivateFieldSet(this, _IdleLog_log, log, "f");
+			require_promise.__classPrivateFieldSet(this, _IdleLog_environmentId, environmentId, "f");
+		}
+		onEmptyPoll() {
+			const now = Date.now();
+			const fields = {
+				component: "work-poller",
+				environment_id: require_promise.__classPrivateFieldGet(this, _IdleLog_environmentId, "f")
+			};
+			if (require_promise.__classPrivateFieldGet(this, _IdleLog_idleSince, "f") === void 0) {
+				require_promise.__classPrivateFieldSet(this, _IdleLog_idleSince, require_promise.__classPrivateFieldSet(this, _IdleLog_lastReport, now, "f"), "f");
+				require_promise.__classPrivateFieldGet(this, _IdleLog_log, "f").info("idle; polling for work", fields);
+			} else if (now - require_promise.__classPrivateFieldGet(this, _IdleLog_lastReport, "f") >= IDLE_REPORT_INTERVAL_MS) {
+				require_promise.__classPrivateFieldSet(this, _IdleLog_lastReport, now, "f");
+				require_promise.__classPrivateFieldGet(this, _IdleLog_log, "f").info(`still polling; idle for ${Math.round((now - require_promise.__classPrivateFieldGet(this, _IdleLog_idleSince, "f")) / 1e3)}s`, fields);
+			} else require_promise.__classPrivateFieldGet(this, _IdleLog_log, "f").debug("poll returned no work", fields);
+		}
+		onClaim() {
+			require_promise.__classPrivateFieldSet(this, _IdleLog_idleSince, void 0, "f");
+		}
+	}
+	_IdleLog_log = /* @__PURE__ */ new WeakMap(), _IdleLog_environmentId = /* @__PURE__ */ new WeakMap(), _IdleLog_idleSince = /* @__PURE__ */ new WeakMap(), _IdleLog_lastReport = /* @__PURE__ */ new WeakMap();
+	return IdleLog;
+})();
+function defaultWorkerId() {
+	const host = (globalThis.process?.env)?.["HOSTNAME"];
+	return host ? `${host}-${uuid4()}` : uuid4();
+}
+// node_modules/@anthropic-ai/sdk/internal/utils/async-queue.mjs
+var _AsyncQueue_items;
+var _AsyncQueue_waiters;
+var _AsyncQueue_closed;
+/**
+* Single-consumer async queue that bridges background producers to an
+* `AsyncIterator`-style reader. Producers `push()` items; the consumer awaits
+* `next()`. `close()` is idempotent and wakes any pending `next()` with
+* `done: true`. `tryShift()` synchronously drains remaining items after
+* iteration has been signalled to stop.
+*/
+var AsyncQueue = /* @__PURE__ */ (() => {
+	/**
+	* Single-consumer async queue that bridges background producers to an
+	* `AsyncIterator`-style reader. Producers `push()` items; the consumer awaits
+	* `next()`. `close()` is idempotent and wakes any pending `next()` with
+	* `done: true`. `tryShift()` synchronously drains remaining items after
+	* iteration has been signalled to stop.
+	*/
+	class AsyncQueue {
+		constructor() {
+			_AsyncQueue_items.set(this, []);
+			_AsyncQueue_waiters.set(this, []);
+			_AsyncQueue_closed.set(this, false);
+		}
+		/** Enqueue an item, or hand it directly to a waiting reader. Returns `false` once closed. */
+		push(item) {
+			if (require_promise.__classPrivateFieldGet(this, _AsyncQueue_closed, "f")) return false;
+			const w = require_promise.__classPrivateFieldGet(this, _AsyncQueue_waiters, "f").shift();
+			if (w) w({
+				done: false,
+				value: item
+			});
+			else require_promise.__classPrivateFieldGet(this, _AsyncQueue_items, "f").push(item);
+			return true;
+		}
+		/** Mark the queue done. Idempotent; wakes every pending reader with `done: true`. */
+		close() {
+			if (require_promise.__classPrivateFieldGet(this, _AsyncQueue_closed, "f")) return;
+			require_promise.__classPrivateFieldSet(this, _AsyncQueue_closed, true, "f");
+			while (require_promise.__classPrivateFieldGet(this, _AsyncQueue_waiters, "f").length > 0) require_promise.__classPrivateFieldGet(this, _AsyncQueue_waiters, "f").shift()({
+				done: true,
+				value: void 0
+			});
+		}
+		/**
+		* Resolve with the next item, or `done: true` once the queue is closed and
+		* drained. When `signal` is supplied, aborting it resolves a pending read
+		* with `done: true` (cancellation is pushed down here rather than handled by
+		* an outer `Promise.race`).
+		*/
+		next(signal) {
+			if (require_promise.__classPrivateFieldGet(this, _AsyncQueue_items, "f").length > 0) return Promise.resolve({
+				done: false,
+				value: require_promise.__classPrivateFieldGet(this, _AsyncQueue_items, "f").shift()
+			});
+			if (require_promise.__classPrivateFieldGet(this, _AsyncQueue_closed, "f") || signal?.aborted) return Promise.resolve({
+				done: true,
+				value: void 0
+			});
+			return new Promise((resolve) => {
+				const waiter = (r) => {
+					signal?.removeEventListener("abort", onAbort);
+					resolve(r);
+				};
+				const onAbort = () => {
+					const idx = require_promise.__classPrivateFieldGet(this, _AsyncQueue_waiters, "f").indexOf(waiter);
+					if (idx >= 0) require_promise.__classPrivateFieldGet(this, _AsyncQueue_waiters, "f").splice(idx, 1);
+					resolve({
+						done: true,
+						value: void 0
+					});
+				};
+				require_promise.__classPrivateFieldGet(this, _AsyncQueue_waiters, "f").push(waiter);
+				signal?.addEventListener("abort", onAbort, { once: true });
+			});
+		}
+		/** Synchronously remove and return the next buffered item, or `undefined` if empty. */
+		tryShift() {
+			return require_promise.__classPrivateFieldGet(this, _AsyncQueue_items, "f").shift();
+		}
+	}
+	_AsyncQueue_items = /* @__PURE__ */ new WeakMap(), _AsyncQueue_waiters = /* @__PURE__ */ new WeakMap(), _AsyncQueue_closed = /* @__PURE__ */ new WeakMap();
+	return AsyncQueue;
+})();
+// node_modules/@anthropic-ai/sdk/lib/internal/toolsets/sanitize.mjs
+/**
+* C0 and C1 controls, the line separators and the bidi controls: anything that would break or reorder the one line a
+* page- or model-supplied value goes into.
+*/
+const LINE_UNSAFE = "\\x00-\\x1f\\x7f-\\x9f\\u061c\\u200e\\u200f\\u2028\\u2029\\u202a-\\u202e\\u2066-\\u2069";
+const CONTROL_RE = /* @__PURE__ */ (() => new RegExp(`[${LINE_UNSAFE}]+`, "g"))();
+const LONE_SURROGATE_RE = /[\uD800-\uDFFF]/gu;
+/** `text` with each unpaired surrogate replaced by U+FFFD, so it can be sent. */
+function wellFormed(text) {
+	return text.replace(LONE_SURROGATE_RE, "�");
+}
+/**
+* The API's limit for a text field of the block, for a URL, and the most of an exception's text an `is_error` result
+* holds.
+*/
+const FIELD_MAX = 4096;
+const LOG_MAX = 200;
+/**
+* A page- or model-supplied text on one line the model or an operator reads: a tab's title, a download's
+* error, a field of a member's confirmation line. Line breaks, control and bidi characters are folded to
+* spaces, a lone surrogate to U+FFFD, the ends trimmed, and the whole cut to `limit`.
+*/
+function oneLine(text, limit = FIELD_MAX) {
+	return cutPoints(wellFormed(text).replace(CONTROL_RE, " ").trim(), limit);
+}
+/** A model- or page-supplied name for a log record or an SDK-written error text: `oneLine`, cut short. @internal */
+function logSafe(name) {
+	return oneLine(name, LOG_MAX);
+}
+/**
+* A model-chosen name as it is echoed inside single quotes in a text the model reads: one line, cut short, and without
+* the quotes and runs of spaces that could make it read as part of the text around it.
+* @internal
+*/
+function quotedName(name) {
+	return logSafe(name).replace(/[' ]+/g, " ").trim();
+}
+/** `Error: <message>` for a thrown value other than a `ToolError`: an `Error`'s message, else it as a string. */
+function thrownErrorText(e) {
+	return `Error: ${e instanceof Error ? e.message : String(e)}`;
+}
+/**
+* A caught exception's text as the `is_error` result the model reads (the same `Error: <message>` a failing function
+* tool produces), made well-formed and cut to the field limit: a driver's exception can embed a page-sized payload.
+*/
+function errorText(error) {
+	return cutPoints(wellFormed(thrownErrorText(error)), FIELD_MAX);
+}
+/**
+* The first `limit` code points of `text`: a cut by UTF-16 units could split a surrogate pair, and a lone surrogate
+* fails the request.
+*/
+function cutPoints(text, limit) {
+	if (text.length <= limit) return text;
+	let end = 0;
+	let points = 0;
+	for (const ch of text) {
+		if (points === limit) break;
+		points += 1;
+		end += ch.length;
+	}
+	return text.slice(0, end);
+}
+/**
+* The text blocks of a `ToolError`'s content. Deliberate, like the empty-content placeholder: the API accepts only
+* text on an is_error result and answers anything else with a 400 that ends the run, so an image a member attached to
+* its refusal is dropped here rather than ending the whole loop. The refusal's text still reaches the model.
+*/
+function errorTextContent(content) {
+	if (typeof content === "string") return wellFormed(content);
+	return content.filter((block) => block.type === "text" && block.text !== "").map((block) => ({
+		...block,
+		text: wellFormed(block.text)
+	}));
+}
+// node_modules/@anthropic-ai/sdk/lib/tools/BetaRunnableTool.mjs
+/**
+* The name the model calls a tool by: `mcp_server_name` for MCP toolsets, `type` for nameless server
+* toolsets (browser/computer), `name` for everything else.
+*/
+function toolName(tool) {
+	return "name" in tool ? tool.name : "mcp_server_name" in tool ? tool.mcp_server_name : tool.type;
+}
+/** Tool-result content for a thrown value: a {@link ToolError}'s own content, otherwise `Error: <message>`. */
+function toolErrorContent(e) {
+	return e instanceof require_promise.ToolError ? e.content : thrownErrorText(e);
+}
+/** Parse the input, run the tool, and turn anything thrown into an error result. */
+async function runRunnableTool(tool, rawInput, context) {
+	try {
+		const input = tool.parse ? tool.parse(rawInput) : rawInput;
+		return {
+			content: await tool.run(input, context),
+			isError: false
+		};
+	} catch (e) {
+		return {
+			content: toolErrorContent(e),
+			isError: true
+		};
+	}
+}
+// node_modules/@anthropic-ai/sdk/lib/tools/SessionToolRunner.mjs
+var _IdleClock_maxIdleMs;
+var _IdleClock_onExpire;
+var _IdleClock_blockers;
+var _IdleClock_armPending;
+var _IdleClock_timer;
+var _SessionToolRunner_instances;
+var _SessionToolRunner_consumed;
+var _SessionToolRunner_controller;
+var _SessionToolRunner_detachExternal;
+var _SessionToolRunner_requestOpts;
+var _SessionToolRunner_toolByName;
+var _SessionToolRunner_logger;
+var _SessionToolRunner_seen;
+var _SessionToolRunner_answered;
+var _SessionToolRunner_confirmationVerdicts;
+var _SessionToolRunner_awaitingConfirmation;
+var _SessionToolRunner_results;
+var _SessionToolRunner_inFlightCount;
+var _SessionToolRunner_sendRetryWindowMs;
+var _SessionToolRunner_onIdle;
+var _SessionToolRunner_idleClock;
+var _SessionToolRunner_otelContext;
+var _SessionToolRunner_primaryThreadId;
+var _SessionToolRunner_historyRead;
+var _SessionToolRunner_requestOptions;
+var _SessionToolRunner_streamLoop;
+var _SessionToolRunner_reconcile;
+var _SessionToolRunner_ingestHistory;
+var _SessionToolRunner_notePrimaryThread;
+var _SessionToolRunner_handleStreamEvent;
+var _SessionToolRunner_routeToolEvent;
+var _SessionToolRunner_noteConfirmation;
+var _SessionToolRunner_applyVerdict;
+var _SessionToolRunner_surfaceCall;
+var _SessionToolRunner_execute;
+var _SessionToolRunner_sendResult;
+var _SessionToolRunner_drain;
+const STREAM_BACKOFF_START_MS = 500;
+const STREAM_BACKOFF_CAP_MS = 1e4;
+const TOOL_TIMEOUT_MS = 12e4;
+const DRAIN_TIMEOUT_MS = 3e4;
+const SEND_BACKOFF_START_MS = 1e3;
+const SEND_BACKOFF_CAP_MS = 3e4;
+/**
+* How long a transiently failing tool-result send keeps retrying when the
+* runner is used on its own: the server's default work-item lease TTL.
+* `EnvironmentWorker` overrides it with the live TTL from each lease heartbeat
+* (`_setSendRetryWindow`), so a send is only abandoned once the lease can no
+* longer be ours.
+*/
+const SEND_RETRY_WINDOW_MS = 3e5;
+/**
+* Whether `ev` is a `session.status_idle` whose turn is over. Only
+* `requires_action` leaves the turn open: the session resumes once a client
+* resolves the events it names. Every other stop reason ends the turn, including
+* one newer than this SDK's types.
+*/
+function endsTurn(ev) {
+	if (ev.type !== "session.status_idle") return false;
+	return ev.stop_reason?.type !== "requires_action";
+}
+var IdleClock = /* @__PURE__ */ (() => {
+	/**
+	* The `maxIdleMs` stop-countdown, including its deferral. {@link noteEvent}
+	* arms on an idle that ends the turn and disarms on anything else. Gated tool
+	* work registered via {@link block} — a call held for user confirmation, or a
+	* user-approved call still dispatching — keeps
+	* {@link arm} pending until {@link unblock} retires the last blocker, at which
+	* point the countdown starts. Event-driven — there is no polling watchdog.
+	*/
+	class IdleClock {
+		constructor(maxIdleMs, onExpire) {
+			_IdleClock_maxIdleMs.set(this, void 0);
+			_IdleClock_onExpire.set(this, void 0);
+			_IdleClock_blockers.set(this, /* @__PURE__ */ new Set());
+			_IdleClock_armPending.set(this, false);
+			_IdleClock_timer.set(this, void 0);
+			require_promise.__classPrivateFieldSet(this, _IdleClock_maxIdleMs, maxIdleMs, "f");
+			require_promise.__classPrivateFieldSet(this, _IdleClock_onExpire, onExpire, "f");
+		}
+		/**
+		* Arm on an idle that ends the turn; disarm otherwise. `user.tool_confirmation`
+		* is neutral: it signals neither agent activity nor an idle, and its effect
+		* on the clock flows through {@link block} / {@link unblock} instead —
+		* disarming here would discard the pending arm the verdict is about to
+		* settle.
+		*/
+		noteEvent(ev) {
+			if (ev.type === "user.tool_confirmation") return;
+			if (endsTurn(ev)) this.arm();
+			else this.disarm();
+		}
+		/** Register gated work that must resolve before an idle countdown starts. */
+		block(toolUseId) {
+			require_promise.__classPrivateFieldGet(this, _IdleClock_blockers, "f").add(toolUseId);
+			if (require_promise.__classPrivateFieldGet(this, _IdleClock_timer, "f") !== void 0) {
+				require_promise.__classPrivateFieldSet(this, _IdleClock_armPending, true, "f");
+				clearTimeout(require_promise.__classPrivateFieldGet(this, _IdleClock_timer, "f"));
+				require_promise.__classPrivateFieldSet(this, _IdleClock_timer, void 0, "f");
+			}
+		}
+		/**
+		* Retire gated work (a no-op for ids never blocked); applies a pending arm —
+		* with a fresh full `maxIdleMs` window — once the last blocker retires.
+		*/
+		unblock(toolUseId) {
+			require_promise.__classPrivateFieldGet(this, _IdleClock_blockers, "f").delete(toolUseId);
+			if (require_promise.__classPrivateFieldGet(this, _IdleClock_blockers, "f").size === 0 && require_promise.__classPrivateFieldGet(this, _IdleClock_armPending, "f")) this.arm();
+		}
+		/**
+		* (Re)start the idle countdown — or, while blockers are outstanding, hold
+		* the arm pending instead. Stopping then would drop a held call when its
+		* verdict later arrives, or cut the runner off before a released call's
+		* result can drive the next turn.
+		*/
+		arm() {
+			if (require_promise.__classPrivateFieldGet(this, _IdleClock_maxIdleMs, "f") <= 0) return;
+			if (require_promise.__classPrivateFieldGet(this, _IdleClock_blockers, "f").size > 0) {
+				require_promise.__classPrivateFieldSet(this, _IdleClock_armPending, true, "f");
+				return;
+			}
+			require_promise.__classPrivateFieldSet(this, _IdleClock_armPending, false, "f");
+			if (require_promise.__classPrivateFieldGet(this, _IdleClock_timer, "f") !== void 0) clearTimeout(require_promise.__classPrivateFieldGet(this, _IdleClock_timer, "f"));
+			require_promise.__classPrivateFieldSet(this, _IdleClock_timer, setTimeout(require_promise.__classPrivateFieldGet(this, _IdleClock_onExpire, "f"), require_promise.__classPrivateFieldGet(this, _IdleClock_maxIdleMs, "f")), "f");
+		}
+		/**
+		* Cancel the idle countdown and any pending arm. Blockers persist — they
+		* track real outstanding work, retired only by {@link unblock}.
+		*/
+		disarm() {
+			require_promise.__classPrivateFieldSet(this, _IdleClock_armPending, false, "f");
+			if (require_promise.__classPrivateFieldGet(this, _IdleClock_timer, "f") !== void 0) {
+				clearTimeout(require_promise.__classPrivateFieldGet(this, _IdleClock_timer, "f"));
+				require_promise.__classPrivateFieldSet(this, _IdleClock_timer, void 0, "f");
+			}
+		}
+	}
+	_IdleClock_maxIdleMs = /* @__PURE__ */ new WeakMap(), _IdleClock_onExpire = /* @__PURE__ */ new WeakMap(), _IdleClock_blockers = /* @__PURE__ */ new WeakMap(), _IdleClock_armPending = /* @__PURE__ */ new WeakMap(), _IdleClock_timer = /* @__PURE__ */ new WeakMap();
+	return IdleClock;
+})();
+/**
+* The sessions-side counterpart to `client.beta.messages.toolRunner`: an
+* async-iterable that attaches to a managed-agents session, executes every
+* incoming `agent.tool_use` and `agent.custom_tool_use` event against a local
+* tool registry, posts the matching result back (`user.tool_result` for the
+* former, `user.custom_tool_result` for the latter), and yields one
+* {@link DispatchedToolCall} per completed call. Server-side `agent.mcp_tool_use`
+* calls are not dispatched. Internally drives event-stream reconnect and result
+* posting.
+*
+* A call the server gated with `evaluated_permission: "ask"` (the `always_ask`
+* policy — or any value this SDK doesn't recognize, which fails closed) is held
+* until its `user.tool_confirmation` arrives: only an explicit `allow` runs it;
+* `deny` — or any verdict this SDK doesn't recognize, failing closed — is never
+* executed and posts nothing (the denial resolves the call server-side), but is
+* still yielded (`confirmation="deny"`, `posted=false`, `result=undefined`) so
+* the consumer can observe it. A held call — and a user-approved one still
+* dispatching — defers the `maxIdleMs` countdown, so an idle observed in the
+* meantime cannot stop the runner: it waits until the verdict arrives, the
+* session terminates, or the abort signal fires — pass
+* `AbortSignal.timeout(...)` for a wall-clock bound.
+*
+* Iteration ends when the session terminates (`session.status_terminated` /
+* `session.deleted`), when the consumer `break`s out of the loop or aborts the
+* supplied signal, or — once the session has gone idle with any `stop_reason.type`
+* but `"requires_action"` — when `maxIdleMs` elapses with no new event (any
+* new event resets that countdown; it re-arms on the next such idle;
+* `maxIdleMs <= 0` disables it). The `finally` branch drains any in-flight
+* tool calls and runs each tool's `close()` cleanup hook. It does *not* touch
+* the work-item lease — wrap it in an `EnvironmentWorker` if you need
+* heartbeating / force-stop.
+*
+* @example
+* ```ts
+* import { betaAgentToolset20260401 } from '@anthropic-ai/sdk/tools/agent-toolset/node';
+*
+* for await (const call of client.beta.sessions.events.toolRunner(work.data.id, {
+*   tools: [...betaAgentToolset20260401({ workdir }), myTool],
+* })) {
+*   console.log(`${call.name} -> ${call.isError ? 'error' : 'ok'}`);
+* }
+* ```
+*/
+var SessionToolRunner = /* @__PURE__ */ (() => {
+	/**
+	* The sessions-side counterpart to `client.beta.messages.toolRunner`: an
+	* async-iterable that attaches to a managed-agents session, executes every
+	* incoming `agent.tool_use` and `agent.custom_tool_use` event against a local
+	* tool registry, posts the matching result back (`user.tool_result` for the
+	* former, `user.custom_tool_result` for the latter), and yields one
+	* {@link DispatchedToolCall} per completed call. Server-side `agent.mcp_tool_use`
+	* calls are not dispatched. Internally drives event-stream reconnect and result
+	* posting.
+	*
+	* A call the server gated with `evaluated_permission: "ask"` (the `always_ask`
+	* policy — or any value this SDK doesn't recognize, which fails closed) is held
+	* until its `user.tool_confirmation` arrives: only an explicit `allow` runs it;
+	* `deny` — or any verdict this SDK doesn't recognize, failing closed — is never
+	* executed and posts nothing (the denial resolves the call server-side), but is
+	* still yielded (`confirmation="deny"`, `posted=false`, `result=undefined`) so
+	* the consumer can observe it. A held call — and a user-approved one still
+	* dispatching — defers the `maxIdleMs` countdown, so an idle observed in the
+	* meantime cannot stop the runner: it waits until the verdict arrives, the
+	* session terminates, or the abort signal fires — pass
+	* `AbortSignal.timeout(...)` for a wall-clock bound.
+	*
+	* Iteration ends when the session terminates (`session.status_terminated` /
+	* `session.deleted`), when the consumer `break`s out of the loop or aborts the
+	* supplied signal, or — once the session has gone idle with any `stop_reason.type`
+	* but `"requires_action"` — when `maxIdleMs` elapses with no new event (any
+	* new event resets that countdown; it re-arms on the next such idle;
+	* `maxIdleMs <= 0` disables it). The `finally` branch drains any in-flight
+	* tool calls and runs each tool's `close()` cleanup hook. It does *not* touch
+	* the work-item lease — wrap it in an `EnvironmentWorker` if you need
+	* heartbeating / force-stop.
+	*
+	* @example
+	* ```ts
+	* import { betaAgentToolset20260401 } from '@anthropic-ai/sdk/tools/agent-toolset/node';
+	*
+	* for await (const call of client.beta.sessions.events.toolRunner(work.data.id, {
+	*   tools: [...betaAgentToolset20260401({ workdir }), myTool],
+	* })) {
+	*   console.log(`${call.name} -> ${call.isError ? 'error' : 'ok'}`);
+	* }
+	* ```
+	*/
+	class SessionToolRunner {
+		constructor(sessionId, opts) {
+			_SessionToolRunner_instances.add(this);
+			_SessionToolRunner_consumed.set(this, false);
+			_SessionToolRunner_controller.set(this, void 0);
+			_SessionToolRunner_detachExternal.set(this, void 0);
+			_SessionToolRunner_requestOpts.set(this, void 0);
+			_SessionToolRunner_toolByName.set(this, void 0);
+			_SessionToolRunner_logger.set(this, void 0);
+			_SessionToolRunner_seen.set(this, /* @__PURE__ */ new Set());
+			_SessionToolRunner_answered.set(this, /* @__PURE__ */ new Set());
+			_SessionToolRunner_confirmationVerdicts.set(this, /* @__PURE__ */ new Map());
+			_SessionToolRunner_awaitingConfirmation.set(this, /* @__PURE__ */ new Map());
+			_SessionToolRunner_results.set(this, new AsyncQueue());
+			_SessionToolRunner_inFlightCount.set(this, 0);
+			_SessionToolRunner_sendRetryWindowMs.set(this, SEND_RETRY_WINDOW_MS);
+			_SessionToolRunner_onIdle.set(this, null);
+			_SessionToolRunner_idleClock.set(this, void 0);
+			/** The OpenTelemetry `Context` that was active where the loop started, the parent of each tool span. */
+			_SessionToolRunner_otelContext.set(this, void 0);
+			/**
+			* The ID of the Session's primary thread, whose tool call events have no thread ID. It is the thread
+			* of the Session's first thread status event: a child thread starts after the primary thread has.
+			*/
+			_SessionToolRunner_primaryThreadId.set(this, void 0);
+			/** Whether the last read of the history succeeded, so that the stream's events continue it. */
+			_SessionToolRunner_historyRead.set(this, false);
+			this.client = opts.client;
+			this.sessionId = sessionId;
+			this.tools = opts.tools;
+			this.maxIdleMs = opts.maxIdleMs ?? 6e4;
+			require_promise.__classPrivateFieldSet(this, _SessionToolRunner_logger, require_promise.loggerFor(opts.client), "f");
+			require_promise.__classPrivateFieldSet(this, _SessionToolRunner_toolByName, new Map(opts.tools.map((t) => [toolName(t), t])), "f");
+			require_promise.__classPrivateFieldSet(this, _SessionToolRunner_controller, new AbortController(), "f");
+			require_promise.__classPrivateFieldSet(this, _SessionToolRunner_detachExternal, linkAbort(opts.signal, require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f")), "f");
+			require_promise.__classPrivateFieldSet(this, _SessionToolRunner_requestOpts, opts.requestOptions, "f");
+			require_promise.__classPrivateFieldSet(this, _SessionToolRunner_idleClock, new IdleClock(this.maxIdleMs, () => {
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").info("session idle after its turn ended; stopping", {
+					component: "session-tool-runner",
+					session_id: this.sessionId,
+					max_idle_ms: this.maxIdleMs
+				});
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").abort();
+			}), "f");
+		}
+		/** Read-only view of this runner's abort signal. */
+		get signal() {
+			return require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").signal;
+		}
+		/** Abort the runner. Background tasks will wind down and `for await` will exit cleanly. */
+		abort() {
+			require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").abort();
+		}
+		/**
+		* @internal
+		* `EnvironmentWorker` keeps this equal to the lease TTL each heartbeat
+		* reports; applies to a send already retrying.
+		*/
+		_setSendRetryWindow(ms) {
+			require_promise.__classPrivateFieldSet(this, _SessionToolRunner_sendRetryWindowMs, ms, "f");
+		}
+		async *[(_SessionToolRunner_consumed = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_controller = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_detachExternal = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_requestOpts = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_toolByName = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_logger = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_seen = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_answered = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_confirmationVerdicts = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_awaitingConfirmation = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_results = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_inFlightCount = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_sendRetryWindowMs = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_onIdle = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_idleClock = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_otelContext = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_primaryThreadId = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_historyRead = /* @__PURE__ */ new WeakMap(), _SessionToolRunner_instances = /* @__PURE__ */ new WeakSet(), Symbol.asyncIterator)]() {
+			if (require_promise.__classPrivateFieldGet(this, _SessionToolRunner_consumed, "f")) throw new require_promise.AnthropicError("Cannot iterate over a consumed SessionToolRunner");
+			require_promise.__classPrivateFieldSet(this, _SessionToolRunner_consumed, true, "f");
+			require_promise.__classPrivateFieldSet(this, _SessionToolRunner_otelContext, this.client._tracer ? context.active() : void 0, "f");
+			require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").info("session tool runner starting", {
+				component: "session-tool-runner",
+				session_id: this.sessionId
+			});
+			const streamPromise = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_streamLoop).call(this).catch((e) => {
+				if (!require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").signal.aborted) require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").error("stream loop failed", { error: String(e) });
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").abort();
+			});
+			try {
+				while (true) {
+					const next = await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_results, "f").next(require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").signal);
+					if (next.done) break;
+					yield next.value;
+				}
+				await streamPromise;
+				let pending;
+				while ((pending = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_results, "f").tryShift()) !== void 0) yield pending;
+			} finally {
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").abort();
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_idleClock, "f").disarm();
+				await streamPromise;
+				try {
+					await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_drain).call(this);
+				} catch (e) {
+					require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").warn("drain failed", { error: String(e) });
+				}
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_results, "f").close();
+				for (const t of this.tools) try {
+					await t.close?.();
+				} catch (e) {
+					require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").warn("tool.close failed", {
+						tool: toolName(t),
+						error: String(e)
+					});
+				}
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_detachExternal, "f").call(this);
+			}
+		}
+	}
+	_SessionToolRunner_requestOptions = function _SessionToolRunner_requestOptions() {
+		return {
+			...require_promise.__classPrivateFieldGet(this, _SessionToolRunner_requestOpts, "f"),
+			headers: buildHeaders([helperHeader("session-tool-runner"), require_promise.__classPrivateFieldGet(this, _SessionToolRunner_requestOpts, "f")?.headers]),
+			signal: require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").signal
+		};
+	}, _SessionToolRunner_streamLoop = async function _SessionToolRunner_streamLoop() {
+		const ctrl = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f");
+		let backoff = STREAM_BACKOFF_START_MS;
+		while (!ctrl.signal.aborted) {
+			try {
+				const stream = await this.client.beta.sessions.events.stream(this.sessionId, {}, require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_requestOptions).call(this));
+				await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_reconcile).call(this);
+				for await (const ev of stream) {
+					backoff = STREAM_BACKOFF_START_MS;
+					if (await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_handleStreamEvent).call(this, ev)) return;
+				}
+			} catch (e) {
+				ctrl.signal.throwIfAborted();
+				if (require_promise.isFatal4xx(e)) {
+					require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").error("permanent stream failure, shutting down", { error: String(e) });
+					ctrl.abort();
+					throw e;
+				}
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").warn("stream disconnected, reconnecting", {
+					error: String(e),
+					backoff_ms: backoff
+				});
+			}
+			ctrl.signal.throwIfAborted();
+			await sleep(backoff, ctrl.signal);
+			backoff = Math.min(backoff * 2, STREAM_BACKOFF_CAP_MS);
+		}
+	}, _SessionToolRunner_reconcile = async function _SessionToolRunner_reconcile() {
+		const ctrl = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f");
+		const pending = [];
+		let lastEndedTurn = false;
+		require_promise.__classPrivateFieldSet(this, _SessionToolRunner_historyRead, false, "f");
+		try {
+			for await (const ev of this.client.beta.sessions.events.list(this.sessionId, { limit: 1e3 }, require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_requestOptions).call(this))) {
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_ingestHistory).call(this, ev, pending);
+				if (ev.type !== "user.tool_confirmation") lastEndedTurn = endsTurn(ev);
+			}
+		} catch (e) {
+			ctrl.signal.throwIfAborted();
+			require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").warn("reconcile list failed", { error: String(e) });
+			for (const ev of pending) require_promise.__classPrivateFieldGet(this, _SessionToolRunner_seen, "f").delete(ev.id);
+			return;
+		}
+		require_promise.__classPrivateFieldSet(this, _SessionToolRunner_historyRead, true, "f");
+		const unanswered = pending.filter((ev) => !require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").has(ev.id));
+		require_promise.__classPrivateFieldGet(this, _SessionToolRunner_idleClock, "f").disarm();
+		for (const ev of unanswered) await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_routeToolEvent).call(this, ev);
+		for (const held of [...require_promise.__classPrivateFieldGet(this, _SessionToolRunner_awaitingConfirmation, "f").values()]) {
+			const verdict = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_confirmationVerdicts, "f").get(held.id);
+			if (verdict !== void 0) await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_applyVerdict).call(this, held, verdict);
+		}
+		const outstanding = unanswered.filter((ev) => !require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").has(ev.id) && !require_promise.__classPrivateFieldGet(this, _SessionToolRunner_awaitingConfirmation, "f").has(ev.id));
+		if (lastEndedTurn && outstanding.length === 0) require_promise.__classPrivateFieldGet(this, _SessionToolRunner_idleClock, "f").arm();
+		else require_promise.__classPrivateFieldGet(this, _SessionToolRunner_idleClock, "f").disarm();
+	}, _SessionToolRunner_ingestHistory = function _SessionToolRunner_ingestHistory(ev, pending) {
+		require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_notePrimaryThread).call(this, ev);
+		if (ev.type === "agent.tool_use" || ev.type === "agent.custom_tool_use") {
+			require_promise.__classPrivateFieldGet(this, _SessionToolRunner_seen, "f").add(ev.id);
+			if (!require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").has(ev.id)) pending.push(ev);
+		} else if (ev.type === "user.tool_result") require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").add(ev.tool_use_id);
+		else if (ev.type === "user.custom_tool_result") require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").add(ev.custom_tool_use_id);
+		else if (ev.type === "user.tool_confirmation") {
+			if (!require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").has(ev.tool_use_id)) require_promise.__classPrivateFieldGet(this, _SessionToolRunner_confirmationVerdicts, "f").set(ev.tool_use_id, ev.result);
+		}
+	}, _SessionToolRunner_notePrimaryThread = function _SessionToolRunner_notePrimaryThread(ev) {
+		if (!this.client._tracer || require_promise.__classPrivateFieldGet(this, _SessionToolRunner_primaryThreadId, "f") !== void 0) return;
+		switch (ev.type) {
+			case "session.thread_status_running":
+			case "session.thread_status_idle":
+			case "session.thread_status_rescheduled":
+			case "session.thread_status_terminated": require_promise.__classPrivateFieldSet(this, _SessionToolRunner_primaryThreadId, ev.session_thread_id, "f");
+		}
+	}, _SessionToolRunner_handleStreamEvent = async function _SessionToolRunner_handleStreamEvent(ev) {
+		require_promise.__classPrivateFieldGet(this, _SessionToolRunner_idleClock, "f").noteEvent(ev);
+		if (require_promise.__classPrivateFieldGet(this, _SessionToolRunner_historyRead, "f")) require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_notePrimaryThread).call(this, ev);
+		switch (ev.type) {
+			case "agent.tool_use":
+			case "agent.custom_tool_use":
+				if (!require_promise.__classPrivateFieldGet(this, _SessionToolRunner_seen, "f").has(ev.id)) {
+					require_promise.__classPrivateFieldGet(this, _SessionToolRunner_seen, "f").add(ev.id);
+					await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_routeToolEvent).call(this, ev);
+				}
+				return false;
+			case "user.tool_confirmation":
+				await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_noteConfirmation).call(this, ev);
+				return false;
+			case "user.tool_result":
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").add(ev.tool_use_id);
+				return false;
+			case "user.custom_tool_result":
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").add(ev.custom_tool_use_id);
+				return false;
+			case "session.status_terminated":
+			case "session.deleted":
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").info("session terminated", {
+					component: "session-tool-runner",
+					session_id: this.sessionId
+				});
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").abort();
+				return true;
+			default: return false;
+		}
+	}, _SessionToolRunner_routeToolEvent = async function _SessionToolRunner_routeToolEvent(ev) {
+		const permission = ev.evaluated_permission;
+		const verdict = permission === "deny" ? "deny" : require_promise.__classPrivateFieldGet(this, _SessionToolRunner_confirmationVerdicts, "f").get(ev.id);
+		if (verdict === void 0) {
+			if (permission === void 0 || permission === "allow") await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_execute).call(this, ev, void 0);
+			else if (!require_promise.__classPrivateFieldGet(this, _SessionToolRunner_awaitingConfirmation, "f").has(ev.id)) {
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").info("tool call awaiting confirmation; holding", {
+					component: "session-tool-runner",
+					session_id: this.sessionId,
+					tool: ev.name,
+					tool_use_id: ev.id
+				});
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_awaitingConfirmation, "f").set(ev.id, ev);
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_idleClock, "f").block(ev.id);
+			}
+			return;
+		}
+		await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_applyVerdict).call(this, ev, verdict);
+	}, _SessionToolRunner_noteConfirmation = async function _SessionToolRunner_noteConfirmation(ev) {
+		require_promise.__classPrivateFieldGet(this, _SessionToolRunner_confirmationVerdicts, "f").set(ev.tool_use_id, ev.result);
+		const held = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_awaitingConfirmation, "f").get(ev.tool_use_id);
+		if (held === void 0) return;
+		await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_applyVerdict).call(this, held, ev.result);
+	}, _SessionToolRunner_applyVerdict = async function _SessionToolRunner_applyVerdict(ev, verdict) {
+		const wasHeld = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_awaitingConfirmation, "f").delete(ev.id);
+		if (verdict === "allow") {
+			require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").info("tool call confirmed", {
+				component: "session-tool-runner",
+				session_id: this.sessionId,
+				tool: ev.name,
+				tool_use_id: ev.id
+			});
+			if (!wasHeld) require_promise.__classPrivateFieldGet(this, _SessionToolRunner_idleClock, "f").block(ev.id);
+			try {
+				await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_execute).call(this, ev, "allow");
+			} finally {
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_idleClock, "f").unblock(ev.id);
+			}
+			return;
+		}
+		if (wasHeld) require_promise.__classPrivateFieldGet(this, _SessionToolRunner_idleClock, "f").unblock(ev.id);
+		require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").add(ev.id);
+		require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").info("tool call denied; not executing", {
+			component: "session-tool-runner",
+			session_id: this.sessionId,
+			tool: ev.name,
+			tool_use_id: ev.id
+		});
+		require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_surfaceCall).call(this, {
+			event: ev,
+			toolUseId: ev.id,
+			name: ev.name,
+			isError: false,
+			posted: false,
+			confirmation: "deny"
+		});
+	}, _SessionToolRunner_surfaceCall = function _SessionToolRunner_surfaceCall(call) {
+		require_promise.__classPrivateFieldGet(this, _SessionToolRunner_results, "f").push(call);
+	}, _SessionToolRunner_execute = async function _SessionToolRunner_execute(ev, confirmation) {
+		var _a, _b;
+		if (require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").has(ev.id)) return;
+		require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").info("executing tool", {
+			component: "session-tool-runner",
+			session_id: this.sessionId,
+			tool: ev.name,
+			tool_use_id: ev.id
+		});
+		require_promise.__classPrivateFieldSet(this, _SessionToolRunner_inFlightCount, (_a = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_inFlightCount, "f"), _a++, _a), "f");
+		try {
+			const tool = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_toolByName, "f").get(ev.name);
+			if (!tool) {
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").info("tool not owned by this runner; leaving the tool_use_id pending for its owner", {
+					component: "session-tool-runner",
+					session_id: this.sessionId,
+					tool: ev.name,
+					tool_use_id: ev.id
+				});
+				if (confirmation === "allow") require_promise.__classPrivateFieldGet(this, _SessionToolRunner_idleClock, "f").disarm();
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_surfaceCall).call(this, {
+					event: ev,
+					toolUseId: ev.id,
+					name: ev.name,
+					isError: false,
+					posted: false,
+					confirmation
+				});
+				return;
+			}
+			let content;
+			let isError;
+			const conversationId = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_requestOpts, "f")?.openTelemetry?.conversationId ?? (ev.session_thread_id || require_promise.__classPrivateFieldGet(this, _SessionToolRunner_primaryThreadId, "f"));
+			const toolCtrl = new AbortController();
+			const detachTool = linkAbort(require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").signal, toolCtrl);
+			const timer = setTimeout(() => toolCtrl.abort(), TOOL_TIMEOUT_MS);
+			try {
+				const spanOptions = {
+					signal: require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f").signal,
+					conversationId,
+					sessionID: this.sessionId,
+					parentContext: require_promise.__classPrivateFieldGet(this, _SessionToolRunner_otelContext, "f")
+				};
+				const outcome = await withToolUseSpan(this.client, tool, ev, spanOptions, async () => {
+					const toolOutcome = await runRunnableTool(tool, ev.input, {
+						toolUse: ev,
+						toolUseBlock: ev,
+						signal: toolCtrl.signal
+					});
+					const sent = toSessionContent(toolOutcome.content);
+					return {
+						sent,
+						content: !this.client._tracer ? sent : sent.map((block, i) => {
+							const original = typeof toolOutcome.content === "string" ? void 0 : toolOutcome.content[i];
+							return original && original.type !== "text" && block.type === "text" ? original : block;
+						}),
+						isError: toolOutcome.isError
+					};
+				});
+				content = outcome.sent;
+				isError = outcome.isError;
+			} finally {
+				clearTimeout(timer);
+				detachTool();
+			}
+			const result = buildResultEvent(ev, isError, content);
+			const posted = await require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_sendResult).call(this, result, ev.id, conversationId);
+			require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_surfaceCall).call(this, {
+				event: ev,
+				result,
+				toolUseId: ev.id,
+				name: ev.name,
+				isError,
+				posted,
+				confirmation
+			});
+		} finally {
+			require_promise.__classPrivateFieldSet(this, _SessionToolRunner_inFlightCount, (_b = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_inFlightCount, "f"), _b--, _b), "f");
+			if (require_promise.__classPrivateFieldGet(this, _SessionToolRunner_inFlightCount, "f") === 0) require_promise.__classPrivateFieldGet(this, _SessionToolRunner_onIdle, "f")?.call(this);
+		}
+	}, _SessionToolRunner_sendResult = async function _SessionToolRunner_sendResult(result, toolUseId, conversationId) {
+		const ctrl = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_controller, "f");
+		const start = Date.now();
+		let lastErr;
+		let attempt = 0;
+		while (true) {
+			attempt++;
+			ctrl.signal.throwIfAborted();
+			try {
+				await this.client.beta.sessions.events.send(this.sessionId, { events: [result] }, {
+					...require_promise.__classPrivateFieldGet(this, _SessionToolRunner_instances, "m", _SessionToolRunner_requestOptions).call(this),
+					openTelemetry: { conversationId }
+				});
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_answered, "f").add(toolUseId);
+				return true;
+			} catch (e) {
+				lastErr = e;
+				if (require_promise.isFatal4xx(e)) break;
+				const remainingMs = require_promise.__classPrivateFieldGet(this, _SessionToolRunner_sendRetryWindowMs, "f") - (Date.now() - start);
+				if (remainingMs <= 0) break;
+				const waitMs = Math.min(require_promise.applyJitter(require_promise.backoff(attempt - 1, SEND_BACKOFF_START_MS, SEND_BACKOFF_CAP_MS)), remainingMs);
+				require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").warn("tool result send failed; retrying", {
+					tool_use_id: toolUseId,
+					attempt,
+					backoff_ms: waitMs,
+					error: String(e)
+				});
+				await sleep(waitMs, ctrl.signal);
+			}
+		}
+		require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").error("failed to send tool result", {
+			tool_use_id: toolUseId,
+			attempts: attempt,
+			error: String(lastErr)
+		});
+		return false;
+	}, _SessionToolRunner_drain = async function _SessionToolRunner_drain() {
+		if (require_promise.__classPrivateFieldGet(this, _SessionToolRunner_inFlightCount, "f") === 0) return;
+		await Promise.race([new Promise((r) => require_promise.__classPrivateFieldSet(this, _SessionToolRunner_onIdle, r, "f")), sleep(DRAIN_TIMEOUT_MS)]);
+		require_promise.__classPrivateFieldSet(this, _SessionToolRunner_onIdle, null, "f");
+		if (require_promise.__classPrivateFieldGet(this, _SessionToolRunner_inFlightCount, "f") > 0) require_promise.__classPrivateFieldGet(this, _SessionToolRunner_logger, "f").warn("drain timeout exceeded");
+	};
+	return SessionToolRunner;
+})();
+/**
+* Build the result event that answers `ev`: a `user.tool_result` for a builtin
+* `agent.tool_use`, a `user.custom_tool_result` for a custom
+* `agent.custom_tool_use`. The two `(use, result)` pairs are distinct API event
+* types and must be matched exactly — a `user.tool_result` does not answer a
+* custom tool call.
+*/
+function buildResultEvent(ev, isError, content) {
+	if (ev.type === "agent.custom_tool_use") return {
+		type: "user.custom_tool_result",
+		custom_tool_use_id: ev.id,
+		is_error: isError,
+		content
+	};
+	return {
+		type: "user.tool_result",
+		tool_use_id: ev.id,
+		is_error: isError,
+		content
+	};
+}
+function toSessionContent(content) {
+	if (typeof content === "string") return [{
+		type: "text",
+		text: content || "(no output)"
+	}];
+	const out = content.map((b) => {
+		if (b.type === "text") return {
+			type: "text",
+			text: b.text || "(no output)"
+		};
+		if (b.type === "image" || b.type === "document") return b;
+		if (b.type === "search_result") return {
+			type: "search_result",
+			source: b.source,
+			title: b.title,
+			content: b.content.map((c) => ({
+				type: "text",
+				text: c.text
+			})),
+			citations: { enabled: b.citations?.enabled ?? false }
+		};
+		return {
+			type: "text",
+			text: JSON.stringify(b)
+		};
+	});
+	return out.length > 0 ? out : [{
+		type: "text",
+		text: "(no output)"
+	}];
+}
+// node_modules/@anthropic-ai/sdk/lib/environments/worker.mjs
+var _EnvironmentWorker_instances;
+var _EnvironmentWorker_signal;
+var _EnvironmentWorker_handleItem;
+var _Lease_ctrl;
+var _Lease_endReason;
+const HEARTBEAT_DEFAULT_MS = 3e4;
+const HEARTBEAT_TTL_DEFAULT_MS = 9e4;
+const NO_HEARTBEAT_SENTINEL = "NO_HEARTBEAT";
+/** True when the session has at least one memory store attached. */
+function hasMemoryStore(session) {
+	return session.resources.some((r) => r.type === "memory_store");
+}
+/**
+* Extract the per-item sessions token from a work item's `secret` payload.
+*
+* The `secret` the poll response populates is not itself a credential: it is a
+* URL-safe base64 JSON payload matching {@link BetaWorkSecret} — the
+* `sessions_token` (the bearer for this item's work lifecycle and
+* session-level calls) plus fields this worker does not consume. Returns the
+* sessions token, or `null` (meaning: fall back to the environment key) when
+* the payload is missing, doesn't decode, or carries no token. Never log the
+* payload or anything extracted from it.
+*/
+function sessionsTokenFromSecret(secret) {
+	if (!secret) return null;
+	let parsed;
+	try {
+		const normalized = secret.replace(/-/g, "+").replace(/_/g, "/");
+		const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+		parsed = JSON.parse(require_promise.decodeUTF8(fromBase64(padded)));
+	} catch {
+		return null;
+	}
+	if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) return null;
+	const token = parsed.sessions_token;
+	return typeof token === "string" && token !== "" ? token : null;
+}
+/**
+* The self-hosted environment runner, composed from the control-plane
+* {@link WorkPoller} and the per-session {@link SessionToolRunner}.
+*
+* For each claimed `session` work item it: builds the per-session
+* {@link AgentToolContext}, downloads the session agent's skills
+* (`setupSkills`), then runs a {@link SessionToolRunner} for the session
+* while heartbeating the work-item lease on the same event loop; on exit it
+* force-stops the work item (unless the lease was lost, in which case the item
+* is left to whoever holds it now), cleans up the downloaded skills, and loops
+* to the next one. The lease heartbeat reports `state === "stopping"` / a lost
+* lease back into the run by aborting the session runner.
+*
+* The `environmentKey` is the worker's standing credential. When a claimed
+* work item carries a per-item `secret` (a short-lived payload the poll
+* response may populate), the sessions token extracted from it is preferred
+* over the environment key for that item's heartbeat / force-stop /
+* skill-download / session calls; polling itself always uses the environment
+* key, and items without a usable secret fall back to it entirely.
+*
+* Use {@link EnvironmentWorker.handleItem} if you already hold a claimed work
+* item (e.g. a `worker poll --on-work` script handed one to a fresh process) and
+* just want the per-item flow without the poll loop — with no arguments it reads
+* the `ANTHROPIC_*` env vars that command sets.
+*
+* Construct it via `client.beta.environments.work.worker({ ... })` (or
+* `new EnvironmentWorker({ client, ... })` directly).
+*
+* @example
+* ```ts
+* // Long-running daemon: poll for work, serve each session, loop.
+* await client.beta.environments.work
+*   .worker({ environmentId, environmentKey, workdir: '/workspace' })
+*   .run(AbortSignal.timeout(60 * 60_000));
+*
+* // Already-claimed item (e.g. inside `ant worker poll --on-work ...`):
+* await client.beta.environments.work.worker({ workdir: '/workspace' }).handleItem();
+* ```
+*/
+var EnvironmentWorker = /* @__PURE__ */ (() => {
+	/**
+	* The self-hosted environment runner, composed from the control-plane
+	* {@link WorkPoller} and the per-session {@link SessionToolRunner}.
+	*
+	* For each claimed `session` work item it: builds the per-session
+	* {@link AgentToolContext}, downloads the session agent's skills
+	* (`setupSkills`), then runs a {@link SessionToolRunner} for the session
+	* while heartbeating the work-item lease on the same event loop; on exit it
+	* force-stops the work item (unless the lease was lost, in which case the item
+	* is left to whoever holds it now), cleans up the downloaded skills, and loops
+	* to the next one. The lease heartbeat reports `state === "stopping"` / a lost
+	* lease back into the run by aborting the session runner.
+	*
+	* The `environmentKey` is the worker's standing credential. When a claimed
+	* work item carries a per-item `secret` (a short-lived payload the poll
+	* response may populate), the sessions token extracted from it is preferred
+	* over the environment key for that item's heartbeat / force-stop /
+	* skill-download / session calls; polling itself always uses the environment
+	* key, and items without a usable secret fall back to it entirely.
+	*
+	* Use {@link EnvironmentWorker.handleItem} if you already hold a claimed work
+	* item (e.g. a `worker poll --on-work` script handed one to a fresh process) and
+	* just want the per-item flow without the poll loop — with no arguments it reads
+	* the `ANTHROPIC_*` env vars that command sets.
+	*
+	* Construct it via `client.beta.environments.work.worker({ ... })` (or
+	* `new EnvironmentWorker({ client, ... })` directly).
+	*
+	* @example
+	* ```ts
+	* // Long-running daemon: poll for work, serve each session, loop.
+	* await client.beta.environments.work
+	*   .worker({ environmentId, environmentKey, workdir: '/workspace' })
+	*   .run(AbortSignal.timeout(60 * 60_000));
+	*
+	* // Already-claimed item (e.g. inside `ant worker poll --on-work ...`):
+	* await client.beta.environments.work.worker({ workdir: '/workspace' }).handleItem();
+	* ```
+	*/
+	class EnvironmentWorker {
+		constructor(opts) {
+			_EnvironmentWorker_instances.add(this);
+			_EnvironmentWorker_signal.set(this, void 0);
+			if (opts.unrestrictedPaths !== void 0) throw new require_promise.AnthropicError("The `unrestrictedPaths` option you passed to EnvironmentWorker (or client.beta.environments.work.worker()) is no longer supported. The worker's file tools (read, write, edit, glob, grep) are now always confined to `workdir` plus the session's memory folders. Remove `unrestrictedPaths` from your options; to let the file tools reach any other directory, add it to `AgentToolContext.allowedRoots` from a `tools` factory.");
+			this.client = opts.client;
+			this.environmentId = opts.environmentId;
+			this.environmentKey = opts.environmentKey;
+			this.tools = opts.tools;
+			this.workdir = opts.workdir ?? process.cwd();
+			this.maxFileBytes = opts.maxFileBytes;
+			this.maxIdleMs = opts.maxIdleMs;
+			if (opts.memorySyncIntervalMs != null) require_promise.checkMemorySyncInterval(opts.memorySyncIntervalMs, "memorySyncIntervalMs");
+			this.memorySyncIntervalMs = opts.memorySyncIntervalMs;
+			this.memorySyncDeletions = opts.memorySyncDeletions ?? "enabled";
+			this.workerId = opts.workerId;
+			this.requestOptions = opts.requestOptions;
+			require_promise.__classPrivateFieldSet(this, _EnvironmentWorker_signal, opts.signal, "f");
+		}
+		/**
+		* Poll the environment and service each claimed session until the supplied
+		* signal (or the one passed to the constructor) aborts. Throws if
+		* `environmentId` / `environmentKey` were not provided to the constructor.
+		*/
+		async run(signal) {
+			const { environmentId, environmentKey } = this;
+			if (environmentId === void 0 || environmentKey === void 0) throw new require_promise.AnthropicError("EnvironmentWorker.run: environmentId and environmentKey are required to poll for work");
+			const externalSignal = signal ?? require_promise.__classPrivateFieldGet(this, _EnvironmentWorker_signal, "f");
+			const poller = new WorkPoller({
+				client: this.client,
+				environmentId,
+				environmentKey,
+				...this.workerId !== void 0 ? { workerId: this.workerId } : {},
+				...externalSignal ? { signal: externalSignal } : {},
+				...this.requestOptions !== void 0 ? { requestOptions: this.requestOptions } : {},
+				autoStop: false
+			});
+			for await (const work of poller) {
+				const workSpan = poller._workSpan;
+				try {
+					await withEnvironmentWorkSpan(this.client, workSpan, poller.signal, () => require_promise.__classPrivateFieldGet(this, _EnvironmentWorker_instances, "m", _EnvironmentWorker_handleItem).call(this, work, environmentKey, poller.signal, workSpan));
+				} catch (e) {
+					if (poller.signal?.aborted) throw e;
+					require_promise.loggerFor(this.client).error("work item failed", {
+						work_id: work.id,
+						error: String(e)
+					});
+				}
+			}
+		}
+		/**
+		* Service a single, already-claimed work item without the poll loop: build the
+		* per-session {@link AgentToolContext} (workdir from this worker's options),
+		* download the session agent's skills (`setupSkills`), run a
+		* {@link SessionToolRunner} for the session while heartbeating the work-item
+		* lease, and force-stop the work item on exit (whether the runner finishes
+		* normally, throws, or the control plane signals shutdown). The one
+		* exception is a lost lease: the item then belongs to the queue or another
+		* worker and is left alone.
+		*
+		* Use this when something else does the claiming — e.g. a `worker poll
+		* --on-work` script that hands an already-claimed item to a fresh process. The
+		* work id / environment id / session id each fall back to `ANTHROPIC_WORK_ID` /
+		* `ANTHROPIC_ENVIRONMENT_ID` / `ANTHROPIC_SESSION_ID` (the env vars that
+		* command sets) when not passed; the environment key resolves from this
+		* option, then the worker's own `environmentKey`, then
+		* `ANTHROPIC_ENVIRONMENT_KEY`, and is needed only when the work item's
+		* `secret` yields no sessions token — a host that receives only the
+		* per-item secret runs without ever holding the key. With no arguments
+		* inside that command it just works. Throws a clear error naming the first
+		* required value still missing after resolution, and — rather than ever
+		* running unauthenticated — when neither a sessions token nor an
+		* environment key resolved. Throws `SessionMemoryError` when the
+		* session has memory stores attached but they cannot be mounted — the work
+		* item carried no sessions token (unless `memorySyncIntervalMs` turned
+		* memory off), or a store failed to download.
+		*
+		* `workSecret` is the work item's per-item `secret` payload from the poll
+		* response, falling back to `ANTHROPIC_WORK_SECRET`; unlike the others it is
+		* optional — when present, the sessions token extracted from it is preferred
+		* as the Bearer credential for this item's heartbeat / force-stop / session
+		* calls; when absent (or undecodable) those calls use the environment key.
+		*/
+		async handleItem(opts) {
+			const workId = opts?.workId ?? require_promise.readEnv("ANTHROPIC_WORK_ID");
+			const environmentId = opts?.environmentId ?? require_promise.readEnv("ANTHROPIC_ENVIRONMENT_ID");
+			const sessionId = opts?.sessionId ?? require_promise.readEnv("ANTHROPIC_SESSION_ID");
+			const environmentKey = (opts?.environmentKey ?? this.environmentKey ?? require_promise.readEnv("ANTHROPIC_ENVIRONMENT_KEY")) || void 0;
+			const workSecret = opts?.workSecret || require_promise.readEnv("ANTHROPIC_WORK_SECRET") || null;
+			if (!workId) throw new require_promise.AnthropicError("handleItem: workId is required — pass it or set ANTHROPIC_WORK_ID");
+			if (!environmentId) throw new require_promise.AnthropicError("handleItem: environmentId is required — pass it or set ANTHROPIC_ENVIRONMENT_ID");
+			if (!sessionId) throw new require_promise.AnthropicError("handleItem: sessionId is required — pass it or set ANTHROPIC_SESSION_ID");
+			if (!environmentKey && !workSecret) throw new require_promise.AnthropicError("handleItem: environmentKey is required when there is no work secret — pass it, construct the worker with it, or set ANTHROPIC_ENVIRONMENT_KEY");
+			const work = {
+				id: workId,
+				environment_id: environmentId,
+				secret: workSecret,
+				data: {
+					type: "session",
+					id: sessionId
+				}
+			};
+			await require_promise.__classPrivateFieldGet(this, _EnvironmentWorker_instances, "m", _EnvironmentWorker_handleItem).call(this, work, environmentKey, opts?.signal ?? require_promise.__classPrivateFieldGet(this, _EnvironmentWorker_signal, "f"));
+		}
+	}
+	_EnvironmentWorker_signal = /* @__PURE__ */ new WeakMap(), _EnvironmentWorker_instances = /* @__PURE__ */ new WeakSet(), _EnvironmentWorker_handleItem = async function _EnvironmentWorker_handleItem(work, environmentKey, externalSignal, workSpan) {
+		const log = require_promise.loggerFor(this.client);
+		const sessionsToken = sessionsTokenFromSecret(work.secret);
+		const itemCredential = sessionsToken ?? environmentKey;
+		if (itemCredential === void 0) throw new require_promise.AnthropicError("handleItem: the work item carried a secret payload but no sessions token could be extracted, and there is no environment key to fall back to; the poller must issue a secret whose payload carries `sessions_token`, or provide the environment key (pass it, construct the worker with it, or set ANTHROPIC_ENVIRONMENT_KEY)");
+		if (work.secret && sessionsToken === null) log.warn("work item carried a secret payload but no sessions token could be extracted; falling back to the environment key", { work_id: work.id });
+		const sessionClient = copyClientForHelper(this.client, {
+			authToken: itemCredential,
+			helper: "environments-worker"
+		});
+		const sessionId = work.data.id;
+		const ctrl = new AbortController();
+		const detachExternal = linkAbort(externalSignal, ctrl);
+		const lease = new Lease(ctrl);
+		const agentToolset = await Promise.resolve().then(() => require("./node-BHu21w2n.cjs"));
+		let leaseTtlMs;
+		let runner;
+		const heartbeatPromise = heartbeatLoop(sessionClient, work, lease, log, this.requestOptions, (ttlMs) => {
+			leaseTtlMs = ttlMs;
+			runner?._setSendRetryWindow(ttlMs);
+		}).catch((e) => {
+			if (!ctrl.signal.aborted) log.error("heartbeat loop failed", {
+				work_id: work.id,
+				error: String(e)
+			});
+			ctrl.abort();
+		});
+		let cleanupSkills = async () => {};
+		let stores;
+		let cleanEnd = false;
+		try {
+			if (work.data.type !== "session") {
+				log.debug("skipping non-session work item", {
+					work_id: work.id,
+					type: work.data.type
+				});
+				return;
+			}
+			const session = await sessionClient.beta.sessions.retrieve(sessionId);
+			if (sessionsToken === null && this.memorySyncIntervalMs !== null && hasMemoryStore(session)) throw new agentToolset.SessionMemoryError(`cannot mount the session's memories: the work item carried no sessions token (work_id=${work.id}, session_id=${sessionId}); the memory endpoints reject the environment key, so the poller must issue a per-item \`secret\` carrying \`sessions_token\`, or set \`memorySyncIntervalMs: null\` to run without memory`);
+			const ctx = {
+				workdir: this.workdir,
+				client: sessionClient,
+				session,
+				...this.maxFileBytes !== void 0 ? { maxFileBytes: this.maxFileBytes } : {}
+			};
+			try {
+				cleanupSkills = await agentToolset.setupSkills(ctx);
+			} catch (e) {
+				log.warn("skill setup failed", {
+					session_id: sessionId,
+					work_id: work.id,
+					error: String(e)
+				});
+			}
+			if (sessionsToken !== null && this.memorySyncIntervalMs !== null) {
+				stores = new agentToolset.SessionMemoryStores(sessionClient, {
+					workdir: this.workdir,
+					...this.memorySyncIntervalMs !== void 0 ? { syncIntervalMs: this.memorySyncIntervalMs } : {},
+					syncDeletions: this.memorySyncDeletions
+				});
+				await stores.download(session);
+				ctx.allowedRoots = stores.roots;
+				ctx.readOnlyRoots = stores.readOnlyRoots;
+			} else log.debug("memory stores disabled for this item", { work_id: work.id });
+			runner = new SessionToolRunner(sessionId, {
+				client: sessionClient,
+				tools: typeof this.tools === "function" ? this.tools(ctx) : this.tools ?? agentToolset.betaAgentToolset20260401(ctx),
+				...this.maxIdleMs !== void 0 ? { maxIdleMs: this.maxIdleMs } : {},
+				...this.requestOptions !== void 0 ? { requestOptions: this.requestOptions } : {},
+				signal: ctrl.signal
+			});
+			if (leaseTtlMs !== void 0) runner._setSendRetryWindow(leaseTtlMs);
+			for await (const _ of runner) if (stores) await stores.syncIfDue();
+			cleanEnd = !ctrl.signal.aborted;
+		} finally {
+			try {
+				await cleanupSkills().catch((e) => {
+					log.warn("skill cleanup failed", {
+						session_id: sessionId,
+						work_id: work.id,
+						error: String(e)
+					});
+				});
+			} finally {
+				if (stores) {
+					const boundMs = agentToolset.MEMORY_FLUSH_TIMEOUT_MS;
+					if (cleanEnd) {
+						if (await withTimeout(stores.finish(), boundMs)) log.warn(`final memory sync cut off after ${boundMs}ms; the flush that follows still uploads changed files`, {
+							session_id: sessionId,
+							work_id: work.id
+						});
+					}
+					const flushBound = new AbortController();
+					if (await withTimeout(stores.flushWrites(flushBound.signal), boundMs)) {
+						flushBound.abort();
+						log.warn(`memory flush cut off after ${boundMs}ms; changed files it had not uploaded yet are not saved`, {
+							session_id: sessionId,
+							work_id: work.id
+						});
+					}
+					await stores.dispose().catch((e) => {
+						log.warn("memory store cleanup failed", {
+							session_id: sessionId,
+							work_id: work.id,
+							error: String(e)
+						});
+					});
+				}
+			}
+			lease.finish("runner_done");
+			detachExternal();
+			await heartbeatPromise;
+			if (lease.lost) log.info("lease lost; released without stopping it", {
+				session_id: sessionId,
+				work_id: work.id
+			});
+			else await forceStop(sessionClient, work, log, this.requestOptions);
+			if (lease.lost || lease.rejected) guardTracing(this.client, () => workSpan?.end());
+		}
+	};
+	return EnvironmentWorker;
+})();
+/**
+* Resolve when `p` settles or `ms` elapses — `true` when `ms` elapsed
+* first. A timed-out `p` keeps running — JS cannot cancel a promise.
+*/
+async function withTimeout(p, ms) {
+	let timer;
+	try {
+		return await Promise.race([p.then(() => false, () => false), new Promise((resolve) => {
+			timer = setTimeout(() => resolve(true), ms);
+		})]);
+	} finally {
+		if (timer !== void 0) clearTimeout(timer);
+	}
+}
+/** Force-stop a claimed work item, swallowing the 409 that means it's already stopped. */
+async function forceStop(client, work, log, requestOptions) {
+	try {
+		await client.beta.environments.work.stop(work.id, {
+			environment_id: work.environment_id,
+			force: true
+		}, {
+			...requestOptions,
+			headers: buildHeaders([requestOptions?.headers])
+		});
+	} catch (e) {
+		if (!require_promise.isStatus(e, 409)) log.error("force-stop on exit failed", {
+			work_id: work.id,
+			error: String(e)
+		});
+	}
+}
+var Lease = /* @__PURE__ */ (() => {
+	/**
+	* This worker's view of one work-item lease: the per-item abort signal plus
+	* why heartbeating ended. The first recorded reason wins, so a run aborted
+	* *because* the lease was lost still reads as lost afterwards; an abort with
+	* no recorded reason (the external signal) is not lost.
+	*/
+	class Lease {
+		constructor(ctrl) {
+			_Lease_ctrl.set(this, void 0);
+			_Lease_endReason.set(this, void 0);
+			require_promise.__classPrivateFieldSet(this, _Lease_ctrl, ctrl, "f");
+		}
+		get signal() {
+			return require_promise.__classPrivateFieldGet(this, _Lease_ctrl, "f").signal;
+		}
+		finish(reason) {
+			require_promise.__classPrivateFieldSet(this, _Lease_endReason, require_promise.__classPrivateFieldGet(this, _Lease_endReason, "f") ?? reason, "f");
+			require_promise.__classPrivateFieldGet(this, _Lease_ctrl, "f").abort();
+		}
+		/** True once the item belongs to the queue or another worker. */
+		get lost() {
+			return require_promise.__classPrivateFieldGet(this, _Lease_endReason, "f") === "lease_lost" || require_promise.__classPrivateFieldGet(this, _Lease_endReason, "f") === "assumed_lost";
+		}
+		/** True once the API rejected a heartbeat for good, so the worker cannot keep the lease. */
+		get rejected() {
+			return require_promise.__classPrivateFieldGet(this, _Lease_endReason, "f") === "heartbeat_rejected";
+		}
+	}
+	_Lease_ctrl = /* @__PURE__ */ new WeakMap(), _Lease_endReason = /* @__PURE__ */ new WeakMap();
+	return Lease;
+})();
+/** The server's view of the lease carried by a 412 heartbeat response, or empty if absent. */
+function serverLeaseState(e) {
+	let node = e instanceof require_promise.APIError ? e.error : void 0;
+	for (const key of [
+		"error",
+		"details",
+		"current_state"
+	]) {
+		if (!require_promise.isObj(node)) return {};
+		node = node[key];
+	}
+	return require_promise.isObj(node) ? node : {};
+}
+/**
+* Keep the work-item lease alive while a session is being served. Runs until
+* `lease` ends, and ends it itself when the control plane reports the work is
+* `stopping`/`stopped` or no longer extends the lease, when a heartbeat is
+* rejected (a 412 means the lease already belongs to someone else), or when no
+* heartbeat has succeeded for longer than the lease ttl (the lease is assumed
+* lost, so two runners don't end up serving the same work). Each heartbeat
+* call is cut off after the current beat interval so a hung request cannot
+* outlive the lease it is meant to renew.
+*/
+async function heartbeatLoop(client, work, lease, logger, requestOptions, onLeaseTtl) {
+	let intervalMs = HEARTBEAT_DEFAULT_MS;
+	let ttlMs = HEARTBEAT_TTL_DEFAULT_MS;
+	let lastSuccessMs = Date.now();
+	let last = NO_HEARTBEAT_SENTINEL;
+	const beat = async () => {
+		const beatCtrl = new AbortController();
+		const detach = linkAbort(lease.signal, beatCtrl);
+		const cutoff = setTimeout(() => beatCtrl.abort(), intervalMs);
+		try {
+			const resp = await client.beta.environments.work.heartbeat(work.id, {
+				environment_id: work.environment_id,
+				expected_last_heartbeat: last
+			}, {
+				...requestOptions,
+				headers: buildHeaders([requestOptions?.headers]),
+				signal: beatCtrl.signal
+			});
+			lastSuccessMs = Date.now();
+			last = resp.last_heartbeat;
+			if (resp.ttl_seconds > 0) {
+				ttlMs = resp.ttl_seconds * 1e3;
+				intervalMs = Math.max(1e3, Math.min(ttlMs / 2, HEARTBEAT_DEFAULT_MS));
+				onLeaseTtl?.(ttlMs);
+			}
+			if (resp.state === "stopping" || resp.state === "stopped") {
+				logger.info("heartbeat signals shutdown", {
+					work_id: work.id,
+					state: resp.state
+				});
+				lease.finish("control_plane_stop");
+			}
+			if (!resp.lease_extended) {
+				logger.warn("lease not extended, shutting down", { work_id: work.id });
+				lease.finish("control_plane_stop");
+			}
+		} catch (e) {
+			lease.signal.throwIfAborted();
+			if (require_promise.isStatus(e, 412)) {
+				const server = serverLeaseState(e);
+				logger.error("lease lost: heartbeat precondition failed", {
+					work_id: work.id,
+					server_state: server["state"],
+					server_ttl_seconds: server["ttl_seconds"],
+					server_last_heartbeat: server["last_heartbeat"]
+				});
+				lease.finish("lease_lost");
+				return;
+			}
+			if (require_promise.isFatal4xx(e)) {
+				logger.error("permanent heartbeat failure", {
+					work_id: work.id,
+					error: String(e)
+				});
+				lease.finish("heartbeat_rejected");
+				throw e;
+			}
+			if (Date.now() - lastSuccessMs > ttlMs) {
+				logger.error("lease assumed lost: no successful heartbeat in ttl", {
+					work_id: work.id,
+					ttl_ms: ttlMs,
+					error: String(e)
+				});
+				lease.finish("assumed_lost");
+				return;
+			}
+			logger.warn("transient heartbeat failure", {
+				work_id: work.id,
+				error: String(e)
+			});
+		} finally {
+			clearTimeout(cutoff);
+			detach();
+		}
+	};
+	await beat();
+	while (!lease.signal.aborted) {
+		await sleep(intervalMs, lease.signal);
+		lease.signal.throwIfAborted();
+		await beat();
+	}
+}
+// node_modules/@anthropic-ai/sdk/resources/beta/environments/work.mjs
+var Work = /* @__PURE__ */ (() => {
+	class Work extends APIResource {
+		/**
+		* Note: these endpoints are called automatically by the pre-built environment
+		* worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted
+		* sandbox environments. They are included here as a reference; you do not need to
+		* invoke them directly.
+		*
+		* Retrieve detailed information about a specific work item.
+		*
+		* @example
+		* ```ts
+		* const betaSelfHostedWork =
+		*   await client.beta.environments.work.retrieve('work_id', {
+		*     environment_id: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*   });
+		* ```
+		*/
+		retrieve(workID, params, options) {
+			const { environment_id, betas, workspace_id } = params;
+			return this._client.get(path`/v1/environments/${environment_id}/work/${workID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.work.retrieve", options, {
+					route: "/v1/environments/{environment_id}/work/{work_id}",
+					attributes: {
+						"anthropic.environment.id": environment_id,
+						"anthropic.environment.work.id": workID
+					}
+				})
+			});
+		}
+		/**
+		* Note: these endpoints are called automatically by the pre-built environment
+		* worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted
+		* sandbox environments. They are included here as a reference; you do not need to
+		* invoke them directly.
+		*
+		* Update work item metadata with merge semantics.
+		*
+		* @example
+		* ```ts
+		* const betaSelfHostedWork =
+		*   await client.beta.environments.work.update('work_id', {
+		*     environment_id: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*     metadata: { foo: 'string' },
+		*   });
+		* ```
+		*/
+		update(workID, params, options) {
+			const { environment_id, betas, workspace_id, ...body } = params;
+			return this._client.post(path`/v1/environments/${environment_id}/work/${workID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.work.update", options, {
+					route: "/v1/environments/{environment_id}/work/{work_id}",
+					attributes: {
+						"anthropic.environment.id": environment_id,
+						"anthropic.environment.work.id": workID
+					}
+				})
+			});
+		}
+		/**
+		* Note: these endpoints are called automatically by the pre-built environment
+		* worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted
+		* sandbox environments. They are included here as a reference; you do not need to
+		* invoke them directly.
+		*
+		* List work items in an environment.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaSelfHostedWork of client.beta.environments.work.list(
+		*   'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		* )) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(environmentID, params = {}, options) {
+			const { betas, ...query } = params ?? {};
+			return this._client.getAPIList(path`/v1/environments/${environmentID}/work`, PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.work.list", options, {
+					route: "/v1/environments/{environment_id}/work",
+					queryParams: ["limit", "page"],
+					attributes: { "anthropic.environment.id": environmentID }
+				})
+			});
+		}
+		/**
+		* Note: these endpoints are called automatically by the pre-built environment
+		* worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted
+		* sandbox environments. They are included here as a reference; you do not need to
+		* invoke them directly.
+		*
+		* Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
+		* and removing it from the queue.
+		*
+		* @example
+		* ```ts
+		* const betaSelfHostedWork =
+		*   await client.beta.environments.work.ack('work_id', {
+		*     environment_id: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*   });
+		* ```
+		*/
+		ack(workID, params, options) {
+			const { environment_id, betas } = params;
+			return this._client.post(path`/v1/environments/${environment_id}/work/${workID}/ack`, {
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.work.ack", options, {
+					route: "/v1/environments/{environment_id}/work/{work_id}/ack",
+					attributes: {
+						"anthropic.environment.id": environment_id,
+						"anthropic.environment.work.id": workID
+					}
+				})
+			});
+		}
+		/**
+		* Note: these endpoints are called automatically by the pre-built environment
+		* worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted
+		* sandbox environments. They are included here as a reference; you do not need to
+		* invoke them directly.
+		*
+		* Record a heartbeat for a work item to maintain the lease.
+		*
+		* @example
+		* ```ts
+		* const betaSelfHostedWorkHeartbeatResponse =
+		*   await client.beta.environments.work.heartbeat('work_id', {
+		*     environment_id: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*   });
+		* ```
+		*/
+		heartbeat(workID, params, options) {
+			const { environment_id, desired_ttl_seconds, expected_last_heartbeat, betas } = params;
+			return this._client.post(path`/v1/environments/${environment_id}/work/${workID}/heartbeat`, {
+				query: {
+					desired_ttl_seconds,
+					expected_last_heartbeat
+				},
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.work.heartbeat", options, {
+					route: "/v1/environments/{environment_id}/work/{work_id}/heartbeat",
+					queryParams: ["desired_ttl_seconds", "expected_last_heartbeat"],
+					attributes: {
+						"anthropic.environment.id": environment_id,
+						"anthropic.environment.work.id": workID
+					}
+				})
+			});
+		}
+		/**
+		* Note: these endpoints are called automatically by the pre-built environment
+		* worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted
+		* sandbox environments. They are included here as a reference; you do not need to
+		* invoke them directly.
+		*
+		* Long poll for work items in the queue.
+		*
+		* @example
+		* ```ts
+		* const betaSelfHostedWork =
+		*   await client.beta.environments.work.poll(
+		*     'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*   );
+		* ```
+		*/
+		poll(environmentID, params = {}, options) {
+			const { betas, "Anthropic-Worker-ID": anthropicWorkerID, ...query } = params ?? {};
+			return this._client.get(path`/v1/environments/${environmentID}/work/poll`, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...anthropicWorkerID != null ? { "Anthropic-Worker-ID": anthropicWorkerID } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.work.poll", options, {
+					route: "/v1/environments/{environment_id}/work/poll",
+					queryParams: ["block_ms", "reclaim_older_than_ms"],
+					attributes: { "anthropic.environment.id": environmentID }
+				})
+			});
+		}
+		/**
+		* Get statistics about the work queue for an environment.
+		*
+		* @example
+		* ```ts
+		* const betaSelfHostedWorkQueueStats =
+		*   await client.beta.environments.work.stats(
+		*     'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*   );
+		* ```
+		*/
+		stats(environmentID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.get(path`/v1/environments/${environmentID}/work/stats`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.work.stats", options, {
+					route: "/v1/environments/{environment_id}/work/stats",
+					attributes: { "anthropic.environment.id": environmentID }
+				})
+			});
+		}
+		/**
+		* Note: these endpoints are called automatically by the pre-built environment
+		* worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted
+		* sandbox environments. They are included here as a reference; you do not need to
+		* invoke them directly.
+		*
+		* Stop a work item, initiating graceful or forced shutdown.
+		*
+		* @example
+		* ```ts
+		* const betaSelfHostedWork =
+		*   await client.beta.environments.work.stop('work_id', {
+		*     environment_id: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*   });
+		* ```
+		*/
+		stop(workID, params, options) {
+			const { environment_id, betas, workspace_id, ...body } = params;
+			return this._client.post(path`/v1/environments/${environment_id}/work/${workID}/stop`, {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.work.stop", options, {
+					route: "/v1/environments/{environment_id}/work/{work_id}/stop",
+					attributes: {
+						"anthropic.environment.id": environment_id,
+						"anthropic.environment.work.id": workID
+					}
+				})
+			});
+		}
+		/**
+		* Continuously claim work from a self-hosted environment, ack each item,
+		* and yield it. Posts `stop` automatically when the consumer's loop body
+		* returns or when iteration ends.
+		*
+		* @example
+		* ```ts
+		* for await (const work of client.beta.environments.work.poller({
+		*   environmentId,
+		*   environmentKey,
+		* })) {
+		*   if (work.data.type !== 'session') continue;
+		*   // ...service the work...
+		* }
+		* ```
+		*/
+		poller(opts) {
+			return new WorkPoller({
+				...opts,
+				client: this._client
+			});
+		}
+		worker(opts) {
+			return new EnvironmentWorker({
+				...opts,
+				client: this._client
+			});
+		}
+	}
+	Work.WorkPoller = WorkPoller;
+	Work.EnvironmentWorker = EnvironmentWorker;
+	return Work;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/environments/environments.mjs
+var Environments = /* @__PURE__ */ (() => {
+	class Environments extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.work = new Work(this._client);
+		}
+		/**
+		* Create a new environment with the specified configuration.
+		*
+		* @example
+		* ```ts
+		* const betaEnvironment =
+		*   await client.beta.environments.create({
+		*     name: 'python-data-analysis',
+		*   });
+		* ```
+		*/
+		create(params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post("/v1/environments", {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.create", options, {
+					route: "/v1/environments",
+					createdIDAttribute: "anthropic.environment.id"
+				})
+			});
+		}
+		/**
+		* Retrieve a specific environment by ID.
+		*
+		* @example
+		* ```ts
+		* const betaEnvironment =
+		*   await client.beta.environments.retrieve(
+		*     'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*   );
+		* ```
+		*/
+		retrieve(environmentID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.get(path`/v1/environments/${environmentID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.retrieve", options, {
+					route: "/v1/environments/{environment_id}",
+					attributes: { "anthropic.environment.id": environmentID }
+				})
+			});
+		}
+		/**
+		* Update an existing environment's configuration.
+		*
+		* @example
+		* ```ts
+		* const betaEnvironment =
+		*   await client.beta.environments.update(
+		*     'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*   );
+		* ```
+		*/
+		update(environmentID, params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post(path`/v1/environments/${environmentID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.update", options, {
+					route: "/v1/environments/{environment_id}",
+					attributes: { "anthropic.environment.id": environmentID }
+				})
+			});
+		}
+		/**
+		* List environments with pagination support.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaEnvironment of client.beta.environments.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/environments", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.list", options, {
+					route: "/v1/environments",
+					queryParams: [
+						"include_archived",
+						"limit",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* Delete an environment by ID. Returns a confirmation of the deletion.
+		*
+		* @example
+		* ```ts
+		* const betaEnvironmentDeleteResponse =
+		*   await client.beta.environments.delete(
+		*     'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*   );
+		* ```
+		*/
+		delete(environmentID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.delete(path`/v1/environments/${environmentID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.delete", options, {
+					route: "/v1/environments/{environment_id}",
+					attributes: { "anthropic.environment.id": environmentID }
+				})
+			});
+		}
+		/**
+		* Archive an environment by ID. Archived environments cannot be used to create new
+		* sessions.
+		*
+		* @example
+		* ```ts
+		* const betaEnvironment =
+		*   await client.beta.environments.archive(
+		*     'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*   );
+		* ```
+		*/
+		archive(environmentID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.post(path`/v1/environments/${environmentID}/archive`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.environments.archive", options, {
+					route: "/v1/environments/{environment_id}/archive",
+					attributes: { "anthropic.environment.id": environmentID }
+				})
+			});
+		}
+	}
+	Environments.Work = Work;
+	return Environments;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/memory-stores/memories.mjs
+var Memories = class extends APIResource {
+	/**
+	* Create a Memory
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsMemory =
+	*   await client.beta.memoryStores.memories.create(
+	*     'memory_store_id',
+	*     { content: 'content', path: 'xx' },
+	*   );
+	* ```
+	*/
+	create(memoryStoreID, params, options) {
+		const { view, betas, workspace_id, ...body } = params;
+		return this._client.post(path`/v1/memory_stores/${memoryStoreID}/memories`, {
+			query: { view },
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.memory_stores.memories.create", options, {
+				route: "/v1/memory_stores/{memory_store_id}/memories",
+				queryParams: ["view"],
+				attributes: { "gen_ai.memory.store.id": memoryStoreID },
+				createdIDAttribute: "gen_ai.memory.record.id"
+			})
+		});
+	}
+	/**
+	* Retrieve a Memory
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsMemory =
+	*   await client.beta.memoryStores.memories.retrieve(
+	*     'memory_id',
+	*     { memory_store_id: 'memory_store_id' },
+	*   );
+	* ```
+	*/
+	retrieve(memoryID, params, options) {
+		const { memory_store_id, betas, workspace_id, ...query } = params;
+		return this._client.get(path`/v1/memory_stores/${memory_store_id}/memories/${memoryID}`, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.memory_stores.memories.retrieve", options, {
+				route: "/v1/memory_stores/{memory_store_id}/memories/{memory_id}",
+				queryParams: ["view"],
+				attributes: {
+					"gen_ai.memory.store.id": memory_store_id,
+					"gen_ai.memory.record.id": memoryID
+				}
+			})
+		});
+	}
+	/**
+	* Update a Memory
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsMemory =
+	*   await client.beta.memoryStores.memories.update(
+	*     'memory_id',
+	*     { memory_store_id: 'memory_store_id' },
+	*   );
+	* ```
+	*/
+	update(memoryID, params, options) {
+		const { memory_store_id, view, betas, workspace_id, ...body } = params;
+		return this._client.post(path`/v1/memory_stores/${memory_store_id}/memories/${memoryID}`, {
+			query: { view },
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.memory_stores.memories.update", options, {
+				route: "/v1/memory_stores/{memory_store_id}/memories/{memory_id}",
+				queryParams: ["view"],
+				attributes: {
+					"gen_ai.memory.store.id": memory_store_id,
+					"gen_ai.memory.record.id": memoryID
+				}
+			})
+		});
+	}
+	/**
+	* List Memories
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaManagedAgentsMemoryListItem of client.beta.memoryStores.memories.list(
+	*   'memory_store_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(memoryStoreID, params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/memory_stores/${memoryStoreID}/memories`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.memory_stores.memories.list", options, {
+				route: "/v1/memory_stores/{memory_store_id}/memories",
+				queryParams: [
+					"depth",
+					"limit",
+					"page",
+					"path_prefix",
+					"view"
+				],
+				contentQueryParams: ["page"],
+				attributes: { "gen_ai.memory.store.id": memoryStoreID }
+			})
+		});
+	}
+	/**
+	* Delete a Memory
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeletedMemory =
+	*   await client.beta.memoryStores.memories.delete(
+	*     'memory_id',
+	*     { memory_store_id: 'memory_store_id' },
+	*   );
+	* ```
+	*/
+	delete(memoryID, params, options) {
+		const { memory_store_id, expected_content_sha256, betas, workspace_id } = params;
+		return this._client.delete(path`/v1/memory_stores/${memory_store_id}/memories/${memoryID}`, {
+			query: { expected_content_sha256 },
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.memory_stores.memories.delete", options, {
+				route: "/v1/memory_stores/{memory_store_id}/memories/{memory_id}",
+				queryParams: ["expected_content_sha256"],
+				attributes: {
+					"gen_ai.memory.store.id": memory_store_id,
+					"gen_ai.memory.record.id": memoryID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/memory-stores/memory-versions.mjs
+var MemoryVersions = class extends APIResource {
+	/**
+	* Retrieve a Memory Version
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsMemoryVersion =
+	*   await client.beta.memoryStores.memoryVersions.retrieve(
+	*     'memory_version_id',
+	*     { memory_store_id: 'memory_store_id' },
+	*   );
+	* ```
+	*/
+	retrieve(memoryVersionID, params, options) {
+		const { memory_store_id, betas, workspace_id, ...query } = params;
+		return this._client.get(path`/v1/memory_stores/${memory_store_id}/memory_versions/${memoryVersionID}`, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.memory_stores.memory_versions.retrieve", options, {
+				route: "/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}",
+				queryParams: ["view"],
+				attributes: {
+					"gen_ai.memory.store.id": memory_store_id,
+					"anthropic.memory_store.memory_version.id": memoryVersionID
+				}
+			})
+		});
+	}
+	/**
+	* List Memory Versions
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaManagedAgentsMemoryVersion of client.beta.memoryStores.memoryVersions.list(
+	*   'memory_store_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(memoryStoreID, params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/memory_stores/${memoryStoreID}/memory_versions`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.memory_stores.memory_versions.list", options, {
+				route: "/v1/memory_stores/{memory_store_id}/memory_versions",
+				queryParams: [
+					"api_key_id",
+					"created_at[gte]",
+					"created_at[lte]",
+					"limit",
+					"memory_id",
+					"operation",
+					"page",
+					"service_account_id",
+					"session_id",
+					"view"
+				],
+				attributes: { "gen_ai.memory.store.id": memoryStoreID }
+			})
+		});
+	}
+	/**
+	* Redact a Memory Version
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsMemoryVersion =
+	*   await client.beta.memoryStores.memoryVersions.redact(
+	*     'memory_version_id',
+	*     { memory_store_id: 'memory_store_id' },
+	*   );
+	* ```
+	*/
+	redact(memoryVersionID, params, options) {
+		const { memory_store_id, betas, workspace_id } = params;
+		return this._client.post(path`/v1/memory_stores/${memory_store_id}/memory_versions/${memoryVersionID}/redact`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.memory_stores.memory_versions.redact", options, {
+				route: "/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact",
+				attributes: {
+					"gen_ai.memory.store.id": memory_store_id,
+					"anthropic.memory_store.memory_version.id": memoryVersionID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/memory-stores/memory-stores.mjs
+var MemoryStores = /* @__PURE__ */ (() => {
+	class MemoryStores extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.memories = new Memories(this._client);
+			this.memoryVersions = new MemoryVersions(this._client);
+		}
+		/**
+		* Create a Memory Store
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsMemoryStore =
+		*   await client.beta.memoryStores.create({ name: 'x' });
+		* ```
+		*/
+		create(params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post("/v1/memory_stores", {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.memory_stores.create", options, {
+					route: "/v1/memory_stores",
+					createdIDAttribute: "gen_ai.memory.store.id"
+				})
+			});
+		}
+		/**
+		* Retrieve a Memory Store
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsMemoryStore =
+		*   await client.beta.memoryStores.retrieve(
+		*     'memory_store_id',
+		*   );
+		* ```
+		*/
+		retrieve(memoryStoreID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.get(path`/v1/memory_stores/${memoryStoreID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.memory_stores.retrieve", options, {
+					route: "/v1/memory_stores/{memory_store_id}",
+					attributes: { "gen_ai.memory.store.id": memoryStoreID }
+				})
+			});
+		}
+		/**
+		* Update a Memory Store
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsMemoryStore =
+		*   await client.beta.memoryStores.update('memory_store_id');
+		* ```
+		*/
+		update(memoryStoreID, params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post(path`/v1/memory_stores/${memoryStoreID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.memory_stores.update", options, {
+					route: "/v1/memory_stores/{memory_store_id}",
+					attributes: { "gen_ai.memory.store.id": memoryStoreID }
+				})
+			});
+		}
+		/**
+		* List Memory Stores
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaManagedAgentsMemoryStore of client.beta.memoryStores.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/memory_stores", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.memory_stores.list", options, {
+					route: "/v1/memory_stores",
+					queryParams: [
+						"created_at[gte]",
+						"created_at[lte]",
+						"include_archived",
+						"limit",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* Delete a Memory Store
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsDeletedMemoryStore =
+		*   await client.beta.memoryStores.delete('memory_store_id');
+		* ```
+		*/
+		delete(memoryStoreID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.delete(path`/v1/memory_stores/${memoryStoreID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.memory_stores.delete", options, {
+					route: "/v1/memory_stores/{memory_store_id}",
+					attributes: { "gen_ai.memory.store.id": memoryStoreID }
+				})
+			});
+		}
+		/**
+		* Archive a Memory Store
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsMemoryStore =
+		*   await client.beta.memoryStores.archive('memory_store_id');
+		* ```
+		*/
+		archive(memoryStoreID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.post(path`/v1/memory_stores/${memoryStoreID}/archive`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "agent-memory-2026-07-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.memory_stores.archive", options, {
+					route: "/v1/memory_stores/{memory_store_id}/archive",
+					attributes: { "gen_ai.memory.store.id": memoryStoreID }
+				})
+			});
+		}
+	}
+	MemoryStores.Memories = Memories;
+	MemoryStores.MemoryVersions = MemoryVersions;
+	return MemoryStores;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/messages/batches.mjs
+var Batches = class extends APIResource {
+	/**
+	* Send a batch of Message creation requests.
+	*
+	* The Message Batches API can be used to process multiple Messages API requests at
+	* once. Once a Message Batch is created, it begins processing immediately. Batches
+	* can take up to 24 hours to complete.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* const betaMessageBatch =
+	*   await client.beta.messages.batches.create({
+	*     requests: [
+	*       {
+	*         custom_id: 'my-custom-id-1',
+	*         params: {
+	*           max_tokens: 1024,
+	*           messages: [
+	*             { content: 'Hello, world', role: 'user' },
+	*           ],
+	*           model: 'claude-opus-5-5',
+	*         },
+	*       },
+	*     ],
+	*   });
+	* ```
+	*/
+	create(params, options) {
+		const { betas, user_profile_id, workspace_id, ...body } = params;
+		return this._client.post("/v1/messages/batches", {
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "message-batches-2024-09-24"].toString(),
+				...user_profile_id != null ? { "anthropic-user-profile-id": user_profile_id } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.create", options, {
+				route: "/v1/messages/batches",
+				attributes: { "anthropic.message.batch.request_count": body.requests?.length },
+				createdIDAttribute: "anthropic.message.batch.id"
+			})
+		});
+	}
+	/**
+	* This endpoint is idempotent and can be used to poll for Message Batch
+	* completion. To access the results of a Message Batch, make a request to the
+	* `results_url` field in the response.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* const betaMessageBatch =
+	*   await client.beta.messages.batches.retrieve(
+	*     'message_batch_id',
+	*   );
+	* ```
+	*/
+	retrieve(messageBatchID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.get(path`/v1/messages/batches/${messageBatchID}`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "message-batches-2024-09-24"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.retrieve", options, {
+				route: "/v1/messages/batches/{message_batch_id}",
+				attributes: { "anthropic.message.batch.id": messageBatchID }
+			})
+		});
+	}
+	/**
+	* List all Message Batches within a Workspace. Most recently created batches are
+	* returned first.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaMessageBatch of client.beta.messages.batches.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/messages/batches", Page, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "message-batches-2024-09-24"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.list", options, {
+				route: "/v1/messages/batches",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"limit"
+				]
+			})
+		});
+	}
+	/**
+	* Delete a Message Batch.
+	*
+	* Message Batches can only be deleted once they've finished processing. If you'd
+	* like to delete an in-progress batch, you must first cancel it.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* const betaDeletedMessageBatch =
+	*   await client.beta.messages.batches.delete(
+	*     'message_batch_id',
+	*   );
+	* ```
+	*/
+	delete(messageBatchID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.delete(path`/v1/messages/batches/${messageBatchID}`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "message-batches-2024-09-24"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.delete", options, {
+				route: "/v1/messages/batches/{message_batch_id}",
+				attributes: { "anthropic.message.batch.id": messageBatchID }
+			})
+		});
+	}
+	/**
+	* Batches may be canceled any time before processing ends. Once cancellation is
+	* initiated, the batch enters a `canceling` state, at which time the system may
+	* complete any in-progress, non-interruptible requests before finalizing
+	* cancellation.
+	*
+	* The number of canceled requests is specified in `request_counts`. To determine
+	* which requests were canceled, check the individual results within the batch.
+	* Note that cancellation may not result in any canceled requests if they were
+	* non-interruptible.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* const betaMessageBatch =
+	*   await client.beta.messages.batches.cancel(
+	*     'message_batch_id',
+	*   );
+	* ```
+	*/
+	cancel(messageBatchID, params = {}, options) {
+		const { betas, workspace_id } = params ?? {};
+		return this._client.post(path`/v1/messages/batches/${messageBatchID}/cancel`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "message-batches-2024-09-24"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.cancel", options, {
+				route: "/v1/messages/batches/{message_batch_id}/cancel",
+				attributes: { "anthropic.message.batch.id": messageBatchID }
+			})
+		});
+	}
+	/**
+	* Streams the results of a Message Batch as a `.jsonl` file.
+	*
+	* Each line in the file is a JSON object containing the result of a single request
+	* in the Message Batch. Results are not guaranteed to be in the same order as
+	* requests. Use the `custom_id` field to match results to requests.
+	*
+	* Learn more about the Message Batches API in our
+	* [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+	*
+	* @example
+	* ```ts
+	* const stream = await client.beta.messages.batches.results(
+	*   'message_batch_id',
+	* );
+	* for await (const betaMessageBatchIndividualResponse of stream) {
+	*   // ...
+	* }
+	* ```
+	*/
+	async results(messageBatchID, params = {}, options) {
+		const batch = await this.retrieve(messageBatchID, params, options);
+		if (!batch.results_url) throw new require_promise.AnthropicError(`No batch \`results_url\`; Has it finished processing? ${batch.processing_status} - ${batch.id}`);
+		const { betas, workspace_id } = params ?? {};
+		return this._client.get(batch.results_url, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "message-batches-2024-09-24"].toString(),
+				Accept: "application/binary",
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			stream: true,
+			__qualifiers: { beta: "true" },
+			__binaryResponse: true,
+			__span: startApiCallSpan(this._client, "anthropic.messages.batches.results", options, {
+				route: "/v1/messages/batches/{message_batch_id}/results",
+				attributes: { "anthropic.message.batch.id": messageBatchID }
+			})
+		})._thenUnwrap((_, props) => JSONLDecoder.fromResponse(props.response, props.controller));
+	}
+};
+// node_modules/@anthropic-ai/sdk/lib/beta-parser.mjs
+function getOutputFormat(params) {
+	return params?.output_format ?? params?.output_config?.format;
+}
+function maybeParseBetaMessage(message, params, opts) {
+	const outputFormat = getOutputFormat(params);
+	if (!params || !("parse" in (outputFormat ?? {}))) return {
+		...message,
+		content: message.content.map((block) => {
+			if (block.type === "text") {
+				const parsedBlock = Object.defineProperty({ ...block }, "parsed_output", {
+					value: null,
+					enumerable: false
+				});
+				return Object.defineProperty(parsedBlock, "parsed", {
+					get() {
+						opts.logger.warn("The `parsed` property on `text` blocks is deprecated, please use `parsed_output` instead.");
+						return null;
+					},
+					enumerable: false
+				});
+			}
+			return block;
+		}),
+		parsed_output: null
+	};
+	return parseBetaMessage(message, params, opts);
+}
+function parseBetaMessage(message, params, opts) {
+	let firstParsedOutput = null;
+	const content = message.content.map((block) => {
+		if (block.type === "text") {
+			const parsedOutput = parseBetaOutputFormat(params, block.text);
+			if (firstParsedOutput === null) firstParsedOutput = parsedOutput;
+			const parsedBlock = Object.defineProperty({ ...block }, "parsed_output", {
+				value: parsedOutput,
+				enumerable: false
+			});
+			return Object.defineProperty(parsedBlock, "parsed", {
+				get() {
+					opts.logger.warn("The `parsed` property on `text` blocks is deprecated, please use `parsed_output` instead.");
+					return parsedOutput;
+				},
+				enumerable: false
+			});
+		}
+		return block;
+	});
+	return {
+		...message,
+		content,
+		parsed_output: firstParsedOutput
+	};
+}
+function parseBetaOutputFormat(params, content) {
+	const outputFormat = getOutputFormat(params);
+	if (outputFormat?.type !== "json_schema") return null;
+	try {
+		if ("parse" in outputFormat) return outputFormat.parse(content);
+		return JSON.parse(content);
+	} catch (error) {
+		throw new require_promise.AnthropicError(`Failed to parse structured output: ${error}`);
+	}
+}
+// node_modules/@anthropic-ai/sdk/lib/internal/beta-messages-request.mjs
+/**
+* The headers of a `messages.create` request. `create()` and `stream()` build them before they
+* start the span, so that what throws here throws while no span is open.
+*/
+function messagesCreateHeaders(params, options) {
+	const { betas, user_profile_id, workspace_id, tools, messages } = params;
+	return buildHeaders([
+		{
+			...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+			...user_profile_id != null ? { "anthropic-user-profile-id": user_profile_id } : void 0,
+			...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+		},
+		stainlessHelperHeader(tools, messages),
+		options?.headers
+	]);
+}
+/**
+* Starts the call span of the request that a stream helper sends `body` with. The helper calls this
+* as it sends the request, so that what throws here fails the stream. It records the final message
+* on the span, which its `create()` call uses too.
+*/
+function startMessagesStreamSpan(client, body, options) {
+	if (!client._tracer) return void 0;
+	const headers = messagesCreateHeaders(body, options);
+	return startApiCallSpan(client, "anthropic.messages.create", options, messagesCreateSpanSettings(client, {
+		...transformOutputFormat(body),
+		stream: true
+	}, headers));
+}
+/**
+* Transform deprecated output_format to output_config.format
+* Returns a modified copy of the params without mutating the original
+*/
+function transformOutputFormat(params) {
+	if (!params.output_format) return params;
+	assertOneOutputFormat(params);
+	const { output_format, ...rest } = params;
+	return {
+		...rest,
+		output_config: {
+			...params.output_config,
+			format: output_format
+		}
+	};
+}
+/** Reject params that pass both `output_format` and `output_config.format`. */
+function assertOneOutputFormat(params) {
+	if (params.output_format && params.output_config?.format) throw new require_promise.AnthropicError("Both output_format and output_config.format were provided. Please use only output_config.format (output_format is deprecated).");
+}
+// node_modules/@anthropic-ai/sdk/lib/BetaMessageStream.mjs
+var _BetaMessageStream_instances;
+var _BetaMessageStream_currentMessageSnapshot;
+var _BetaMessageStream_params;
+var _BetaMessageStream_connectedPromise;
+var _BetaMessageStream_resolveConnectedPromise;
+var _BetaMessageStream_rejectConnectedPromise;
+var _BetaMessageStream_endPromise;
+var _BetaMessageStream_resolveEndPromise;
+var _BetaMessageStream_rejectEndPromise;
+var _BetaMessageStream_listeners;
+var _BetaMessageStream_ended;
+var _BetaMessageStream_errored;
+var _BetaMessageStream_aborted;
+var _BetaMessageStream_catchingPromiseCreated;
+var _BetaMessageStream_response;
+var _BetaMessageStream_request_id;
+var _BetaMessageStream_workspace_id;
+var _BetaMessageStream_logger;
+var _BetaMessageStream_client;
+var _BetaMessageStream_span;
+var _BetaMessageStream_spanBody;
+var _BetaMessageStream_getFinalMessage;
+var _BetaMessageStream_getFinalText;
+var _BetaMessageStream_handleError;
+var _BetaMessageStream_beginRequest;
+var _BetaMessageStream_addStreamEvent;
+var _BetaMessageStream_endRequest;
+var _BetaMessageStream_accumulateMessage;
+var _BetaMessageStream_toolInputParseError;
+function tracksToolInput(content) {
+	return content.type === "tool_use" || content.type === "server_tool_use" || content.type === "mcp_tool_use";
+}
+var BetaMessageStream = /* @__PURE__ */ (() => {
+	class BetaMessageStream {
+		constructor(params, opts) {
+			_BetaMessageStream_instances.add(this);
+			this.messages = [];
+			this.receivedMessages = [];
+			_BetaMessageStream_currentMessageSnapshot.set(this, void 0);
+			_BetaMessageStream_params.set(this, null);
+			this.controller = new AbortController();
+			_BetaMessageStream_connectedPromise.set(this, void 0);
+			_BetaMessageStream_resolveConnectedPromise.set(this, () => {});
+			_BetaMessageStream_rejectConnectedPromise.set(this, () => {});
+			_BetaMessageStream_endPromise.set(this, void 0);
+			_BetaMessageStream_resolveEndPromise.set(this, () => {});
+			_BetaMessageStream_rejectEndPromise.set(this, () => {});
+			_BetaMessageStream_listeners.set(this, {});
+			_BetaMessageStream_ended.set(this, false);
+			_BetaMessageStream_errored.set(this, false);
+			_BetaMessageStream_aborted.set(this, false);
+			_BetaMessageStream_catchingPromiseCreated.set(this, false);
+			_BetaMessageStream_response.set(this, void 0);
+			_BetaMessageStream_request_id.set(this, void 0);
+			_BetaMessageStream_workspace_id.set(this, void 0);
+			_BetaMessageStream_logger.set(this, void 0);
+			_BetaMessageStream_client.set(this, void 0);
+			_BetaMessageStream_span.set(this, void 0);
+			_BetaMessageStream_spanBody.set(this, void 0);
+			_BetaMessageStream_handleError.set(this, (error) => {
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_errored, true, "f");
+				if (require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f")) require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f").streamed = void 0;
+				if (require_promise.isAbortError(error)) error = new require_promise.APIUserAbortError();
+				if (error instanceof require_promise.APIUserAbortError) {
+					require_promise.__classPrivateFieldSet(this, _BetaMessageStream_aborted, true, "f");
+					return this._emit("abort", error);
+				}
+				if (error instanceof require_promise.AnthropicError) return this._emit("error", error);
+				if (error instanceof Error) {
+					const anthropicError = new require_promise.AnthropicError(error.message);
+					anthropicError.cause = error;
+					return this._emit("error", anthropicError);
+				}
+				return this._emit("error", new require_promise.AnthropicError(String(error)));
+			});
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_connectedPromise, new Promise((resolve, reject) => {
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_resolveConnectedPromise, resolve, "f");
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_rejectConnectedPromise, reject, "f");
+			}), "f");
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_endPromise, new Promise((resolve, reject) => {
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_resolveEndPromise, resolve, "f");
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_rejectEndPromise, reject, "f");
+			}), "f");
+			require_promise.__classPrivateFieldGet(this, _BetaMessageStream_connectedPromise, "f").catch(() => {});
+			require_promise.__classPrivateFieldGet(this, _BetaMessageStream_endPromise, "f").catch(() => {});
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_params, params, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_logger, opts?.logger ?? console, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_client, opts?.client, "f");
+		}
+		get response() {
+			return require_promise.__classPrivateFieldGet(this, _BetaMessageStream_response, "f");
+		}
+		get request_id() {
+			return require_promise.__classPrivateFieldGet(this, _BetaMessageStream_request_id, "f");
+		}
+		get workspace_id() {
+			return require_promise.__classPrivateFieldGet(this, _BetaMessageStream_workspace_id, "f");
+		}
+		/**
+		* Returns the `MessageStream` data, the raw `Response` instance and the ID of the request,
+		* returned vie the `request-id` header which is useful for debugging requests and resporting
+		* issues to Anthropic.
+		*
+		* This is the same as the `APIPromise.withResponse()` method.
+		*
+		* This method will raise an error if you created the stream using `MessageStream.fromReadableStream`
+		* as no `Response` is available.
+		*/
+		async withResponse() {
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_catchingPromiseCreated, true, "f");
+			const response = await require_promise.__classPrivateFieldGet(this, _BetaMessageStream_connectedPromise, "f");
+			if (!response) throw new Error("Could not resolve a `Response` object");
+			return {
+				data: this,
+				response,
+				request_id: response.headers.get("request-id"),
+				workspace_id: response.headers.get("anthropic-workspace-id")
+			};
+		}
+		/**
+		* Intended for use on the frontend, consuming a stream produced with
+		* `.toReadableStream()` on the backend.
+		*
+		* Note that messages sent to the model do not appear in `.on('message')`
+		* in this context.
+		*/
+		static fromReadableStream(stream) {
+			const runner = new BetaMessageStream(null);
+			runner._run(() => runner._fromReadableStream(stream));
+			return runner;
+		}
+		static createMessage(messages, params, options, { logger, client } = {}) {
+			const runner = new BetaMessageStream(params, {
+				logger,
+				client
+			});
+			for (const message of params.messages) runner._addMessageParam(message);
+			require_promise.__classPrivateFieldSet(runner, _BetaMessageStream_params, {
+				...params,
+				stream: true
+			}, "f");
+			runner._run(() => runner._createMessage((body, options) => messages.create(body, options), {
+				...params,
+				stream: true
+			}, {
+				...options,
+				headers: {
+					...options?.headers,
+					[STAINLESS_HELPER_METHOD_HEADER]: "stream"
+				}
+			}));
+			return runner;
+		}
+		/**
+		* @internal Sends the request with `create`, as `createMessage()` does with `messages.create()`. `onRequestEnd` is
+		* called once the request has ended, whether or not it failed, before the final events fire.
+		*/
+		_start(create, params, options, onRequestEnd) {
+			for (const message of params.messages) this._addMessageParam(message);
+			const client = require_promise.__classPrivateFieldGet(this, _BetaMessageStream_client, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_client, void 0, "f");
+			const send = (body, options) => create(body, options)._thenUnwrap((stream, { options: sent }) => {
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_client, client, "f");
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_span, sent.__span, "f");
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_spanBody, sent.body, "f");
+				return stream;
+			});
+			this._run(() => this._createMessage(send, {
+				...params,
+				stream: true
+			}, options).finally(onRequestEnd));
+		}
+		_run(executor) {
+			executor().then(() => {
+				this._emitFinal();
+				this._emit("end");
+			}, require_promise.__classPrivateFieldGet(this, _BetaMessageStream_handleError, "f"));
+		}
+		_addMessageParam(message) {
+			this.messages.push(message);
+		}
+		_addMessage(message, emit = true) {
+			this.receivedMessages.push(message);
+			if (emit) this._emit("message", message);
+		}
+		async _createMessage(create, params, options) {
+			const signal = options?.signal;
+			let abortHandler;
+			if (signal) {
+				if (signal.aborted) this.controller.abort();
+				abortHandler = this.controller.abort.bind(this.controller);
+				signal.addEventListener("abort", abortHandler);
+			}
+			try {
+				require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_beginRequest).call(this);
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_span, options?.__span ?? (require_promise.__classPrivateFieldGet(this, _BetaMessageStream_client, "f") && startMessagesStreamSpan(require_promise.__classPrivateFieldGet(this, _BetaMessageStream_client, "f"), params, options)), "f");
+				const { response, data: stream } = await create({
+					...params,
+					stream: true
+				}, {
+					...options,
+					__span: require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f"),
+					signal: this.controller.signal
+				}).withResponse();
+				try {
+					this._connected(response);
+				} catch (error) {
+					if (require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f")) require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f").failure = error;
+					stream.controller.abort();
+					throw error;
+				}
+				for await (const event of stream) try {
+					require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_addStreamEvent).call(this, event);
+				} catch (error) {
+					if (require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f")) require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f").failure = error;
+					throw error;
+				}
+				if (stream.controller.signal?.aborted) throw new require_promise.APIUserAbortError();
+				require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_endRequest).call(this);
+			} finally {
+				if (signal && abortHandler) signal.removeEventListener("abort", abortHandler);
+			}
+		}
+		_connected(response) {
+			if (this.ended) return;
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_response, response, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_request_id, response?.headers.get("request-id"), "f");
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_workspace_id, response?.headers.get("anthropic-workspace-id"), "f");
+			require_promise.__classPrivateFieldGet(this, _BetaMessageStream_resolveConnectedPromise, "f").call(this, response);
+			this._emit("connect");
+		}
+		get ended() {
+			return require_promise.__classPrivateFieldGet(this, _BetaMessageStream_ended, "f");
+		}
+		get errored() {
+			return require_promise.__classPrivateFieldGet(this, _BetaMessageStream_errored, "f");
+		}
+		get aborted() {
+			return require_promise.__classPrivateFieldGet(this, _BetaMessageStream_aborted, "f");
+		}
+		abort() {
+			this.controller.abort();
+		}
+		/**
+		* Adds the listener function to the end of the listeners array for the event.
+		* No checks are made to see if the listener has already been added. Multiple calls passing
+		* the same combination of event and listener will result in the listener being added, and
+		* called, multiple times.
+		* @returns this MessageStream, so that calls can be chained
+		*/
+		on(event, listener) {
+			(require_promise.__classPrivateFieldGet(this, _BetaMessageStream_listeners, "f")[event] || (require_promise.__classPrivateFieldGet(this, _BetaMessageStream_listeners, "f")[event] = [])).push({ listener });
+			return this;
+		}
+		/**
+		* Removes the specified listener from the listener array for the event.
+		* off() will remove, at most, one instance of a listener from the listener array. If any single
+		* listener has been added multiple times to the listener array for the specified event, then
+		* off() must be called multiple times to remove each instance.
+		* @returns this MessageStream, so that calls can be chained
+		*/
+		off(event, listener) {
+			const listeners = require_promise.__classPrivateFieldGet(this, _BetaMessageStream_listeners, "f")[event];
+			if (!listeners) return this;
+			const index = listeners.findIndex((l) => l.listener === listener);
+			if (index >= 0) listeners.splice(index, 1);
+			return this;
+		}
+		/**
+		* Adds a one-time listener function for the event. The next time the event is triggered,
+		* this listener is removed and then invoked.
+		* @returns this MessageStream, so that calls can be chained
+		*/
+		once(event, listener) {
+			(require_promise.__classPrivateFieldGet(this, _BetaMessageStream_listeners, "f")[event] || (require_promise.__classPrivateFieldGet(this, _BetaMessageStream_listeners, "f")[event] = [])).push({
+				listener,
+				once: true
+			});
+			return this;
+		}
+		/**
+		* This is similar to `.once()`, but returns a Promise that resolves the next time
+		* the event is triggered, instead of calling a listener callback.
+		* @returns a Promise that resolves the next time given event is triggered,
+		* or rejects if an error is emitted.  (If you request the 'error' event,
+		* returns a promise that resolves with the error).
+		*
+		* Example:
+		*
+		*   const message = await stream.emitted('message') // rejects if the stream errors
+		*/
+		emitted(event) {
+			return new Promise((resolve, reject) => {
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_catchingPromiseCreated, true, "f");
+				if (event !== "error") this.once("error", reject);
+				this.once(event, resolve);
+			});
+		}
+		async done() {
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_catchingPromiseCreated, true, "f");
+			await require_promise.__classPrivateFieldGet(this, _BetaMessageStream_endPromise, "f");
+		}
+		get currentMessage() {
+			return require_promise.__classPrivateFieldGet(this, _BetaMessageStream_currentMessageSnapshot, "f");
+		}
+		/**
+		* @returns a promise that resolves with the the final assistant Message response,
+		* or rejects if an error occurred or the stream ended prematurely without producing a Message.
+		* If structured outputs were used, this will be a ParsedMessage with a `parsed` field.
+		*/
+		async finalMessage() {
+			await this.done();
+			return require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_getFinalMessage).call(this);
+		}
+		/**
+		* @returns a promise that resolves with the the final assistant Message's text response, concatenated
+		* together if there are more than one text blocks.
+		* Rejects if an error occurred or the stream ended prematurely without producing a Message.
+		*/
+		async finalText() {
+			await this.done();
+			return require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_getFinalText).call(this);
+		}
+		_emit(event, ...args) {
+			if (require_promise.__classPrivateFieldGet(this, _BetaMessageStream_ended, "f")) return;
+			if (event === "end") {
+				require_promise.__classPrivateFieldSet(this, _BetaMessageStream_ended, true, "f");
+				require_promise.__classPrivateFieldGet(this, _BetaMessageStream_resolveEndPromise, "f").call(this);
+			}
+			const listeners = require_promise.__classPrivateFieldGet(this, _BetaMessageStream_listeners, "f")[event];
+			if (listeners) {
+				require_promise.__classPrivateFieldGet(this, _BetaMessageStream_listeners, "f")[event] = listeners.filter((l) => !l.once);
+				listeners.forEach(({ listener }) => listener(...args));
+			}
+			if (event === "abort") {
+				const error = args[0];
+				if (!require_promise.__classPrivateFieldGet(this, _BetaMessageStream_catchingPromiseCreated, "f") && !listeners?.length) Promise.reject(error);
+				require_promise.__classPrivateFieldGet(this, _BetaMessageStream_rejectConnectedPromise, "f").call(this, error);
+				require_promise.__classPrivateFieldGet(this, _BetaMessageStream_rejectEndPromise, "f").call(this, error);
+				this._emit("end");
+				return;
+			}
+			if (event === "error") {
+				const error = args[0];
+				if (!require_promise.__classPrivateFieldGet(this, _BetaMessageStream_catchingPromiseCreated, "f") && !listeners?.length) Promise.reject(error);
+				require_promise.__classPrivateFieldGet(this, _BetaMessageStream_rejectConnectedPromise, "f").call(this, error);
+				require_promise.__classPrivateFieldGet(this, _BetaMessageStream_rejectEndPromise, "f").call(this, error);
+				this._emit("end");
+			}
+		}
+		_emitFinal() {
+			if (this.receivedMessages.at(-1)) this._emit("finalMessage", require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_getFinalMessage).call(this));
+		}
+		/** @internal A method so that the tool runner's stream can act before and after an event's listeners. */
+		_deliverEvent(event, snapshot) {
+			this._emit("_rawEvent", event);
+			if (snapshot) this._emit("streamEvent", event, snapshot);
+		}
+		async _fromReadableStream(readableStream, options) {
+			const signal = options?.signal;
+			let abortHandler;
+			if (signal) {
+				if (signal.aborted) this.controller.abort();
+				abortHandler = this.controller.abort.bind(this.controller);
+				signal.addEventListener("abort", abortHandler);
+			}
+			try {
+				require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_beginRequest).call(this);
+				this._connected(null);
+				const stream = Stream.fromReadableStream(readableStream, this.controller);
+				for await (const event of stream) require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_addStreamEvent).call(this, event);
+				if (stream.controller.signal?.aborted) throw new require_promise.APIUserAbortError();
+				require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_endRequest).call(this);
+			} finally {
+				if (signal && abortHandler) signal.removeEventListener("abort", abortHandler);
+			}
+		}
+		[(_BetaMessageStream_currentMessageSnapshot = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_params = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_connectedPromise = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_resolveConnectedPromise = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_rejectConnectedPromise = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_endPromise = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_resolveEndPromise = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_rejectEndPromise = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_listeners = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_ended = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_errored = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_aborted = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_catchingPromiseCreated = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_response = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_request_id = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_workspace_id = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_logger = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_client = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_span = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_spanBody = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_handleError = /* @__PURE__ */ new WeakMap(), _BetaMessageStream_instances = /* @__PURE__ */ new WeakSet(), _BetaMessageStream_getFinalMessage = function _BetaMessageStream_getFinalMessage() {
+			if (this.receivedMessages.length === 0) throw new require_promise.AnthropicError("stream ended without producing a Message with role=assistant");
+			return this.receivedMessages.at(-1);
+		}, _BetaMessageStream_getFinalText = function _BetaMessageStream_getFinalText() {
+			if (this.receivedMessages.length === 0) throw new require_promise.AnthropicError("stream ended without producing a Message with role=assistant");
+			const textBlocks = this.receivedMessages.at(-1).content.filter((block) => block.type === "text").map((block) => block.text);
+			if (textBlocks.length === 0) throw new require_promise.AnthropicError("stream ended without producing a content block with type=text");
+			return textBlocks.join(" ");
+		}, _BetaMessageStream_beginRequest = function _BetaMessageStream_beginRequest() {
+			if (this.ended) return;
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_currentMessageSnapshot, void 0, "f");
+		}, _BetaMessageStream_addStreamEvent = function _BetaMessageStream_addStreamEvent(event) {
+			if (this.ended) return;
+			const messageSnapshot = require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_accumulateMessage).call(this, event);
+			this._deliverEvent(event, messageSnapshot);
+			if (!messageSnapshot) return;
+			switch (event.type) {
+				case "content_block_delta": {
+					const content = messageSnapshot.content.at(-1);
+					switch (event.delta.type) {
+						case "text_delta":
+							if (content.type === "text") this._emit("text", event.delta.text, content.text || "");
+							break;
+						case "citations_delta":
+							if (content.type === "text") this._emit("citation", event.delta.citation, content.citations ?? []);
+							break;
+						case "input_json_delta":
+							if (tracksToolInput(content) && require_promise.__classPrivateFieldGet(this, _BetaMessageStream_listeners, "f").inputJson?.length) {
+								let jsonSnapshot;
+								try {
+									jsonSnapshot = content.input;
+								} catch (err) {
+									require_promise.__classPrivateFieldGet(this, _BetaMessageStream_handleError, "f").call(this, require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_toolInputParseError).call(this, content, err));
+									break;
+								}
+								this._emit("inputJson", event.delta.partial_json, jsonSnapshot);
+							}
+							break;
+						case "thinking_delta":
+							if (content.type === "thinking") this._emit("thinking", event.delta.thinking, content.thinking);
+							break;
+						case "signature_delta":
+							if (content.type === "thinking") this._emit("signature", content.signature);
+							break;
+						case "compaction_delta":
+							if (content.type === "compaction" && content.content) this._emit("compaction", content.content);
+							break;
+						default: event.delta;
+					}
+					break;
+				}
+				case "message_stop":
+					if (require_promise.__classPrivateFieldGet(this, _BetaMessageStream_client, "f") && require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f") && require_promise.__classPrivateFieldGet(this, _BetaMessageStream_params, "f")) recordStreamedMessageContent(require_promise.__classPrivateFieldGet(this, _BetaMessageStream_client, "f"), require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f"), require_promise.__classPrivateFieldGet(this, _BetaMessageStream_spanBody, "f") ?? require_promise.__classPrivateFieldGet(this, _BetaMessageStream_params, "f"), messageSnapshot);
+					this._addMessageParam(messageSnapshot);
+					this._addMessage(maybeParseBetaMessage(messageSnapshot, require_promise.__classPrivateFieldGet(this, _BetaMessageStream_params, "f"), { logger: require_promise.__classPrivateFieldGet(this, _BetaMessageStream_logger, "f") }), true);
+					break;
+				case "content_block_stop":
+					this._emit("contentBlock", messageSnapshot.content.at(-1));
+					break;
+				case "message_start":
+					require_promise.__classPrivateFieldSet(this, _BetaMessageStream_currentMessageSnapshot, messageSnapshot, "f");
+					if (require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f") && require_promise.__classPrivateFieldGet(this, _BetaMessageStream_params, "f")) require_promise.__classPrivateFieldGet(this, _BetaMessageStream_span, "f").streamed = {
+						body: require_promise.__classPrivateFieldGet(this, _BetaMessageStream_spanBody, "f") ?? require_promise.__classPrivateFieldGet(this, _BetaMessageStream_params, "f"),
+						message: messageSnapshot
+					};
+			}
+		}, _BetaMessageStream_endRequest = function _BetaMessageStream_endRequest() {
+			if (this.ended) throw new require_promise.AnthropicError(`stream has ended, this shouldn't happen`);
+			const snapshot = require_promise.__classPrivateFieldGet(this, _BetaMessageStream_currentMessageSnapshot, "f");
+			if (!snapshot) throw new require_promise.AnthropicError(`request ended without sending any chunks`);
+			require_promise.__classPrivateFieldSet(this, _BetaMessageStream_currentMessageSnapshot, void 0, "f");
+			return maybeParseBetaMessage(snapshot, require_promise.__classPrivateFieldGet(this, _BetaMessageStream_params, "f"), { logger: require_promise.__classPrivateFieldGet(this, _BetaMessageStream_logger, "f") });
+		}, _BetaMessageStream_accumulateMessage = function _BetaMessageStream_accumulateMessage(event) {
+			let snapshot = require_promise.__classPrivateFieldGet(this, _BetaMessageStream_currentMessageSnapshot, "f");
+			if (event.type === "message_start") {
+				if (snapshot) throw new require_promise.AnthropicError(`Unexpected event order, got ${event.type} before receiving "message_stop"`);
+				return event.message;
+			}
+			if (!snapshot) return;
+			switch (event.type) {
+				case "message_stop": return snapshot;
+				case "message_delta":
+					snapshot.stop_reason = event.delta.stop_reason;
+					snapshot.stop_sequence = event.delta.stop_sequence;
+					snapshot.stop_details = event.delta.stop_details;
+					snapshot.usage.output_tokens = event.usage.output_tokens;
+					if (event.delta.container != null) snapshot.container = event.delta.container;
+					if (event.context_management != null) snapshot.context_management = event.context_management;
+					if (event.input_transformations != null) snapshot.input_transformations = event.input_transformations;
+					if (event.usage.input_tokens != null) snapshot.usage.input_tokens = event.usage.input_tokens;
+					if (event.usage.cache_creation_input_tokens != null) snapshot.usage.cache_creation_input_tokens = event.usage.cache_creation_input_tokens;
+					if (event.usage.cache_read_input_tokens != null) snapshot.usage.cache_read_input_tokens = event.usage.cache_read_input_tokens;
+					if (event.usage.server_tool_use != null) snapshot.usage.server_tool_use = event.usage.server_tool_use;
+					if (event.usage.iterations != null) snapshot.usage.iterations = event.usage.iterations;
+					if (event.usage.fallback_credit != null) snapshot.usage.fallback_credit = event.usage.fallback_credit;
+					if (event.usage.output_tokens_details != null) snapshot.usage.output_tokens_details = event.usage.output_tokens_details;
+					return snapshot;
+				case "content_block_start":
+					snapshot.content.push(event.content_block);
+					if (event.content_block.type === "fallback") snapshot.model = event.content_block.to.model;
+					return snapshot;
+				case "content_block_delta": {
+					const snapshotContent = snapshot.content.at(event.index);
+					switch (event.delta.type) {
+						case "text_delta":
+							if (snapshotContent?.type === "text") snapshot.content[event.index] = {
+								...snapshotContent,
+								text: (snapshotContent.text || "") + event.delta.text
+							};
+							break;
+						case "citations_delta":
+							if (snapshotContent?.type === "text") snapshot.content[event.index] = {
+								...snapshotContent,
+								citations: [...snapshotContent.citations ?? [], event.delta.citation]
+							};
+							break;
+						case "input_json_delta":
+							if (snapshotContent && tracksToolInput(snapshotContent)) {
+								const jsonBuf = (snapshotContent["__json_buf"] || "") + event.delta.partial_json;
+								snapshot.content[event.index] = withLazyInput(snapshotContent, jsonBuf);
+							}
+							break;
+						case "thinking_delta":
+							if (snapshotContent?.type === "thinking") snapshot.content[event.index] = {
+								...snapshotContent,
+								thinking: snapshotContent.thinking + event.delta.thinking
+							};
+							break;
+						case "signature_delta":
+							if (snapshotContent?.type === "thinking") snapshot.content[event.index] = {
+								...snapshotContent,
+								signature: event.delta.signature
+							};
+							break;
+						case "compaction_delta":
+							if (snapshotContent?.type === "compaction") {
+								const block = {
+									...snapshotContent,
+									content: event.delta.content
+								};
+								if ("encrypted_content" in event.delta) block.encrypted_content = event.delta.encrypted_content;
+								snapshot.content[event.index] = block;
+							}
+							break;
+						default: event.delta;
+					}
+					return snapshot;
+				}
+				case "content_block_stop": {
+					const snapshotContent = snapshot.content.at(event.index);
+					if (snapshotContent && tracksToolInput(snapshotContent) && "__json_buf" in snapshotContent) {
+						let input;
+						try {
+							input = snapshotContent.input;
+						} catch (err) {
+							input = {};
+							require_promise.__classPrivateFieldGet(this, _BetaMessageStream_handleError, "f").call(this, require_promise.__classPrivateFieldGet(this, _BetaMessageStream_instances, "m", _BetaMessageStream_toolInputParseError).call(this, snapshotContent, err));
+						}
+						Object.defineProperty(snapshotContent, "input", {
+							value: input,
+							enumerable: true,
+							configurable: true,
+							writable: true
+						});
+					}
+					return snapshot;
+				}
+				default: return snapshot;
+			}
+		}, _BetaMessageStream_toolInputParseError = function _BetaMessageStream_toolInputParseError(block, err) {
+			const jsonBuf = block[JSON_BUF_PROPERTY];
+			return new require_promise.AnthropicError(`Unable to parse tool parameter JSON from model. Please retry your request or adjust your prompt. Error: ${err}. JSON: ${jsonBuf}`);
+		}, Symbol.asyncIterator)]() {
+			const pushQueue = [];
+			const readQueue = [];
+			let done = false;
+			this.on("_rawEvent", (event) => {
+				const reader = readQueue.shift();
+				if (reader) reader.resolve(event);
+				else pushQueue.push(event);
+			});
+			this.on("end", () => {
+				done = true;
+				for (const reader of readQueue) reader.resolve(void 0);
+				readQueue.length = 0;
+			});
+			this.on("abort", (err) => {
+				done = true;
+				for (const reader of readQueue) reader.reject(err);
+				readQueue.length = 0;
+			});
+			this.on("error", (err) => {
+				done = true;
+				for (const reader of readQueue) reader.reject(err);
+				readQueue.length = 0;
+			});
+			return {
+				next: async () => {
+					if (!pushQueue.length) {
+						if (done) return {
+							value: void 0,
+							done: true
+						};
+						return new Promise((resolve, reject) => readQueue.push({
+							resolve,
+							reject
+						})).then((chunk) => chunk ? {
+							value: chunk,
+							done: false
+						} : {
+							value: void 0,
+							done: true
+						});
+					}
+					return {
+						value: pushQueue.shift(),
+						done: false
+					};
+				},
+				return: async () => {
+					this.abort();
+					return {
+						value: void 0,
+						done: true
+					};
+				}
+			};
+		}
+		toReadableStream() {
+			return new Stream(this[Symbol.asyncIterator].bind(this), this.controller).toReadableStream();
+		}
+	}
+	return BetaMessageStream;
+})();
+// node_modules/@anthropic-ai/sdk/lib/internal/toolsets/family.mjs
+/** Dated `tools[]` entry `type` → the family stamped on member blocks. */
+const TOOLSET_TYPE_TO_FAMILY = {
+	browser_toolset_20260801: "browser",
+	computer_toolset_20260801: "computer"
+};
+function toolsetFamily(toolset) {
+	return TOOLSET_TYPE_TO_FAMILY[toolset.type];
+}
+/** Whether a `tools` entry is a toolset the runner can execute locally. */
+function isRunnableToolset(t) {
+	return "run" in t && t.type != null && Object.prototype.hasOwnProperty.call(TOOLSET_TYPE_TO_FAMILY, t.type);
+}
+// node_modules/@anthropic-ai/sdk/lib/internal/toolsets/errors.mjs
+/**
+* Thrown when your code uses a toolset's API incorrectly. Catch it to catch all three kinds below.
+*
+* The only exception the tool runner propagates from a member call: anything else a member throws becomes an
+* `is_error` result the model can react to, and the loop continues.
+*/
+var ToolsetUsageError = class extends require_promise.AnthropicError {
+	constructor(message, options) {
+		super(message);
+		this.name = "ToolsetUsageError";
+		if (options && "cause" in options) this.cause = options.cause;
+	}
+};
+/** Misuse of the SDK's own API detected at call time (a `browserState` that threw, a misrouted `tool_use`). */
+var ToolsetContractError = class extends ToolsetUsageError {
+	constructor(message, options) {
+		super(message, options);
+		this.name = "ToolsetContractError";
+	}
+};
+// node_modules/@anthropic-ai/sdk/lib/internal/toolsets/run.mjs
+/**
+* What the runner answers for a toolset member it did not run because an earlier member of the same toolset failed
+* in the same assistant turn: the model planned those actions as a sequence, and a later one rarely makes sense once
+* an earlier one did not happen. The browser toolset's text; `notExecutedText` gives each family its own.
+*/
+const NOT_EXECUTED = "Not executed: an earlier action in this turn failed.";
+const NOT_EXECUTED_BY_FAMILY = {
+	browser: NOT_EXECUTED,
+	computer: "Not executed: an earlier computer action in this turn failed."
+};
+/** The not-executed text for `family` (a `tool_use.toolset_name`), or the browser's for a family the SDK doesn't know. */
+function notExecutedText(family) {
+	return Object.prototype.hasOwnProperty.call(NOT_EXECUTED_BY_FAMILY, family) ? NOT_EXECUTED_BY_FAMILY[family] : NOT_EXECUTED;
+}
+/**
+* The `tool_result` answering a member `tool_use`. `toolset_name` is required on a member result (the API rejects a
+* mismatch), so it is echoed on error paths too.
+*/
+function toolsetResultBlock(toolUse, content, isError = false) {
+	if (isError && (content === "" || Array.isArray(content) && content.length === 0)) content = "The tool call failed with an empty error message.";
+	return {
+		type: "tool_result",
+		tool_use_id: toolUse.id,
+		toolset_name: toolUse.toolset_name ?? null,
+		content,
+		...isError ? { is_error: true } : {}
+	};
+}
+/**
+* What never becomes a tool result: a `ToolsetUsageError` propagates as it is, and once the call's own `AbortSignal`
+* has aborted the cancellation propagates as `APIUserAbortError`, whatever was thrown after it. An error named
+* `AbortError` that a driver throws while that signal has not aborted (a page-aborted request, a driver's own timeout)
+* is the driver's failure, not a cancellation.
+*/
+function throwIfPropagates(error, ctx) {
+	if (error instanceof ToolsetUsageError) throw error;
+	throwIfAborted(ctx.signal);
+}
+/** Once `signal` has aborted, throws the `APIUserAbortError` an aborted request throws, so one `catch` covers both. */
+function throwIfAborted(signal) {
+	if (signal?.aborted) throw new require_promise.APIUserAbortError();
+}
+/**
+* Runs one member `tool_use` against `toolset` and builds its `tool_result`. Throws if `toolUse`
+* is not a member call of this family: a block without `toolset_name` is a plain tool (possibly a
+* custom tool sharing a member name) and must never be routed here.
+*/
+async function runToolsetMember(toolset, toolUse, options = {}) {
+	const family = toolsetFamily(toolset);
+	if (toolUse.toolset_name !== family) throw new ToolsetContractError(`tool_use ${JSON.stringify(toolUse.id)} (toolset_name=${JSON.stringify(toolUse.toolset_name ?? null)}, name=${JSON.stringify(toolUse.name)}) is not a member call of the ${JSON.stringify(family)} toolset`);
+	const ctx = {
+		...options,
+		toolUse,
+		toolUseBlock: toolUse
+	};
+	try {
+		return toolsetResultBlock(toolUse, await toolset.run(ctx, toolUse));
+	} catch (e) {
+		throwIfPropagates(e, ctx);
+		return toolsetResultBlock(toolUse, errorTextContent(e instanceof require_promise.ToolError ? e.content : errorText(e)), true);
+	}
+}
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/api-keys.mjs
+var APIKeys$1 = class extends APIResource {
+	/**
+	* Get API Key
+	*
+	* @example
+	* ```ts
+	* const betaAPIKey =
+	*   await client.beta.organization.apiKeys.retrieve(
+	*     'api_key_id',
+	*   );
+	* ```
+	*/
+	retrieve(apiKeyID, options) {
+		return this._client.get(path`/v1/organizations/api_keys/${apiKeyID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.api_keys.retrieve", options, {
+				route: "/v1/organizations/api_keys/{api_key_id}",
+				attributes: { "anthropic.organization.api_key.id": apiKeyID }
+			})
+		});
+	}
+	/**
+	* Update API Key
+	*
+	* @example
+	* ```ts
+	* const betaAPIKey =
+	*   await client.beta.organization.apiKeys.update(
+	*     'api_key_id',
+	*   );
+	* ```
+	*/
+	update(apiKeyID, body, options) {
+		return this._client.post(path`/v1/organizations/api_keys/${apiKeyID}`, {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.api_keys.update", options, {
+				route: "/v1/organizations/api_keys/{api_key_id}",
+				attributes: { "anthropic.organization.api_key.id": apiKeyID }
+			})
+		});
+	}
+	/**
+	* List API Keys
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAPIKey of client.beta.organization.apiKeys.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/api_keys", Page, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.api_keys.list", options, {
+				route: "/v1/organizations/api_keys",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"created_by_user_id",
+					"limit",
+					"status",
+					"workspace_id"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/artifacts.mjs
+var Artifacts = class extends APIResource {
+	/**
+	* Get artifact-creation activity for a given day, broken out by MIME type.
+	*
+	* Returns the full (`artifact_type`, `is_shared`) cube for the organization;
+	* `next_page` is null except for grouped queries, which paginate. The cube can be
+	* broken out per product, per member, or per RBAC group via `group_by[]`, and
+	* scoped via `filter[]`. Requires an API key with the `read:analytics` scope.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsArtifactActivity of client.beta.organization.analytics.artifacts.list(
+	*   { date: '2019-12-27' },
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/artifacts", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.artifacts.list", options, {
+				route: "/v1/organizations/analytics/artifacts",
+				queryParams: [
+					"date",
+					"filter",
+					"group_by",
+					"limit",
+					"page"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/connectors.mjs
+var Connectors = class extends APIResource {
+	/**
+	* Get per-connector usage for a given day, with cursor-based pagination.
+	*
+	* Returns connector usage metrics for the organization, sorted by connector name.
+	* Connector names are normalized from their various sources — for example,
+	* "Atlassian MCP server" and "mcp-atlassian" both appear as "atlassian". Use
+	* `group_by[]` to break usage out per member, per RBAC group, or per product
+	* surface, and `filter[]` to scope results; the parameter descriptions list the
+	* supported dimensions. Available to organizations on a Claude Enterprise plan.
+	* Requires an API key with the `read:analytics` scope.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsConnectorActivity of client.beta.organization.analytics.connectors.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/connectors", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.connectors.list", options, {
+				route: "/v1/organizations/analytics/connectors",
+				queryParams: [
+					"date",
+					"ending_date",
+					"filter",
+					"group_by",
+					"limit",
+					"order",
+					"order_by",
+					"page",
+					"starting_date"
+				],
+				contentQueryParams: ["filter"]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/cost.mjs
+var Cost = class extends APIResource {
+	/**
+	* Get cost in USD across a date range, broken out by dimension.
+	*
+	* Returns one row per combination of the requested `group_by[]` dimensions (and
+	* time bucket, when `time_bucket_width` is set) that has cost in the range, ranked
+	* by spend or ordered by time bucket; every combination is returned across pages.
+	* With no `group_by[]` and no `time_bucket_width`, a single row aggregates the
+	* whole range. Includes all cost, whether or not it is attributable to a seat
+	* user. Requires an API key with the `read:analytics` scope, or an Admin API key.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsCostItem of client.beta.organization.analytics.cost.list(
+	*   { starting_at: '2026-09-01T00:00:00Z' },
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params, options) {
+		const { betas, ...query } = params;
+		return this._client.getAPIList("/v1/organizations/analytics/cost", ReportPageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "analytics-usage-cost-2026-08-24"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.cost.list", options, {
+				route: "/v1/organizations/analytics/cost",
+				queryParams: [
+					"actor_ids",
+					"actor_types",
+					"agent_ids",
+					"api_key_ids",
+					"claude_tag_categories",
+					"claude_tag_user_ids",
+					"context_windows",
+					"deployment_ids",
+					"ending_at",
+					"environment_ids",
+					"exclude_deleted_users",
+					"group_by",
+					"inference_geos",
+					"limit",
+					"models",
+					"order",
+					"order_by",
+					"page",
+					"products",
+					"rbac_group_ids",
+					"service_tiers",
+					"session_ids",
+					"slack_channel_ids",
+					"speeds",
+					"starting_at",
+					"time_bucket_width",
+					"user_profile_ids",
+					"workspace_ids"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/cost-report.mjs
+var CostReport = class extends APIResource {
+	/**
+	* [Legacy] Get cost in USD over time across a date range.
+	*
+	* Returns cost bucketed by minute, hour, or day, optionally broken down by one or
+	* more `group_by[]` dimensions, such as model or cost type. Available to
+	* organizations on a Claude Enterprise plan. Requires an API key with the
+	* `read:analytics` scope.
+	*
+	* This endpoint is one of the legacy Claude Enterprise usage and cost reports. For
+	* new integrations, use
+	* [`GET /v1/organizations/analytics/cost`](/docs/en/api/beta/organization/analytics/cost/list)
+	* in the Usage and Cost Analytics API instead. To move an existing integration,
+	* see
+	* [Migrate from the Claude Enterprise usage and cost reports](/docs/en/manage-claude/usage-cost-analytics-api#migrate-from-enterprise-analytics-reports).
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsCostReportTimeBucket of client.beta.organization.analytics.costReport.list(
+	*   { starting_at: '2019-12-27T18:11:19.117Z' },
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/cost_report", ReportPageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.cost_report.list", options, {
+				route: "/v1/organizations/analytics/cost_report",
+				queryParams: [
+					"bucket_width",
+					"claude_tag_categories",
+					"claude_tag_user_ids",
+					"context_windows",
+					"ending_at",
+					"group_by",
+					"inference_geos",
+					"limit",
+					"models",
+					"page",
+					"products",
+					"rbac_group_ids",
+					"slack_channel_ids",
+					"speeds",
+					"starting_at",
+					"user_ids"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/plugins.mjs
+var Plugins$1 = class extends APIResource {
+	/**
+	* Get per-plugin install + invocation usage for a given day, with pagination.
+	*
+	* Returns plugin usage metrics for the organization across Cowork and Claude Code,
+	* sorted by plugin name. The `plugin_name` value `third-party` is an aggregate
+	* bucket, not a plugin: it collects plugin activity, from either surface, for
+	* which the reporting client did not provide a plugin name — so an organization's
+	* own plugins can contribute both to their own named rows and to this bucket. Use
+	* `group_by[]` to break usage out per member, per RBAC group, or per product
+	* surface (Cowork / Claude Code), and `filter[]` to scope results; the parameter
+	* descriptions list the supported dimensions. Requires an API key with the
+	* `read:analytics` scope. `starting_date` / `ending_date` select range-rollup mode
+	* like `/skills`.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsPluginActivity of client.beta.organization.analytics.plugins.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/plugins", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.plugins.list", options, {
+				route: "/v1/organizations/analytics/plugins",
+				queryParams: [
+					"date",
+					"ending_date",
+					"filter",
+					"group_by",
+					"limit",
+					"order",
+					"order_by",
+					"page",
+					"starting_date"
+				],
+				contentQueryParams: ["filter"]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/skills.mjs
+var Skills$2 = class extends APIResource {
+	/**
+	* Get per-skill usage for a given day, with cursor-based pagination.
+	*
+	* Returns skill usage metrics for the organization, sorted by skill name. Use
+	* `group_by[]` to break usage out per member, per RBAC group, or per product
+	* surface, and `filter[]` to scope results; the parameter descriptions list the
+	* supported dimensions. Available to organizations on a Claude Enterprise plan.
+	* Requires an API key with the `read:analytics` scope.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsSkillActivity of client.beta.organization.analytics.skills.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/skills", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.skills.list", options, {
+				route: "/v1/organizations/analytics/skills",
+				queryParams: [
+					"date",
+					"ending_date",
+					"filter",
+					"group_by",
+					"limit",
+					"order",
+					"order_by",
+					"page",
+					"starting_date"
+				],
+				contentQueryParams: ["filter"]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/summaries.mjs
+var Summaries = class extends APIResource {
+	/**
+	* Get organization-wide activity summaries for a date range.
+	*
+	* Returns one entry per day from `starting_date` (inclusive) to `ending_date`
+	* (exclusive) in `data`, the same `data` / `next_page` envelope as the other
+	* analytics list endpoints; the series is currently returned in full, so
+	* `next_page` is always null. Data is typically available with a 1-day lag and may
+	* be revised by a few percent over the following days: when `ending_date` is
+	* omitted it defaults to the most recent available day + 1, so the last entry
+	* covers the most recent available day. The series can be scoped to an RBAC group
+	* via `filter[]=rbac_group_id:{id}`. Available to organizations on a Claude
+	* Enterprise plan. Requires an API key with the `read:analytics` scope.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsSingleDayActivitySummary of client.beta.organization.analytics.summaries.list(
+	*   { starting_date: '2019-12-27' },
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/summaries", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.summaries.list", options, {
+				route: "/v1/organizations/analytics/summaries",
+				queryParams: [
+					"ending_date",
+					"filter",
+					"limit",
+					"page",
+					"starting_date"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/usage.mjs
+var Usage = class extends APIResource {
+	/**
+	* Get token usage across a date range, broken out by dimension.
+	*
+	* Returns one row per combination of the requested `group_by[]` dimensions (and
+	* time bucket, when `time_bucket_width` is set) that has usage in the range,
+	* ranked by the `order_by` metric or ordered by time bucket; every combination is
+	* returned across pages. With no `group_by[]` and no `time_bucket_width`, a single
+	* row aggregates the whole range. Includes all usage, whether or not it is
+	* attributable to a seat user. Requires an API key with the `read:analytics`
+	* scope, or an Admin API key.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsUsageItem of client.beta.organization.analytics.usage.list(
+	*   { starting_at: '2026-09-01T00:00:00Z' },
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params, options) {
+		const { betas, ...query } = params;
+		return this._client.getAPIList("/v1/organizations/analytics/usage", ReportPageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "analytics-usage-cost-2026-08-24"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.usage.list", options, {
+				route: "/v1/organizations/analytics/usage",
+				queryParams: [
+					"actor_ids",
+					"actor_types",
+					"agent_ids",
+					"api_key_ids",
+					"claude_tag_categories",
+					"claude_tag_user_ids",
+					"context_windows",
+					"deployment_ids",
+					"ending_at",
+					"environment_ids",
+					"exclude_deleted_users",
+					"group_by",
+					"inference_geos",
+					"limit",
+					"models",
+					"order",
+					"order_by",
+					"page",
+					"products",
+					"rbac_group_ids",
+					"service_tiers",
+					"session_ids",
+					"slack_channel_ids",
+					"speeds",
+					"starting_at",
+					"time_bucket_width",
+					"user_profile_ids",
+					"workspace_ids"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/usage-report.mjs
+var UsageReport = class extends APIResource {
+	/**
+	* [Legacy] Get token usage over time across a date range.
+	*
+	* Returns token usage bucketed by minute, hour, or day, optionally broken down by
+	* one or more `group_by[]` dimensions, such as product or model. Available to
+	* organizations on a Claude Enterprise plan. Requires an API key with the
+	* `read:analytics` scope.
+	*
+	* This endpoint is one of the legacy Claude Enterprise usage and cost reports. For
+	* new integrations, use
+	* [`GET /v1/organizations/analytics/usage`](/docs/en/api/beta/organization/analytics/usage/list)
+	* in the Usage and Cost Analytics API instead. To move an existing integration,
+	* see
+	* [Migrate from the Claude Enterprise usage and cost reports](/docs/en/manage-claude/usage-cost-analytics-api#migrate-from-enterprise-analytics-reports).
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsUsageReportTimeBucket of client.beta.organization.analytics.usageReport.list(
+	*   { starting_at: '2019-12-27T18:11:19.117Z' },
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/usage_report", ReportPageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.usage_report.list", options, {
+				route: "/v1/organizations/analytics/usage_report",
+				queryParams: [
+					"bucket_width",
+					"claude_tag_categories",
+					"claude_tag_user_ids",
+					"context_windows",
+					"ending_at",
+					"group_by",
+					"inference_geos",
+					"limit",
+					"models",
+					"page",
+					"products",
+					"rbac_group_ids",
+					"slack_channel_ids",
+					"speeds",
+					"starting_at",
+					"user_ids"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/user-cost-report.mjs
+var UserCostReport = class extends APIResource {
+	/**
+	* [Legacy] Get per-user cost in USD across a date range.
+	*
+	* Returns cost per user, ranked by spend; `group_by[]` or `bucket_width` splits a
+	* user across several rows. Use this to see which users account for the most cost.
+	* Only cost attributed to a user account is included; cost with no user attributed
+	* to it, such as Code Review usage and Claude Tag usage in Slack channels, is left
+	* out. Available to organizations on a Claude Enterprise plan. Requires an API key
+	* with the `read:analytics` scope.
+	*
+	* This endpoint is one of the legacy Claude Enterprise usage and cost reports. For
+	* new integrations, use
+	* [`GET /v1/organizations/analytics/cost`](/docs/en/api/beta/organization/analytics/cost/list)
+	* in the Usage and Cost Analytics API instead. To move an existing integration,
+	* see
+	* [Migrate from the Claude Enterprise usage and cost reports](/docs/en/manage-claude/usage-cost-analytics-api#migrate-from-enterprise-analytics-reports).
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsCostUsersItem of client.beta.organization.analytics.userCostReport.list(
+	*   { starting_at: '2019-12-27T18:11:19.117Z' },
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/user_cost_report", ReportPageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.user_cost_report.list", options, {
+				route: "/v1/organizations/analytics/user_cost_report",
+				queryParams: [
+					"bucket_width",
+					"claude_tag_categories",
+					"claude_tag_user_ids",
+					"context_windows",
+					"ending_at",
+					"exclude_deleted_users",
+					"group_by",
+					"inference_geos",
+					"limit",
+					"models",
+					"order",
+					"order_by",
+					"page",
+					"products",
+					"rbac_group_ids",
+					"slack_channel_ids",
+					"speeds",
+					"starting_at",
+					"user_ids"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/user-usage-report.mjs
+var UserUsageReport = class extends APIResource {
+	/**
+	* [Legacy] Get per-user token usage across a date range.
+	*
+	* Returns usage per user, ranked by the chosen token metric; `group_by[]` or
+	* `bucket_width` splits a user across several rows. Use this to see which users
+	* consume the most tokens. Only usage attributed to a user account is included;
+	* usage with no user attributed to it, such as Code Review usage and Claude Tag
+	* usage in Slack channels, is left out. Available to organizations on a Claude
+	* Enterprise plan. Requires an API key with the `read:analytics` scope.
+	*
+	* This endpoint is one of the legacy Claude Enterprise usage and cost reports. For
+	* new integrations, use
+	* [`GET /v1/organizations/analytics/usage`](/docs/en/api/beta/organization/analytics/usage/list)
+	* in the Usage and Cost Analytics API instead. To move an existing integration,
+	* see
+	* [Migrate from the Claude Enterprise usage and cost reports](/docs/en/manage-claude/usage-cost-analytics-api#migrate-from-enterprise-analytics-reports).
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsUsageUsersItem of client.beta.organization.analytics.userUsageReport.list(
+	*   { starting_at: '2019-12-27T18:11:19.117Z' },
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/user_usage_report", ReportPageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.user_usage_report.list", options, {
+				route: "/v1/organizations/analytics/user_usage_report",
+				queryParams: [
+					"bucket_width",
+					"claude_tag_categories",
+					"claude_tag_user_ids",
+					"context_windows",
+					"ending_at",
+					"exclude_deleted_users",
+					"group_by",
+					"inference_geos",
+					"limit",
+					"models",
+					"order",
+					"order_by",
+					"page",
+					"products",
+					"rbac_group_ids",
+					"slack_channel_ids",
+					"speeds",
+					"starting_at",
+					"user_ids"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/users.mjs
+var Users$2 = class extends APIResource {
+	/**
+	* Get per-user activity for a given day, with cursor-based pagination.
+	*
+	* Returns activity metrics for each user in the organization, sorted by email
+	* address. Use `group_by[]` for per-RBAC-group aggregates, or `filter[]` to scope
+	* results to specific members, groups, or a chat project. Available to
+	* organizations on a Claude Enterprise plan. Requires an API key with the
+	* `read:analytics` scope.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsUserActivity of client.beta.organization.analytics.users.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/users", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.users.list", options, {
+				route: "/v1/organizations/analytics/users",
+				queryParams: [
+					"date",
+					"ending_date",
+					"filter",
+					"group_by",
+					"limit",
+					"order",
+					"order_by",
+					"page",
+					"starting_date"
+				],
+				contentQueryParams: ["page"]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/apps/chat/projects.mjs
+var Projects = class extends APIResource {
+	/**
+	* Get per-project activity for a given day, with cursor-based pagination.
+	*
+	* Returns activity metrics for each project in the organization, sorted by project
+	* ID. Use `group_by[]` to break projects out per member or per RBAC group, and
+	* `filter[]` to scope results; the parameter descriptions list the supported
+	* dimensions. Available to organizations on a Claude Enterprise plan. Requires an
+	* API key with the `read:analytics` scope.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaAnalyticsProjectActivity of client.beta.organization.analytics.apps.chat.projects.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/analytics/apps/chat/projects", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.analytics.apps.chat.projects.list", options, {
+				route: "/v1/organizations/analytics/apps/chat/projects",
+				queryParams: [
+					"date",
+					"ending_date",
+					"filter",
+					"group_by",
+					"limit",
+					"order",
+					"order_by",
+					"page",
+					"starting_date"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/apps/chat/chat.mjs
+var Chat = /* @__PURE__ */ (() => {
+	class Chat extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.projects = new Projects(this._client);
+		}
+	}
+	Chat.Projects = Projects;
+	return Chat;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/apps/apps.mjs
+var Apps = /* @__PURE__ */ (() => {
+	class Apps extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.chat = new Chat(this._client);
+		}
+	}
+	Apps.Chat = Chat;
+	return Apps;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/analytics/analytics.mjs
+var Analytics = /* @__PURE__ */ (() => {
+	class Analytics extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.summaries = new Summaries(this._client);
+			this.users = new Users$2(this._client);
+			this.apps = new Apps(this._client);
+			this.connectors = new Connectors(this._client);
+			this.plugins = new Plugins$1(this._client);
+			this.skills = new Skills$2(this._client);
+			this.artifacts = new Artifacts(this._client);
+			this.usage = new Usage(this._client);
+			this.cost = new Cost(this._client);
+			this.usageReport = new UsageReport(this._client);
+			this.userUsageReport = new UserUsageReport(this._client);
+			this.costReport = new CostReport(this._client);
+			this.userCostReport = new UserCostReport(this._client);
+		}
+	}
+	Analytics.Summaries = Summaries;
+	Analytics.Users = Users$2;
+	Analytics.Apps = Apps;
+	Analytics.Connectors = Connectors;
+	Analytics.Plugins = Plugins$1;
+	Analytics.Skills = Skills$2;
+	Analytics.Artifacts = Artifacts;
+	Analytics.Usage = Usage;
+	Analytics.Cost = Cost;
+	Analytics.UsageReport = UsageReport;
+	Analytics.UserUsageReport = UserUsageReport;
+	Analytics.CostReport = CostReport;
+	Analytics.UserCostReport = UserCostReport;
+	return Analytics;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/claude-tag/bundles/targets.mjs
+var Targets = class extends APIResource {
+	/**
+	* Attach a Bundle to a Slack channel or a Slack workspace. A Bundle attached to a
+	* workspace can be used in the workspace and in every channel in it. Attaching a
+	* Bundle to a channel or workspace it is already attached to returns the existing
+	* Bundle Target. The channel or workspace must be set up: attaching never sets a
+	* channel up. A group direct message takes no Bundle and returns 400.
+	*
+	* @example
+	* ```ts
+	* const betaClaudeTagBundleTarget =
+	*   await client.beta.organization.claudeTag.bundles.targets.create(
+	*     'capp_011CZkZjLP1cWxj5EtMmdgbq',
+	*     {
+	*       target: {
+	*         slack_channel_id: 'xxxxxxxx',
+	*         type: 'slack_channel',
+	*       },
+	*     },
+	*   );
+	* ```
+	*/
+	create(bundleID, params, options) {
+		const { target, betas } = params;
+		return this._client.post(path`/v1/organizations/claude_tag/bundles/${bundleID}/targets`, {
+			body: target,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.bundles.targets.create", options, {
+				route: "/v1/organizations/claude_tag/bundles/{bundle_id}/targets",
+				attributes: { "anthropic.organization.claude_tag.bundle.id": bundleID }
+			})
+		});
+	}
+	/**
+	* Get one Bundle Target. Returns 404 when `target_id` is the identifier of another
+	* Bundle's Bundle Target, or the Bundle Target was detached.
+	*
+	* @example
+	* ```ts
+	* const betaClaudeTagBundleTarget =
+	*   await client.beta.organization.claudeTag.bundles.targets.retrieve(
+	*     'btgt_01SvpyRQK3nN6eH9uhRA7n1qHq8TzW5mKc2YbX7vNd4RfJ',
+	*     { bundle_id: 'capp_011CZkZjLP1cWxj5EtMmdgbq' },
+	*   );
+	* ```
+	*/
+	retrieve(targetID, params, options) {
+		const { bundle_id, betas } = params;
+		return this._client.get(path`/v1/organizations/claude_tag/bundles/${bundle_id}/targets/${targetID}`, {
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.bundles.targets.retrieve", options, {
+				route: "/v1/organizations/claude_tag/bundles/{bundle_id}/targets/{target_id}",
+				attributes: {
+					"anthropic.organization.claude_tag.bundle.id": bundle_id,
+					"anthropic.organization.claude_tag.bundle.target.id": targetID
+				}
+			})
+		});
+	}
+	/**
+	* List the Slack channels and Slack workspaces a Bundle is attached to, newest
+	* first by `created_at`. Only channels and workspaces the organization owns are
+	* listed; a Bundle that is attached to anything else has no Bundle Target for it.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaClaudeTagBundleTarget of client.beta.organization.claudeTag.bundles.targets.list(
+	*   'capp_011CZkZjLP1cWxj5EtMmdgbq',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(bundleID, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/organizations/claude_tag/bundles/${bundleID}/targets`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.bundles.targets.list", options, {
+				route: "/v1/organizations/claude_tag/bundles/{bundle_id}/targets",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.organization.claude_tag.bundle.id": bundleID }
+			})
+		});
+	}
+	/**
+	* Detach a Bundle from a Slack channel or a Slack workspace. A repeated detach
+	* returns 404.
+	*
+	* @example
+	* ```ts
+	* const betaClaudeTagDeletedBundleTarget =
+	*   await client.beta.organization.claudeTag.bundles.targets.delete(
+	*     'btgt_01SvpyRQK3nN6eH9uhRA7n1qHq8TzW5mKc2YbX7vNd4RfJ',
+	*     { bundle_id: 'capp_011CZkZjLP1cWxj5EtMmdgbq' },
+	*   );
+	* ```
+	*/
+	delete(targetID, params, options) {
+		const { bundle_id, betas } = params;
+		return this._client.delete(path`/v1/organizations/claude_tag/bundles/${bundle_id}/targets/${targetID}`, {
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.bundles.targets.delete", options, {
+				route: "/v1/organizations/claude_tag/bundles/{bundle_id}/targets/{target_id}",
+				attributes: {
+					"anthropic.organization.claude_tag.bundle.id": bundle_id,
+					"anthropic.organization.claude_tag.bundle.target.id": targetID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/claude-tag/bundles/bundles.mjs
+var Bundles = /* @__PURE__ */ (() => {
+	class Bundles extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.targets = new Targets(this._client);
+		}
+		/**
+		* Get one Bundle. What the Bundle grants (connectors, repositories and
+		* credentials) is never returned.
+		*
+		* @example
+		* ```ts
+		* const betaClaudeTagBundle =
+		*   await client.beta.organization.claudeTag.bundles.retrieve(
+		*     'capp_011CZkZjLP1cWxj5EtMmdgbq',
+		*   );
+		* ```
+		*/
+		retrieve(bundleID, params = {}, options) {
+			const { betas } = params ?? {};
+			return this._client.get(path`/v1/organizations/claude_tag/bundles/${bundleID}`, {
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.bundles.retrieve", options, {
+					route: "/v1/organizations/claude_tag/bundles/{bundle_id}",
+					attributes: { "anthropic.organization.claude_tag.bundle.id": bundleID }
+				})
+			});
+		}
+		/**
+		* List the organization's Bundles, newest first by `created_at`. A Bundle that
+		* Claude Tag manages for itself is not listed.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaClaudeTagBundle of client.beta.organization.claudeTag.bundles.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/organizations/claude_tag/bundles", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.bundles.list", options, {
+					route: "/v1/organizations/claude_tag/bundles",
+					queryParams: ["limit", "page"]
+				})
+			});
+		}
+	}
+	Bundles.Targets = Targets;
+	return Bundles;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/claude-tag/slack-channels.mjs
+var SlackChannels = class extends APIResource {
+	/**
+	* Set a Slack channel up for Claude Tag and return it with its identifier. If the
+	* channel is already set up, whether in claude.ai, by Claude's first use in it or
+	* by an earlier request, the existing channel is returned, so the request can be
+	* repeated. `settings`, when sent, is applied as an update applies it. Before a
+	* channel is set up, Claude's Slack app confirms with Slack that the channel is in
+	* the workspace, is not archived and is visible to the app; a channel that fails
+	* the confirmation returns 404. Setting the channel up and applying `settings` are
+	* two steps: when the second is refused, the response is the refusal, the channel
+	* stays set up with every setting unset, and the error's
+	* `details.slack_channel_id` holds the channel's identifier.
+	*
+	* @example
+	* ```ts
+	* const betaClaudeTagSlackChannel =
+	*   await client.beta.organization.claudeTag.slackChannels.create(
+	*     { slack: { channel_id: 'xx', workspace_id: 'xx' } },
+	*   );
+	* ```
+	*/
+	create(params, options) {
+		const { betas, ...body } = params;
+		return this._client.post("/v1/organizations/claude_tag/slack_channels", {
+			body,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.slack_channels.create", options, {
+				route: "/v1/organizations/claude_tag/slack_channels",
+				createdIDAttribute: "anthropic.organization.claude_tag.slack_channel.id"
+			})
+		});
+	}
+	/**
+	* Get one Slack channel and its settings. By default `settings` holds what the
+	* channel itself stores: a setting that is null there is not set on the channel
+	* and is inherited. With `include_inherited=true`, `settings` holds what applies
+	* in the channel once the settings levels above it are taken into account, and the
+	* request fails with 503 rather than resolve against a settings level that could
+	* not be read. Either way `sources` names the settings level each value comes
+	* from, so a caller tells the channel's own value from an inherited one by its
+	* source, not by whether it is null.
+	*
+	* @example
+	* ```ts
+	* const betaClaudeTagSlackChannel =
+	*   await client.beta.organization.claudeTag.slackChannels.retrieve(
+	*     'slch_01SvpyRQK3nN6eH9uhRA7n1q',
+	*   );
+	* ```
+	*/
+	retrieve(id, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.get(path`/v1/organizations/claude_tag/slack_channels/${id}`, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.slack_channels.retrieve", options, {
+				route: "/v1/organizations/claude_tag/slack_channels/{id}",
+				queryParams: ["include_inherited"],
+				attributes: { "anthropic.organization.claude_tag.slack_channel.id": id }
+			})
+		});
+	}
+	/**
+	* Change the settings a Slack channel stores. The update is partial: a setting
+	* left out is unchanged, and a setting sent as null is cleared, so the channel
+	* inherits it. If any value is refused, no setting in the request is stored. A
+	* group direct message takes no settings and returns 400.
+	*
+	* @example
+	* ```ts
+	* const betaClaudeTagSlackChannel =
+	*   await client.beta.organization.claudeTag.slackChannels.update(
+	*     'slch_01SvpyRQK3nN6eH9uhRA7n1q',
+	*     { settings: {} },
+	*   );
+	* ```
+	*/
+	update(id, params, options) {
+		const { betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/claude_tag/slack_channels/${id}`, {
+			body,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.slack_channels.update", options, {
+				route: "/v1/organizations/claude_tag/slack_channels/{id}",
+				attributes: { "anthropic.organization.claude_tag.slack_channel.id": id }
+			})
+		});
+	}
+	/**
+	* List the set-up Slack channels of one Slack workspace, newest first by
+	* `created_at`. A channel that is not set up is not listed: Slack holds the full
+	* list of a workspace's channels. Pass `slack_channel_id` as well to look one
+	* channel up by its Slack identifiers: `data` then holds that channel, or is empty
+	* when it is not set up, and `limit` and `page` are ignored. A workspace that the
+	* organization owns only through a Slack Enterprise Grid returns 404 until it is
+	* set up. With `include_inherited=true` each channel's `settings` holds what
+	* applies in it, and the request fails with 503 rather than resolve against a
+	* settings level that could not be read. A `page` cursor resumes only a request
+	* with the same `include_inherited`.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaClaudeTagSlackChannel of client.beta.organization.claudeTag.slackChannels.list(
+	*   { slack_workspace_id: 'slack_workspace_id' },
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params, options) {
+		const { betas, ...query } = params;
+		return this._client.getAPIList("/v1/organizations/claude_tag/slack_channels", PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.slack_channels.list", options, {
+				route: "/v1/organizations/claude_tag/slack_channels",
+				queryParams: [
+					"include_inherited",
+					"limit",
+					"page",
+					"slack_channel_id",
+					"slack_workspace_id"
+				]
+			})
+		});
+	}
+	/**
+	* Remove a Slack channel from Claude Tag. This deletes the channel's stored
+	* settings and its Bundle Targets at once, and then, in the background, the
+	* channel's sessions and their transcripts, its memory, its routines and the
+	* artifacts published from it. None of it can be restored. The channel in Slack
+	* and its messages are unchanged. The request is refused with 400 and
+	* `error.details.error_code` `slack_channel_enabled` while `enabled` resolves to
+	* `true` for the channel, as a read with `include_inherited=true` returns it: set
+	* `enabled` to `false` on the channel first. This guards against removing a
+	* channel in use by mistake; it is not a way to keep Claude out, because the
+	* removal deletes the channel's own `enabled: false` with its other settings,
+	* after which the channel inherits again and Claude's next use of it can set it up
+	* anew with a new identifier. The identifier returns 404 as soon as the request
+	* returns, so a repeated removal returns 404. A group direct message returns 400,
+	* and so does a channel that holds configuration this API does not manage.
+	*
+	* @example
+	* ```ts
+	* const betaClaudeTagDeletedSlackChannel =
+	*   await client.beta.organization.claudeTag.slackChannels.delete(
+	*     'slch_01SvpyRQK3nN6eH9uhRA7n1q',
+	*   );
+	* ```
+	*/
+	delete(id, params = {}, options) {
+		const { betas } = params ?? {};
+		return this._client.delete(path`/v1/organizations/claude_tag/slack_channels/${id}`, {
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.slack_channels.delete", options, {
+				route: "/v1/organizations/claude_tag/slack_channels/{id}",
+				attributes: { "anthropic.organization.claude_tag.slack_channel.id": id }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/claude-tag/slack-workspaces.mjs
+var SlackWorkspaces = class extends APIResource {
+	/**
+	* Get one Slack workspace and its settings. By default `settings` holds what the
+	* workspace itself stores: a setting that is null there is not set on the
+	* workspace and is inherited. With `include_inherited=true`, `settings` holds what
+	* applies in the workspace once the organization's Slack defaults are taken into
+	* account, and the request fails with 503 rather than resolve against a settings
+	* level that could not be read. Either way `sources` names the settings level each
+	* value comes from.
+	*
+	* @example
+	* ```ts
+	* const betaClaudeTagSlackWorkspace =
+	*   await client.beta.organization.claudeTag.slackWorkspaces.retrieve(
+	*     'slws_01Hq8TzW5mKc2YbX7vNd4RfJ',
+	*   );
+	* ```
+	*/
+	retrieve(id, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.get(path`/v1/organizations/claude_tag/slack_workspaces/${id}`, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.slack_workspaces.retrieve", options, {
+				route: "/v1/organizations/claude_tag/slack_workspaces/{id}",
+				queryParams: ["include_inherited"],
+				attributes: { "anthropic.organization.claude_tag.slack_workspace.id": id }
+			})
+		});
+	}
+	/**
+	* Change the settings a Slack workspace stores. The update is partial: a setting
+	* left out is unchanged, and a setting sent as null is cleared, so the workspace
+	* inherits it. If any value is refused, no setting in the request is stored.
+	*
+	* @example
+	* ```ts
+	* const betaClaudeTagSlackWorkspace =
+	*   await client.beta.organization.claudeTag.slackWorkspaces.update(
+	*     'slws_01Hq8TzW5mKc2YbX7vNd4RfJ',
+	*     { settings: {} },
+	*   );
+	* ```
+	*/
+	update(id, params, options) {
+		const { betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/claude_tag/slack_workspaces/${id}`, {
+			body,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.slack_workspaces.update", options, {
+				route: "/v1/organizations/claude_tag/slack_workspaces/{id}",
+				attributes: { "anthropic.organization.claude_tag.slack_workspace.id": id }
+			})
+		});
+	}
+	/**
+	* List the set-up Slack workspaces the organization owns, newest first by
+	* `created_at`. Pass `slack_workspace_id` to look one workspace up by its Slack
+	* identifier: `data` then holds that workspace, or is empty when it is not set up.
+	* A workspace of a Slack Enterprise Grid the organization has connected returns
+	* 404 until it is set up. With `include_inherited=true` each workspace's
+	* `settings` holds what applies in it, and the request fails with 503 rather than
+	* resolve against a settings level that could not be read. A `page` cursor resumes
+	* only a request with the same `include_inherited`.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaClaudeTagSlackWorkspace of client.beta.organization.claudeTag.slackWorkspaces.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/organizations/claude_tag/slack_workspaces", PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "experimental-claude-tag-2026-10-21"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.claude_tag.slack_workspaces.list", options, {
+				route: "/v1/organizations/claude_tag/slack_workspaces",
+				queryParams: [
+					"include_inherited",
+					"limit",
+					"page",
+					"slack_workspace_id"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/claude-tag/claude-tag.mjs
+var ClaudeTag = /* @__PURE__ */ (() => {
+	class ClaudeTag extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.slackChannels = new SlackChannels(this._client);
+			this.slackWorkspaces = new SlackWorkspaces(this._client);
+			this.bundles = new Bundles(this._client);
+		}
+	}
+	ClaudeTag.SlackChannels = SlackChannels;
+	ClaudeTag.SlackWorkspaces = SlackWorkspaces;
+	ClaudeTag.Bundles = Bundles;
+	return ClaudeTag;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/compliance-settings.mjs
+var ComplianceSettings$1 = class extends APIResource {
+	/**
+	* Retrieve your organization's Compliance Settings.
+	*
+	* Compliance Settings is a singleton resource: there is exactly one per
+	* organization, addressed without an identifier. The `state` field reflects
+	* whether the Compliance API is enabled. An organization with a parent
+	* organization reads the state inherited from the parent's configuration.
+	*
+	* @example
+	* ```ts
+	* const betaComplianceSettings =
+	*   await client.beta.organization.complianceSettings.retrieve();
+	* ```
+	*/
+	retrieve(options) {
+		return this._client.get("/v1/organizations/compliance_settings", {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.compliance_settings.retrieve", options, { route: "/v1/organizations/compliance_settings" })
+		});
+	}
+	/**
+	* Update your organization's Compliance Settings.
+	*
+	* Setting `state` to `enabled` turns on the Compliance API and begins capturing
+	* organization activity events. Setting it to `disabled` turns both off. `state`
+	* reflects whether the Compliance API is enabled.
+	*
+	* A request that sets `state` to its current value succeeds and leaves the
+	* resource unchanged. A `disabled` request stays in effect until a later `enabled`
+	* request or the organization's next provisioning action that enables Access
+	* Transparency: enabling Access Transparency also enables the Compliance API,
+	* which serves its activity events, so such provisioning (including re-runs)
+	* re-enables the Compliance API even after a `disabled` request. Automated
+	* provisioning never disables compliance settings.
+	*
+	* @example
+	* ```ts
+	* const betaComplianceSettings =
+	*   await client.beta.organization.complianceSettings.update({
+	*     state: { type: 'enabled' },
+	*   });
+	* ```
+	*/
+	update(body, options) {
+		return this._client.post("/v1/organizations/compliance_settings", {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.compliance_settings.update", options, { route: "/v1/organizations/compliance_settings" })
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/external-keys.mjs
+var ExternalKeys$1 = class extends APIResource {
+	/**
+	* Create an external key config owned by the caller's organization.
+	*
+	* @example
+	* ```ts
+	* const betaExternalKey =
+	*   await client.beta.organization.externalKeys.create({
+	*     provider_config: {
+	*       kms_arn:
+	*         'arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222',
+	*       type: 'aws',
+	*     },
+	*   });
+	* ```
+	*/
+	create(body, options) {
+		return this._client.post("/v1/organizations/external_keys", {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.create", options, {
+				route: "/v1/organizations/external_keys",
+				createdIDAttribute: "anthropic.organization.external_key.id"
+			})
+		});
+	}
+	/**
+	* Retrieve a single external key config in the caller's organization by ID.
+	*
+	* @example
+	* ```ts
+	* const betaExternalKey =
+	*   await client.beta.organization.externalKeys.retrieve(
+	*     'external_key_id',
+	*   );
+	* ```
+	*/
+	retrieve(externalKeyID, options) {
+		return this._client.get(path`/v1/organizations/external_keys/${externalKeyID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.retrieve", options, {
+				route: "/v1/organizations/external_keys/{external_key_id}",
+				attributes: { "anthropic.organization.external_key.id": externalKeyID }
+			})
+		});
+	}
+	/**
+	* Partially update an external key config. Omitted fields are left unchanged.
+	*
+	* `display_name` is always editable. `geo` and `provider_config` cannot be changed
+	* once any workspace references this config, because previously encrypted data
+	* requires the original key identity to decrypt.
+	*
+	* @example
+	* ```ts
+	* const betaExternalKey =
+	*   await client.beta.organization.externalKeys.update(
+	*     'external_key_id',
+	*   );
+	* ```
+	*/
+	update(externalKeyID, body, options) {
+		return this._client.post(path`/v1/organizations/external_keys/${externalKeyID}`, {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.update", options, {
+				route: "/v1/organizations/external_keys/{external_key_id}",
+				attributes: { "anthropic.organization.external_key.id": externalKeyID }
+			})
+		});
+	}
+	/**
+	* List external key configs in the caller's organization.
+	*
+	* Results are ordered by creation time (newest first). Use the `next_page` cursor
+	* from the response to fetch subsequent pages.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaExternalKey of client.beta.organization.externalKeys.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/external_keys", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.list", options, {
+				route: "/v1/organizations/external_keys",
+				queryParams: ["limit", "page"]
+			})
+		});
+	}
+	/**
+	* Delete an external key config.
+	*
+	* The request is rejected if any workspace still references this config.
+	*
+	* @example
+	* ```ts
+	* const externalKey =
+	*   await client.beta.organization.externalKeys.delete(
+	*     'external_key_id',
+	*   );
+	* ```
+	*/
+	delete(externalKeyID, options) {
+		return this._client.delete(path`/v1/organizations/external_keys/${externalKeyID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.delete", options, {
+				route: "/v1/organizations/external_keys/{external_key_id}",
+				attributes: { "anthropic.organization.external_key.id": externalKeyID }
+			})
+		});
+	}
+	/**
+	* Validate an external key config against the customer's KMS.
+	*
+	* Anthropic performs an encrypt/decrypt roundtrip against the configured KMS key
+	* and waits up to 30 seconds for the result. The response status is `success` if
+	* the roundtrip succeeded, or `failure` with an error message if it failed or
+	* timed out.
+	*
+	* @example
+	* ```ts
+	* const response =
+	*   await client.beta.organization.externalKeys.validate(
+	*     'external_key_id',
+	*   );
+	* ```
+	*/
+	validate(externalKeyID, options) {
+		return this._client.post(path`/v1/organizations/external_keys/${externalKeyID}/validate`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.validate", options, {
+				route: "/v1/organizations/external_keys/{external_key_id}/validate",
+				attributes: { "anthropic.organization.external_key.id": externalKeyID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/federation/issuers.mjs
+var Issuers$1 = class extends APIResource {
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Register an OIDC issuer that Anthropic will trust for workload identity
+	* federation in your organization.
+	*
+	* The `jwks` field controls how the issuer's signing keys are obtained and takes
+	* one of three shapes selected by `type`: `discovery` (resolve keys through OIDC
+	* discovery), `explicit_url` (fetch keys from a fixed JWKS URL), or `inline`
+	* (provide a static key set). When `jwks.type` is `discovery` and no
+	* `discovery_base` is set, the issuer URL must be publicly reachable over HTTPS so
+	* Anthropic can fetch the discovery document; for `explicit_url` and `inline`
+	* modes the issuer URL is only matched as the JWT's `iss` claim and is not
+	* fetched.
+	*
+	* @example
+	* ```ts
+	* const betaFederationIssuer =
+	*   await client.beta.organization.federation.issuers.create({
+	*     issuer_url: 'x',
+	*     name: 'x',
+	*   });
+	* ```
+	*/
+	create(params, options) {
+		const { betas, ...body } = params;
+		return this._client.post("/v1/organizations/federation_issuers", {
+			body,
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.issuers.create", options, {
+				route: "/v1/organizations/federation_issuers",
+				createdIDAttribute: "anthropic.organization.federation_issuer.id"
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Retrieve a federation issuer by its ID (`fdis_...`).
+	*
+	* @example
+	* ```ts
+	* const betaFederationIssuer =
+	*   await client.beta.organization.federation.issuers.retrieve(
+	*     'federation_issuer_id',
+	*   );
+	* ```
+	*/
+	retrieve(federationIssuerID, params = {}, options) {
+		const { betas } = params ?? {};
+		return this._client.get(path`/v1/organizations/federation_issuers/${federationIssuerID}`, {
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.issuers.retrieve", options, {
+				route: "/v1/organizations/federation_issuers/{federation_issuer_id}",
+				attributes: { "anthropic.organization.federation_issuer.id": federationIssuerID }
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Partially update a federation issuer.
+	*
+	* Setting `jwks` replaces the full JWKS shape at once. Archived issuers cannot be
+	* updated; this returns 400. Create a new issuer instead.
+	*
+	* Updating an issuer that backs a rule with a scope outside `workspace:developer`
+	* or `workspace:inference` requires a Console session.
+	*
+	* @example
+	* ```ts
+	* const betaFederationIssuer =
+	*   await client.beta.organization.federation.issuers.update(
+	*     'federation_issuer_id',
+	*   );
+	* ```
+	*/
+	update(federationIssuerID, params, options) {
+		const { betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/federation_issuers/${federationIssuerID}`, {
+			body,
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.issuers.update", options, {
+				route: "/v1/organizations/federation_issuers/{federation_issuer_id}",
+				attributes: { "anthropic.organization.federation_issuer.id": federationIssuerID }
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* List federation issuers in your organization.
+	*
+	* Archived issuers are excluded unless `include_archived=true`.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaFederationIssuer of client.beta.organization.federation.issuers.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/organizations/federation_issuers", PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.issuers.list", options, {
+				route: "/v1/organizations/federation_issuers",
+				queryParams: [
+					"include_archived",
+					"limit",
+					"page"
+				]
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Archive a federation issuer.
+	*
+	* Idempotent; re-archiving returns the issuer with its original `archived_at`.
+	* Rejected with 400 if any live (non-archived) federation rule still references
+	* the issuer; archive those rules first (a rule's issuer cannot be changed), or
+	* recreate them against another issuer.
+	*
+	* @example
+	* ```ts
+	* const betaFederationIssuer =
+	*   await client.beta.organization.federation.issuers.archive(
+	*     'federation_issuer_id',
+	*   );
+	* ```
+	*/
+	archive(federationIssuerID, params = {}, options) {
+		const { betas } = params ?? {};
+		return this._client.post(path`/v1/organizations/federation_issuers/${federationIssuerID}/archive`, {
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.issuers.archive", options, {
+				route: "/v1/organizations/federation_issuers/{federation_issuer_id}/archive",
+				attributes: { "anthropic.organization.federation_issuer.id": federationIssuerID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/federation/rules/workspaces.mjs
+var Workspaces$6 = class extends APIResource {
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* List workspaces where this federation rule is enabled.
+	*
+	* Returns all workspace enablements in a single response; the `limit` and `page`
+	* parameters are accepted but have no effect, and `next_page` is always `null`.
+	* Returns explicit per-workspace enablements only; for rules with
+	* `applies_to_all_workspaces` or a legacy single `workspace_id`, check those
+	* fields on the rule itself.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaFederationRuleWorkspace of client.beta.organization.federation.rules.workspaces.list(
+	*   'federation_rule_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(federationRuleID, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/organizations/federation_rules/${federationRuleID}/workspaces`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.workspaces.list", options, {
+				route: "/v1/organizations/federation_rules/{federation_rule_id}/workspaces",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.organization.federation_rule.id": federationRuleID }
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Enable a federation rule for a workspace.
+	*
+	* Idempotent; re-enabling returns the existing enablement. The rule and workspace
+	* must both belong to your organization. Membership of the rule's target service
+	* account in this workspace is not checked at enablement: token exchange into this
+	* workspace is rejected unless the target is a member (it is implicitly a member
+	* of the default workspace). Archived rules are rejected with 400. OAuth callers
+	* may only manage rules whose `oauth_scope` is `workspace:developer` or
+	* `workspace:inference`; other scopes require a Console session.
+	*
+	* @example
+	* ```ts
+	* const betaFederationRuleWorkspace =
+	*   await client.beta.organization.federation.rules.workspaces.add(
+	*     'federation_rule_id',
+	*     { workspace_id: 'workspace_id' },
+	*   );
+	* ```
+	*/
+	add(federationRuleID, params, options) {
+		const { betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/federation_rules/${federationRuleID}/workspaces`, {
+			body,
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.workspaces.add", options, {
+				route: "/v1/organizations/federation_rules/{federation_rule_id}/workspaces",
+				attributes: { "anthropic.organization.federation_rule.id": federationRuleID },
+				createdIDAttribute: "anthropic.organization.federation_rule.workspace.id",
+				createdIDField: "workspace_id"
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Disable a federation rule for a workspace.
+	*
+	* Idempotent; succeeds even if the enablement was already removed. OAuth callers
+	* may only manage rules whose `oauth_scope` is `workspace:developer` or
+	* `workspace:inference`; other scopes require a Console session.
+	*
+	* @example
+	* ```ts
+	* const workspace =
+	*   await client.beta.organization.federation.rules.workspaces.remove(
+	*     'workspace_id',
+	*     { federation_rule_id: 'federation_rule_id' },
+	*   );
+	* ```
+	*/
+	remove(workspaceID, params, options) {
+		const { federation_rule_id, betas } = params;
+		return this._client.delete(path`/v1/organizations/federation_rules/${federation_rule_id}/workspaces/${workspaceID}`, {
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.workspaces.remove", options, {
+				route: "/v1/organizations/federation_rules/{federation_rule_id}/workspaces/{workspace_id}",
+				attributes: {
+					"anthropic.organization.federation_rule.id": federation_rule_id,
+					"anthropic.organization.federation_rule.workspace.id": workspaceID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/federation/rules/rules.mjs
+var Rules$1 = /* @__PURE__ */ (() => {
+	class Rules extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.workspaces = new Workspaces$6(this._client);
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Create a federation rule owned by your organization.
+		*
+		* The referenced issuer and the target service account must already exist in the
+		* same organization; invalid references are rejected with a 400 error. The
+		* workspace reference is validated. Membership is not checked at rule creation:
+		* token exchange resolves a single enabled workspace per call and is rejected
+		* unless the target service account is a member of that workspace (it is
+		* implicitly a member of the default workspace). Rules on well-known shared
+		* issuers (GitHub Actions, GitLab, Buildkite, Terraform Cloud, Google) must
+		* constrain tenant identity via an identity-bearing claim, a tenant-pinning
+		* subject prefix (such as `repo:YOUR_ORG/...`), or a CEL condition referencing one
+		* of those identity claims (e.g. `claims.repository_owner`). OAuth callers may
+		* only manage rules whose `oauth_scope` is `workspace:developer` or
+		* `workspace:inference`; other scopes require a Console session.
+		*
+		* @example
+		* ```ts
+		* const betaFederationRule =
+		*   await client.beta.organization.federation.rules.create({
+		*     issuer_id: 'issuer_id',
+		*     match: {},
+		*     name: 'x',
+		*     oauth_scope: 'x',
+		*     target: {
+		*       service_account_id: 'svac_01SDCCSbTxrXDpWc1phhtcfK',
+		*       type: 'service_account',
+		*     },
+		*   });
+		* ```
+		*/
+		create(params, options) {
+			const { betas, ...body } = params;
+			return this._client.post("/v1/organizations/federation_rules", {
+				body,
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.create", options, {
+					route: "/v1/organizations/federation_rules",
+					createdIDAttribute: "anthropic.organization.federation_rule.id"
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Retrieve a federation rule by its ID (`fdrl_...`).
+		*
+		* @example
+		* ```ts
+		* const betaFederationRule =
+		*   await client.beta.organization.federation.rules.retrieve(
+		*     'federation_rule_id',
+		*   );
+		* ```
+		*/
+		retrieve(federationRuleID, params = {}, options) {
+			const { betas } = params ?? {};
+			return this._client.get(path`/v1/organizations/federation_rules/${federationRuleID}`, {
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.retrieve", options, {
+					route: "/v1/organizations/federation_rules/{federation_rule_id}",
+					attributes: { "anthropic.organization.federation_rule.id": federationRuleID }
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Partially update a federation rule.
+		*
+		* `issuer_id` is immutable. `match` and `target` are replaced as whole objects
+		* when set. Referenced service accounts and workspaces must exist in your
+		* organization; invalid references are rejected with a 400 error. Archived rules
+		* cannot be updated; this returns 400. Create a new rule instead. Rules on
+		* well-known shared issuers (GitHub Actions, GitLab, Buildkite, Terraform Cloud,
+		* Google) must constrain tenant identity via an identity-bearing claim, a
+		* tenant-pinning subject prefix (such as `repo:YOUR_ORG/...`), or a CEL condition
+		* referencing one of those identity claims (e.g. `claims.repository_owner`). On
+		* these issuers the requirement is re-checked on every update; if an existing
+		* rule's stored match does not yet constrain tenant identity, any update (even a
+		* rename or description change) must also supply a conforming `match` in the same
+		* request. OAuth callers may only manage rules whose `oauth_scope` is
+		* `workspace:developer` or `workspace:inference`; other scopes require a Console
+		* session.
+		*
+		* @example
+		* ```ts
+		* const betaFederationRule =
+		*   await client.beta.organization.federation.rules.update(
+		*     'federation_rule_id',
+		*   );
+		* ```
+		*/
+		update(federationRuleID, params, options) {
+			const { betas, ...body } = params;
+			return this._client.post(path`/v1/organizations/federation_rules/${federationRuleID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.update", options, {
+					route: "/v1/organizations/federation_rules/{federation_rule_id}",
+					attributes: { "anthropic.organization.federation_rule.id": federationRuleID }
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* List federation rules in your organization.
+		*
+		* Optionally filter by issuer with `issuer_id`. Archived rules are excluded unless
+		* `include_archived=true`.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaFederationRule of client.beta.organization.federation.rules.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/organizations/federation_rules", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.list", options, {
+					route: "/v1/organizations/federation_rules",
+					queryParams: [
+						"include_archived",
+						"issuer_id",
+						"limit",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Archive a federation rule.
+		*
+		* Token exchange through this rule stops immediately. Idempotent; re-archiving
+		* returns the rule with its original `archived_at`. Archiving clears the rule's
+		* workspace targeting (`workspace_id` and `workspace_ids` are emptied). Tokens
+		* already minted before archive remain valid until they expire. OAuth callers may
+		* only manage rules whose `oauth_scope` is `workspace:developer` or
+		* `workspace:inference`; other scopes require a Console session.
+		*
+		* @example
+		* ```ts
+		* const betaFederationRule =
+		*   await client.beta.organization.federation.rules.archive(
+		*     'federation_rule_id',
+		*   );
+		* ```
+		*/
+		archive(federationRuleID, params = {}, options) {
+			const { betas } = params ?? {};
+			return this._client.post(path`/v1/organizations/federation_rules/${federationRuleID}/archive`, {
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.archive", options, {
+					route: "/v1/organizations/federation_rules/{federation_rule_id}/archive",
+					attributes: { "anthropic.organization.federation_rule.id": federationRuleID }
+				})
+			});
+		}
+	}
+	Rules.Workspaces = Workspaces$6;
+	return Rules;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/federation/federation.mjs
+var Federation$1 = /* @__PURE__ */ (() => {
+	class Federation extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.issuers = new Issuers$1(this._client);
+			this.rules = new Rules$1(this._client);
+		}
+	}
+	Federation.Issuers = Issuers$1;
+	Federation.Rules = Rules$1;
+	return Federation;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/invites.mjs
+var Invites$1 = class extends APIResource {
+	/**
+	* Invite a user to join the organization by email.
+	*
+	* On plans that draw members from a finite pool of purchased seats, the invite
+	* automatically consumes a seat from the lowest tier with availability; there is
+	* no seat-tier parameter. When no seat is free the request fails with a 400 error
+	* rather than purchasing a seat.
+	*
+	* @example
+	* ```ts
+	* const betaOrganizationInvite =
+	*   await client.beta.organization.invites.create({
+	*     email: 'user@emaildomain.com',
+	*     role: 'user',
+	*   });
+	* ```
+	*/
+	create(body, options) {
+		return this._client.post("/v1/organizations/invites", {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.invites.create", options, {
+				route: "/v1/organizations/invites",
+				createdIDAttribute: "anthropic.organization.invite.id"
+			})
+		});
+	}
+	/**
+	* Retrieve an invite by ID.
+	*
+	* @example
+	* ```ts
+	* const betaOrganizationInvite =
+	*   await client.beta.organization.invites.retrieve(
+	*     'invite_id',
+	*   );
+	* ```
+	*/
+	retrieve(inviteID, options) {
+		return this._client.get(path`/v1/organizations/invites/${inviteID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.invites.retrieve", options, {
+				route: "/v1/organizations/invites/{invite_id}",
+				attributes: { "anthropic.organization.invite.id": inviteID }
+			})
+		});
+	}
+	/**
+	* List the organization's invites.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaOrganizationInvite of client.beta.organization.invites.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/invites", Page, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.invites.list", options, {
+				route: "/v1/organizations/invites",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"email",
+					"limit",
+					"roles",
+					"statuses"
+				]
+			})
+		});
+	}
+	/**
+	* Delete a pending invite.
+	*
+	* @example
+	* ```ts
+	* const invite =
+	*   await client.beta.organization.invites.delete(
+	*     'invite_id',
+	*   );
+	* ```
+	*/
+	delete(inviteID, options) {
+		return this._client.delete(path`/v1/organizations/invites/${inviteID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.invites.delete", options, {
+				route: "/v1/organizations/invites/{invite_id}",
+				attributes: { "anthropic.organization.invite.id": inviteID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/plugin-marketplaces.mjs
+var PluginMarketplaces = class extends APIResource {
+	/**
+	* Retrieve a plugin marketplace by ID.
+	*
+	* **Accepted credentials:** an Admin API key with the `read:plugins` or
+	* `read:org_audit` scope, or a Compliance Access Key with the
+	* `read:compliance_org_data` scope.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaPluginMarketplace =
+	*   await client.beta.organization.pluginMarketplaces.retrieve(
+	*     'marketplace_id',
+	*   );
+	* ```
+	*/
+	retrieve(marketplaceID, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.get(path`/v1/organizations/plugin_marketplaces/${marketplaceID}`, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugin_marketplaces.retrieve", options, {
+				route: "/v1/organizations/plugin_marketplaces/{marketplace_id}",
+				queryParams: ["organization_id"],
+				attributes: { "anthropic.organization.plugin_marketplace.id": marketplaceID }
+			})
+		});
+	}
+	/**
+	* Set the default installation setting of one of the organization's own plugin
+	* marketplaces. Every Plugin in it without a setting of its own gets this default
+	* as its organization-wide setting, including Plugins added later.
+	*
+	* Pass it as `default_installation_preference`. A member's personal marketplace
+	* cannot be updated here (403).
+	*
+	* **Accepted credentials:** an Admin API key with the `write:plugins` scope.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaPluginMarketplace =
+	*   await client.beta.organization.pluginMarketplaces.update(
+	*     'marketplace_id',
+	*     { default_installation_preference: 'available' },
+	*   );
+	* ```
+	*/
+	update(marketplaceID, params, options) {
+		const { betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/plugin_marketplaces/${marketplaceID}`, {
+			body,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugin_marketplaces.update", options, {
+				route: "/v1/organizations/plugin_marketplaces/{marketplace_id}",
+				attributes: { "anthropic.organization.plugin_marketplace.id": marketplaceID }
+			})
+		});
+	}
+	/**
+	* List the plugin marketplaces Plugins live in, newest first: the organization's
+	* own and its members' personal ones.
+	*
+	* Plugin marketplaces are created, connected to a repository and deleted in
+	* claude.ai, not through this API. The organization's library marketplace, the
+	* organization-owned `manual` marketplace that uploads go to when no marketplace
+	* is named, is created the first time something is put in it and is listed from
+	* then on.
+	*
+	* **Accepted credentials:** an Admin API key with the `read:plugins` or
+	* `read:org_audit` scope, or a Compliance Access Key with the
+	* `read:compliance_org_data` scope.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaPluginMarketplace of client.beta.organization.pluginMarketplaces.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/organizations/plugin_marketplaces", PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugin_marketplaces.list", options, {
+				route: "/v1/organizations/plugin_marketplaces",
+				queryParams: [
+					"limit",
+					"organization_id",
+					"owner_type",
+					"page",
+					"source"
+				]
+			})
+		});
+	}
+	/**
+	* Check whether a plugin marketplace, uploaded as a `.zip` of the marketplace
+	* directory, would synchronize into claude.ai, without connecting or storing it.
+	*
+	* To check a public GitHub repository instead, use Validate Plugin Marketplace
+	* Repository.
+	*
+	* The report says whether `marketplace.json` is well-formed, which plugins a
+	* synchronization would skip and why, and which plugins would synchronize only in
+	* part, with some files left out. An archive that cannot be read as a marketplace
+	* is reported, not refused: the response is a report with `valid: false`. Plugin
+	* sources outside the marketplace are fetched anonymously from GitHub, so a
+	* private one is reported as not found or as needing a GitHub sign-in; a source on
+	* any other host is not fetched here, and the report notes that it will be checked
+	* when the marketplace actually synchronizes.
+	*
+	* Nothing is recorded on the Compliance API activity feed.
+	*
+	* For a worked example, see
+	* [Validate marketplace content](/docs/en/manage-claude/plugins-api#validate-marketplace-content)
+	* in the Plugins API guide.
+	*
+	* **Accepted credentials:** an Admin API key with the `read:plugins` or
+	* `write:plugins` scope; `read:org_audit` and `read:compliance_org_data` do not
+	* grant it.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaPluginMarketplaceValidationReport =
+	*   await client.beta.organization.pluginMarketplaces.validateArchive(
+	*     { archive: fs.createReadStream('path/to/file') },
+	*   );
+	* ```
+	*/
+	validateArchive(params, options) {
+		const { betas, ...body } = params;
+		return this._client.post("/v1/organizations/plugin_marketplaces/validate_archive", multipartFormRequestOptions({
+			body,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugin_marketplaces.validate_archive", options, { route: "/v1/organizations/plugin_marketplaces/validate_archive" })
+		}, this._client));
+	}
+	/**
+	* Check whether a plugin marketplace held in a public GitHub repository would
+	* synchronize into claude.ai, without connecting or storing it.
+	*
+	* To check a `.zip` of the marketplace directory instead, use Validate Plugin
+	* Marketplace Archive.
+	*
+	* The report says whether `marketplace.json` is well-formed, which plugins a
+	* synchronization would skip and why, and which plugins would synchronize only in
+	* part, with some files left out. A repository that is missing, private, or has no
+	* such branch or commit is reported, not refused: the response is a report with
+	* `valid: false`. Plugin sources outside the marketplace are fetched anonymously
+	* from GitHub, so a private one is reported as not found or as needing a GitHub
+	* sign-in; a source on any other host is not fetched here, and the report notes
+	* that it will be checked when the marketplace actually synchronizes.
+	*
+	* Nothing is recorded on the Compliance API activity feed.
+	*
+	* For a worked example, see
+	* [Validate marketplace content](/docs/en/manage-claude/plugins-api#validate-marketplace-content)
+	* in the Plugins API guide.
+	*
+	* **Accepted credentials:** an Admin API key with the `read:plugins` or
+	* `write:plugins` scope; `read:org_audit` and `read:compliance_org_data` do not
+	* grant it.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaPluginMarketplaceValidationReport =
+	*   await client.beta.organization.pluginMarketplaces.validateRepository(
+	*     {
+	*       repository_url:
+	*         'https://github.com/example-org/example-marketplace',
+	*     },
+	*   );
+	* ```
+	*/
+	validateRepository(params, options) {
+		const { betas, ...body } = params;
+		return this._client.post("/v1/organizations/plugin_marketplaces/validate_repository", {
+			body,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugin_marketplaces.validate_repository", options, { route: "/v1/organizations/plugin_marketplaces/validate_repository" })
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/rate-limits.mjs
+var RateLimits$3 = class extends APIResource {
+	/**
+	* List Messages API rate limits for your organization.
+	*
+	* Each entry corresponds to one rate-limit group (either a model family or an
+	* API-surface category such as the Message Batches API or the web search tool) and
+	* contains the set of limiter values that apply to it.
+	*
+	* When `limit` is omitted, every matching entry is returned in a single page; when
+	* `limit` truncates the result, follow `next_page` to fetch the remaining entries.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaOrganizationRateLimit of client.beta.organization.rateLimits.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/rate_limits", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.rate_limits.list", options, {
+				route: "/v1/organizations/rate_limits",
+				queryParams: [
+					"group_type",
+					"limit",
+					"model",
+					"page"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/users.mjs
+var Users$1 = class extends APIResource {
+	/**
+	* Retrieve a member of the organization by user ID.
+	*
+	* @example
+	* ```ts
+	* const betaOrganizationUser =
+	*   await client.beta.organization.users.retrieve('user_id');
+	* ```
+	*/
+	retrieve(userID, options) {
+		return this._client.get(path`/v1/organizations/users/${userID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.users.retrieve", options, {
+				route: "/v1/organizations/users/{user_id}",
+				attributes: { "anthropic.organization.user.id": userID }
+			})
+		});
+	}
+	/**
+	* Update a member's organization role.
+	*
+	* @example
+	* ```ts
+	* const betaOrganizationUser =
+	*   await client.beta.organization.users.update('user_id', {
+	*     role: 'user',
+	*   });
+	* ```
+	*/
+	update(userID, body, options) {
+		return this._client.post(path`/v1/organizations/users/${userID}`, {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.users.update", options, {
+				route: "/v1/organizations/users/{user_id}",
+				attributes: { "anthropic.organization.user.id": userID }
+			})
+		});
+	}
+	/**
+	* List the organization's members.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaOrganizationUser of client.beta.organization.users.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/users", Page, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.users.list", options, {
+				route: "/v1/organizations/users",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"email",
+					"limit",
+					"roles"
+				]
+			})
+		});
+	}
+	/**
+	* Remove a member from the organization.
+	*
+	* @example
+	* ```ts
+	* const user = await client.beta.organization.users.remove(
+	*   'user_id',
+	* );
+	* ```
+	*/
+	remove(userID, options) {
+		return this._client.delete(path`/v1/organizations/users/${userID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.users.remove", options, {
+				route: "/v1/organizations/users/{user_id}",
+				attributes: { "anthropic.organization.user.id": userID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/webhooks.mjs
+var Webhooks = class extends APIResource {
+	/**
+	* Create an organization webhook endpoint.
+	*
+	* An organization webhook endpoint belongs to the organization rather than to one
+	* of its workspaces. An organization can have at most 32 organization webhook
+	* endpoints, enabled or disabled.
+	*
+	* The response includes the endpoint's signing secret. No read returns it, so
+	* store it when you receive it.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: webhooks-2026-10-07`. A request without it returns `404`,
+	* exactly as if this API did not exist. Anthropic turns organization webhook
+	* endpoints on for each organization; until yours is on, requests also return
+	* `404`. Organization webhook endpoints are in beta and are not available to
+	* organizations with HIPAA readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaNewOrganizationWebhookEndpoint =
+	*   await client.beta.organization.webhooks.create({
+	*     enabled_events: [
+	*       'user_profile.enforcement_action_opened',
+	*     ],
+	*     url: 'x',
+	*   });
+	* ```
+	*/
+	create(params, options) {
+		const { betas, ...body } = params;
+		return this._client.post("/v1/organizations/webhooks", {
+			body,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "webhooks-2026-10-07"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.webhooks.create", options, {
+				route: "/v1/organizations/webhooks",
+				createdIDAttribute: "anthropic.organization.webhook.id"
+			})
+		});
+	}
+	/**
+	* Retrieve an organization webhook endpoint by ID.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: webhooks-2026-10-07`. A request without it returns `404`,
+	* exactly as if this API did not exist. Anthropic turns organization webhook
+	* endpoints on for each organization; until yours is on, requests also return
+	* `404`. Organization webhook endpoints are in beta and are not available to
+	* organizations with HIPAA readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaOrganizationWebhookEndpoint =
+	*   await client.beta.organization.webhooks.retrieve(
+	*     'webhook_endpoint_id',
+	*   );
+	* ```
+	*/
+	retrieve(webhookEndpointID, params = {}, options) {
+		const { betas } = params ?? {};
+		return this._client.get(path`/v1/organizations/webhooks/${webhookEndpointID}`, {
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "webhooks-2026-10-07"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.webhooks.retrieve", options, {
+				route: "/v1/organizations/webhooks/{webhook_endpoint_id}",
+				attributes: { "anthropic.organization.webhook.id": webhookEndpointID }
+			})
+		});
+	}
+	/**
+	* Update an organization webhook endpoint. Only the fields you send are changed.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: webhooks-2026-10-07`. A request without it returns `404`,
+	* exactly as if this API did not exist. Anthropic turns organization webhook
+	* endpoints on for each organization; until yours is on, requests also return
+	* `404`. Organization webhook endpoints are in beta and are not available to
+	* organizations with HIPAA readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaOrganizationWebhookEndpoint =
+	*   await client.beta.organization.webhooks.update(
+	*     'webhook_endpoint_id',
+	*   );
+	* ```
+	*/
+	update(webhookEndpointID, params, options) {
+		const { betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/webhooks/${webhookEndpointID}`, {
+			body,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "webhooks-2026-10-07"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.webhooks.update", options, {
+				route: "/v1/organizations/webhooks/{webhook_endpoint_id}",
+				attributes: { "anthropic.organization.webhook.id": webhookEndpointID }
+			})
+		});
+	}
+	/**
+	* List the organization's webhook endpoints.
+	*
+	* An organization webhook endpoint belongs to the organization rather than to one
+	* of its workspaces. The list does not include webhook endpoints that belong to a
+	* workspace.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: webhooks-2026-10-07`. A request without it returns `404`,
+	* exactly as if this API did not exist. Anthropic turns organization webhook
+	* endpoints on for each organization; until yours is on, requests also return
+	* `404`. Organization webhook endpoints are in beta and are not available to
+	* organizations with HIPAA readiness enabled.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaOrganizationWebhookEndpoint of client.beta.organization.webhooks.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/organizations/webhooks", Page, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "webhooks-2026-10-07"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.webhooks.list", options, {
+				route: "/v1/organizations/webhooks",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"limit",
+					"order"
+				]
+			})
+		});
+	}
+	/**
+	* Delete an organization webhook endpoint.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: webhooks-2026-10-07`. A request without it returns `404`,
+	* exactly as if this API did not exist. Anthropic turns organization webhook
+	* endpoints on for each organization; until yours is on, requests also return
+	* `404`. Organization webhook endpoints are in beta and are not available to
+	* organizations with HIPAA readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaDeletedOrganizationWebhookEndpoint =
+	*   await client.beta.organization.webhooks.delete(
+	*     'webhook_endpoint_id',
+	*   );
+	* ```
+	*/
+	delete(webhookEndpointID, params = {}, options) {
+		const { betas } = params ?? {};
+		return this._client.delete(path`/v1/organizations/webhooks/${webhookEndpointID}`, {
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "webhooks-2026-10-07"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.webhooks.delete", options, {
+				route: "/v1/organizations/webhooks/{webhook_endpoint_id}",
+				attributes: { "anthropic.organization.webhook.id": webhookEndpointID }
+			})
+		});
+	}
+	/**
+	* Replace an organization webhook endpoint's signing secret. The old secret stops
+	* working immediately. The new secret is returned only in this response.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: webhooks-2026-10-07`. A request without it returns `404`,
+	* exactly as if this API did not exist. Anthropic turns organization webhook
+	* endpoints on for each organization; until yours is on, requests also return
+	* `404`. Organization webhook endpoints are in beta and are not available to
+	* organizations with HIPAA readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaOrganizationWebhookEndpointSigningSecret =
+	*   await client.beta.organization.webhooks.regenerateSigningSecret(
+	*     'webhook_endpoint_id',
+	*   );
+	* ```
+	*/
+	regenerateSigningSecret(webhookEndpointID, params = {}, options) {
+		const { betas } = params ?? {};
+		return this._client.post(path`/v1/organizations/webhooks/${webhookEndpointID}/regenerate_signing_secret`, {
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "webhooks-2026-10-07"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.webhooks.regenerate_signing_secret", options, {
+				route: "/v1/organizations/webhooks/{webhook_endpoint_id}/regenerate_signing_secret",
+				attributes: { "anthropic.organization.webhook.id": webhookEndpointID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/plugins/installation-settings.mjs
+var InstallationSettings = class extends APIResource {
+	/**
+	* List an organization-owned Plugin's installation settings, which say which
+	* members it is for, most recently created first.
+	*
+	* The list holds the Plugin's own organization-wide setting (absent while the
+	* Plugin inherits its marketplace's default) and each RBAC Group's own setting. A
+	* member-owned Plugin has shares instead, so this path returns 404 for one.
+	*
+	* **Accepted credentials:** an Admin API key with the `read:plugins` or
+	* `read:org_audit` scope, or a Compliance Access Key with the
+	* `read:compliance_org_data` scope.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaPluginInstallationSetting of client.beta.organization.plugins.installationSettings.list(
+	*   'plugin_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(pluginID, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/organizations/plugins/${pluginID}/installation_settings`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugins.installation_settings.list", options, {
+				route: "/v1/organizations/plugins/{plugin_id}/installation_settings",
+				queryParams: [
+					"limit",
+					"organization_id",
+					"page",
+					"target_type"
+				],
+				attributes: { "anthropic.organization.plugin.id": pluginID }
+			})
+		});
+	}
+	/**
+	* Remove an organization-owned Plugin's own installation setting for the whole
+	* organization or for one RBAC Group.
+	*
+	* Removing the `organization` target returns the Plugin to its marketplace's
+	* default installation setting and leaves the groups' settings in place. Removing
+	* a group's setting makes the group's members fall back to the Plugin's
+	* organization-wide setting or to the settings of their other groups.
+	*
+	* A target that holds no setting of its own returns 404 (a Plugin that already
+	* inherits its marketplace's default holds no `organization` setting), and so does
+	* a member-owned Plugin.
+	*
+	* A removal counts as one of the Plugin's installation-setting writes: send all of
+	* those writes one at a time. If several arrive for the same Plugin at the same
+	* time, the server handles them one after another and can answer some of them with
+	* `503` and `x-should-retry: true` instead of applying them; wait a second or two
+	* and send the removal again. A `404` on the repeat means the setting is already
+	* gone.
+	*
+	* **Accepted credentials:** an Admin API key with the `write:plugins` scope.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaDeletedPluginInstallationSetting =
+	*   await client.beta.organization.plugins.installationSettings.remove(
+	*     'target',
+	*     { plugin_id: 'plugin_id' },
+	*   );
+	* ```
+	*/
+	remove(target, params, options) {
+		const { plugin_id, betas } = params;
+		return this._client.delete(path`/v1/organizations/plugins/${plugin_id}/installation_settings/${target}`, {
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugins.installation_settings.remove", options, {
+				route: "/v1/organizations/plugins/{plugin_id}/installation_settings/{target}",
+				attributes: {
+					"anthropic.organization.plugin.id": plugin_id,
+					"anthropic.organization.plugin.installation_setting.id": target
+				}
+			})
+		});
+	}
+	/**
+	* Set or change an organization-owned Plugin's installation setting for the whole
+	* organization or for one RBAC Group.
+	*
+	* Writing the value a target already holds of its own changes nothing.
+	*
+	* A member-owned Plugin has shares instead of installation settings, so this path
+	* returns 404 for one.
+	*
+	* Send a Plugin's installation-setting writes one at a time. If several writes for
+	* the same Plugin arrive at the same time, the server handles them one after
+	* another and can answer some of them with `503` instead of applying them. That
+	* `503` carries `x-should-retry: true`, and the write is safe to repeat: wait a
+	* second or two, then send it again.
+	*
+	* **Accepted credentials:** an Admin API key with the `write:plugins` scope.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaPluginInstallationSetting =
+	*   await client.beta.organization.plugins.installationSettings.set(
+	*     'target',
+	*     {
+	*       plugin_id: 'plugin_id',
+	*       installation_preference: 'required',
+	*     },
+	*   );
+	* ```
+	*/
+	set(target, params, options) {
+		const { plugin_id, betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/plugins/${plugin_id}/installation_settings/${target}`, {
+			body,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugins.installation_settings.set", options, {
+				route: "/v1/organizations/plugins/{plugin_id}/installation_settings/{target}",
+				attributes: {
+					"anthropic.organization.plugin.id": plugin_id,
+					"anthropic.organization.plugin.installation_setting.id": target
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/plugins/shares.mjs
+var Shares = class extends APIResource {
+	/**
+	* List the shares the owner of a member-owned Plugin has given — to every member
+	* of the organization, to an RBAC Group, or to one member — most recently granted
+	* first.
+	*
+	* Shares are read-only in this API: members give and withdraw them in claude.ai,
+	* and who gave a share is recorded on the Compliance API activity feed rather than
+	* on the share. An organization-owned Plugin has installation settings instead, so
+	* this path returns 404 for one.
+	*
+	* **Accepted credentials:** an Admin API key with the `read:plugins` or
+	* `read:org_audit` scope, or a Compliance Access Key with the
+	* `read:compliance_org_data` scope.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaPluginShare of client.beta.organization.plugins.shares.list(
+	*   'plugin_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(pluginID, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/organizations/plugins/${pluginID}/shares`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugins.shares.list", options, {
+				route: "/v1/organizations/plugins/{plugin_id}/shares",
+				queryParams: [
+					"limit",
+					"organization_id",
+					"page",
+					"target_type"
+				],
+				attributes: { "anthropic.organization.plugin.id": pluginID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/plugins/versions.mjs
+var Versions$2 = class extends APIResource {
+	/**
+	* Add a version to an organization-owned Plugin by uploading the new version's
+	* files; it becomes the version served to members unless the Plugin's served
+	* version has been pinned.
+	*
+	* The upload is the same `multipart/form-data` as creating a Plugin: the version's
+	* files (`files`, each part sent as `files[]`) and optional `release_notes`. The
+	* uploaded manifest's `name` must equal the Plugin's `name`. Returns the stored
+	* version; read the Plugin back to see which version it serves.
+	*
+	* Only a Plugin in a `manual` marketplace takes uploads; a Plugin synchronized
+	* from a repository gets its versions from the repository. When the Plugin is in
+	* the organization's library marketplace, a version that adds a skill with the
+	* name of an organization skill (a skill an administrator uploaded for the whole
+	* organization in claude.ai) is refused with a 409: `error_code`
+	* `skill_name_taken`, with that name in `details.skill_name`. A 503 with
+	* `error_code` `registration_pending` means the version was stored but is not yet
+	* usable; a later version create on the Plugin completes it.
+	*
+	* For a worked example, see
+	* [Create a version](/docs/en/manage-claude/plugins-api#create-a-version) in the
+	* Plugins API guide.
+	*
+	* **Accepted credentials:** an Admin API key with the `write:plugins` scope.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaPluginVersion =
+	*   await client.beta.organization.plugins.versions.create(
+	*     'plugin_id',
+	*     { files: [fs.createReadStream('path/to/file')] },
+	*   );
+	* ```
+	*/
+	create(pluginID, params, options) {
+		const { betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/plugins/${pluginID}/versions`, multipartFormRequestOptions({
+			body,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugins.versions.create", options, {
+				route: "/v1/organizations/plugins/{plugin_id}/versions",
+				attributes: { "anthropic.organization.plugin.id": pluginID },
+				createdIDAttribute: "anthropic.organization.plugin.version.id"
+			})
+		}, this._client));
+	}
+	/**
+	* Retrieve one version of a Plugin by its ID, or the Plugin's newest version.
+	*
+	* **Accepted credentials:** an Admin API key with the `read:plugins` or
+	* `read:org_audit` scope, or a Compliance Access Key with the
+	* `read:compliance_org_data` scope.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const betaPluginVersion =
+	*   await client.beta.organization.plugins.versions.retrieve(
+	*     'version',
+	*     { plugin_id: 'plugin_id' },
+	*   );
+	* ```
+	*/
+	retrieve(version, params, options) {
+		const { plugin_id, betas, ...query } = params;
+		return this._client.get(path`/v1/organizations/plugins/${plugin_id}/versions/${version}`, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugins.versions.retrieve", options, {
+				route: "/v1/organizations/plugins/{plugin_id}/versions/{version}",
+				queryParams: ["organization_id"],
+				attributes: {
+					"anthropic.organization.plugin.id": plugin_id,
+					"anthropic.organization.plugin.version.id": version
+				}
+			})
+		});
+	}
+	/**
+	* List a Plugin's versions, newest first.
+	*
+	* The first item of the first page is the version the Plugin's `latest_version_id`
+	* refers to.
+	*
+	* **Accepted credentials:** an Admin API key with the `read:plugins` or
+	* `read:org_audit` scope, or a Compliance Access Key with the
+	* `read:compliance_org_data` scope.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaPluginVersion of client.beta.organization.plugins.versions.list(
+	*   'plugin_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(pluginID, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/organizations/plugins/${pluginID}/versions`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugins.versions.list", options, {
+				route: "/v1/organizations/plugins/{plugin_id}/versions",
+				queryParams: [
+					"limit",
+					"organization_id",
+					"page"
+				],
+				attributes: { "anthropic.organization.plugin.id": pluginID }
+			})
+		});
+	}
+	/**
+	* Download one version's `.zip` archive, exactly as stored. Each download of a
+	* Plugin from a member's personal plugin marketplace is recorded on the Compliance
+	* API activity feed.
+	*
+	* The response body is the archive (`Content-Type: application/zip`), sent as an
+	* attachment whose filename is derived from the Plugin's name; name saved files
+	* from the IDs in the request path, since that filename is not unique.
+	*
+	* **Accepted credentials:** an Admin API key with the `read:plugins` or
+	* `read:org_audit` scope, or a Compliance Access Key with the
+	* `read:compliance_org_data` scope.
+	*
+	* Every read scope above (`read:plugins`, `read:org_audit`, and
+	* `read:compliance_org_data`) can download the files of plugins in members'
+	* personal marketplaces, including files that claude.ai's admin settings do not
+	* show, and a `read:org_audit` or `read:compliance_org_data` key created for all
+	* of your parent organization's linked organizations can do this in any
+	* organization under it that has access to this API, by passing `organization_id`.
+	* Each such download records a `claude_plugin_archive_accessed` event on the
+	* Compliance API activity feed, identifying the key, the plugin, the version, and
+	* the member. Downloads of organization-owned plugins are not recorded.
+	*
+	* Every request must include the beta header
+	* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+	* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+	* available to Claude Enterprise organizations only. It is not available to Claude
+	* Platform (Claude Console) organizations, or to organizations with HIPAA
+	* readiness enabled.
+	*
+	* @example
+	* ```ts
+	* const response =
+	*   await client.beta.organization.plugins.versions.download(
+	*     'version',
+	*     { plugin_id: 'plugin_id' },
+	*   );
+	*
+	* const content = await response.blob();
+	* console.log(content);
+	* ```
+	*/
+	download(version, params, options) {
+		const { plugin_id, betas, ...query } = params;
+		return this._client.get(path`/v1/organizations/plugins/${plugin_id}/versions/${version}/content`, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString(),
+				Accept: "application/binary"
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__binaryResponse: true,
+			__span: startApiCallSpan(this._client, "anthropic.organization.plugins.versions.download", options, {
+				route: "/v1/organizations/plugins/{plugin_id}/versions/{version}/content",
+				queryParams: ["organization_id"],
+				attributes: {
+					"anthropic.organization.plugin.id": plugin_id,
+					"anthropic.organization.plugin.version.id": version
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/plugins/plugins.mjs
+var Plugins = /* @__PURE__ */ (() => {
+	class Plugins extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.versions = new Versions$2(this._client);
+			this.installationSettings = new InstallationSettings(this._client);
+			this.shares = new Shares(this._client);
+		}
+		/**
+		* Create an organization-owned Plugin and its first version by uploading the
+		* version's files.
+		*
+		* The upload is `multipart/form-data`: the version's files (`files`, each part
+		* sent as `files[]`), with an optional `marketplace_id` and `release_notes`. The
+		* manifest's `name` becomes the Plugin's `name`, and `display_name`, `description`
+		* and `manifest_version` come from the manifest too.
+		*
+		* `name` may contain lowercase letters (from any alphabet), digits, and hyphens,
+		* up to 64 characters. Uppercase letters, spaces, underscores, and other
+		* punctuation are rejected.
+		*
+		* The `name` must be unique within the marketplace: a name already taken returns a
+		* 409 with `error_code` `plugin_name_taken` and, when a Plugin holds it, that
+		* Plugin's ID in `details.plugin_id`. A Plugin going into the organization's
+		* library marketplace is also refused with a 409 when one of its skills has the
+		* name of an organization skill (a skill an administrator uploaded for the whole
+		* organization in claude.ai): `error_code` `skill_name_taken`, with that name in
+		* `details.skill_name`; rename the skill, or remove the organization skill in
+		* claude.ai. A 503 with `error_code` `registration_pending` means the Plugin and
+		* its version were stored (their IDs are in `details`) but are not yet usable in
+		* claude.ai: do not retry the create (the retry would return `plugin_name_taken`);
+		* create a version on the stored Plugin instead, which completes it.
+		*
+		* For a worked example, see
+		* [Create a plugin](/docs/en/manage-claude/plugins-api#create-a-plugin) in the
+		* Plugins API guide.
+		*
+		* **Accepted credentials:** an Admin API key with the `write:plugins` scope.
+		*
+		* Every request must include the beta header
+		* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+		* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+		* available to Claude Enterprise organizations only. It is not available to Claude
+		* Platform (Claude Console) organizations, or to organizations with HIPAA
+		* readiness enabled.
+		*
+		* @example
+		* ```ts
+		* const betaPlugin =
+		*   await client.beta.organization.plugins.create({
+		*     files: [fs.createReadStream('path/to/file')],
+		*   });
+		* ```
+		*/
+		create(params, options) {
+			const { betas, ...body } = params;
+			return this._client.post("/v1/organizations/plugins", multipartFormRequestOptions({
+				body,
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.plugins.create", options, {
+					route: "/v1/organizations/plugins",
+					createdIDAttribute: "anthropic.organization.plugin.id"
+				})
+			}, this._client));
+		}
+		/**
+		* Retrieve a Plugin by ID.
+		*
+		* **Accepted credentials:** an Admin API key with the `read:plugins` or
+		* `read:org_audit` scope, or a Compliance Access Key with the
+		* `read:compliance_org_data` scope.
+		*
+		* Every request must include the beta header
+		* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+		* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+		* available to Claude Enterprise organizations only. It is not available to Claude
+		* Platform (Claude Console) organizations, or to organizations with HIPAA
+		* readiness enabled.
+		*
+		* @example
+		* ```ts
+		* const betaPlugin =
+		*   await client.beta.organization.plugins.retrieve(
+		*     'plugin_id',
+		*   );
+		* ```
+		*/
+		retrieve(pluginID, params = {}, options) {
+			const { betas, ...query } = params ?? {};
+			return this._client.get(path`/v1/organizations/plugins/${pluginID}`, {
+				query,
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.plugins.retrieve", options, {
+					route: "/v1/organizations/plugins/{plugin_id}",
+					queryParams: ["organization_id"],
+					attributes: { "anthropic.organization.plugin.id": pluginID }
+				})
+			});
+		}
+		/**
+		* Change which stored version of an organization-owned Plugin is served to
+		* members, for example to roll back to an earlier one. This pins the served
+		* version: later uploads are stored but no longer change what is served, and
+		* pinning cannot currently be undone, here or in claude.ai.
+		*
+		* Pass the version as `served_version_id`: an earlier one to roll back, a later
+		* one to start serving a version that was stored without being served, or the one
+		* already served to pin it without changing what is served. No new version is
+		* created.
+		*
+		* When the organization has content scanning enabled, a version whose
+		* `content_scan.status` is `processing` is refused with a 409 (`error_code`
+		* `scan_pending`; retry once the scan finishes). A version whose
+		* `content_scan.status` is `errored`, or whose `content_scan.assessment` is `fail`
+		* or `unknown`, is refused with a 400 (`error_code` `scan_failed`); a `warn` is
+		* accepted. If the scan outcome cannot be read at that moment, the request fails
+		* with a retryable 503 instead. When the Plugin is in the organization's library
+		* marketplace, a version other than the one served is also refused with a 409 when
+		* one of its skills has a name that an organization skill (one an administrator
+		* uploaded for the whole organization in claude.ai) has since taken: `error_code`
+		* `skill_name_taken`, with that name in `details.skill_name`. A member-owned
+		* Plugin cannot be updated here (403).
+		*
+		* This endpoint does not write installation settings; they are written at
+		* `/v1/organizations/plugins/{plugin_id}/installation_settings/{target}`.
+		*
+		* **Accepted credentials:** an Admin API key with the `write:plugins` scope.
+		*
+		* Every request must include the beta header
+		* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+		* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+		* available to Claude Enterprise organizations only. It is not available to Claude
+		* Platform (Claude Console) organizations, or to organizations with HIPAA
+		* readiness enabled.
+		*
+		* @example
+		* ```ts
+		* const betaPlugin =
+		*   await client.beta.organization.plugins.update(
+		*     'plugin_id',
+		*     {
+		*       served_version_id:
+		*         'pluginver_01KaZmQpRsTuVwXyZ2b4c6d8',
+		*     },
+		*   );
+		* ```
+		*/
+		update(pluginID, params, options) {
+			const { betas, ...body } = params;
+			return this._client.post(path`/v1/organizations/plugins/${pluginID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.plugins.update", options, {
+					route: "/v1/organizations/plugins/{plugin_id}",
+					attributes: { "anthropic.organization.plugin.id": pluginID }
+				})
+			});
+		}
+		/**
+		* List the Plugins created under the organization, newest first: those in the
+		* organization's own plugin marketplaces and those in members' personal plugin
+		* marketplaces.
+		*
+		* Plugins in members' personal marketplaces are listed with the same detail as the
+		* organization's own, and their files can be downloaded through the version
+		* archive endpoint, which records each such download on the Compliance API
+		* activity feed.
+		*
+		* **Accepted credentials:** an Admin API key with the `read:plugins` or
+		* `read:org_audit` scope, or a Compliance Access Key with the
+		* `read:compliance_org_data` scope.
+		*
+		* Every request must include the beta header
+		* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+		* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+		* available to Claude Enterprise organizations only. It is not available to Claude
+		* Platform (Claude Console) organizations, or to organizations with HIPAA
+		* readiness enabled.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaPlugin of client.beta.organization.plugins.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/organizations/plugins", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.plugins.list", options, {
+					route: "/v1/organizations/plugins",
+					queryParams: [
+						"created_at[gt]",
+						"created_at[gte]",
+						"created_at[lt]",
+						"created_at[lte]",
+						"limit",
+						"marketplace_id",
+						"organization_id",
+						"owner_type",
+						"owner_user_id",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* Permanently delete a Plugin and every version it holds, exactly as when an
+		* administrator deletes it in claude.ai. The Plugin may belong to the organization
+		* or to a member, including a member who has since left the organization.
+		*
+		* An organization-owned Plugin's installation settings go with it; a member-owned
+		* Plugin's shares are withdrawn and its owner no longer has it.
+		*
+		* To take an organization-owned Plugin out of use reversibly, set its
+		* organization-wide installation setting to `not_available` instead (and remove or
+		* change any group settings, which override it for their members). Only a Plugin
+		* in a `manual` marketplace can be deleted here; one synchronized from a
+		* repository is removed by removing it from the repository (400).
+		*
+		* **Accepted credentials:** an Admin API key with the `write:plugins` scope.
+		*
+		* Every request must include the beta header
+		* `anthropic-beta: ce-plugins-2026-09-01`. A request without it returns `404`,
+		* exactly as if the endpoint did not exist. The Plugins API is in beta and is
+		* available to Claude Enterprise organizations only. It is not available to Claude
+		* Platform (Claude Console) organizations, or to organizations with HIPAA
+		* readiness enabled.
+		*
+		* @example
+		* ```ts
+		* const betaDeletedPlugin =
+		*   await client.beta.organization.plugins.delete(
+		*     'plugin_id',
+		*   );
+		* ```
+		*/
+		delete(pluginID, params = {}, options) {
+			const { betas } = params ?? {};
+			return this._client.delete(path`/v1/organizations/plugins/${pluginID}`, {
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "ce-plugins-2026-09-01"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.plugins.delete", options, {
+					route: "/v1/organizations/plugins/{plugin_id}",
+					attributes: { "anthropic.organization.plugin.id": pluginID }
+				})
+			});
+		}
+	}
+	Plugins.Versions = Versions$2;
+	Plugins.InstallationSettings = InstallationSettings;
+	Plugins.Shares = Shares;
+	return Plugins;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/rbac-groups/members.mjs
+var Members$2 = class extends APIResource {
+	/**
+	* List members of an RBAC Group.
+	*
+	* The RBAC Groups API is available to Claude Enterprise organizations only.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaRBACGroupMember of client.beta.organization.rbacGroups.members.list(
+	*   'rbac_group_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(rbacGroupID, query = {}, options) {
+		return this._client.getAPIList(path`/v1/organizations/rbac_groups/${rbacGroupID}/members`, PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.rbac_groups.members.list", options, {
+				route: "/v1/organizations/rbac_groups/{rbac_group_id}/members",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.organization.rbac_group.id": rbacGroupID }
+			})
+		});
+	}
+	/**
+	* Add a User to an RBAC Group. Membership of groups provisioned by an identity
+	* provider (source type `"scim"`) cannot be modified via the API while an
+	* organization in the tenant uses SCIM provisioning.
+	*
+	* The RBAC Groups API is available to Claude Enterprise organizations only.
+	*
+	* @example
+	* ```ts
+	* const betaRBACGroupMember =
+	*   await client.beta.organization.rbacGroups.members.add(
+	*     'rbac_group_id',
+	*     { user_id: 'user_01WCz1FkmYMm4gnmykNKUu3Q' },
+	*   );
+	* ```
+	*/
+	add(rbacGroupID, body, options) {
+		return this._client.post(path`/v1/organizations/rbac_groups/${rbacGroupID}/members`, {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.rbac_groups.members.add", options, {
+				route: "/v1/organizations/rbac_groups/{rbac_group_id}/members",
+				attributes: { "anthropic.organization.rbac_group.id": rbacGroupID },
+				createdIDAttribute: "anthropic.organization.rbac_group.member.id",
+				createdIDField: "user_id"
+			})
+		});
+	}
+	/**
+	* Remove a User from an RBAC Group. Membership of groups provisioned by an
+	* identity provider (source type `"scim"`) cannot be modified via the API while an
+	* organization in the tenant uses SCIM provisioning.
+	*
+	* The RBAC Groups API is available to Claude Enterprise organizations only.
+	*
+	* @example
+	* ```ts
+	* const member =
+	*   await client.beta.organization.rbacGroups.members.remove(
+	*     'user_id',
+	*     { rbac_group_id: 'rbac_group_id' },
+	*   );
+	* ```
+	*/
+	remove(userID, params, options) {
+		const { rbac_group_id } = params;
+		return this._client.delete(path`/v1/organizations/rbac_groups/${rbac_group_id}/members/${userID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.rbac_groups.members.remove", options, {
+				route: "/v1/organizations/rbac_groups/{rbac_group_id}/members/{user_id}",
+				attributes: {
+					"anthropic.organization.rbac_group.id": rbac_group_id,
+					"anthropic.organization.rbac_group.member.id": userID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/rbac-groups/rbac-groups.mjs
+var RBACGroups = /* @__PURE__ */ (() => {
+	class RBACGroups extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.members = new Members$2(this._client);
+		}
+		/**
+		* Create an RBAC Group in the Claude Enterprise tenant. Groups created via the API
+		* have source type `"direct"`.
+		*
+		* The RBAC Groups API is available to Claude Enterprise organizations only.
+		*
+		* @example
+		* ```ts
+		* const betaRBACGroup =
+		*   await client.beta.organization.rbacGroups.create({
+		*     name: 'Engineering',
+		*   });
+		* ```
+		*/
+		create(body, options) {
+			return this._client.post("/v1/organizations/rbac_groups", {
+				body,
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.rbac_groups.create", options, {
+					route: "/v1/organizations/rbac_groups",
+					createdIDAttribute: "anthropic.organization.rbac_group.id"
+				})
+			});
+		}
+		/**
+		* Retrieve an RBAC Group by ID.
+		*
+		* The RBAC Groups API is available to Claude Enterprise organizations only.
+		*
+		* @example
+		* ```ts
+		* const betaRBACGroup =
+		*   await client.beta.organization.rbacGroups.retrieve(
+		*     'rbac_group_id',
+		*   );
+		* ```
+		*/
+		retrieve(rbacGroupID, options) {
+			return this._client.get(path`/v1/organizations/rbac_groups/${rbacGroupID}`, {
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.rbac_groups.retrieve", options, {
+					route: "/v1/organizations/rbac_groups/{rbac_group_id}",
+					attributes: { "anthropic.organization.rbac_group.id": rbacGroupID }
+				})
+			});
+		}
+		/**
+		* Update an RBAC Group's name. Groups provisioned by an identity provider (source
+		* type `"scim"`) cannot be modified via the API while an organization in the
+		* tenant uses SCIM provisioning.
+		*
+		* The RBAC Groups API is available to Claude Enterprise organizations only.
+		*
+		* @example
+		* ```ts
+		* const betaRBACGroup =
+		*   await client.beta.organization.rbacGroups.update(
+		*     'rbac_group_id',
+		*   );
+		* ```
+		*/
+		update(rbacGroupID, body, options) {
+			return this._client.post(path`/v1/organizations/rbac_groups/${rbacGroupID}`, {
+				body,
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.rbac_groups.update", options, {
+					route: "/v1/organizations/rbac_groups/{rbac_group_id}",
+					attributes: { "anthropic.organization.rbac_group.id": rbacGroupID }
+				})
+			});
+		}
+		/**
+		* List RBAC Groups in the Claude Enterprise tenant.
+		*
+		* The RBAC Groups API is available to Claude Enterprise organizations only.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaRBACGroup of client.beta.organization.rbacGroups.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(query = {}, options) {
+			return this._client.getAPIList("/v1/organizations/rbac_groups", PageCursor, {
+				query,
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.rbac_groups.list", options, {
+					route: "/v1/organizations/rbac_groups",
+					queryParams: ["limit", "page"]
+				})
+			});
+		}
+		/**
+		* Delete an RBAC Group. Groups provisioned by an identity provider (source type
+		* `"scim"`) cannot be deleted via the API while an organization in the tenant uses
+		* SCIM provisioning.
+		*
+		* The RBAC Groups API is available to Claude Enterprise organizations only.
+		*
+		* @example
+		* ```ts
+		* const rbacGroup =
+		*   await client.beta.organization.rbacGroups.delete(
+		*     'rbac_group_id',
+		*   );
+		* ```
+		*/
+		delete(rbacGroupID, options) {
+			return this._client.delete(path`/v1/organizations/rbac_groups/${rbacGroupID}`, {
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.rbac_groups.delete", options, {
+					route: "/v1/organizations/rbac_groups/{rbac_group_id}",
+					attributes: { "anthropic.organization.rbac_group.id": rbacGroupID }
+				})
+			});
+		}
+	}
+	RBACGroups.Members = Members$2;
+	return RBACGroups;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/rbac-roles/permissions.mjs
+var Permissions = class extends APIResource {
+	/**
+	* List the permissions an RBAC Role grants.
+	*
+	* The RBAC Roles API is available to Claude Enterprise organizations only.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaRBACRolePermission of client.beta.organization.rbacRoles.permissions.list(
+	*   'rbac_role_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(rbacRoleID, query = {}, options) {
+		return this._client.getAPIList(path`/v1/organizations/rbac_roles/${rbacRoleID}/permissions`, PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.rbac_roles.permissions.list", options, {
+				route: "/v1/organizations/rbac_roles/{rbac_role_id}/permissions",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.organization.rbac_role.id": rbacRoleID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/rbac-roles/rbac-roles.mjs
+var RBACRoles = /* @__PURE__ */ (() => {
+	class RBACRoles extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.permissions = new Permissions(this._client);
+		}
+		/**
+		* Retrieve an RBAC Role by ID.
+		*
+		* The RBAC Roles API is available to Claude Enterprise organizations only.
+		*
+		* @example
+		* ```ts
+		* const betaRBACRole =
+		*   await client.beta.organization.rbacRoles.retrieve(
+		*     'rbac_role_id',
+		*   );
+		* ```
+		*/
+		retrieve(rbacRoleID, options) {
+			return this._client.get(path`/v1/organizations/rbac_roles/${rbacRoleID}`, {
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.rbac_roles.retrieve", options, {
+					route: "/v1/organizations/rbac_roles/{rbac_role_id}",
+					attributes: { "anthropic.organization.rbac_role.id": rbacRoleID }
+				})
+			});
+		}
+		/**
+		* List RBAC Roles in the organization.
+		*
+		* The RBAC Roles API is available to Claude Enterprise organizations only.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaRBACRole of client.beta.organization.rbacRoles.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(query = {}, options) {
+			return this._client.getAPIList("/v1/organizations/rbac_roles", PageCursor, {
+				query,
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.rbac_roles.list", options, {
+					route: "/v1/organizations/rbac_roles",
+					queryParams: ["limit", "page"]
+				})
+			});
+		}
+	}
+	RBACRoles.Permissions = Permissions;
+	return RBACRoles;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/service-accounts/workspaces.mjs
+var Workspaces$5 = class extends APIResource {
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* List the workspaces a service account is a member of.
+	*
+	* Each entry includes the service account's `workspace_role` in that workspace.
+	* Use `limit` and the `next_page` cursor to paginate. When the service account has
+	* no explicit default-workspace membership, the implicit (`implicit: true`)
+	* membership is returned as the first entry on the first page; with `limit=1` the
+	* first page may return up to 2 entries (the implicit entry plus one explicit
+	* membership) so a pagination cursor can be derived. Memberships are returned only
+	* while the service account is active. Without a `page` cursor, an archived
+	* service account returns an empty list. A `page` cursor that does not match an
+	* active membership returns a 400 invalid-request error. A cursor stops matching
+	* when the membership is removed, the workspace is deleted, or the service account
+	* is archived. Restart pagination from the first page to recover.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaServiceAccountWorkspaceMember of client.beta.organization.serviceAccounts.workspaces.list(
+	*   'service_account_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(serviceAccountID, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/organizations/service_accounts/${serviceAccountID}/workspaces`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.workspaces.list", options, {
+				route: "/v1/organizations/service_accounts/{service_account_id}/workspaces",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.organization.service_account.id": serviceAccountID }
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Add a service account to a workspace with the given `workspace_role`.
+	*
+	* Mirror of `POST /workspaces/{workspace_id}/service_accounts`, addressed from the
+	* service-account side; both create the same membership. If the service account is
+	* already an explicit member of the workspace, its `workspace_role` is replaced
+	* with the value supplied here. Archived workspaces return 400. Archived service
+	* accounts cannot be added and are rejected.
+	*
+	* @example
+	* ```ts
+	* const betaServiceAccountWorkspaceMember =
+	*   await client.beta.organization.serviceAccounts.workspaces.add(
+	*     'service_account_id',
+	*     {
+	*       workspace_id: 'workspace_id',
+	*       workspace_role: 'workspace_admin',
+	*     },
+	*   );
+	* ```
+	*/
+	add(serviceAccountID, params, options) {
+		const { betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/service_accounts/${serviceAccountID}/workspaces`, {
+			body,
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.workspaces.add", options, {
+				route: "/v1/organizations/service_accounts/{service_account_id}/workspaces",
+				attributes: { "anthropic.organization.service_account.id": serviceAccountID },
+				createdIDAttribute: "anthropic.organization.service_account.workspace.id",
+				createdIDField: "workspace_id"
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Remove a service account from a workspace.
+	*
+	* Mirror of
+	* `DELETE /workspaces/{workspace_id}/service_accounts/{service_account_id}`,
+	* addressed from the service-account side. Removal is idempotent (returns 200 even
+	* if the membership was already removed). A DELETE against the implicit
+	* default-workspace membership returns 200 but is a no-op and the membership
+	* persists; deleting an explicit default-workspace row reverts to the implicit
+	* `workspace_user` membership. Archived workspaces return 400.
+	*
+	* @example
+	* ```ts
+	* const workspace =
+	*   await client.beta.organization.serviceAccounts.workspaces.remove(
+	*     'workspace_id',
+	*     { service_account_id: 'service_account_id' },
+	*   );
+	* ```
+	*/
+	remove(workspaceID, params, options) {
+		const { service_account_id, betas } = params;
+		return this._client.delete(path`/v1/organizations/service_accounts/${service_account_id}/workspaces/${workspaceID}`, {
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.workspaces.remove", options, {
+				route: "/v1/organizations/service_accounts/{service_account_id}/workspaces/{workspace_id}",
+				attributes: {
+					"anthropic.organization.service_account.id": service_account_id,
+					"anthropic.organization.service_account.workspace.id": workspaceID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/service-accounts/service-accounts.mjs
+var ServiceAccounts$3 = /* @__PURE__ */ (() => {
+	class ServiceAccounts extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.workspaces = new Workspaces$5(this._client);
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Create a service account.
+		*
+		* A service account is a named workload identity that federation rules target.
+		* `organization_role` is `developer` (default) or `admin`; a rule may only be
+		* created or retargeted to grant `org:admin` scope when the target's
+		* `organization_role` is `admin`. Creating an `admin`-role service account
+		* requires an interactive credential (a user OAuth token or a Console session) — a
+		* workload may only create `developer`-role service accounts.
+		*
+		* @example
+		* ```ts
+		* const betaServiceAccount =
+		*   await client.beta.organization.serviceAccounts.create({
+		*     name: 'ci-deploy-bot',
+		*   });
+		* ```
+		*/
+		create(params, options) {
+			const { betas, ...body } = params;
+			return this._client.post("/v1/organizations/service_accounts", {
+				body,
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.create", options, {
+					route: "/v1/organizations/service_accounts",
+					createdIDAttribute: "anthropic.organization.service_account.id"
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Retrieve a service account by its ID (`svac_...`).
+		*
+		* @example
+		* ```ts
+		* const betaServiceAccount =
+		*   await client.beta.organization.serviceAccounts.retrieve(
+		*     'service_account_id',
+		*   );
+		* ```
+		*/
+		retrieve(serviceAccountID, params = {}, options) {
+			const { betas } = params ?? {};
+			return this._client.get(path`/v1/organizations/service_accounts/${serviceAccountID}`, {
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.retrieve", options, {
+					route: "/v1/organizations/service_accounts/{service_account_id}",
+					attributes: { "anthropic.organization.service_account.id": serviceAccountID }
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Update a service account.
+		*
+		* Only `description` and `organization_role` are mutable; `name` cannot be
+		* changed. Archived service accounts cannot be updated; this returns 400. Setting
+		* `organization_role` to `admin` (even when unchanged) requires an interactive
+		* credential (a user OAuth token or a Console session).
+		*
+		* @example
+		* ```ts
+		* const betaServiceAccount =
+		*   await client.beta.organization.serviceAccounts.update(
+		*     'service_account_id',
+		*   );
+		* ```
+		*/
+		update(serviceAccountID, params, options) {
+			const { betas, ...body } = params;
+			return this._client.post(path`/v1/organizations/service_accounts/${serviceAccountID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.update", options, {
+					route: "/v1/organizations/service_accounts/{service_account_id}",
+					attributes: { "anthropic.organization.service_account.id": serviceAccountID }
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* List service accounts in the caller's organization.
+		*
+		* Results are ordered by creation time, newest first. Use `limit` and the
+		* `next_page` cursor to paginate; set `include_archived=true` to include archived
+		* service accounts.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaServiceAccount of client.beta.organization.serviceAccounts.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/organizations/service_accounts", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.list", options, {
+					route: "/v1/organizations/service_accounts",
+					queryParams: [
+						"include_archived",
+						"limit",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Archive a service account.
+		*
+		* Idempotent; re-archiving returns the service account with its original
+		* `archived_at`. Rejected with 400 if any live (non-archived) federation rule
+		* still targets this service account, same as issuer archival; archive those rules
+		* first or change their target to another service account.
+		*
+		* @example
+		* ```ts
+		* const betaServiceAccount =
+		*   await client.beta.organization.serviceAccounts.archive(
+		*     'service_account_id',
+		*   );
+		* ```
+		*/
+		archive(serviceAccountID, params = {}, options) {
+			const { betas } = params ?? {};
+			return this._client.post(path`/v1/organizations/service_accounts/${serviceAccountID}/archive`, {
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.archive", options, {
+					route: "/v1/organizations/service_accounts/{service_account_id}/archive",
+					attributes: { "anthropic.organization.service_account.id": serviceAccountID }
+				})
+			});
+		}
+	}
+	ServiceAccounts.Workspaces = Workspaces$5;
+	return ServiceAccounts;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/spend-limits/effective.mjs
+var Effective = class extends APIResource {
+	/**
+	* List each member's effective spend limit and period-to-date spend.
+	*
+	* Returns one row per (member, period) the member resolves a spend limit for, with
+	* the `source` scope the spend limit was inherited from. Paginates by member, so a
+	* member's periods never split across pages. Supported for Claude Enterprise
+	* organizations only, not for Claude Console organizations.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaSpendSummary of client.beta.organization.spendLimits.effective.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/spend_limits/effective", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.spend_limits.effective.list", options, {
+				route: "/v1/organizations/spend_limits/effective",
+				queryParams: [
+					"limit",
+					"page",
+					"period",
+					"user_ids"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/spend-limits/increase-requests.mjs
+var IncreaseRequests = class extends APIResource {
+	/**
+	* Retrieve a spend limit increase request.
+	*
+	* While `pending`, the response includes a live `spend_summary` for the requester
+	* at the request's period.
+	*
+	* @example
+	* ```ts
+	* const betaSpendLimitIncreaseRequest =
+	*   await client.beta.organization.spendLimits.increaseRequests.retrieve(
+	*     'spend_limit_increase_request_id',
+	*   );
+	* ```
+	*/
+	retrieve(spendLimitIncreaseRequestID, options) {
+		return this._client.get(path`/v1/organizations/spend_limit_increase_requests/${spendLimitIncreaseRequestID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.spend_limits.increase_requests.retrieve", options, {
+				route: "/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}",
+				attributes: { "anthropic.organization.spend_limit_increase_request.id": spendLimitIncreaseRequestID }
+			})
+		});
+	}
+	/**
+	* List spend limit increase requests, most recent first.
+	*
+	* Pending requests include a live `spend_summary` for the requester. Requests
+	* whose requester is no longer a member are excluded.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaSpendLimitIncreaseRequest of client.beta.organization.spendLimits.increaseRequests.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/spend_limit_increase_requests", PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.spend_limits.increase_requests.list", options, {
+				route: "/v1/organizations/spend_limit_increase_requests",
+				queryParams: [
+					"actor_ids",
+					"limit",
+					"page",
+					"status"
+				]
+			})
+		});
+	}
+	/**
+	* Approve a pending spend limit increase request.
+	*
+	* Writes a per-user spend limit at `amount` for the requester and transitions the
+	* request to `approved`. `period` defaults to the period the member was blocked
+	* on. Anthropic emails the requester unless `suppress_notification` is set.
+	*
+	* @example
+	* ```ts
+	* const response =
+	*   await client.beta.organization.spendLimits.increaseRequests.approve(
+	*     'spend_limit_increase_request_id',
+	*     { amount: '50000' },
+	*   );
+	* ```
+	*/
+	approve(spendLimitIncreaseRequestID, body, options) {
+		return this._client.post(path`/v1/organizations/spend_limit_increase_requests/${spendLimitIncreaseRequestID}/approve`, {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.spend_limits.increase_requests.approve", options, {
+				route: "/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/approve",
+				attributes: { "anthropic.organization.spend_limit_increase_request.id": spendLimitIncreaseRequestID }
+			})
+		});
+	}
+	/**
+	* Deny a pending spend limit increase request.
+	*
+	* Idempotent on `denied`; denying an already-`approved` request returns 400.
+	* Anthropic emails the requester unless `suppress_notification` is set.
+	*
+	* @example
+	* ```ts
+	* const betaSpendLimitIncreaseRequest =
+	*   await client.beta.organization.spendLimits.increaseRequests.deny(
+	*     'spend_limit_increase_request_id',
+	*   );
+	* ```
+	*/
+	deny(spendLimitIncreaseRequestID, body, options) {
+		return this._client.post(path`/v1/organizations/spend_limit_increase_requests/${spendLimitIncreaseRequestID}/deny`, {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.spend_limits.increase_requests.deny", options, {
+				route: "/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/deny",
+				attributes: { "anthropic.organization.spend_limit_increase_request.id": spendLimitIncreaseRequestID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/spend-limits/spend-limits.mjs
+var SpendLimits = /* @__PURE__ */ (() => {
+	class SpendLimits extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.effective = new Effective(this._client);
+			this.increaseRequests = new IncreaseRequests(this._client);
+		}
+		/**
+		* Retrieve a spend limit by ID.
+		*
+		* @example
+		* ```ts
+		* const betaSpendLimit =
+		*   await client.beta.organization.spendLimits.retrieve(
+		*     'spend_limit_id',
+		*   );
+		* ```
+		*/
+		retrieve(spendLimitID, options) {
+			return this._client.get(path`/v1/organizations/spend_limits/${spendLimitID}`, {
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.spend_limits.retrieve", options, {
+					route: "/v1/organizations/spend_limits/{spend_limit_id}",
+					attributes: { "anthropic.organization.spend_limit.id": spendLimitID }
+				})
+			});
+		}
+		/**
+		* List the organization's spend limits.
+		*
+		* A Claude Console organization's limits, including any read-only `usage_tier`
+		* limit, come newest first. Listing them is in an early access preview. To request
+		* access, contact your Anthropic account team. A Claude Enterprise organization's
+		* limits are grouped by scope type, in the order `organization`, `seat_tier`,
+		* `rbac_group`, `organization_service`, `user`; within a type they come in a fixed
+		* order that is not creation order.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaSpendLimit of client.beta.organization.spendLimits.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/organizations/spend_limits", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "spend-limit-reads-2026-09-26"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.spend_limits.list", options, {
+					route: "/v1/organizations/spend_limits",
+					queryParams: [
+						"limit",
+						"page",
+						"scope_type",
+						"workspace_id"
+					]
+				})
+			});
+		}
+		/**
+		* Delete a spend limit.
+		*
+		* For a Claude Enterprise organization, this deletes a per-user override, and the
+		* member falls back to any inherited spend limit at that period. Its seat-tier,
+		* group, and organization-level rows cannot be deleted via this endpoint. A Claude
+		* Console organization deletes its organization and workspace limits, but not its
+		* `usage_tier` limit. Deleting organization and workspace limits through the API
+		* is in an early access preview.
+		*
+		* @example
+		* ```ts
+		* const spendLimit =
+		*   await client.beta.organization.spendLimits.delete(
+		*     'spend_limit_id',
+		*   );
+		* ```
+		*/
+		delete(spendLimitID, options) {
+			return this._client.delete(path`/v1/organizations/spend_limits/${spendLimitID}`, {
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.spend_limits.delete", options, {
+					route: "/v1/organizations/spend_limits/{spend_limit_id}",
+					attributes: { "anthropic.organization.spend_limit.id": spendLimitID }
+				})
+			});
+		}
+		/**
+		* Set a spend limit.
+		*
+		* Upsert keyed on (scope, period): setting a limit that already exists overwrites
+		* it in place. A Claude Enterprise organization sets `user` limits. Its seat-tier,
+		* group, and organization-level defaults are configured in claude.ai. A Claude
+		* Console organization sets `organization` and `workspace` limits, which are
+		* monthly and always carry an amount. Setting those limits is in an early access
+		* preview. To request access, contact your Anthropic account team.
+		*
+		* @example
+		* ```ts
+		* const betaSpendLimit =
+		*   await client.beta.organization.spendLimits.set({
+		*     amount: '50000',
+		*     scope: {
+		*       type: 'user',
+		*       user_id: 'user_01WCz1FkmYMm4gnmykNKUu3Q',
+		*     },
+		*   });
+		* ```
+		*/
+		set(params, options) {
+			const { betas, ...body } = params;
+			return this._client.post("/v1/organizations/spend_limits", {
+				body,
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.spend_limits.set", options, {
+					route: "/v1/organizations/spend_limits",
+					createdIDAttribute: "anthropic.organization.spend_limit.id"
+				})
+			});
+		}
+	}
+	SpendLimits.Effective = Effective;
+	SpendLimits.IncreaseRequests = IncreaseRequests;
+	return SpendLimits;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/telemetry-destinations/workspaces.mjs
+var Workspaces$4 = class extends APIResource {
+	/**
+	* List the workspaces on a destination's workspace list, newest entry first.
+	*
+	* A destination whose `workspaces.type` is `all` doesn't have a list, so its page
+	* is empty. The list includes archived workspaces.
+	*
+	* See the
+	* [OpenTelemetry export guide](https://platform.claude.com/docs/en/manage-claude/opentelemetry#choose-workspaces-for-a-destination)
+	* to learn more about choosing the workspaces of a destination.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaTelemetryDestinationWorkspace of client.beta.organization.telemetryDestinations.workspaces.list(
+	*   'destination_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(destinationID, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/organizations/telemetry_destinations/${destinationID}/workspaces`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "telemetry-destinations-2026-08-11"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.telemetry_destinations.workspaces.list", options, {
+				route: "/v1/organizations/telemetry_destinations/{destination_id}/workspaces",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.organization.telemetry_destination.id": destinationID }
+			})
+		});
+	}
+	/**
+	* Add one workspace to a destination's workspace list.
+	*
+	* Under `include` the workspace's spans start going to the destination. Under
+	* `exclude` they stop. A list holds at most 1,000 workspaces.
+	*
+	* Adding a workspace that is already on the list changes nothing and returns the
+	* existing entry. An archived workspace that isn't on the list yet can't be added.
+	* A destination whose `workspaces.type` is `all` doesn't have a list, so the API
+	* returns 400. To change which workspaces such a destination covers, update its
+	* `workspaces`.
+	*
+	* See the
+	* [OpenTelemetry export guide](https://platform.claude.com/docs/en/manage-claude/opentelemetry#choose-workspaces-for-a-destination)
+	* to learn more about choosing the workspaces of a destination.
+	*
+	* @example
+	* ```ts
+	* const betaTelemetryDestinationWorkspace =
+	*   await client.beta.organization.telemetryDestinations.workspaces.add(
+	*     'workspace_id',
+	*     { destination_id: 'destination_id' },
+	*   );
+	* ```
+	*/
+	add(workspaceID, params, options) {
+		const { destination_id, betas } = params;
+		return this._client.post(path`/v1/organizations/telemetry_destinations/${destination_id}/workspaces/${workspaceID}`, {
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "telemetry-destinations-2026-08-11"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.telemetry_destinations.workspaces.add", options, {
+				route: "/v1/organizations/telemetry_destinations/{destination_id}/workspaces/{workspace_id}",
+				attributes: {
+					"anthropic.organization.telemetry_destination.id": destination_id,
+					"anthropic.organization.telemetry_destination.workspace.id": workspaceID
+				}
+			})
+		});
+	}
+	/**
+	* Remove one workspace from a destination's workspace list.
+	*
+	* Under `include` the workspace's spans stop going to the destination. Under
+	* `exclude` they start. An archived workspace can be removed too.
+	*
+	* The API returns 404 when the workspace isn't on the list. A destination whose
+	* `workspaces.type` is `all` doesn't have a list, so the API returns 400.
+	*
+	* See the
+	* [OpenTelemetry export guide](https://platform.claude.com/docs/en/manage-claude/opentelemetry#choose-workspaces-for-a-destination)
+	* to learn more about choosing the workspaces of a destination.
+	*
+	* @example
+	* ```ts
+	* const betaDeletedTelemetryDestinationWorkspace =
+	*   await client.beta.organization.telemetryDestinations.workspaces.remove(
+	*     'workspace_id',
+	*     { destination_id: 'destination_id' },
+	*   );
+	* ```
+	*/
+	remove(workspaceID, params, options) {
+		const { destination_id, betas } = params;
+		return this._client.delete(path`/v1/organizations/telemetry_destinations/${destination_id}/workspaces/${workspaceID}`, {
+			...options,
+			headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "telemetry-destinations-2026-08-11"].toString() }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.telemetry_destinations.workspaces.remove", options, {
+				route: "/v1/organizations/telemetry_destinations/{destination_id}/workspaces/{workspace_id}",
+				attributes: {
+					"anthropic.organization.telemetry_destination.id": destination_id,
+					"anthropic.organization.telemetry_destination.workspace.id": workspaceID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/telemetry-destinations/telemetry-destinations.mjs
+var TelemetryDestinations = /* @__PURE__ */ (() => {
+	class TelemetryDestinations extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.workspaces = new Workspaces$4(this._client);
+		}
+		/**
+		* Register an OpenTelemetry destination for the organization.
+		*
+		* The destination starts in state `enabled`. An organization can have at most 10
+		* destinations, including disabled ones.
+		*
+		* See the
+		* [OpenTelemetry export guide](https://platform.claude.com/docs/en/manage-claude/opentelemetry#add-a-destination)
+		* to learn more about adding a destination.
+		*
+		* @example
+		* ```ts
+		* const betaTelemetryDestination =
+		*   await client.beta.organization.telemetryDestinations.create(
+		*     {
+		*       endpoint_url: 'x',
+		*       workspaces: { type: 'all' },
+		*     },
+		*   );
+		* ```
+		*/
+		create(params, options) {
+			const { betas, ...body } = params;
+			return this._client.post("/v1/organizations/telemetry_destinations", {
+				body,
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "telemetry-destinations-2026-08-11"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.telemetry_destinations.create", options, {
+					route: "/v1/organizations/telemetry_destinations",
+					createdIDAttribute: "anthropic.organization.telemetry_destination.id"
+				})
+			});
+		}
+		/**
+		* Read a destination's configuration, state, and most recent delivery results.
+		*
+		* See the
+		* [OpenTelemetry export guide](https://platform.claude.com/docs/en/manage-claude/opentelemetry#delivery-and-health)
+		* to learn how the API delivers spans and when it disables a destination.
+		*
+		* @example
+		* ```ts
+		* const betaTelemetryDestination =
+		*   await client.beta.organization.telemetryDestinations.retrieve(
+		*     'destination_id',
+		*   );
+		* ```
+		*/
+		retrieve(destinationID, params = {}, options) {
+			const { betas } = params ?? {};
+			return this._client.get(path`/v1/organizations/telemetry_destinations/${destinationID}`, {
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "telemetry-destinations-2026-08-11"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.telemetry_destinations.retrieve", options, {
+					route: "/v1/organizations/telemetry_destinations/{destination_id}",
+					attributes: { "anthropic.organization.telemetry_destination.id": destinationID }
+				})
+			});
+		}
+		/**
+		* Change a telemetry destination's settings, its state, or which workspaces it
+		* covers.
+		*
+		* Send at least one field. Omitted fields keep their stored values, except the
+		* registered headers, which a change of the endpoint's hostname or port removes.
+		* Only `display_name`, `traces`, `traces.endpoint_url`, `traces.content_mode`,
+		* `traces.max_content_bytes`, and individual `headers` values accept `null`.
+		*
+		* If another request changes the destination while the update runs, the API
+		* returns a 409 `conflict_error`. Read the destination again, then retry the
+		* update.
+		*
+		* See the
+		* [OpenTelemetry export guide](https://platform.claude.com/docs/en/manage-claude/opentelemetry#delivery-and-health)
+		* to learn more about changing a destination.
+		*
+		* @example
+		* ```ts
+		* const betaTelemetryDestination =
+		*   await client.beta.organization.telemetryDestinations.update(
+		*     'destination_id',
+		*   );
+		* ```
+		*/
+		update(destinationID, params, options) {
+			const { betas, ...body } = params;
+			return this._client.post(path`/v1/organizations/telemetry_destinations/${destinationID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "telemetry-destinations-2026-08-11"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.telemetry_destinations.update", options, {
+					route: "/v1/organizations/telemetry_destinations/{destination_id}",
+					attributes: { "anthropic.organization.telemetry_destination.id": destinationID }
+				})
+			});
+		}
+		/**
+		* List the organization's destinations, newest first, optionally only those that
+		* cover given workspaces.
+		*
+		* See the
+		* [OpenTelemetry export guide](https://platform.claude.com/docs/en/manage-claude/opentelemetry#set-up-api-tracing)
+		* to learn more about destinations.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaTelemetryDestination of client.beta.organization.telemetryDestinations.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/organizations/telemetry_destinations", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "telemetry-destinations-2026-08-11"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.telemetry_destinations.list", options, {
+					route: "/v1/organizations/telemetry_destinations",
+					queryParams: [
+						"limit",
+						"page",
+						"workspace_ids"
+					]
+				})
+			});
+		}
+		/**
+		* Delete a destination and its workspace list.
+		*
+		* The API stops sending spans to the destination. The spans of the workspaces it
+		* covered still go to the other destinations that cover them. A deleted
+		* destination can't be read, listed, or restored.
+		*
+		* See the
+		* [OpenTelemetry export guide](https://platform.claude.com/docs/en/manage-claude/opentelemetry#delivery-and-health)
+		* to learn more about managing a destination.
+		*
+		* @example
+		* ```ts
+		* const betaDeletedTelemetryDestination =
+		*   await client.beta.organization.telemetryDestinations.delete(
+		*     'destination_id',
+		*   );
+		* ```
+		*/
+		delete(destinationID, params = {}, options) {
+			const { betas } = params ?? {};
+			return this._client.delete(path`/v1/organizations/telemetry_destinations/${destinationID}`, {
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "telemetry-destinations-2026-08-11"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.telemetry_destinations.delete", options, {
+					route: "/v1/organizations/telemetry_destinations/{destination_id}",
+					attributes: { "anthropic.organization.telemetry_destination.id": destinationID }
+				})
+			});
+		}
+		/**
+		* Send one test span, named `anthropic.test`, to the destination with its
+		* registered headers, once and without retries, and report the destination's
+		* answer. The response is 200 whether or not the destination answered with a 2xx
+		* status: its `result` has the type `success`, or the type `failure` and the
+		* reason in `error`. The destination's configuration, `state` and
+		* `delivery_health` do not change. A disabled destination can be tested too. Wait
+		* 10 seconds between tests of one destination; a request that comes sooner may be
+		* answered with status 429.
+		*
+		* @example
+		* ```ts
+		* const betaTelemetryDestinationTestResponse =
+		*   await client.beta.organization.telemetryDestinations.test(
+		*     'destination_id',
+		*   );
+		* ```
+		*/
+		test(destinationID, params = {}, options) {
+			const { betas } = params ?? {};
+			return this._client.post(path`/v1/organizations/telemetry_destinations/${destinationID}/test`, {
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...betas ?? [], "telemetry-destinations-2026-08-11"].toString() }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.telemetry_destinations.test", options, {
+					route: "/v1/organizations/telemetry_destinations/{destination_id}/test",
+					attributes: { "anthropic.organization.telemetry_destination.id": destinationID }
+				})
+			});
+		}
+	}
+	TelemetryDestinations.Workspaces = Workspaces$4;
+	return TelemetryDestinations;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/workspaces/members.mjs
+var Members$1 = class extends APIResource {
+	/**
+	* Get Workspace Member
+	*
+	* @example
+	* ```ts
+	* const betaWorkspaceMember =
+	*   await client.beta.organization.workspaces.members.retrieve(
+	*     'user_id',
+	*     { workspace_id: 'workspace_id' },
+	*   );
+	* ```
+	*/
+	retrieve(userID, params, options) {
+		const { workspace_id } = params;
+		return this._client.get(path`/v1/organizations/workspaces/${workspace_id}/members/${userID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.members.retrieve", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/members/{user_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.member.id": userID
+				}
+			})
+		});
+	}
+	/**
+	* Update Workspace Member
+	*
+	* @example
+	* ```ts
+	* const betaWorkspaceMember =
+	*   await client.beta.organization.workspaces.members.update(
+	*     'user_id',
+	*     {
+	*       workspace_id: 'workspace_id',
+	*       workspace_role: 'workspace_admin',
+	*     },
+	*   );
+	* ```
+	*/
+	update(userID, params, options) {
+		const { workspace_id, ...body } = params;
+		return this._client.post(path`/v1/organizations/workspaces/${workspace_id}/members/${userID}`, {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.members.update", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/members/{user_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.member.id": userID
+				}
+			})
+		});
+	}
+	/**
+	* List Workspace Members
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaWorkspaceMember of client.beta.organization.workspaces.members.list(
+	*   'workspace_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(workspaceID, query = {}, options) {
+		return this._client.getAPIList(path`/v1/organizations/workspaces/${workspaceID}/members`, Page, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.members.list", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/members",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"limit"
+				],
+				attributes: { "anthropic.organization.workspace.id": workspaceID }
+			})
+		});
+	}
+	/**
+	* Create Workspace Member
+	*
+	* @example
+	* ```ts
+	* const betaWorkspaceMember =
+	*   await client.beta.organization.workspaces.members.add(
+	*     'workspace_id',
+	*     {
+	*       user_id: 'user_01WCz1FkmYMm4gnmykNKUu3Q',
+	*       workspace_role: 'workspace_admin',
+	*     },
+	*   );
+	* ```
+	*/
+	add(workspaceID, body, options) {
+		return this._client.post(path`/v1/organizations/workspaces/${workspaceID}/members`, {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.members.add", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/members",
+				attributes: { "anthropic.organization.workspace.id": workspaceID },
+				createdIDAttribute: "anthropic.organization.workspace.member.id",
+				createdIDField: "user_id"
+			})
+		});
+	}
+	/**
+	* Delete Workspace Member
+	*
+	* @example
+	* ```ts
+	* const member =
+	*   await client.beta.organization.workspaces.members.remove(
+	*     'user_id',
+	*     { workspace_id: 'workspace_id' },
+	*   );
+	* ```
+	*/
+	remove(userID, params, options) {
+		const { workspace_id } = params;
+		return this._client.delete(path`/v1/organizations/workspaces/${workspace_id}/members/${userID}`, {
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.members.remove", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/members/{user_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.member.id": userID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/workspaces/rate-limits.mjs
+var RateLimits$2 = class extends APIResource {
+	/**
+	* Set or clear rate-limit overrides for one rate-limit group in a workspace.
+	*
+	* Only the limiter types named in `limits` change: an integer `value` sets that
+	* type's override and `null` clears it. Types not named keep their current value.
+	* A value above the organization's own limit is stored, but the organization limit
+	* still applies, so the lower of the two is enforced.
+	*
+	* Returns the targeted group's entry with this request applied, in the shape
+	* `GET /v1/organizations/workspaces/{workspace_id}/rate_limits` returns. Changes
+	* take effect within about an hour.
+	*
+	* @example
+	* ```ts
+	* const betaWorkspaceRateLimit =
+	*   await client.beta.organization.workspaces.rateLimits.update(
+	*     'rate_limit_id',
+	*     {
+	*       workspace_id: 'workspace_id',
+	*       limits: [{ type: 'fast_itpmca', value: 0 }],
+	*     },
+	*   );
+	* ```
+	*/
+	update(rateLimitID, params, options) {
+		const { workspace_id, ...body } = params;
+		return this._client.post(path`/v1/organizations/workspaces/${workspace_id}/rate_limits/${rateLimitID}`, {
+			body,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.rate_limits.update", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/rate_limits/{rate_limit_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.rate_limit.id": rateLimitID
+				}
+			})
+		});
+	}
+	/**
+	* List a workspace's rate limits.
+	*
+	* By default, returns only the groups and limiter types that have a
+	* workspace-level override. With `include_inherited=true`, returns every group
+	* with organization-level limits the workspace can see, listing for each the
+	* values it inherits from the organization as well as its own overrides. Each
+	* value's `source` says which it is.
+	*
+	* When `limit` is omitted, every matching entry is returned in a single page; when
+	* `limit` truncates the result, follow `next_page` to fetch the remaining entries.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaWorkspaceRateLimit of client.beta.organization.workspaces.rateLimits.list(
+	*   'workspace_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(workspaceID, query = {}, options) {
+		return this._client.getAPIList(path`/v1/organizations/workspaces/${workspaceID}/rate_limits`, PageCursor, {
+			query,
+			...options,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.rate_limits.list", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/rate_limits",
+				queryParams: [
+					"group_type",
+					"include_inherited",
+					"limit",
+					"page"
+				],
+				attributes: { "anthropic.organization.workspace.id": workspaceID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/workspaces/service-accounts.mjs
+var ServiceAccounts$2 = class extends APIResource {
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Retrieve a service account's membership in a workspace.
+	*
+	* Returns the membership record, including the service account's `workspace_role`
+	* in this workspace. Archived workspaces return 400. For the default workspace,
+	* returns the implicit (`implicit: true`) membership when no explicit membership
+	* exists; an explicitly added membership is returned with its assigned role. An
+	* archived service account returns 404.
+	*
+	* @example
+	* ```ts
+	* const betaServiceAccountWorkspaceMember =
+	*   await client.beta.organization.workspaces.serviceAccounts.retrieve(
+	*     'service_account_id',
+	*     { workspace_id: 'workspace_id' },
+	*   );
+	* ```
+	*/
+	retrieve(serviceAccountID, params, options) {
+		const { workspace_id, betas } = params;
+		return this._client.get(path`/v1/organizations/workspaces/${workspace_id}/service_accounts/${serviceAccountID}`, {
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.service_accounts.retrieve", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.service_account.id": serviceAccountID
+				}
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Change a service account's role in a workspace.
+	*
+	* The new `workspace_role` replaces the current one. Only explicit memberships can
+	* be updated; to set a role on the implicit default-workspace membership, add the
+	* service account explicitly with
+	* `POST /workspaces/{workspace_id}/service_accounts`. Archived workspaces
+	* return 400. Archived service accounts cannot be updated and are rejected.
+	*
+	* @example
+	* ```ts
+	* const betaServiceAccountWorkspaceMember =
+	*   await client.beta.organization.workspaces.serviceAccounts.update(
+	*     'service_account_id',
+	*     {
+	*       workspace_id: 'workspace_id',
+	*       workspace_role: 'workspace_admin',
+	*     },
+	*   );
+	* ```
+	*/
+	update(serviceAccountID, params, options) {
+		const { workspace_id, betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/workspaces/${workspace_id}/service_accounts/${serviceAccountID}`, {
+			body,
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.service_accounts.update", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.service_account.id": serviceAccountID
+				}
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* List the service accounts that are members of a workspace.
+	*
+	* Each entry includes the service account's `workspace_role`. Use `limit` and the
+	* `next_page` cursor to paginate. Archived workspaces return 400; use
+	* `GET /service_accounts/{id}/workspaces` to audit memberships of an archived
+	* workspace. The implicit default-workspace membership is not included in this
+	* list. Memberships of archived service accounts are omitted from the results.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaServiceAccountWorkspaceMember of client.beta.organization.workspaces.serviceAccounts.list(
+	*   'workspace_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(workspaceID, params = {}, options) {
+		const { betas, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/organizations/workspaces/${workspaceID}/service_accounts`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.service_accounts.list", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/service_accounts",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.organization.workspace.id": workspaceID }
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Add a service account to a workspace with the given `workspace_role`.
+	*
+	* The role determines what the service account can do in the workspace and which
+	* workspace-scoped permissions it can be granted when authenticating through
+	* federation. Every service account is already an implicit `workspace_user` member
+	* of the default workspace; adding it explicitly assigns a chosen role. If the
+	* service account is already an explicit member of the workspace, its
+	* `workspace_role` is replaced with the value supplied here. Archived workspaces
+	* return 400. Archived service accounts cannot be added and are rejected.
+	*
+	* @example
+	* ```ts
+	* const betaServiceAccountWorkspaceMember =
+	*   await client.beta.organization.workspaces.serviceAccounts.add(
+	*     'workspace_id',
+	*     {
+	*       service_account_id: 'service_account_id',
+	*       workspace_role: 'workspace_admin',
+	*     },
+	*   );
+	* ```
+	*/
+	add(workspaceID, params, options) {
+		const { betas, ...body } = params;
+		return this._client.post(path`/v1/organizations/workspaces/${workspaceID}/service_accounts`, {
+			body,
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.service_accounts.add", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/service_accounts",
+				attributes: { "anthropic.organization.workspace.id": workspaceID },
+				createdIDAttribute: "anthropic.organization.workspace.service_account.id",
+				createdIDField: "service_account_id"
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Remove a service account from a workspace.
+	*
+	* Removal is idempotent (returns 200 even if the membership was already removed).
+	* A DELETE against the implicit default-workspace membership returns 200 but is a
+	* no-op and the membership persists; deleting an explicit default-workspace row
+	* reverts to the implicit `workspace_user` membership. Archived workspaces
+	* return 400.
+	*
+	* @example
+	* ```ts
+	* const serviceAccount =
+	*   await client.beta.organization.workspaces.serviceAccounts.remove(
+	*     'service_account_id',
+	*     { workspace_id: 'workspace_id' },
+	*   );
+	* ```
+	*/
+	remove(serviceAccountID, params, options) {
+		const { workspace_id, betas } = params;
+		return this._client.delete(path`/v1/organizations/workspaces/${workspace_id}/service_accounts/${serviceAccountID}`, {
+			...options,
+			headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.service_accounts.remove", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.service_account.id": serviceAccountID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/workspaces/workspaces.mjs
+var Workspaces$3 = /* @__PURE__ */ (() => {
+	class Workspaces extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.rateLimits = new RateLimits$2(this._client);
+			this.members = new Members$1(this._client);
+			this.serviceAccounts = new ServiceAccounts$2(this._client);
+		}
+		/**
+		* Create Workspace
+		*
+		* @example
+		* ```ts
+		* const betaWorkspace =
+		*   await client.beta.organization.workspaces.create({
+		*     name: 'x',
+		*   });
+		* ```
+		*/
+		create(params, options) {
+			const { betas, ...body } = params;
+			return this._client.post("/v1/organizations/workspaces", {
+				body,
+				...options,
+				headers: buildHeaders([{ ...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0 }, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.create", options, {
+					route: "/v1/organizations/workspaces",
+					createdIDAttribute: "anthropic.organization.workspace.id"
+				})
+			});
+		}
+		/**
+		* Get Workspace
+		*
+		* @example
+		* ```ts
+		* const betaWorkspace =
+		*   await client.beta.organization.workspaces.retrieve(
+		*     'workspace_id',
+		*   );
+		* ```
+		*/
+		retrieve(workspaceID, options) {
+			return this._client.get(path`/v1/organizations/workspaces/${workspaceID}`, {
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.retrieve", options, {
+					route: "/v1/organizations/workspaces/{workspace_id}",
+					attributes: { "anthropic.organization.workspace.id": workspaceID }
+				})
+			});
+		}
+		/**
+		* Update Workspace
+		*
+		* @example
+		* ```ts
+		* const betaWorkspace =
+		*   await client.beta.organization.workspaces.update(
+		*     'workspace_id',
+		*   );
+		* ```
+		*/
+		update(workspaceID, body, options) {
+			return this._client.post(path`/v1/organizations/workspaces/${workspaceID}`, {
+				body,
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.update", options, {
+					route: "/v1/organizations/workspaces/{workspace_id}",
+					attributes: { "anthropic.organization.workspace.id": workspaceID }
+				})
+			});
+		}
+		/**
+		* List Workspaces
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaWorkspace of client.beta.organization.workspaces.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(query = {}, options) {
+			return this._client.getAPIList("/v1/organizations/workspaces", Page, {
+				query,
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.list", options, {
+					route: "/v1/organizations/workspaces",
+					queryParams: [
+						"after_id",
+						"before_id",
+						"include_archived",
+						"include_default",
+						"limit"
+					]
+				})
+			});
+		}
+		/**
+		* Archive Workspace
+		*
+		* @example
+		* ```ts
+		* const betaWorkspace =
+		*   await client.beta.organization.workspaces.archive(
+		*     'workspace_id',
+		*   );
+		* ```
+		*/
+		archive(workspaceID, options) {
+			return this._client.post(path`/v1/organizations/workspaces/${workspaceID}/archive`, {
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.archive", options, {
+					route: "/v1/organizations/workspaces/{workspace_id}/archive",
+					attributes: { "anthropic.organization.workspace.id": workspaceID }
+				})
+			});
+		}
+	}
+	Workspaces.RateLimits = RateLimits$2;
+	Workspaces.Members = Members$1;
+	Workspaces.ServiceAccounts = ServiceAccounts$2;
+	return Workspaces;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/organization/organization.mjs
+var Organization$1 = /* @__PURE__ */ (() => {
+	class Organization extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.apiKeys = new APIKeys$1(this._client);
+			this.externalKeys = new ExternalKeys$1(this._client);
+			this.federation = new Federation$1(this._client);
+			this.invites = new Invites$1(this._client);
+			this.serviceAccounts = new ServiceAccounts$3(this._client);
+			this.users = new Users$1(this._client);
+			this.workspaces = new Workspaces$3(this._client);
+			this.rateLimits = new RateLimits$3(this._client);
+			this.complianceSettings = new ComplianceSettings$1(this._client);
+			this.analytics = new Analytics(this._client);
+			this.spendLimits = new SpendLimits(this._client);
+			this.rbacGroups = new RBACGroups(this._client);
+			this.rbacRoles = new RBACRoles(this._client);
+			this.plugins = new Plugins(this._client);
+			this.pluginMarketplaces = new PluginMarketplaces(this._client);
+			this.telemetryDestinations = new TelemetryDestinations(this._client);
+			this.webhooks = new Webhooks(this._client);
+			this.claudeTag = new ClaudeTag(this._client);
+		}
+		/**
+		* Retrieve information about the organization associated with the authenticated
+		* API key.
+		*
+		* @example
+		* ```ts
+		* const betaOrganization =
+		*   await client.beta.organization.retrieve();
+		* ```
+		*/
+		retrieve(options) {
+			return this._client.get("/v1/organizations/me", {
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.organization.retrieve", options, { route: "/v1/organizations/me" })
+			});
+		}
+	}
+	Organization.APIKeys = APIKeys$1;
+	Organization.ExternalKeys = ExternalKeys$1;
+	Organization.Federation = Federation$1;
+	Organization.Invites = Invites$1;
+	Organization.ServiceAccounts = ServiceAccounts$3;
+	Organization.Users = Users$1;
+	Organization.Workspaces = Workspaces$3;
+	Organization.RateLimits = RateLimits$3;
+	Organization.ComplianceSettings = ComplianceSettings$1;
+	Organization.Analytics = Analytics;
+	Organization.SpendLimits = SpendLimits;
+	Organization.RBACGroups = RBACGroups;
+	Organization.RBACRoles = RBACRoles;
+	Organization.Plugins = Plugins;
+	Organization.PluginMarketplaces = PluginMarketplaces;
+	Organization.TelemetryDestinations = TelemetryDestinations;
+	Organization.Webhooks = Webhooks;
+	Organization.ClaudeTag = ClaudeTag;
+	return Organization;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/sessions/events.mjs
+var Events$1 = /* @__PURE__ */ (() => {
+	class Events extends APIResource {
+		/**
+		* List Events
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaManagedAgentsSessionEvent of client.beta.sessions.events.list(
+		*   'sesn_011CZkZAtmR3yMPDzynEDxu7',
+		* )) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(sessionID, params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList(path`/v1/sessions/${sessionID}/events`, PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.events.list", options, {
+					route: "/v1/sessions/{session_id}/events",
+					queryParams: [
+						"created_at[gt]",
+						"created_at[gte]",
+						"created_at[lt]",
+						"created_at[lte]",
+						"limit",
+						"order",
+						"page",
+						"types"
+					],
+					attributes: { "anthropic.session.id": sessionID }
+				})
+			});
+		}
+		/**
+		* Send Events
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsSendSessionEvents =
+		*   await client.beta.sessions.events.send(
+		*     'sesn_011CZkZAtmR3yMPDzynEDxu7',
+		*     {
+		*       events: [
+		*         {
+		*           content: [
+		*             {
+		*               text: 'Where is my order #1234?',
+		*               type: 'text',
+		*             },
+		*           ],
+		*           type: 'user.message',
+		*         },
+		*       ],
+		*     },
+		*   );
+		* ```
+		*/
+		send(sessionID, params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post(path`/v1/sessions/${sessionID}/events`, {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.events.send", options, {
+					route: "/v1/sessions/{session_id}/events",
+					attributes: { "anthropic.session.id": sessionID }
+				})
+			});
+		}
+		/**
+		* Stream Events
+		*
+		* @example
+		* ```ts
+		* const stream = await client.beta.sessions.events.stream(
+		*   'sesn_011CZkZAtmR3yMPDzynEDxu7',
+		* );
+		* for await (const betaManagedAgentsStreamSessionEvents of stream) {
+		*   // ...
+		* }
+		* ```
+		*/
+		stream(sessionID, params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.get(path`/v1/sessions/${sessionID}/events/stream`, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				stream: true,
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.events.stream", options, {
+					route: "/v1/sessions/{session_id}/events/stream",
+					queryParams: ["event_deltas"],
+					attributes: { "anthropic.session.id": sessionID }
+				})
+			});
+		}
+		/**
+		* Attach to a session and dispatch every incoming `agent.tool_use` and
+		* `agent.custom_tool_use` event to a local tool registry, sending the matching
+		* result back (`user.tool_result` / `user.custom_tool_result`). The
+		* sessions-side counterpart to `client.beta.messages.toolRunner`: yields one
+		* entry per completed tool call so callers can observe each dispatch (and
+		* `break` to abort cleanly).
+		*
+		* @example
+		* ```ts
+		* import { betaAgentToolset20260401 } from '@anthropic-ai/sdk/tools/agent-toolset/node';
+		*
+		* for await (const call of client.beta.sessions.events.toolRunner(work.data.id, {
+		*   tools: [...betaAgentToolset20260401({ workdir }), myTool],
+		* })) {
+		*   console.log(`${call.name} -> ${call.isError ? 'error' : 'ok'}`);
+		* }
+		* ```
+		*/
+		toolRunner(sessionID, opts) {
+			return new SessionToolRunner(sessionID, {
+				...opts,
+				client: this._client
+			});
+		}
+	}
+	Events.SessionToolRunner = SessionToolRunner;
+	return Events;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/sessions/resources.mjs
+var Resources = class extends APIResource {
+	/**
+	* Get Session Resource
+	*
+	* @example
+	* ```ts
+	* const resource =
+	*   await client.beta.sessions.resources.retrieve(
+	*     'sesrsc_011CZkZBJq5dWxk9fVLNcPht',
+	*     { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+	*   );
+	* ```
+	*/
+	retrieve(resourceID, params, options) {
+		const { session_id, betas, workspace_id } = params;
+		return this._client.get(path`/v1/sessions/${session_id}/resources/${resourceID}`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.sessions.resources.retrieve", options, {
+				route: "/v1/sessions/{session_id}/resources/{resource_id}",
+				attributes: {
+					"anthropic.session.id": session_id,
+					"anthropic.session.resource.id": resourceID
+				}
+			})
+		});
+	}
+	/**
+	* Update Session Resource
+	*
+	* @example
+	* ```ts
+	* const resource =
+	*   await client.beta.sessions.resources.update(
+	*     'sesrsc_011CZkZBJq5dWxk9fVLNcPht',
+	*     {
+	*       session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
+	*       authorization_token: 'ghp_exampletoken',
+	*     },
+	*   );
+	* ```
+	*/
+	update(resourceID, params, options) {
+		const { session_id, betas, workspace_id, ...body } = params;
+		return this._client.post(path`/v1/sessions/${session_id}/resources/${resourceID}`, {
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.sessions.resources.update", options, {
+				route: "/v1/sessions/{session_id}/resources/{resource_id}",
+				attributes: {
+					"anthropic.session.id": session_id,
+					"anthropic.session.resource.id": resourceID
+				}
+			})
+		});
+	}
+	/**
+	* List Session Resources
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaManagedAgentsSessionResource of client.beta.sessions.resources.list(
+	*   'sesn_011CZkZAtmR3yMPDzynEDxu7',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(sessionID, params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/sessions/${sessionID}/resources`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.sessions.resources.list", options, {
+				route: "/v1/sessions/{session_id}/resources",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.session.id": sessionID }
+			})
+		});
+	}
+	/**
+	* Delete Session Resource
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeleteSessionResource =
+	*   await client.beta.sessions.resources.delete(
+	*     'sesrsc_011CZkZBJq5dWxk9fVLNcPht',
+	*     { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+	*   );
+	* ```
+	*/
+	delete(resourceID, params, options) {
+		const { session_id, betas, workspace_id } = params;
+		return this._client.delete(path`/v1/sessions/${session_id}/resources/${resourceID}`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.sessions.resources.delete", options, {
+				route: "/v1/sessions/{session_id}/resources/{resource_id}",
+				attributes: {
+					"anthropic.session.id": session_id,
+					"anthropic.session.resource.id": resourceID
+				}
+			})
+		});
+	}
+	/**
+	* Add Session Resource
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsFileResource =
+	*   await client.beta.sessions.resources.add(
+	*     'sesn_011CZkZAtmR3yMPDzynEDxu7',
+	*     {
+	*       file_id: 'file_011CNha8iCJcU1wXNR6q4V8w',
+	*       type: 'file',
+	*     },
+	*   );
+	* ```
+	*/
+	add(sessionID, params, options) {
+		const { betas, workspace_id, ...body } = params;
+		return this._client.post(path`/v1/sessions/${sessionID}/resources`, {
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.sessions.resources.add", options, {
+				route: "/v1/sessions/{session_id}/resources",
+				attributes: { "anthropic.session.id": sessionID },
+				createdIDAttribute: "anthropic.session.resource.id"
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/sessions/threads/events.mjs
+var Events = class extends APIResource {
+	/**
+	* List Session Thread Events
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaManagedAgentsSessionEvent of client.beta.sessions.threads.events.list(
+	*   'sthr_011CZkZVWa6oJjw1rgXZpnBt',
+	*   { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(threadID, params, options) {
+		const { session_id, betas, workspace_id, ...query } = params;
+		return this._client.getAPIList(path`/v1/sessions/${session_id}/threads/${threadID}/events`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.sessions.threads.events.list", options, {
+				route: "/v1/sessions/{session_id}/threads/{thread_id}/events",
+				queryParams: ["limit", "page"],
+				attributes: {
+					"anthropic.session.id": session_id,
+					"anthropic.session.thread.id": threadID
+				}
+			})
+		});
+	}
+	/**
+	* Stream Session Thread Events
+	*
+	* @example
+	* ```ts
+	* const stream =
+	*   await client.beta.sessions.threads.events.stream(
+	*     'sthr_011CZkZVWa6oJjw1rgXZpnBt',
+	*     { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+	*   );
+	* for await (const betaManagedAgentsStreamSessionThreadEvents of stream) {
+	*   // ...
+	* }
+	* ```
+	*/
+	stream(threadID, params, options) {
+		const { session_id, betas, workspace_id, ...query } = params;
+		return this._client.get(path`/v1/sessions/${session_id}/threads/${threadID}/stream`, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			stream: true,
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.sessions.threads.events.stream", options, {
+				route: "/v1/sessions/{session_id}/threads/{thread_id}/stream",
+				queryParams: ["event_deltas"],
+				attributes: {
+					"anthropic.session.id": session_id,
+					"anthropic.session.thread.id": threadID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/sessions/threads/threads.mjs
+var Threads = /* @__PURE__ */ (() => {
+	class Threads extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.events = new Events(this._client);
+		}
+		/**
+		* Get Session Thread
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsSessionThread =
+		*   await client.beta.sessions.threads.retrieve(
+		*     'sthr_011CZkZVWa6oJjw1rgXZpnBt',
+		*     { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+		*   );
+		* ```
+		*/
+		retrieve(threadID, params, options) {
+			const { session_id, betas, workspace_id } = params;
+			return this._client.get(path`/v1/sessions/${session_id}/threads/${threadID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.threads.retrieve", options, {
+					route: "/v1/sessions/{session_id}/threads/{thread_id}",
+					attributes: {
+						"anthropic.session.id": session_id,
+						"anthropic.session.thread.id": threadID
+					}
+				})
+			});
+		}
+		/**
+		* List Session Threads
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaManagedAgentsSessionThread of client.beta.sessions.threads.list(
+		*   'sesn_011CZkZAtmR3yMPDzynEDxu7',
+		* )) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(sessionID, params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList(path`/v1/sessions/${sessionID}/threads`, PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.threads.list", options, {
+					route: "/v1/sessions/{session_id}/threads",
+					queryParams: [
+						"limit",
+						"page",
+						"statuses"
+					],
+					attributes: { "anthropic.session.id": sessionID }
+				})
+			});
+		}
+		/**
+		* Archive Session Thread
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsSessionThread =
+		*   await client.beta.sessions.threads.archive(
+		*     'sthr_011CZkZVWa6oJjw1rgXZpnBt',
+		*     { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+		*   );
+		* ```
+		*/
+		archive(threadID, params, options) {
+			const { session_id, betas, workspace_id } = params;
+			return this._client.post(path`/v1/sessions/${session_id}/threads/${threadID}/archive`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.threads.archive", options, {
+					route: "/v1/sessions/{session_id}/threads/{thread_id}/archive",
+					attributes: {
+						"anthropic.session.id": session_id,
+						"anthropic.session.thread.id": threadID
+					}
+				})
+			});
+		}
+	}
+	Threads.Events = Events;
+	return Threads;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/sessions/sessions.mjs
+var Sessions = /* @__PURE__ */ (() => {
+	class Sessions extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.events = new Events$1(this._client);
+			this.resources = new Resources(this._client);
+			this.threads = new Threads(this._client);
+		}
+		/**
+		* Create Session
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsSession =
+		*   await client.beta.sessions.create({
+		*     agent: 'agent_011CZkYpogX7uDKUyvBTophP',
+		*     environment_id: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
+		*     initial_events: [
+		*       {
+		*         type: 'user.message',
+		*         content: [
+		*           {
+		*             type: 'text',
+		*             text: 'Where is my order #1234?',
+		*           },
+		*         ],
+		*       },
+		*     ],
+		*   });
+		* ```
+		*/
+		create(params, options) {
+			const { betas, workspace_id, ...body } = params;
+			const headers = buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]);
+			const call = startApiCallSpan(this._client, "anthropic.sessions.create", options, {
+				route: "/v1/sessions",
+				attributes: {
+					"gen_ai.agent.id": typeof body.agent === "object" ? body.agent?.id : body.agent,
+					"anthropic.session.environment.id": body.environment_id
+				},
+				createdIDAttribute: "anthropic.session.id"
+			});
+			const request = this._client.post("/v1/sessions", {
+				body,
+				...options,
+				headers,
+				__qualifiers: { beta: "true" },
+				__span: call
+			});
+			return call ? request._thenUnwrap((session) => {
+				recordSessionsCreateResponse(this._client, call, session);
+				return session;
+			}) : request;
+		}
+		/**
+		* Get Session
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsSession =
+		*   await client.beta.sessions.retrieve(
+		*     'sesn_011CZkZAtmR3yMPDzynEDxu7',
+		*   );
+		* ```
+		*/
+		retrieve(sessionID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.get(path`/v1/sessions/${sessionID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.retrieve", options, {
+					route: "/v1/sessions/{session_id}",
+					attributes: { "anthropic.session.id": sessionID }
+				})
+			});
+		}
+		/**
+		* Update Session
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsSession =
+		*   await client.beta.sessions.update(
+		*     'sesn_011CZkZAtmR3yMPDzynEDxu7',
+		*   );
+		* ```
+		*/
+		update(sessionID, params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post(path`/v1/sessions/${sessionID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.update", options, {
+					route: "/v1/sessions/{session_id}",
+					attributes: { "anthropic.session.id": sessionID }
+				})
+			});
+		}
+		/**
+		* List Sessions
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaManagedAgentsSession of client.beta.sessions.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/sessions", BidirectionalPageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.list", options, {
+					route: "/v1/sessions",
+					queryParams: [
+						"agent_id",
+						"agent_version",
+						"created_at[gt]",
+						"created_at[gte]",
+						"created_at[lt]",
+						"created_at[lte]",
+						"deployment_id",
+						"include_archived",
+						"limit",
+						"memory_store_id",
+						"order",
+						"page",
+						"statuses"
+					]
+				})
+			});
+		}
+		/**
+		* Delete Session
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsDeletedSession =
+		*   await client.beta.sessions.delete(
+		*     'sesn_011CZkZAtmR3yMPDzynEDxu7',
+		*   );
+		* ```
+		*/
+		delete(sessionID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.delete(path`/v1/sessions/${sessionID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.delete", options, {
+					route: "/v1/sessions/{session_id}",
+					attributes: { "anthropic.session.id": sessionID }
+				})
+			});
+		}
+		/**
+		* Archive Session
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsSession =
+		*   await client.beta.sessions.archive(
+		*     'sesn_011CZkZAtmR3yMPDzynEDxu7',
+		*   );
+		* ```
+		*/
+		archive(sessionID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.post(path`/v1/sessions/${sessionID}/archive`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.sessions.archive", options, {
+					route: "/v1/sessions/{session_id}/archive",
+					attributes: { "anthropic.session.id": sessionID }
+				})
+			});
+		}
+	}
+	Sessions.Events = Events$1;
+	Sessions.Resources = Resources;
+	Sessions.Threads = Threads;
+	return Sessions;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/skills/versions.mjs
+var Versions$1 = class extends APIResource {
+	/**
+	* Create Skill Version
+	*
+	* @example
+	* ```ts
+	* const betaSkillVersion =
+	*   await client.beta.skills.versions.create('skill_id', {
+	*     files: [fs.createReadStream('path/to/file')],
+	*   });
+	* ```
+	*/
+	create(skillID, params, options) {
+		const { betas, workspace_id, ...body } = params;
+		return this._client.post(path`/v1/skills/${skillID}/versions`, multipartFormRequestOptions({
+			body,
+			...options,
+			headers: buildHeaders([{
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.skills.versions.create", options, {
+				route: "/v1/skills/{skill_id}/versions",
+				attributes: { "anthropic.skill.id": skillID },
+				createdIDAttribute: "anthropic.skill.version.id"
+			})
+		}, this._client, false));
+	}
+	/**
+	* Get Skill Version
+	*
+	* @example
+	* ```ts
+	* const betaSkillVersion =
+	*   await client.beta.skills.versions.retrieve('version', {
+	*     skill_id: 'skill_id',
+	*   });
+	* ```
+	*/
+	retrieve(version, params, options) {
+		const { skill_id, betas, workspace_id } = params;
+		return this._client.get(path`/v1/skills/${skill_id}/versions/${version}`, {
+			...options,
+			headers: buildHeaders([{
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.skills.versions.retrieve", options, {
+				route: "/v1/skills/{skill_id}/versions/{version}",
+				attributes: {
+					"anthropic.skill.id": skill_id,
+					"anthropic.skill.version.id": version
+				}
+			})
+		});
+	}
+	/**
+	* List Skill Versions
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaSkillVersion of client.beta.skills.versions.list(
+	*   'skill_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(skillID, params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/skills/${skillID}/versions`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.skills.versions.list", options, {
+				route: "/v1/skills/{skill_id}/versions",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.skill.id": skillID }
+			})
+		});
+	}
+	/**
+	* Delete Skill Version
+	*
+	* @example
+	* ```ts
+	* const betaDeletedSkillVersion =
+	*   await client.beta.skills.versions.delete('version', {
+	*     skill_id: 'skill_id',
+	*   });
+	* ```
+	*/
+	delete(version, params, options) {
+		const { skill_id, betas, workspace_id } = params;
+		return this._client.delete(path`/v1/skills/${skill_id}/versions/${version}`, {
+			...options,
+			headers: buildHeaders([{
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.skills.versions.delete", options, {
+				route: "/v1/skills/{skill_id}/versions/{version}",
+				attributes: {
+					"anthropic.skill.id": skill_id,
+					"anthropic.skill.version.id": version
+				}
+			})
+		});
+	}
+	/**
+	* Download a skill version's content as a zip archive.
+	*
+	* @example
+	* ```ts
+	* const response = await client.beta.skills.versions.download(
+	*   'version',
+	*   { skill_id: 'skill_id' },
+	* );
+	*
+	* const content = await response.blob();
+	* console.log(content);
+	* ```
+	*/
+	download(version, params, options) {
+		const { skill_id, betas, workspace_id } = params;
+		return this._client.get(path`/v1/skills/${skill_id}/versions/${version}/content`, {
+			...options,
+			headers: buildHeaders([{
+				Accept: "application/binary",
+				...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__binaryResponse: true,
+			__span: startApiCallSpan(this._client, "anthropic.skills.versions.download", options, {
+				route: "/v1/skills/{skill_id}/versions/{version}/content",
+				attributes: {
+					"anthropic.skill.id": skill_id,
+					"anthropic.skill.version.id": version
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/skills/skills.mjs
+var Skills$1 = /* @__PURE__ */ (() => {
+	class Skills extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.versions = new Versions$1(this._client);
+		}
+		/**
+		* Create Skill
+		*
+		* @example
+		* ```ts
+		* const betaSkill = await client.beta.skills.create({
+		*   files: [fs.createReadStream('path/to/file')],
+		* });
+		* ```
+		*/
+		create(params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post("/v1/skills", multipartFormRequestOptions({
+				body,
+				...options,
+				headers: buildHeaders([{
+					...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.skills.create", options, {
+					route: "/v1/skills",
+					createdIDAttribute: "anthropic.skill.id"
+				})
+			}, this._client, false));
+		}
+		/**
+		* Get Skill
+		*
+		* @example
+		* ```ts
+		* const betaSkill = await client.beta.skills.retrieve(
+		*   'skill_id',
+		* );
+		* ```
+		*/
+		retrieve(skillID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.get(path`/v1/skills/${skillID}`, {
+				...options,
+				headers: buildHeaders([{
+					...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.skills.retrieve", options, {
+					route: "/v1/skills/{skill_id}",
+					attributes: { "anthropic.skill.id": skillID }
+				})
+			});
+		}
+		/**
+		* List Skills
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaSkill of client.beta.skills.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/skills", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.skills.list", options, {
+					route: "/v1/skills",
+					queryParams: [
+						"limit",
+						"page",
+						"source"
+					]
+				})
+			});
+		}
+		/**
+		* Delete Skill
+		*
+		* @example
+		* ```ts
+		* const betaDeletedSkill = await client.beta.skills.delete(
+		*   'skill_id',
+		* );
+		* ```
+		*/
+		delete(skillID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.delete(path`/v1/skills/${skillID}`, {
+				...options,
+				headers: buildHeaders([{
+					...betas?.toString() != null ? { "anthropic-beta": betas?.toString() } : void 0,
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.skills.delete", options, {
+					route: "/v1/skills/{skill_id}",
+					attributes: { "anthropic.skill.id": skillID }
+				})
+			});
+		}
+	}
+	Skills.Versions = Versions$1;
+	return Skills;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/tunnels/certificates.mjs
+var Certificates = class extends APIResource {
+	/**
+	* The Tunnels API is in research preview. It requires the
+	* `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a
+	* deprecation period. It supersedes the Admin API endpoints at
+	* `/v1/organizations/tunnels`, which remain available during a migration window.
+	*
+	* Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's
+	* server certificate against this CA when it terminates the inner TLS session. A
+	* tunnel holds at most two non-archived certificates.
+	*
+	* @example
+	* ```ts
+	* const betaTunnelCertificate =
+	*   await client.beta.tunnels.certificates.create(
+	*     'tunnel_id',
+	*     { ca_certificate_pem: 'ca_certificate_pem' },
+	*   );
+	* ```
+	*/
+	create(tunnelID, params, options) {
+		const { betas, workspace_id, ...body } = params;
+		return this._client.post(path`/v1/tunnels/${tunnelID}/certificates`, {
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "mcp-tunnels-2026-06-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.tunnels.certificates.create", options, {
+				route: "/v1/tunnels/{tunnel_id}/certificates",
+				attributes: { "anthropic.tunnel.id": tunnelID },
+				createdIDAttribute: "anthropic.tunnel.certificate.id"
+			})
+		});
+	}
+	/**
+	* The Tunnels API is in research preview. It requires the
+	* `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a
+	* deprecation period. It supersedes the Admin API endpoints at
+	* `/v1/organizations/tunnels`, which remain available during a migration window.
+	*
+	* Fetches a tunnel certificate by ID.
+	*
+	* @example
+	* ```ts
+	* const betaTunnelCertificate =
+	*   await client.beta.tunnels.certificates.retrieve(
+	*     'certificate_id',
+	*     { tunnel_id: 'tunnel_id' },
+	*   );
+	* ```
+	*/
+	retrieve(certificateID, params, options) {
+		const { tunnel_id, betas, workspace_id } = params;
+		return this._client.get(path`/v1/tunnels/${tunnel_id}/certificates/${certificateID}`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "mcp-tunnels-2026-06-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.tunnels.certificates.retrieve", options, {
+				route: "/v1/tunnels/{tunnel_id}/certificates/{certificate_id}",
+				attributes: {
+					"anthropic.tunnel.id": tunnel_id,
+					"anthropic.tunnel.certificate.id": certificateID
+				}
+			})
+		});
+	}
+	/**
+	* The Tunnels API is in research preview. It requires the
+	* `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a
+	* deprecation period. It supersedes the Admin API endpoints at
+	* `/v1/organizations/tunnels`, which remain available during a migration window.
+	*
+	* Lists the certificates registered on a tunnel. Archived certificates are
+	* excluded unless include_archived is set.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaTunnelCertificate of client.beta.tunnels.certificates.list(
+	*   'tunnel_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(tunnelID, params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/tunnels/${tunnelID}/certificates`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "mcp-tunnels-2026-06-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.tunnels.certificates.list", options, {
+				route: "/v1/tunnels/{tunnel_id}/certificates",
+				queryParams: [
+					"include_archived",
+					"limit",
+					"page"
+				],
+				attributes: { "anthropic.tunnel.id": tunnelID }
+			})
+		});
+	}
+	/**
+	* The Tunnels API is in research preview. It requires the
+	* `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a
+	* deprecation period. It supersedes the Admin API endpoints at
+	* `/v1/organizations/tunnels`, which remain available during a migration window.
+	*
+	* Archives a tunnel certificate, removing it from the set Anthropic trusts for the
+	* tunnel. The certificate record is retained. Archiving the last non-archived
+	* certificate is permitted; the tunnel rejects MCP traffic until a new certificate
+	* is added.
+	*
+	* @example
+	* ```ts
+	* const betaTunnelCertificate =
+	*   await client.beta.tunnels.certificates.archive(
+	*     'certificate_id',
+	*     { tunnel_id: 'tunnel_id' },
+	*   );
+	* ```
+	*/
+	archive(certificateID, params, options) {
+		const { tunnel_id, betas, workspace_id } = params;
+		return this._client.post(path`/v1/tunnels/${tunnel_id}/certificates/${certificateID}/archive`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "mcp-tunnels-2026-06-22"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.tunnels.certificates.archive", options, {
+				route: "/v1/tunnels/{tunnel_id}/certificates/{certificate_id}/archive",
+				attributes: {
+					"anthropic.tunnel.id": tunnel_id,
+					"anthropic.tunnel.certificate.id": certificateID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/tunnels/tunnels.mjs
+var Tunnels = /* @__PURE__ */ (() => {
+	class Tunnels extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.certificates = new Certificates(this._client);
+		}
+		/**
+		* The Tunnels API is in research preview. It requires the
+		* `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a
+		* deprecation period. It supersedes the Admin API endpoints at
+		* `/v1/organizations/tunnels`, which remain available during a migration window.
+		*
+		* Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
+		* it is not idempotent. The new tunnel rejects MCP traffic until at least one CA
+		* certificate is added.
+		*
+		* @example
+		* ```ts
+		* const betaTunnel = await client.beta.tunnels.create();
+		* ```
+		*/
+		create(params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post("/v1/tunnels", {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "mcp-tunnels-2026-06-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.tunnels.create", options, {
+					route: "/v1/tunnels",
+					createdIDAttribute: "anthropic.tunnel.id"
+				})
+			});
+		}
+		/**
+		* The Tunnels API is in research preview. It requires the
+		* `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a
+		* deprecation period. It supersedes the Admin API endpoints at
+		* `/v1/organizations/tunnels`, which remain available during a migration window.
+		*
+		* Fetches a tunnel by ID.
+		*
+		* @example
+		* ```ts
+		* const betaTunnel = await client.beta.tunnels.retrieve(
+		*   'tunnel_id',
+		* );
+		* ```
+		*/
+		retrieve(tunnelID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.get(path`/v1/tunnels/${tunnelID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "mcp-tunnels-2026-06-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.tunnels.retrieve", options, {
+					route: "/v1/tunnels/{tunnel_id}",
+					attributes: { "anthropic.tunnel.id": tunnelID }
+				})
+			});
+		}
+		/**
+		* The Tunnels API is in research preview. It requires the
+		* `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a
+		* deprecation period. It supersedes the Admin API endpoints at
+		* `/v1/organizations/tunnels`, which remain available during a migration window.
+		*
+		* Lists tunnels. Results are ordered by creation time, newest first; archived
+		* tunnels are excluded unless include_archived is set.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaTunnel of client.beta.tunnels.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/tunnels", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "mcp-tunnels-2026-06-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.tunnels.list", options, {
+					route: "/v1/tunnels",
+					queryParams: [
+						"include_archived",
+						"limit",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* The Tunnels API is in research preview. It requires the
+		* `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a
+		* deprecation period. It supersedes the Admin API endpoints at
+		* `/v1/organizations/tunnels`, which remain available during a migration window.
+		*
+		* Archives a tunnel. Archival is irreversible: every non-archived certificate on
+		* the tunnel is archived in the same operation, the hostname is retired and never
+		* re-allocated, and the tunnel token is invalidated. Retrying against an
+		* already-archived tunnel returns the existing record unchanged.
+		*
+		* @example
+		* ```ts
+		* const betaTunnel = await client.beta.tunnels.archive(
+		*   'tunnel_id',
+		* );
+		* ```
+		*/
+		archive(tunnelID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.post(path`/v1/tunnels/${tunnelID}/archive`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "mcp-tunnels-2026-06-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.tunnels.archive", options, {
+					route: "/v1/tunnels/{tunnel_id}/archive",
+					attributes: { "anthropic.tunnel.id": tunnelID }
+				})
+			});
+		}
+		/**
+		* The Tunnels API is in research preview. It requires the
+		* `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a
+		* deprecation period. It supersedes the Admin API endpoints at
+		* `/v1/organizations/tunnels`, which remain available during a migration window.
+		*
+		* Reveals a tunnel's connector token. The value is fetched live on each call;
+		* Anthropic does not store it. Repeated calls return the same value until the
+		* token is rotated. Exposed as POST so the token does not appear in intermediary
+		* access logs.
+		*
+		* @example
+		* ```ts
+		* const betaTunnelToken =
+		*   await client.beta.tunnels.revealToken('tunnel_id');
+		* ```
+		*/
+		revealToken(tunnelID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.post(path`/v1/tunnels/${tunnelID}/reveal_token`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "mcp-tunnels-2026-06-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.tunnels.reveal_token", options, {
+					route: "/v1/tunnels/{tunnel_id}/reveal_token",
+					attributes: { "anthropic.tunnel.id": tunnelID }
+				})
+			});
+		}
+		/**
+		* The Tunnels API is in research preview. It requires the
+		* `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a
+		* deprecation period. It supersedes the Admin API endpoints at
+		* `/v1/organizations/tunnels`, which remain available during a migration window.
+		*
+		* Rotates a tunnel's connector token. Rotation invalidates the current token for
+		* new connections and returns a fresh value; established connections are not
+		* severed. A connector restarted after rotation must use the new value.
+		*
+		* @example
+		* ```ts
+		* const betaTunnelToken =
+		*   await client.beta.tunnels.rotateToken('tunnel_id');
+		* ```
+		*/
+		rotateToken(tunnelID, params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post(path`/v1/tunnels/${tunnelID}/rotate_token`, {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "mcp-tunnels-2026-06-22"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.tunnels.rotate_token", options, {
+					route: "/v1/tunnels/{tunnel_id}/rotate_token",
+					attributes: { "anthropic.tunnel.id": tunnelID }
+				})
+			});
+		}
+	}
+	Tunnels.Certificates = Certificates;
+	return Tunnels;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/user-profiles/action-urls.mjs
+var ActionURLs$1 = class extends APIResource {
+	/**
+	* Create Action URL
+	*
+	* @example
+	* ```ts
+	* const betaUserProfileActionURL =
+	*   await client.beta.userProfiles.actionURLs.create(
+	*     'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+	*     { action: { type: 'enroll_end_user' } },
+	*   );
+	* ```
+	*/
+	create(userProfileID, params, options) {
+		const { betas, workspace_id, ...body } = params;
+		return this._client.post(path`/v1/user_profiles/${userProfileID}/action_urls`, {
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "user-profiles-2026-08-18"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.user_profiles.action_urls.create", options, {
+				route: "/v1/user_profiles/{user_profile_id}/action_urls",
+				attributes: { "anthropic.user_profile.id": userProfileID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/user-profiles/user-profiles.mjs
+var UserProfiles$1 = /* @__PURE__ */ (() => {
+	class UserProfiles extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.actionURLs = new ActionURLs$1(this._client);
+		}
+		/**
+		* Create User Profile
+		*
+		* @example
+		* ```ts
+		* const betaUserProfile =
+		*   await client.beta.userProfiles.create();
+		* ```
+		*/
+		create(params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post("/v1/user_profiles", {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "user-profiles-2026-08-18"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.create", options, {
+					route: "/v1/user_profiles",
+					createdIDAttribute: "anthropic.user_profile.id"
+				})
+			});
+		}
+		/**
+		* Get User Profile
+		*
+		* @example
+		* ```ts
+		* const betaUserProfile =
+		*   await client.beta.userProfiles.retrieve(
+		*     'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+		*   );
+		* ```
+		*/
+		retrieve(userProfileID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.get(path`/v1/user_profiles/${userProfileID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "user-profiles-2026-08-18"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.retrieve", options, {
+					route: "/v1/user_profiles/{user_profile_id}",
+					attributes: { "anthropic.user_profile.id": userProfileID }
+				})
+			});
+		}
+		/**
+		* Update User Profile
+		*
+		* @example
+		* ```ts
+		* const betaUserProfile =
+		*   await client.beta.userProfiles.update(
+		*     'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+		*   );
+		* ```
+		*/
+		update(userProfileID, params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post(path`/v1/user_profiles/${userProfileID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "user-profiles-2026-08-18"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.update", options, {
+					route: "/v1/user_profiles/{user_profile_id}",
+					attributes: { "anthropic.user_profile.id": userProfileID }
+				})
+			});
+		}
+		/**
+		* List User Profiles
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaUserProfile of client.beta.userProfiles.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/user_profiles", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "user-profiles-2026-08-18"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.list", options, {
+					route: "/v1/user_profiles",
+					queryParams: [
+						"limit",
+						"order",
+						"order_by",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* Delete User Profile
+		*
+		* @example
+		* ```ts
+		* const betaDeletedUserProfile =
+		*   await client.beta.userProfiles.delete(
+		*     'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+		*   );
+		* ```
+		*/
+		delete(userProfileID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.delete(path`/v1/user_profiles/${userProfileID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "user-profiles-2026-08-18"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.delete", options, {
+					route: "/v1/user_profiles/{user_profile_id}",
+					attributes: { "anthropic.user_profile.id": userProfileID }
+				})
+			});
+		}
+		/**
+		* Create Enrollment URL
+		*
+		* @example
+		* ```ts
+		* const betaUserProfileEnrollmentURL =
+		*   await client.beta.userProfiles.createEnrollmentURL(
+		*     'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+		*   );
+		* ```
+		*/
+		createEnrollmentURL(userProfileID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.post(path`/v1/user_profiles/${userProfileID}/enrollment_url`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "user-profiles-2026-08-18"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.create_enrollment_url", options, {
+					route: "/v1/user_profiles/{user_profile_id}/enrollment_url",
+					attributes: { "anthropic.user_profile.id": userProfileID }
+				})
+			});
+		}
+	}
+	UserProfiles.ActionURLs = ActionURLs$1;
+	return UserProfiles;
+})();
+// node_modules/@anthropic-ai/sdk/resources/beta/vaults/credentials.mjs
+var Credentials = class extends APIResource {
+	/**
+	* Create a Credential
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsCredential =
+	*   await client.beta.vaults.credentials.create(
+	*     'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+	*     {
+	*       auth: {
+	*         token: 'bearer_exampletoken',
+	*         mcp_server_url:
+	*           'https://example-server.modelcontextprotocol.io/sse',
+	*         type: 'static_bearer',
+	*       },
+	*     },
+	*   );
+	* ```
+	*/
+	create(vaultID, params, options) {
+		const { betas, workspace_id, ...body } = params;
+		return this._client.post(path`/v1/vaults/${vaultID}/credentials`, {
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.vaults.credentials.create", options, {
+				route: "/v1/vaults/{vault_id}/credentials",
+				attributes: { "anthropic.vault.id": vaultID },
+				createdIDAttribute: "anthropic.vault.credential.id"
+			})
+		});
+	}
+	/**
+	* Retrieve a Credential
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsCredential =
+	*   await client.beta.vaults.credentials.retrieve(
+	*     'vcrd_011CZkZEMt8gZan2iYPQfSkw',
+	*     { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+	*   );
+	* ```
+	*/
+	retrieve(credentialID, params, options) {
+		const { vault_id, betas, workspace_id } = params;
+		return this._client.get(path`/v1/vaults/${vault_id}/credentials/${credentialID}`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.vaults.credentials.retrieve", options, {
+				route: "/v1/vaults/{vault_id}/credentials/{credential_id}",
+				attributes: {
+					"anthropic.vault.id": vault_id,
+					"anthropic.vault.credential.id": credentialID
+				}
+			})
+		});
+	}
+	/**
+	* Update a Credential
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsCredential =
+	*   await client.beta.vaults.credentials.update(
+	*     'vcrd_011CZkZEMt8gZan2iYPQfSkw',
+	*     { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+	*   );
+	* ```
+	*/
+	update(credentialID, params, options) {
+		const { vault_id, betas, workspace_id, ...body } = params;
+		return this._client.post(path`/v1/vaults/${vault_id}/credentials/${credentialID}`, {
+			body,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.vaults.credentials.update", options, {
+				route: "/v1/vaults/{vault_id}/credentials/{credential_id}",
+				attributes: {
+					"anthropic.vault.id": vault_id,
+					"anthropic.vault.credential.id": credentialID
+				}
+			})
+		});
+	}
+	/**
+	* List Credentials
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const betaManagedAgentsCredential of client.beta.vaults.credentials.list(
+	*   'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(vaultID, params = {}, options) {
+		const { betas, workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/vaults/${vaultID}/credentials`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.vaults.credentials.list", options, {
+				route: "/v1/vaults/{vault_id}/credentials",
+				queryParams: [
+					"include_archived",
+					"limit",
+					"page"
+				],
+				attributes: { "anthropic.vault.id": vaultID }
+			})
+		});
+	}
+	/**
+	* Delete a Credential
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsDeletedCredential =
+	*   await client.beta.vaults.credentials.delete(
+	*     'vcrd_011CZkZEMt8gZan2iYPQfSkw',
+	*     { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+	*   );
+	* ```
+	*/
+	delete(credentialID, params, options) {
+		const { vault_id, betas, workspace_id } = params;
+		return this._client.delete(path`/v1/vaults/${vault_id}/credentials/${credentialID}`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.vaults.credentials.delete", options, {
+				route: "/v1/vaults/{vault_id}/credentials/{credential_id}",
+				attributes: {
+					"anthropic.vault.id": vault_id,
+					"anthropic.vault.credential.id": credentialID
+				}
+			})
+		});
+	}
+	/**
+	* Archive a Credential
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsCredential =
+	*   await client.beta.vaults.credentials.archive(
+	*     'vcrd_011CZkZEMt8gZan2iYPQfSkw',
+	*     { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+	*   );
+	* ```
+	*/
+	archive(credentialID, params, options) {
+		const { vault_id, betas, workspace_id } = params;
+		return this._client.post(path`/v1/vaults/${vault_id}/credentials/${credentialID}/archive`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.vaults.credentials.archive", options, {
+				route: "/v1/vaults/{vault_id}/credentials/{credential_id}/archive",
+				attributes: {
+					"anthropic.vault.id": vault_id,
+					"anthropic.vault.credential.id": credentialID
+				}
+			})
+		});
+	}
+	/**
+	* Validate an MCP OAuth Credential
+	*
+	* @example
+	* ```ts
+	* const betaManagedAgentsCredentialValidation =
+	*   await client.beta.vaults.credentials.mcpOAuthValidate(
+	*     'vcrd_011CZkZEMt8gZan2iYPQfSkw',
+	*     { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+	*   );
+	* ```
+	*/
+	mcpOAuthValidate(credentialID, params, options) {
+		const { vault_id, betas, workspace_id } = params;
+		return this._client.post(path`/v1/vaults/${vault_id}/credentials/${credentialID}/mcp_oauth_validate`, {
+			...options,
+			headers: buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__qualifiers: { beta: "true" },
+			__span: startApiCallSpan(this._client, "anthropic.vaults.credentials.mcp_oauth_validate", options, {
+				route: "/v1/vaults/{vault_id}/credentials/{credential_id}/mcp_oauth_validate",
+				attributes: {
+					"anthropic.vault.id": vault_id,
+					"anthropic.vault.credential.id": credentialID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/vaults/vaults.mjs
+var Vaults = /* @__PURE__ */ (() => {
+	class Vaults extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.credentials = new Credentials(this._client);
+		}
+		/**
+		* Create a Vault
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsVault =
+		*   await client.beta.vaults.create({
+		*     display_name: 'Example vault',
+		*   });
+		* ```
+		*/
+		create(params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post("/v1/vaults", {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.vaults.create", options, {
+					route: "/v1/vaults",
+					createdIDAttribute: "anthropic.vault.id"
+				})
+			});
+		}
+		/**
+		* Retrieve a Vault
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsVault =
+		*   await client.beta.vaults.retrieve(
+		*     'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+		*   );
+		* ```
+		*/
+		retrieve(vaultID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.get(path`/v1/vaults/${vaultID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.vaults.retrieve", options, {
+					route: "/v1/vaults/{vault_id}",
+					attributes: { "anthropic.vault.id": vaultID }
+				})
+			});
+		}
+		/**
+		* Update a Vault
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsVault =
+		*   await client.beta.vaults.update(
+		*     'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+		*   );
+		* ```
+		*/
+		update(vaultID, params, options) {
+			const { betas, workspace_id, ...body } = params;
+			return this._client.post(path`/v1/vaults/${vaultID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.vaults.update", options, {
+					route: "/v1/vaults/{vault_id}",
+					attributes: { "anthropic.vault.id": vaultID }
+				})
+			});
+		}
+		/**
+		* List Vaults
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const betaManagedAgentsVault of client.beta.vaults.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { betas, workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/vaults", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.vaults.list", options, {
+					route: "/v1/vaults",
+					queryParams: [
+						"include_archived",
+						"limit",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* Delete a Vault
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsDeletedVault =
+		*   await client.beta.vaults.delete(
+		*     'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+		*   );
+		* ```
+		*/
+		delete(vaultID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.delete(path`/v1/vaults/${vaultID}`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.vaults.delete", options, {
+					route: "/v1/vaults/{vault_id}",
+					attributes: { "anthropic.vault.id": vaultID }
+				})
+			});
+		}
+		/**
+		* Archive a Vault
+		*
+		* @example
+		* ```ts
+		* const betaManagedAgentsVault =
+		*   await client.beta.vaults.archive(
+		*     'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+		*   );
+		* ```
+		*/
+		archive(vaultID, params = {}, options) {
+			const { betas, workspace_id } = params ?? {};
+			return this._client.post(path`/v1/vaults/${vaultID}/archive`, {
+				...options,
+				headers: buildHeaders([{
+					"anthropic-beta": [...betas ?? [], "managed-agents-2026-04-01"].toString(),
+					...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+				}, options?.headers]),
+				__qualifiers: { beta: "true" },
+				__span: startApiCallSpan(this._client, "anthropic.vaults.archive", options, {
+					route: "/v1/vaults/{vault_id}/archive",
+					attributes: { "anthropic.vault.id": vaultID }
+				})
+			});
+		}
+	}
+	Vaults.Credentials = Credentials;
+	return Vaults;
+})();
+// node_modules/@anthropic-ai/sdk/lib/internal/BetaToolRunnerStream.mjs
+var _BetaToolRunnerStream_instances;
+var _BetaToolRunnerStream_onToolCall;
+var _BetaToolRunnerStream_emitted;
+var _BetaToolRunnerStream_readers;
+var _BetaToolRunnerStream_toolCalls;
+var _BetaToolRunnerStream_closed;
+var _BetaToolRunnerStream_ready;
+var _BetaToolRunnerStream_fallback;
+var _BetaToolRunnerStream_track;
+var _BetaToolRunnerStream_release;
+var _BetaToolRunnerStream_removeReader;
+/**
+* The stream a tool runner yields. It hands each `tool_use` call to `onToolCall` once the model has moved on
+* from it, and the caller's listeners and `for await` loops over the stream have handled the event that shows it.
+*/
+var BetaToolRunnerStream = /* @__PURE__ */ (() => {
+	/**
+	* The stream a tool runner yields. It hands each `tool_use` call to `onToolCall` once the model has moved on
+	* from it, and the caller's listeners and `for await` loops over the stream have handled the event that shows it.
+	*/
+	class BetaToolRunnerStream extends BetaMessageStream {
+		constructor(params, onToolCall, client) {
+			super(params, { client });
+			_BetaToolRunnerStream_instances.add(this);
+			_BetaToolRunnerStream_onToolCall.set(this, void 0);
+			/** The number of stream events emitted so far */
+			_BetaToolRunnerStream_emitted.set(this, 0);
+			/** The `for await` loops over the stream that are still reading it */
+			_BetaToolRunnerStream_readers.set(this, []);
+			/** The `tool_use` blocks that have finished streaming, in the model's order */
+			_BetaToolRunnerStream_toolCalls.set(this, []);
+			/** The last `tool_use` block to close, until the model moves on from it */
+			_BetaToolRunnerStream_closed.set(this, void 0);
+			/** The calls the model has moved on from, in its order, until every reader has caught up with them */
+			_BetaToolRunnerStream_ready.set(this, []);
+			/** Whether a refusal has handed the reply to a fallback model */
+			_BetaToolRunnerStream_fallback.set(this, false);
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunnerStream_onToolCall, onToolCall, "f");
+		}
+		/** The `tool_use` blocks that have finished streaming, in the model's order */
+		get toolCalls() {
+			return require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_toolCalls, "f");
+		}
+		_deliverEvent(event, snapshot) {
+			var _a;
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunnerStream_emitted, (_a = require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_emitted, "f"), _a++, _a), "f");
+			const block = event.type === "content_block_stop" ? snapshot?.content[event.index] : void 0;
+			const closed = block?.type === "tool_use" ? block : void 0;
+			if (closed) require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_toolCalls, "f").push(closed);
+			super._deliverEvent(event, snapshot);
+			require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_instances, "m", _BetaToolRunnerStream_track).call(this, event, closed);
+			require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_instances, "m", _BetaToolRunnerStream_release).call(this);
+		}
+		[(_BetaToolRunnerStream_onToolCall = /* @__PURE__ */ new WeakMap(), _BetaToolRunnerStream_emitted = /* @__PURE__ */ new WeakMap(), _BetaToolRunnerStream_readers = /* @__PURE__ */ new WeakMap(), _BetaToolRunnerStream_toolCalls = /* @__PURE__ */ new WeakMap(), _BetaToolRunnerStream_closed = /* @__PURE__ */ new WeakMap(), _BetaToolRunnerStream_ready = /* @__PURE__ */ new WeakMap(), _BetaToolRunnerStream_fallback = /* @__PURE__ */ new WeakMap(), _BetaToolRunnerStream_instances = /* @__PURE__ */ new WeakSet(), Symbol.asyncIterator)]() {
+			const iterator = super[Symbol.asyncIterator]();
+			const reader = { handled: require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_emitted, "f") };
+			require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_readers, "f").push(reader);
+			let holdsEvent = false;
+			return {
+				next: async () => {
+					if (holdsEvent) {
+						holdsEvent = false;
+						reader.handled++;
+						require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_instances, "m", _BetaToolRunnerStream_release).call(this);
+					}
+					try {
+						const result = await iterator.next();
+						holdsEvent = !result.done;
+						if (result.done) require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_instances, "m", _BetaToolRunnerStream_removeReader).call(this, reader);
+						return result;
+					} catch (error) {
+						require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_instances, "m", _BetaToolRunnerStream_removeReader).call(this, reader);
+						throw error;
+					}
+				},
+				return: async () => {
+					const result = iterator.return?.();
+					require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_instances, "m", _BetaToolRunnerStream_removeReader).call(this, reader);
+					return await result ?? {
+						value: void 0,
+						done: true
+					};
+				}
+			};
+		}
+	}
+	_BetaToolRunnerStream_track = function _BetaToolRunnerStream_track(event, closed) {
+		if (require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_fallback, "f")) return;
+		if (event.type === "content_block_start" && event.content_block.type === "fallback") {
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunnerStream_fallback, true, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunnerStream_closed, void 0, "f");
+			return;
+		}
+		const movedOn = event.type === "content_block_start" || event.type === "message_delta" && event.delta.stop_reason === "tool_use";
+		if (require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_closed, "f") && movedOn) {
+			require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_ready, "f").push({
+				toolUse: require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_closed, "f"),
+				event: require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_emitted, "f")
+			});
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunnerStream_closed, void 0, "f");
+		}
+		if (closed) require_promise.__classPrivateFieldSet(this, _BetaToolRunnerStream_closed, closed, "f");
+	}, _BetaToolRunnerStream_release = function _BetaToolRunnerStream_release() {
+		if (this.errored || this.controller.signal.aborted) return;
+		const handled = Math.min(require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_emitted, "f"), ...require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_readers, "f").map((reader) => reader.handled));
+		while (require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_ready, "f")[0] && require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_ready, "f")[0].event <= handled) require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_onToolCall, "f").call(this, require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_ready, "f").shift().toolUse);
+	}, _BetaToolRunnerStream_removeReader = function _BetaToolRunnerStream_removeReader(reader) {
+		const index = require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_readers, "f").indexOf(reader);
+		if (index >= 0) {
+			require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_readers, "f").splice(index, 1);
+			require_promise.__classPrivateFieldGet(this, _BetaToolRunnerStream_instances, "m", _BetaToolRunnerStream_release).call(this);
+		}
+	};
+	return BetaToolRunnerStream;
+})();
+// node_modules/@anthropic-ai/sdk/lib/internal/threads/ThreadState.mjs
+var _ThreadState_instances;
+var _ThreadState_fields;
+var _ThreadState_stored;
+var _ThreadState_staged;
+var _ThreadState_anchor;
+var _ThreadState_turn;
+var _ThreadState_logger;
+var _ThreadState_lastReply_get;
+var _ThreadState_repeatsLastReply;
+var _ThreadState_startNewThread;
+var _ThreadState_retryPartialTurn;
+var _ThreadState_dropsRefusedTurn;
+var _ThreadState_storeTurn;
+var _ThreadState_adoptContainer;
+var _ThreadState_checkCreateOnly;
+var _ThreadState_requestOptions;
+/**
+* A turn in flight: the request fields it sends, the messages its call staged, the create-only fields its call gave,
+* and the history edits to apply once it ends.
+*/
+var Turn = class {
+	constructor(fields, ownMessages, ownCreateOnly) {
+		this.fields = fields;
+		this.ownMessages = ownMessages;
+		this.ownCreateOnly = ownCreateOnly;
+		this.deferredMessages = [];
+		this.replacementHistory = null;
+		this.createOnly = createOnlyJSON(fields);
+	}
+};
+/**
+* A thread's local view of the conversation: the full history, which part of it the server holds and which
+* reply the next turn continues from, the request fields for the next turn, and the turn in flight, if any.
+*
+* Sends nothing itself: it assembles each turn's `create()` arguments and records what the reply changes.
+*/
+var ThreadState = /* @__PURE__ */ (() => {
+	/**
+	* A thread's local view of the conversation: the full history, which part of it the server holds and which
+	* reply the next turn continues from, the request fields for the next turn, and the turn in flight, if any.
+	*
+	* Sends nothing itself: it assembles each turn's `create()` arguments and records what the reply changes.
+	*/
+	class ThreadState {
+		constructor({ params, options, threading, logger }) {
+			_ThreadState_instances.add(this);
+			_ThreadState_fields.set(this, void 0);
+			_ThreadState_stored.set(this, []);
+			_ThreadState_staged.set(this, []);
+			_ThreadState_anchor.set(this, void 0);
+			_ThreadState_turn.set(this, null);
+			_ThreadState_logger.set(this, void 0);
+			const { messages, unsupportedRequestBehavior, ...fields } = params;
+			rejectThreadField(fields);
+			this.options = options;
+			this.unsupportedRequestBehavior = unsupportedRequestBehavior ?? "error";
+			require_promise.__classPrivateFieldSet(this, _ThreadState_fields, fields, "f");
+			require_promise.__classPrivateFieldSet(this, _ThreadState_anchor, threading ? {
+				type: "create",
+				replacesLostThread: false
+			} : { type: "never_threaded" }, "f");
+			require_promise.__classPrivateFieldSet(this, _ThreadState_logger, logger, "f");
+			this.push(messages ?? []);
+		}
+		/** Whether turns send a `thread` field at all. */
+		get threading() {
+			return require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type === "create" || require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type === "continue";
+		}
+		/** The `id` of the stored reply the next turn continues from, or `null` when it starts a new thread. */
+		get previousMessageId() {
+			return require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type === "continue" ? require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").previousMessageId : null;
+		}
+		/**
+		* Every message the server holds plus those staged for the next turn, with any edits deferred by a turn in flight
+		* already applied.
+		*/
+		get messages() {
+			const messages = require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f")?.replacementHistory?.slice() ?? [...require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f"), ...require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f")].map((entry) => entry.param);
+			if (require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f")) messages.push(...require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f").deferredMessages.map(toMessageParam));
+			return messages;
+		}
+		/**
+		* The thread as the params of one call for the whole conversation: its request fields and full history. A new
+		* object on each access. While a turn that creates the thread is in flight, it shows that turn's create-only fields.
+		*/
+		get params() {
+			const ownCreateOnly = require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type === "create" ? require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f")?.ownCreateOnly : void 0;
+			return {
+				...require_promise.__classPrivateFieldGet(this, _ThreadState_fields, "f"),
+				...ownCreateOnly,
+				messages: this.messages
+			};
+		}
+		/** Stage messages for the next turn, skipping the reply just recorded and deferring while a turn is in flight. */
+		push(messages) {
+			if (require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f")) {
+				require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f").deferredMessages.push(...messages);
+				return;
+			}
+			for (const message of messages) {
+				if (require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_repeatsLastReply).call(this, message)) continue;
+				require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f").push({
+					param: toMessageParam(message),
+					reply: null
+				});
+			}
+		}
+		/** Apply the given request fields and request options to all later turns. */
+		update(fields = {}, options = {}) {
+			rejectThreadField(fields);
+			require_promise.__classPrivateFieldSet(this, _ThreadState_fields, {
+				...require_promise.__classPrivateFieldGet(this, _ThreadState_fields, "f"),
+				...definedEntries(fields)
+			}, "f");
+			this.options = {
+				...this.options,
+				...definedEntries(options)
+			};
+			for (const field of CREATE_ONLY_FIELDS) if (fields[field] !== void 0) delete require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f")?.ownCreateOnly[field];
+		}
+		/**
+		* A copy with the same history and options that continues from no stored reply and has no turn in flight. Its request
+		* fields are the same too, unless `fields` takes their place.
+		*/
+		fork(fields = require_promise.__classPrivateFieldGet(this, _ThreadState_fields, "f")) {
+			const fork = new ThreadState({
+				params: {
+					...fields,
+					unsupportedRequestBehavior: this.unsupportedRequestBehavior
+				},
+				options: this.options,
+				threading: require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type !== "never_threaded",
+				logger: require_promise.__classPrivateFieldGet(this, _ThreadState_logger, "f")
+			});
+			if (!this.threading) fork.stopThreading();
+			if (require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f")?.replacementHistory) require_promise.__classPrivateFieldSet(fork, _ThreadState_staged, require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f").replacementHistory.map((param) => ({
+				param,
+				reply: null
+			})), "f");
+			else {
+				require_promise.__classPrivateFieldSet(fork, _ThreadState_stored, [...require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f")], "f");
+				require_promise.__classPrivateFieldSet(fork, _ThreadState_staged, [...require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f")], "f");
+			}
+			if (require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f")) fork.push(require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f").deferredMessages);
+			return fork;
+		}
+		/** Replace the request fields with those of `params`, so a field it leaves out is gone, then `setMessages()`. */
+		setParams({ messages, ...fields }) {
+			require_promise.__classPrivateFieldSet(this, _ThreadState_fields, fields, "f");
+			if (require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f")) require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f").ownCreateOnly = {};
+			this.setMessages(messages);
+		}
+		/**
+		* Take the history from `messages`: additions to the current history are staged, and any other list replaces it
+		* and starts a new thread.
+		*/
+		setMessages(messages) {
+			const entries = [...require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f"), ...require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f")];
+			if (require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f")) {
+				const sent = entries.map((entry) => entry.param);
+				if (startsWith(messages, sent)) {
+					require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f").replacementHistory = null;
+					require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f").deferredMessages = messages.slice(sent.length);
+				} else {
+					require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f").replacementHistory = messages;
+					require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f").deferredMessages = [];
+				}
+				return;
+			}
+			if (!startsWith(messages, require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").map((entry) => entry.param))) {
+				require_promise.__classPrivateFieldSet(this, _ThreadState_stored, [], "f");
+				if (this.threading) require_promise.__classPrivateFieldSet(this, _ThreadState_anchor, {
+					type: "create",
+					replacesLostThread: false
+				}, "f");
+			}
+			require_promise.__classPrivateFieldSet(this, _ThreadState_staged, [], "f");
+			const replies = new Map(entries.filter((entry) => entry.reply).map((entry) => [entry.param.content, entry]));
+			for (const message of messages.slice(require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").length)) {
+				if (require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_repeatsLastReply).call(this, message)) continue;
+				require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f").push({
+					...replies.get(message.content) ?? { reply: null },
+					param: toMessageParam(message)
+				});
+			}
+		}
+		/** Whether the next turn has something to send: staged messages, or an unfinished reply to resume. */
+		get hasTurnToSend() {
+			return require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f").length > 0 || isUnfinishedStopReason(require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").at(-1)?.reply?.stop_reason);
+		}
+		/** Stage `messages` and start the turn that sends them with the overrides `fields`, in flight until `endTurn()`. */
+		startTurn(messages, fields) {
+			if (require_promise.__classPrivateFieldGet(this, _ThreadState_turn, "f")) throw new require_promise.AnthropicError("Another `send()`, `parse()` or `stream()` is already in progress on this thread");
+			rejectThreadField(fields);
+			const alreadyStaged = require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f").length;
+			this.push(messages);
+			const ownMessages = require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f").slice(alreadyStaged);
+			require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_retryPartialTurn).call(this);
+			const ownCreateOnly = {};
+			if (fields.system !== void 0) ownCreateOnly.system = fields.system;
+			if (fields.tools !== void 0) ownCreateOnly.tools = fields.tools;
+			return require_promise.__classPrivateFieldSet(this, _ThreadState_turn, new Turn({
+				...require_promise.__classPrivateFieldGet(this, _ThreadState_fields, "f"),
+				...definedEntries(fields)
+			}, ownMessages, ownCreateOnly), "f");
+		}
+		/**
+		* Mark `turn` finished, take back the messages its call staged if no reply to them started, and apply the history
+		* edits deferred during it.
+		*/
+		endTurn(turn) {
+			require_promise.__classPrivateFieldSet(this, _ThreadState_turn, null, "f");
+			require_promise.__classPrivateFieldSet(this, _ThreadState_staged, require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f").filter((entry) => !turn.ownMessages.includes(entry)), "f");
+			if (turn.replacementHistory) this.setMessages(turn.replacementHistory);
+			this.push(turn.deferredMessages);
+		}
+		/**
+		* Whether the turn should be sent again because `error` is a thread rejection this state has now adjusted for. With
+		* `'continue_unthreaded'` a replay that finds the new thread lost as well stops threading, because the server may be
+		* unable to store the conversation.
+		*/
+		recoversFrom(error) {
+			if (!(error instanceof require_promise.APIError)) return false;
+			const continuesUnthreaded = this.unsupportedRequestBehavior === "continue_unthreaded";
+			const reason = replayReason(error);
+			if (reason !== null && require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type === "continue") {
+				if (reason === "thread_not_found" && require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").replacesLostThread && continuesUnthreaded) {
+					require_promise.__classPrivateFieldGet(this, _ThreadState_logger, "f").info(`The server lost the thread again right after a replay; continuing without a thread: previous_message_id=${require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").previousMessageId}`);
+					this.stopThreading();
+				} else require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_startNewThread).call(this, reason);
+				return true;
+			}
+			const unsupported = unsupportedFeatures(error);
+			if (unsupported !== null && this.threading && continuesUnthreaded) {
+				require_promise.__classPrivateFieldGet(this, _ThreadState_logger, "f").info(`The server cannot thread this request; continuing without a thread: unsupported=${unsupported.join(",")}`);
+				this.stopThreading();
+				return true;
+			}
+			return false;
+		}
+		/** Drop the `thread` field from this turn and every later one. */
+		stopThreading() {
+			if (this.threading) require_promise.__classPrivateFieldSet(this, _ThreadState_anchor, { type: "unthreaded" }, "f");
+		}
+		/**
+		* Record a turn whose stream ended after `message_start` and before `message_stop`. The next turn starts a new
+		* thread because the server holds either the whole reply or none of it. `completedBlocks` is how many content
+		* blocks received `content_block_stop`.
+		*/
+		recordPartialReply(snapshot, completedBlocks) {
+			if (require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_dropsRefusedTurn).call(this, snapshot)) return;
+			require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_storeTurn).call(this, partialReply(snapshot, completedBlocks), { partial: true });
+			if (this.previousMessageId !== null) require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_startNewThread).call(this, "stream_ended_before_message_stop");
+		}
+		/**
+		* Record `message` as the reply of `turn`, for the next turn to continue from. The server does not store a reply
+		* that a fallback model wrote, so the turn after one starts a new thread.
+		*/
+		recordReply(turn, message) {
+			if (require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_dropsRefusedTurn).call(this, message)) return;
+			require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_storeTurn).call(this, message, { partial: false });
+			if (require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type === "create") require_promise.__classPrivateFieldSet(this, _ThreadState_fields, {
+				...require_promise.__classPrivateFieldGet(this, _ThreadState_fields, "f"),
+				...turn.ownCreateOnly
+			}, "f");
+			if (this.threading) {
+				require_promise.__classPrivateFieldSet(this, _ThreadState_anchor, {
+					type: "continue",
+					previousMessageId: message.id,
+					createdWith: turn.createOnly,
+					replacesLostThread: require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type === "create" && require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").replacesLostThread
+				}, "f");
+				if (message.usage.iterations?.some((iteration) => iteration.type === "fallback_message")) require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_startNewThread).call(this, "fallback_message");
+			}
+			if (message.container) require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_adoptContainer).call(this, message.container.id);
+		}
+		/**
+		* The `create()` arguments of `turn` except `stream`: request fields, betas, the `thread` field with the delta or
+		* full history, and request options.
+		*/
+		buildCreateArguments(turn, options, { stream }) {
+			require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_checkCreateOnly).call(this, turn.createOnly);
+			const anchor = require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f");
+			let stored = anchor.type === "continue" ? [] : require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").map((entry) => entry.param);
+			if (anchor.type !== "never_threaded") {
+				const answered = require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").map((entry) => entry.reply !== null).lastIndexOf(true) + 1;
+				stored = stored.map((message, i) => i < answered ? withoutCacheControl(message) : message);
+			}
+			const params = {
+				...turn.fields,
+				messages: [...stored, ...require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f").map((entry) => entry.param)]
+			};
+			if (this.threading && !params.betas?.includes(MESSAGE_THREADS_BETA)) params.betas = [...params.betas ?? [], MESSAGE_THREADS_BETA];
+			if (anchor.type === "create") params.thread = { type: "create" };
+			else if (anchor.type === "continue") {
+				params.thread = {
+					type: "continue",
+					previous_message_id: anchor.previousMessageId
+				};
+				for (const field of CREATE_ONLY_FIELDS) delete params[field];
+			}
+			return {
+				params,
+				options: require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_requestOptions).call(this, options, { stream })
+			};
+		}
+		/** Throws if the thread refuses a turn with the overrides `fields`, as that turn would before it is sent. */
+		checkNextTurn(fields) {
+			require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_checkCreateOnly).call(this, createOnlyJSON({
+				...require_promise.__classPrivateFieldGet(this, _ThreadState_fields, "f"),
+				...definedEntries(fields)
+			}));
+		}
+	}
+	_ThreadState_fields = /* @__PURE__ */ new WeakMap(), _ThreadState_stored = /* @__PURE__ */ new WeakMap(), _ThreadState_staged = /* @__PURE__ */ new WeakMap(), _ThreadState_anchor = /* @__PURE__ */ new WeakMap(), _ThreadState_turn = /* @__PURE__ */ new WeakMap(), _ThreadState_logger = /* @__PURE__ */ new WeakMap(), _ThreadState_instances = /* @__PURE__ */ new WeakSet(), _ThreadState_lastReply_get = function _ThreadState_lastReply_get() {
+		for (const entries of [require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f"), require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f")]) for (let i = entries.length - 1; i >= 0; i--) if (entries[i].reply) return entries[i].reply;
+		return null;
+	}, _ThreadState_repeatsLastReply = function _ThreadState_repeatsLastReply(message) {
+		if ("id" in message) return message.id === require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "a", _ThreadState_lastReply_get)?.id;
+		const last = require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f").at(-1) ?? require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").at(-1);
+		return last?.reply != null && sameMessage(message, last.param);
+	}, _ThreadState_startNewThread = function _ThreadState_startNewThread(reason) {
+		require_promise.__classPrivateFieldGet(this, _ThreadState_logger, "f").info(`Replaying the full message history under a new thread: reason=${reason} previous_message_id=${this.previousMessageId}`);
+		require_promise.__classPrivateFieldSet(this, _ThreadState_anchor, {
+			type: "create",
+			replacesLostThread: reason === "thread_not_found"
+		}, "f");
+	}, _ThreadState_retryPartialTurn = function _ThreadState_retryPartialTurn() {
+		const tail = require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").at(-1);
+		if (require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f").length || !tail || tail.reply && !tail.partial) return;
+		if (tail.reply) require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").pop();
+		let turnStart = require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").length;
+		while (turnStart > 0 && !require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f")[turnStart - 1].reply) turnStart -= 1;
+		require_promise.__classPrivateFieldSet(this, _ThreadState_staged, require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").splice(turnStart), "f");
+		require_promise.__classPrivateFieldGet(this, _ThreadState_logger, "f").info(`Re-sending the turn whose reply ended before \`message_stop\`: partial_reply_id=${tail.reply?.id ?? null}`);
+	}, _ThreadState_dropsRefusedTurn = function _ThreadState_dropsRefusedTurn(reply) {
+		if (reply.stop_reason !== "refusal" || require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type === "never_threaded") return false;
+		if (this.previousMessageId !== null) require_promise.__classPrivateFieldGet(this, _ThreadState_instances, "m", _ThreadState_startNewThread).call(this, "refusal");
+		return true;
+	}, _ThreadState_storeTurn = function _ThreadState_storeTurn(reply, { partial }) {
+		require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").push(...require_promise.__classPrivateFieldGet(this, _ThreadState_staged, "f"));
+		require_promise.__classPrivateFieldSet(this, _ThreadState_staged, [], "f");
+		if (reply) require_promise.__classPrivateFieldGet(this, _ThreadState_stored, "f").push({
+			param: toMessageParam(reply),
+			reply,
+			partial
+		});
+	}, _ThreadState_adoptContainer = function _ThreadState_adoptContainer(containerId) {
+		const { container } = require_promise.__classPrivateFieldGet(this, _ThreadState_fields, "f");
+		if (container == null) require_promise.__classPrivateFieldSet(this, _ThreadState_fields, {
+			...require_promise.__classPrivateFieldGet(this, _ThreadState_fields, "f"),
+			container: containerId
+		}, "f");
+		else if (typeof container === "object" && container.id == null) require_promise.__classPrivateFieldSet(this, _ThreadState_fields, {
+			...require_promise.__classPrivateFieldGet(this, _ThreadState_fields, "f"),
+			container: {
+				...container,
+				id: containerId
+			}
+		}, "f");
+	}, _ThreadState_checkCreateOnly = function _ThreadState_checkCreateOnly(createOnly) {
+		if (require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type !== "continue") return;
+		const { createdWith } = require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f");
+		const changed = CREATE_ONLY_FIELDS.filter((field) => createOnly[field] !== createdWith[field]);
+		if (changed.length) {
+			const names = changed.map((field) => `\`${field}\``).join(" and ");
+			throw new require_promise.AnthropicError(`Cannot change ${names} on a thread: the server keeps the \`system\` and \`tools\` the thread was created with. To change them, start a new thread from \`thread.params\`.` + (changed.includes("tools") ? " To add or remove tools on this thread, send `tool_addition` or `tool_removal` blocks in a `system` message." : ""));
+		}
+	}, _ThreadState_requestOptions = function _ThreadState_requestOptions(overrides, { stream }) {
+		const options = {
+			...this.options,
+			...definedEntries(overrides)
+		};
+		if (stream) options.headers = buildHeaders([{ [STAINLESS_HELPER_METHOD_HEADER]: "stream" }, options.headers]);
+		if (require_promise.__classPrivateFieldGet(this, _ThreadState_anchor, "f").type !== "never_threaded") options.headers = buildHeaders([options.headers, helperHeader("message-thread")]);
+		if (this.threading) options.headers = withThreadsBeta(options.headers);
+		return options;
+	};
+	return ThreadState;
+})();
+const UNFINISHED_STOP_REASONS = ["pause_turn", "compaction"];
+function isUnfinishedStopReason(stopReason) {
+	return UNFINISHED_STOP_REASONS.some((unfinished) => unfinished === stopReason);
+}
+const MESSAGE_THREADS_BETA = "message-threads-2026-08-12";
+/** Request fields the server takes from the thread on a `continue` and rejects if the request repeats them. */
+const CREATE_ONLY_FIELDS = ["system", "tools"];
+function createOnlyJSON(fields) {
+	return {
+		system: JSON.stringify(fields.system),
+		tools: JSON.stringify(fields.tools)
+	};
+}
+/**
+* `headers` with the threads beta appended to a caller-set `anthropic-beta` header, which would otherwise replace the
+* one `create()` builds from `betas`.
+*/
+function withThreadsBeta(headers) {
+	const callerBetas = buildHeaders([headers]).values.get("anthropic-beta");
+	if (callerBetas === null) return headers;
+	return buildHeaders([headers, { "anthropic-beta": appendHeaderValue(callerBetas, MESSAGE_THREADS_BETA) }]);
+}
+/** The `error_code` of a rejection that a full replay under a new thread recovers from, if it is one. */
+function replayReason(error) {
+	const errorCode = errorDetails(error)?.["error_code"];
+	return REPLAY_ERROR_CODES.find((code) => code === errorCode) ?? null;
+}
+const REPLAY_ERROR_CODES = [
+	"thread_not_found",
+	"thread_already_continued",
+	"thread_continue_in_flight"
+];
+/** The `unsupported` values of a `thread_unsupported_request` rejection, or `null` for any other error. */
+function unsupportedFeatures(error) {
+	const details = errorDetails(error);
+	if (details?.["error_code"] !== "thread_unsupported_request") return null;
+	const unsupported = details["unsupported"];
+	return Array.isArray(unsupported) ? unsupported.map(String) : [];
+}
+/** The `error.details` object of the response body, or `null` when the body has none. */
+function errorDetails(error) {
+	const details = error.error?.error?.details;
+	return require_promise.isObj(details) ? details : null;
+}
+/** Throws if `fields` has a `thread`. The field types leave it out, which an untyped caller or a cast gets past. */
+function rejectThreadField(fields) {
+	if ("thread" in fields && fields.thread !== void 0) throw new TypeError("`thread` cannot be set here. The message thread sets it for each request itself.");
+}
+/** `object` without the keys whose value is `undefined`, so a spread of it leaves those keys as they were. */
+function definedEntries(object) {
+	return Object.fromEntries(Object.entries(object).filter(([, value]) => value !== void 0));
+}
+/**
+* The part of a streamed reply worth keeping when the stream ended early, or `null` if nothing is. An unfinished block
+* stays only if it is `text`, because the `input` or `signature` of any other is incomplete.
+*/
+function partialReply(snapshot, completedBlocks) {
+	const content = snapshot.content.slice(0, completedBlocks);
+	const unfinished = snapshot.content[completedBlocks];
+	if (unfinished?.type === "text" && unfinished.text) content.push(unfinished);
+	return content.length ? {
+		...snapshot,
+		content
+	} : null;
+}
+/**
+* A copy of `value`, a message or a content block, without its `cache_control` and that of the blocks and tool in it.
+* Those are reached through the keys below only, so the value of any other key is carried over as it is.
+*/
+function withoutCacheControl(value) {
+	if (!require_promise.isObj(value)) return value;
+	const { cache_control, ...copy } = value;
+	for (const key of [
+		"content",
+		"source",
+		"tool",
+		"definition",
+		"tool_references"
+	]) {
+		const nested = copy[key];
+		if (Array.isArray(nested)) copy[key] = nested.map(withoutCacheControl);
+		else if (require_promise.isObj(nested)) copy[key] = withoutCacheControl(nested);
+	}
+	return copy;
+}
+/** Whether `messages` begins with every message of `prefix`, in order. */
+function startsWith(messages, prefix) {
+	return prefix.length <= messages.length && prefix.every((message, i) => sameMessage(message, messages[i]));
+}
+/** Whether every field of the two messages is equal. A reply given as it was received counts as its param. */
+function sameMessage(a, b) {
+	const [left, right] = [toMessageParam(a), toMessageParam(b)];
+	return Object.keys({
+		...left,
+		...right
+	}).every((key) => left[key] === right[key] || JSON.stringify(left[key]) === JSON.stringify(right[key]));
+}
+function toMessageParam(message) {
+	return "id" in message ? {
+		role: message.role,
+		content: message.content
+	} : message;
+}
+function toMessageList(input) {
+	if (input === void 0) return [];
+	return require_promise.isReadonlyArray(input) ? input : [input];
+}
+// node_modules/@anthropic-ai/sdk/lib/internal/threads/tool-runner-params.mjs
+/**
+* `params` split into the runner's own settings, the `thread` choice, and the params of the thread it runs over. Throws
+* on a `thread` the params type leaves out.
+*/
+function splitToolRunnerParams(params) {
+	const { stream, max_iterations, runToolsEagerly, thread, ...threadParams } = params;
+	if (thread !== void 0 && thread !== false) throw new TypeError("`thread` cannot be set in the params of a tool runner. The runner sets it for each request itself. To run without a message thread, pass `thread: false`.");
+	return {
+		settings: {
+			stream,
+			max_iterations,
+			runToolsEagerly
+		},
+		thread,
+		threadParams
+	};
+}
+// node_modules/@anthropic-ai/sdk/lib/tools/BetaToolRunner.mjs
+var _BetaToolRunner_instances;
+var _BetaToolRunner_consumed;
+var _BetaToolRunner_mutated;
+var _BetaToolRunner_thread;
+var _BetaToolRunner_settings;
+var _BetaToolRunner_options;
+var _BetaToolRunner_helperHeader;
+var _BetaToolRunner_messagesWithoutReply;
+var _BetaToolRunner_message;
+var _BetaToolRunner_stream;
+var _BetaToolRunner_toolResponse;
+var _BetaToolRunner_completion;
+var _BetaToolRunner_iterationCount;
+var _BetaToolRunner_toolRunnerOtelContext;
+var _BetaToolRunner_compaction;
+var _BetaToolRunner_calls;
+var _BetaToolRunner_lastStopReason;
+var _BetaToolRunner_toolOverrides;
+var _BetaToolRunner_pendingToolChanges;
+var _BetaToolRunner_withToolRunnerSpan;
+var _BetaToolRunner_send;
+var _BetaToolRunner_turnOptions;
+var _BetaToolRunner_streamThatStartsTools;
+var _BetaToolRunner_startedCallsSettled;
+var _BetaToolRunner_compact;
+var _BetaToolRunner_compactionThread;
+var _BetaToolRunner_runnableTools;
+var _BetaToolRunner_availableToolNames;
+var _BetaToolRunner_recordRemovalsFromHistory;
+var _BetaToolRunner_compactAfterFinalTurn;
+var _BetaToolRunner_generateToolResponse;
+var _BetaToolRunner_toolsetFamilies;
+var _BetaToolRunner_toolsetParams;
+var _BetaToolRunner_flushPendingToolChanges;
+var _BetaToolRunner_pendingToolChangesMessage;
+const USE_A_NEW_RUNNER = "a tool runner's toolsets come only from its tools param; change them with setMessagesParams(), or build a new runner";
+const REMOVE_WITH_A_NEW_RUNNER = "a tool runner's toolsets come only from its tools param; remove it there with setMessagesParams(), or build a new runner without it";
+/**
+* A ToolRunner handles the automatic conversation loop between the assistant and tools.
+*
+* A ToolRunner is an async iterable that yields either BetaMessage or BetaMessageStream objects
+* depending on the streaming configuration. It runs over a `BetaMessageThread`, which holds the
+* conversation and sends each turn. With `runToolsEagerly` it starts each tool call while the reply is
+* still streaming, unless `deferToolCall()` holds the call.
+*/
+var BetaToolRunner = /* @__PURE__ */ (() => {
+	/**
+	* A ToolRunner handles the automatic conversation loop between the assistant and tools.
+	*
+	* A ToolRunner is an async iterable that yields either BetaMessage or BetaMessageStream objects
+	* depending on the streaming configuration. It runs over a `BetaMessageThread`, which holds the
+	* conversation and sends each turn. With `runToolsEagerly` it starts each tool call while the reply is
+	* still streaming, unless `deferToolCall()` holds the call.
+	*/
+	class BetaToolRunner {
+		constructor(clientOrThread, paramsOrSettings, options) {
+			_BetaToolRunner_instances.add(this);
+			/** Whether the async iterator has been consumed */
+			_BetaToolRunner_consumed.set(this, false);
+			/** Whether parameters have been mutated since the last API call */
+			_BetaToolRunner_mutated.set(this, false);
+			/** The thread that holds the conversation and sends each turn */
+			_BetaToolRunner_thread.set(this, void 0);
+			/** The runner's own settings; every other param is the thread's */
+			_BetaToolRunner_settings.set(this, void 0);
+			_BetaToolRunner_options.set(this, void 0);
+			/** The helper telemetry header of every turn: the runner's tag and the tags of its tools and messages */
+			_BetaToolRunner_helperHeader.set(this, void 0);
+			/**
+			* `params.messages` while the caller handles a reply: the messages that were sent and what the caller has made of them
+			* since, without the reply. The thread takes them after the loop body if the caller changed anything.
+			*/
+			_BetaToolRunner_messagesWithoutReply.set(this, void 0);
+			/** Promise for the last message received from the assistant */
+			_BetaToolRunner_message.set(this, void 0);
+			/** The stream of the request in progress, when streaming */
+			_BetaToolRunner_stream.set(this, void 0);
+			/** Cached tool response to avoid redundant executions */
+			_BetaToolRunner_toolResponse.set(this, void 0);
+			/** Promise resolvers for waiting on completion */
+			_BetaToolRunner_completion.set(this, void 0);
+			/** Number of iterations (API requests) made so far */
+			_BetaToolRunner_iterationCount.set(this, 0);
+			/**
+			* The OpenTelemetry `Context` of the loop that is running: the one that was active when the loop
+			* started, with the tool runner span set as the active span.
+			*/
+			_BetaToolRunner_toolRunnerOtelContext.set(this, void 0);
+			/** A compaction scheduled with `compactBeforeNextTurn()`, in flight until its response has been handled */
+			_BetaToolRunner_compaction.set(this, { status: "idle" });
+			/** The tool calls of the current reply that are held or have started, by `tool_use` id. See `runToolsEagerly`. */
+			_BetaToolRunner_calls.set(this, void 0);
+			/** The last turn's stop reason, or `null` once the history has been replaced since */
+			_BetaToolRunner_lastStopReason.set(this, null);
+			/**
+			* `addTools()` / `removeTools()` never edit `params.tools`, because a changed `tools` misses the prompt
+			* cache, so what they change about which tool runs under a name is kept here instead: the runnable tool
+			* added under that name, or `null` once the name was removed or taken by a raw definition. A tool call is
+			* looked up here first, and in `params.tools` only when its name has no entry.
+			*/
+			_BetaToolRunner_toolOverrides.set(this, /* @__PURE__ */ new Map());
+			/** Changes queued by `addTools()` / `removeTools()`, in call order, for the next request */
+			_BetaToolRunner_pendingToolChanges.set(this, []);
+			const { thread, settings } = "_state" in clientOrThread ? {
+				thread: clientOrThread,
+				settings: paramsOrSettings
+			} : clientOrThread.beta.messages._toolRunnerThread(paramsOrSettings);
+			rejectCompactionParam(thread._state.params);
+			rejectRunToolsEagerlyWithoutStream(settings);
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_thread, thread, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_settings, definedEntries(settings), "f");
+			const { tools, messages } = thread._state.params;
+			const collected = collectStainlessHelpers(tools, messages);
+			if (!("_state" in clientOrThread)) thread._state.setMessages(JSON.parse(JSON.stringify(withToolDefinitions(messages))));
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_options, { ...options }, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_helperHeader, buildHeaders([helperHeader("BetaToolRunner"), collected.length ? { [STAINLESS_HELPER_HEADER]: collected.join(", ") } : void 0]), "f");
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_completion, require_promise.promiseWithResolvers(), "f");
+		}
+		async *[(_BetaToolRunner_consumed = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_mutated = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_thread = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_settings = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_options = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_helperHeader = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_messagesWithoutReply = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_message = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_stream = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_toolResponse = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_completion = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_iterationCount = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_toolRunnerOtelContext = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_compaction = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_calls = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_lastStopReason = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_toolOverrides = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_pendingToolChanges = /* @__PURE__ */ new WeakMap(), _BetaToolRunner_instances = /* @__PURE__ */ new WeakSet(), _BetaToolRunner_withToolRunnerSpan = function _BetaToolRunner_withToolRunnerSpan(fn) {
+			if (!require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolRunnerOtelContext, "f")) return fn();
+			return context.with(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolRunnerOtelContext, "f"), fn);
+		}, Symbol.asyncIterator)]() {
+			var _a;
+			if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_consumed, "f")) throw new require_promise.AnthropicError("Cannot iterate over a consumed stream");
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_consumed, true, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_mutated, true, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_toolResponse, void 0, "f");
+			const toolRunnerSpan = guardTracing(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client, () => startToolRunnerSpan(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client, this.params, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_options, "f").openTelemetry?.conversationId));
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_toolRunnerOtelContext, toolRunnerSpan && trace.setSpan(context.active(), toolRunnerSpan), "f");
+			try {
+				while (true) try {
+					if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_settings, "f").max_iterations && require_promise.__classPrivateFieldGet(this, _BetaToolRunner_iterationCount, "f") >= require_promise.__classPrivateFieldGet(this, _BetaToolRunner_settings, "f").max_iterations) break;
+					require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_flushPendingToolChanges).call(this);
+					if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_compaction, "f").status === "scheduled" && determineNextStepFromStopReason(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_lastStopReason, "f")) !== "resume") {
+						yield* require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_compact).call(this, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_compaction, "f").config);
+						continue;
+					}
+					require_promise.__classPrivateFieldSet(this, _BetaToolRunner_mutated, false, "f");
+					require_promise.__classPrivateFieldSet(this, _BetaToolRunner_toolResponse, void 0, "f");
+					require_promise.__classPrivateFieldSet(this, _BetaToolRunner_iterationCount, (_a = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_iterationCount, "f"), _a++, _a), "f");
+					require_promise.__classPrivateFieldSet(this, _BetaToolRunner_message, void 0, "f");
+					yield* require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_send).call(this, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f"));
+					const callerMessages = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_messagesWithoutReply, "f");
+					require_promise.__classPrivateFieldSet(this, _BetaToolRunner_messagesWithoutReply, void 0, "f");
+					if (await require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_withToolRunnerSpan).call(this, async () => {
+						let toAnswer;
+						if (!require_promise.__classPrivateFieldGet(this, _BetaToolRunner_mutated, "f")) {
+							const message = await require_promise.__classPrivateFieldGet(this, _BetaToolRunner_message, "f");
+							const nextStep = determineNextStepFromStopReason(message.stop_reason);
+							require_promise.__classPrivateFieldSet(this, _BetaToolRunner_lastStopReason, message.stop_reason, "f");
+							if (nextStep === "stop") return "stop";
+							if (nextStep === "resume") return "continue";
+							toAnswer = lastAssistantMessage(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f").messages);
+						} else {
+							require_promise.__classPrivateFieldSet(this, _BetaToolRunner_lastStopReason, null, "f");
+							require_promise.__classPrivateFieldGet(this, _BetaToolRunner_stream, "f")?.abort();
+							require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.checkNextTurn(turnParams(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")));
+							require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.setMessages(callerMessages);
+							toAnswer = callerMessages.at(-1);
+						}
+						if (hasToolUse(toAnswer)) require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.checkNextTurn(turnParams(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")));
+						const toolMessage = await require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_generateToolResponse).call(this, toAnswer, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_options, "f").signal, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolRunnerOtelContext, "f"));
+						if (toolMessage) {
+							const history = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f").messages;
+							const answered = history.map((message) => message.role).lastIndexOf("assistant") + 1;
+							require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.setMessages([
+								...history.slice(0, answered),
+								toolMessage,
+								...history.slice(answered)
+							]);
+						} else if (!require_promise.__classPrivateFieldGet(this, _BetaToolRunner_mutated, "f") && !require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.hasTurnToSend) return "stop";
+						return "continue";
+					}) === "stop") {
+						yield* require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_compactAfterFinalTurn).call(this);
+						break;
+					}
+				} finally {
+					require_promise.__classPrivateFieldGet(this, _BetaToolRunner_stream, "f")?.abort();
+					require_promise.__classPrivateFieldSet(this, _BetaToolRunner_stream, void 0, "f");
+				}
+				await require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_startedCallsSettled).call(this);
+				if (!require_promise.__classPrivateFieldGet(this, _BetaToolRunner_message, "f")) throw new require_promise.AnthropicError("ToolRunner concluded without a message from the server");
+				require_promise.__classPrivateFieldGet(this, _BetaToolRunner_completion, "f").resolve(await require_promise.__classPrivateFieldGet(this, _BetaToolRunner_message, "f"));
+				guardTracing(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client, () => toolRunnerSpan?.setStatus({ code: SpanStatusCode.OK }));
+			} catch (error) {
+				if (toolRunnerSpan) guardTracing(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client, () => setErrorStatus(toolRunnerSpan, error));
+				require_promise.__classPrivateFieldSet(this, _BetaToolRunner_consumed, false, "f");
+				require_promise.__classPrivateFieldSet(this, _BetaToolRunner_messagesWithoutReply, void 0, "f");
+				require_promise.__classPrivateFieldGet(this, _BetaToolRunner_completion, "f").promise.catch(() => {});
+				require_promise.__classPrivateFieldGet(this, _BetaToolRunner_completion, "f").reject(error);
+				require_promise.__classPrivateFieldSet(this, _BetaToolRunner_completion, require_promise.promiseWithResolvers(), "f");
+				throw error;
+			} finally {
+				guardTracing(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client, () => toolRunnerSpan?.end());
+				require_promise.__classPrivateFieldSet(this, _BetaToolRunner_toolRunnerOtelContext, void 0, "f");
+			}
+		}
+		setMessagesParams(paramsOrMutator) {
+			const params = typeof paramsOrMutator === "function" ? paramsOrMutator(this.params) : paramsOrMutator;
+			rejectCompactionParam(params);
+			if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_compaction, "f").status !== "idle") rejectCompactionEdit(params);
+			if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_compaction, "f").status === "in_flight" && !sameMessages(params.messages, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f").messages)) throw new require_promise.AnthropicError(MESSAGES_CHANGED_WHILE_COMPACTING);
+			const { settings, threadParams } = splitToolRunnerParams(params);
+			rejectRunToolsEagerlyWithoutStream(settings);
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_settings, definedEntries(settings), "f");
+			if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_messagesWithoutReply, "f")) {
+				require_promise.__classPrivateFieldSet(this, _BetaToolRunner_messagesWithoutReply, threadParams.messages, "f");
+				require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.setParams({
+					...threadParams,
+					messages: require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f").messages
+				});
+			} else require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.setParams(threadParams);
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_mutated, true, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_toolResponse, void 0, "f");
+		}
+		setRequestOptions(optionsOrMutator) {
+			if (typeof optionsOrMutator === "function") require_promise.__classPrivateFieldSet(this, _BetaToolRunner_options, optionsOrMutator(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_options, "f")), "f");
+			else require_promise.__classPrivateFieldSet(this, _BetaToolRunner_options, {
+				...require_promise.__classPrivateFieldGet(this, _BetaToolRunner_options, "f"),
+				...optionsOrMutator
+			}, "f");
+		}
+		/**
+		* Get the tool response for the last message from the assistant.
+		* Avoids redundant tool executions by caching results. With `runToolsEagerly`, it reuses the calls of
+		* the reply that have started and runs the rest, including the ones `deferToolCall()` is holding, so that no
+		* call runs twice.
+		*
+		* @returns A promise that resolves to a BetaUserMessageParam containing tool results, or null if no tools need to be executed
+		*
+		* @example
+		* const toolResponse = await runner.generateToolResponse();
+		* if (toolResponse) {
+		*   console.log('Tool results:', toolResponse.content);
+		* }
+		*/
+		async generateToolResponse(signal = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_options, "f").signal) {
+			const callerOtelContext = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client._tracer ? context.active() : void 0;
+			const message = await require_promise.__classPrivateFieldGet(this, _BetaToolRunner_message, "f") ?? require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f").messages.at(-1);
+			if (!message) return null;
+			return require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_generateToolResponse).call(this, message, signal, callerOtelContext);
+		}
+		/**
+		* Hold a tool call of the current reply until you are done with the reply, which is when it runs without
+		* streaming: at the end of the loop body, or when you call `generateToolResponse()`.
+		*
+		* With `runToolsEagerly` the runner otherwise starts each call while the reply streams, as soon as
+		* the model has moved on from it: when the next block starts, or the reply stops with `tool_use`. A call
+		* never starts before your stream listeners and any `for await` over the stream have handled that event, so
+		* you can call this from either once you have seen the call. The other calls of the reply still start early,
+		* except the later calls of the same toolset, which a toolset runs in order.
+		* It does nothing for a call that has started, outside the loop body, and without `runToolsEagerly`.
+		*
+		* @param toolUse - The `tool_use` block of the call, or its id
+		*
+		* @example
+		* for await (const stream of runner) {
+		*   stream.on('contentBlock', (block) => {
+		*     if (block.type === 'tool_use' && block.name === 'delete_file') {
+		*       runner.deferToolCall(block);
+		*     }
+		*   });
+		*   await stream.finalMessage();
+		*   // No `delete_file` call has started yet.
+		* }
+		*/
+		deferToolCall(toolUse) {
+			const id = typeof toolUse === "string" ? toolUse : toolUse.id;
+			if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_calls, "f") && !require_promise.__classPrivateFieldGet(this, _BetaToolRunner_calls, "f").has(id)) require_promise.__classPrivateFieldGet(this, _BetaToolRunner_calls, "f").set(id, { status: "held" });
+		}
+		/**
+		* The tool calls of the current reply that `deferToolCall()` is holding, in the model's order, as their
+		* `tool_use` blocks. A call is in the list once its block has finished streaming, so read the list when you
+		* are done with the stream. A call that has started is not in it. It is empty without
+		* `runToolsEagerly`.
+		*
+		* Held calls are listed whatever the reply's `stop_reason`, because `generateToolResponse()` runs them
+		* whatever it is. After `max_tokens` the input of the last call can be cut off.
+		*
+		* @example
+		* for await (const stream of runner) {
+		*   stream.on('contentBlock', (block) => {
+		*     if (block.type === 'tool_use' && block.name === 'delete_file') {
+		*       runner.deferToolCall(block);
+		*     }
+		*   });
+		*   await stream.finalMessage();
+		*
+		*   const held = runner.deferredToolCalls;
+		*   if (held.length > 0 && !(await confirm(held))) break;
+		* }
+		*/
+		get deferredToolCalls() {
+			const stream = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_stream, "f");
+			const calls = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_calls, "f");
+			if (!(stream instanceof BetaToolRunnerStream) || !calls) return [];
+			return stream.toolCalls.filter((toolUse) => calls.get(toolUse.id)?.status === "held");
+		}
+		/**
+		* Wait for the async iterator to complete. This works even if the async iterator hasn't yet started, and
+		* will wait for an instance to start and go to completion.
+		*
+		* @returns A promise that resolves to the final BetaMessage when the iterator completes
+		*
+		* @example
+		* // Start consuming the iterator
+		* for await (const message of runner) {
+		*   console.log('Message:', message.content);
+		* }
+		*
+		* // Meanwhile, wait for completion from another part of the code
+		* const finalMessage = await runner.done();
+		* console.log('Final response:', finalMessage.content);
+		*/
+		done() {
+			return require_promise.__classPrivateFieldGet(this, _BetaToolRunner_completion, "f").promise;
+		}
+		/**
+		* Returns a promise indicating that the stream is done. Unlike .done(), this will eagerly read the stream:
+		* * If the iterator has not been consumed, consume the entire iterator and return the final message from the
+		* assistant.
+		* * If the iterator has been consumed, waits for it to complete and returns the final message.
+		*
+		* @returns A promise that resolves to the final BetaMessage from the conversation
+		* @throws {AnthropicError} If no messages were processed during the conversation
+		*
+		* @example
+		* const finalMessage = await runner.runUntilDone();
+		* console.log('Final response:', finalMessage.content);
+		*/
+		async runUntilDone() {
+			if (!require_promise.__classPrivateFieldGet(this, _BetaToolRunner_consumed, "f")) for await (const _ of this);
+			return this.done();
+		}
+		/**
+		* Get the current parameters being used by the ToolRunner.
+		*
+		* @returns A readonly view of the current ToolRunnerParams
+		*
+		* @example
+		* const currentParams = runner.params;
+		* console.log('Current model:', currentParams.model);
+		* console.log('Message count:', currentParams.messages.length);
+		*/
+		get params() {
+			return {
+				...require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.params,
+				...require_promise.__classPrivateFieldGet(this, _BetaToolRunner_messagesWithoutReply, "f") && { messages: [...require_promise.__classPrivateFieldGet(this, _BetaToolRunner_messagesWithoutReply, "f")] },
+				...require_promise.__classPrivateFieldGet(this, _BetaToolRunner_settings, "f")
+			};
+		}
+		/**
+		* Add one or more messages to the conversation history.
+		*
+		* @param messages - One or more BetaMessageParam objects to add to the conversation
+		*
+		* @example
+		* runner.pushMessages(
+		*   { role: 'user', content: 'Also, what about the weather in NYC?' }
+		* );
+		*
+		* @example
+		* // Adding multiple messages
+		* runner.pushMessages(
+		*   { role: 'user', content: 'What about NYC?' },
+		*   { role: 'user', content: 'And Boston?' }
+		* );
+		*/
+		pushMessages(...messages) {
+			this.setMessagesParams((params) => ({
+				...params,
+				messages: [...params.messages, ...messages]
+			}));
+		}
+		/**
+		* Schedule a compaction of the conversation. Once the current turn has finished, including any tool
+		* calls, the runner requests a summary and replaces the message history with the compaction response,
+		* which is yielded like any other message. Requires the `compact-2026-09-04` beta.
+		*
+		* @param compaction - The config to send, as `messages.create()` takes it. Defaults to `{ type: 'summarize' }`
+		*
+		* @example
+		* for await (const message of runner) {
+		*   if (message.usage.input_tokens > 100_000) {
+		*     runner.compactBeforeNextTurn();
+		*   }
+		* }
+		*/
+		compactBeforeNextTurn(compaction) {
+			if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_compaction, "f").status === "in_flight") return;
+			rejectCompactionEdit(this.params);
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_compaction, {
+				status: "scheduled",
+				config: compaction ?? { type: "summarize" }
+			}, "f");
+		}
+		/**
+		* Give the model more tools without changing `params.tools`, which would miss the prompt cache.
+		*
+		* Each tool's whole definition is sent in a `tool_addition` block with the next request, and a
+		* runnable tool replaces a runnable tool of the same name straight away, even for a call already in
+		* the message being handled. A call that started while the reply streamed keeps the old one. A raw definition
+		* is only sent: the runner never runs it, and stops running a tool of the same name. Passing a runnable toolset,
+		* or a raw definition of a toolset the runner has, throws `ToolsetContractError` and adds nothing: a runner's
+		* toolsets come only from `params.tools`. A tool named like one of its toolsets is left to the API, which rejects
+		* it with the next request. Requires the `inline-tools-2026-09-15` beta, which the runner does not add for you.
+		*
+		* @param tools - Runnable tools (for example from `betaZodTool()`) or raw tool definitions
+		*
+		* @example
+		* runner.addTools(queryDatabaseTool);
+		*/
+		addTools(...tools) {
+			const families = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_toolsetFamilies).call(this);
+			for (const tool of tools) {
+				if (isRunnableToolset(tool)) throw new ToolsetContractError(`addTools() can't add the '${quotedName(toolsetFamily(tool))}' toolset: ${USE_A_NEW_RUNNER}`);
+				const family = definitionFamily(tool);
+				if (families.has(family)) throw new ToolsetContractError(`addTools() can't replace the '${quotedName(family)}' toolset: ${USE_A_NEW_RUNNER}`);
+			}
+			for (const tool of tools) {
+				if ("name" in tool) require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolOverrides, "f").set(tool.name, "run" in tool ? tool : null);
+				require_promise.__classPrivateFieldGet(this, _BetaToolRunner_pendingToolChanges, "f").push({
+					type: "addition",
+					tool
+				});
+			}
+		}
+		/**
+		* Take tools away from the model without changing `params.tools`, which would miss the prompt cache.
+		*
+		* The tools stop being run straight away: a call to one of them, even one in the message being
+		* handled, gets the same "not found" error result as a call to an unknown tool. A call that started while the
+		* reply streamed finishes as usual. The model is told in a `tool_removal` block with the next request. Use
+		* {@link addTools} to bring a tool back. Passing the name of one of the runner's toolsets throws
+		* `ToolsetContractError` and removes nothing. Requires the `inline-tools-2026-09-15` beta, which the runner does
+		* not add for you.
+		*
+		* @param tools - The tools to remove, or their names
+		*
+		* @example
+		* runner.removeTools('query_database');
+		*/
+		removeTools(...tools) {
+			const families = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_toolsetFamilies).call(this);
+			for (const tool of tools) {
+				const name = typeof tool === "string" ? tool : tool.name;
+				if (families.has(name)) throw new ToolsetContractError(`removeTools() can't remove the '${quotedName(name)}' toolset: ${REMOVE_WITH_A_NEW_RUNNER}`);
+			}
+			for (const tool of tools) {
+				const name = typeof tool === "string" ? tool : tool.name;
+				require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolOverrides, "f").set(name, null);
+				require_promise.__classPrivateFieldGet(this, _BetaToolRunner_pendingToolChanges, "f").push({
+					type: "removal",
+					name
+				});
+			}
+		}
+		/**
+		* Makes the ToolRunner directly awaitable, equivalent to calling .runUntilDone()
+		* This allows using `await runner` instead of `await runner.runUntilDone()`
+		*/
+		then(onfulfilled, onrejected) {
+			return this.runUntilDone().then(onfulfilled, onrejected);
+		}
+	}
+	_BetaToolRunner_send = async function* _BetaToolRunner_send(thread) {
+		await require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_startedCallsSettled).call(this);
+		require_promise.__classPrivateFieldSet(this, _BetaToolRunner_calls, void 0, "f");
+		const messages = thread.messages;
+		if (messages.some(addsRunnableTool)) require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_withToolRunnerSpan).call(this, () => thread._state.setMessages(withToolDefinitions(messages)));
+		const { tools } = thread._state.params;
+		if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_settings, "f").stream) {
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_stream, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_withToolRunnerSpan).call(this, () => require_promise.__classPrivateFieldGet(this, _BetaToolRunner_settings, "f").runToolsEagerly ? require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_streamThatStartsTools).call(this, thread) : thread.stream(void 0, turnParams(thread), require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_turnOptions).call(this, thread))), "f");
+			if (tools) thread.update({ tools });
+			if (thread === require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")) require_promise.__classPrivateFieldSet(this, _BetaToolRunner_messagesWithoutReply, thread.messages, "f");
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_message, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_stream, "f").finalMessage(), "f");
+			require_promise.__classPrivateFieldGet(this, _BetaToolRunner_message, "f").catch(() => {});
+			yield require_promise.__classPrivateFieldGet(this, _BetaToolRunner_stream, "f");
+		} else {
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_message, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_withToolRunnerSpan).call(this, () => thread.send(void 0, turnParams(thread), require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_turnOptions).call(this, thread))), "f");
+			if (tools) thread.update({ tools });
+			if (thread === require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")) require_promise.__classPrivateFieldSet(this, _BetaToolRunner_messagesWithoutReply, thread.messages, "f");
+			yield require_promise.__classPrivateFieldGet(this, _BetaToolRunner_message, "f");
+		}
+	}, _BetaToolRunner_turnOptions = function _BetaToolRunner_turnOptions(thread) {
+		const { headers = thread._state.options.headers } = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_options, "f");
+		return {
+			...require_promise.__classPrivateFieldGet(this, _BetaToolRunner_options, "f"),
+			headers: buildHeaders([require_promise.__classPrivateFieldGet(this, _BetaToolRunner_helperHeader, "f"), headers])
+		};
+	}, _BetaToolRunner_streamThatStartsTools = function _BetaToolRunner_streamThatStartsTools(thread) {
+		const calls = /* @__PURE__ */ new Map();
+		require_promise.__classPrivateFieldSet(this, _BetaToolRunner_calls, calls, "f");
+		const toolsets = /* @__PURE__ */ new Map();
+		const onToolCall = (toolUse) => {
+			const known = calls.has(toolUse.id);
+			const malformed = !toolUse.toolset_name && require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_toolsetFamilies).call(this).has(toolUse.name);
+			const family = malformed ? toolUse.name : toolUse.toolset_name;
+			if (family) {
+				if (known || malformed || toolsets.has(family)) {
+					toolsets.set(family, "waiting");
+					return;
+				}
+				toolsets.set(family, "running");
+				const result = runToolsetCall(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_toolsetParams).call(this), family, toolUse, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_options, "f"), require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolRunnerOtelContext, "f"));
+				calls.set(toolUse.id, {
+					status: "started",
+					result
+				});
+				result.then(({ is_error }) => {
+					if (is_error || toolsets.get(family) === "waiting") toolsets.set(family, "waiting");
+					else toolsets.delete(family);
+				}, () => toolsets.set(family, "waiting"));
+				return;
+			}
+			if (known) return;
+			const result = runToolCall(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_runnableTools).call(this), require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_availableToolNames).call(this), toolUse, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_options, "f"), require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolRunnerOtelContext, "f"));
+			result.catch(() => {});
+			calls.set(toolUse.id, {
+				status: "started",
+				result
+			});
+		};
+		const stream = new BetaToolRunnerStream(thread._state.params, onToolCall, thread._client);
+		thread._stream(stream, void 0, turnParams(thread), require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_turnOptions).call(this, thread));
+		return stream;
+	}, _BetaToolRunner_startedCallsSettled = async function _BetaToolRunner_startedCallsSettled() {
+		const started = [...require_promise.__classPrivateFieldGet(this, _BetaToolRunner_calls, "f")?.values() ?? []].filter((call) => call.status === "started");
+		await Promise.allSettled(started.map((call) => call.result));
+	}, _BetaToolRunner_compact = async function* _BetaToolRunner_compact(compaction) {
+		rejectCompactionEdit(this.params);
+		require_promise.__classPrivateFieldSet(this, _BetaToolRunner_compaction, { status: "in_flight" }, "f");
+		require_promise.__classPrivateFieldSet(this, _BetaToolRunner_toolResponse, void 0, "f");
+		const lastMessage = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_message, "f");
+		const thread = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_compactionThread).call(this, compaction);
+		const summarized = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f").messages.length;
+		try {
+			yield* require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_send).call(this, thread);
+			const message = await require_promise.__classPrivateFieldGet(this, _BetaToolRunner_message, "f");
+			if (message.content.some((block) => block.type === "compaction" && block.content)) {
+				require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_recordRemovalsFromHistory).call(this);
+				const response = {
+					role: message.role,
+					content: message.content
+				};
+				const appended = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f").messages.slice(summarized).filter((m) => !sameMessage(m, response));
+				require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.setMessages([response, ...appended]);
+			} else {
+				require_promise.loggerFor(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client).warn("Compaction produced no summary; keeping the conversation as it is.");
+				require_promise.__classPrivateFieldSet(this, _BetaToolRunner_message, lastMessage, "f");
+			}
+		} finally {
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_compaction, { status: "idle" }, "f");
+			if (!thread._state.threading) require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.stopThreading();
+		}
+	}, _BetaToolRunner_compactionThread = function _BetaToolRunner_compactionThread(compaction) {
+		const { messages, ...fields } = withoutCompactionIncompatibleParams(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.params);
+		const thread = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f").fork();
+		thread._state = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.fork({
+			...fields,
+			compaction
+		});
+		return thread;
+	}, _BetaToolRunner_runnableTools = function _BetaToolRunner_runnableTools() {
+		const runnable = /* @__PURE__ */ new Map();
+		for (const tool of require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.params.tools ?? []) if ("run" in tool && "name" in tool) runnable.set(tool.name, tool);
+		for (const [name, tool] of require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolOverrides, "f")) if (tool) runnable.set(name, tool);
+		else runnable.delete(name);
+		return runnable;
+	}, _BetaToolRunner_availableToolNames = function _BetaToolRunner_availableToolNames() {
+		const available = new Set(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_runnableTools).call(this).keys());
+		for (const message of [...this.params.messages, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_pendingToolChangesMessage).call(this)]) {
+			if (!Array.isArray(message.content)) continue;
+			for (const block of message.content) if (message.role === "system") applyToolChange(block, available);
+			else if (message.role === "assistant" && block.type === "compaction") for (const change of block.tool_changes ?? []) applyToolChange(change, available);
+		}
+		return available;
+	}, _BetaToolRunner_recordRemovalsFromHistory = function _BetaToolRunner_recordRemovalsFromHistory() {
+		const available = require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_availableToolNames).call(this);
+		for (const name of require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_runnableTools).call(this).keys()) if (!available.has(name)) require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolOverrides, "f").set(name, null);
+	}, _BetaToolRunner_compactAfterFinalTurn = async function* _BetaToolRunner_compactAfterFinalTurn() {
+		if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_compaction, "f").status !== "scheduled") return;
+		if (hasToolUse(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f").messages.at(-1))) {
+			require_promise.loggerFor(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client).warn("The pending compaction was skipped because the last turn ended with tool calls that were not run. Call `compactBeforeNextTurn()` again if you continue the conversation.");
+			require_promise.__classPrivateFieldSet(this, _BetaToolRunner_compaction, { status: "idle" }, "f");
+			return;
+		}
+		yield* require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_compact).call(this, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_compaction, "f").config);
+	}, _BetaToolRunner_generateToolResponse = async function _BetaToolRunner_generateToolResponse(lastMessage, signal, toolOtelContext) {
+		if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolResponse, "f") !== void 0) return require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolResponse, "f");
+		require_promise.__classPrivateFieldSet(this, _BetaToolRunner_toolResponse, generateToolResponse(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_toolsetParams).call(this), require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_runnableTools).call(this), require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_availableToolNames).call(this), lastMessage, {
+			...require_promise.__classPrivateFieldGet(this, _BetaToolRunner_options, "f"),
+			signal
+		}, require_promise.__classPrivateFieldGet(this, _BetaToolRunner_calls, "f"), require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._client, toolOtelContext), "f");
+		return require_promise.__classPrivateFieldGet(this, _BetaToolRunner_toolResponse, "f");
+	}, _BetaToolRunner_toolsetFamilies = function _BetaToolRunner_toolsetFamilies() {
+		return new Set(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_toolsetParams).call(this).tools.filter(isRunnableToolset).map(toolsetFamily));
+	}, _BetaToolRunner_toolsetParams = function _BetaToolRunner_toolsetParams() {
+		return {
+			...this.params,
+			tools: require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f")._state.params.tools ?? []
+		};
+	}, _BetaToolRunner_flushPendingToolChanges = function _BetaToolRunner_flushPendingToolChanges() {
+		if (require_promise.__classPrivateFieldGet(this, _BetaToolRunner_lastStopReason, "f") === "pause_turn" || require_promise.__classPrivateFieldGet(this, _BetaToolRunner_pendingToolChanges, "f").length === 0) return;
+		require_promise.__classPrivateFieldGet(this, _BetaToolRunner_thread, "f").append(require_promise.__classPrivateFieldGet(this, _BetaToolRunner_instances, "m", _BetaToolRunner_pendingToolChangesMessage).call(this));
+		require_promise.__classPrivateFieldSet(this, _BetaToolRunner_pendingToolChanges, [], "f");
+	}, _BetaToolRunner_pendingToolChangesMessage = function _BetaToolRunner_pendingToolChangesMessage() {
+		const content = [];
+		for (const change of require_promise.__classPrivateFieldGet(this, _BetaToolRunner_pendingToolChanges, "f")) {
+			if (change.type === "removal") {
+				content.push({
+					type: "tool_removal",
+					tool: {
+						type: "tool_reference",
+						name: change.name
+					}
+				});
+				continue;
+			}
+			const definition = toolDefinition(change.tool);
+			content.push({
+				type: "tool_addition",
+				tool: {
+					type: "tool_definition",
+					definition
+				}
+			});
+		}
+		return {
+			role: "system",
+			content
+		};
+	};
+	return BetaToolRunner;
+})();
+const MESSAGES_CHANGED_WHILE_COMPACTING = "Message params can't be changed while the conversation is being compacted, because the compaction response is about to replace them. Change them after this iteration instead.";
+function sameMessages(a, b) {
+	return a.length === b.length && a.every((message, i) => sameMessage(message, b[i]));
+}
+function rejectCompactionParam(params) {
+	if ("compaction" in params && params.compaction != null) throw new require_promise.AnthropicError("`compaction` cannot be set on a tool runner: every request in the loop would compact again. Call `runner.compactBeforeNextTurn()` when the conversation should be compacted instead.");
+}
+function rejectRunToolsEagerlyWithoutStream(settings) {
+	if (settings.runToolsEagerly && !settings.stream) throw new TypeError("`runToolsEagerly: true` needs `stream: true` in the tool runner's params, because a reply that isn't streamed arrives whole.");
+}
+function rejectCompactionEdit(params) {
+	if (params.context_management?.edits?.some((edit) => edit.type.startsWith("compact_"))) throw new require_promise.AnthropicError("`compactBeforeNextTurn()` can't be used while `context_management` has a compaction edit, because the API doesn't accept a compaction block together with one. Remove the edit first.");
+}
+/**
+* A compaction request returns only the compaction block, never a reply, so the API rejects the params that
+* only shape a reply. The runner's later requests keep them.
+*/
+function withoutCompactionIncompatibleParams(params) {
+	const { context_management, stop_sequences, output_format, ...kept } = params;
+	const withoutFormat = ({ format, ...outputConfig }) => outputConfig;
+	if (kept.tool_choice?.type === "any" || kept.tool_choice?.type === "tool") delete kept.tool_choice;
+	if (kept.output_config) kept.output_config = withoutFormat(kept.output_config);
+	if (Array.isArray(kept.fallbacks)) kept.fallbacks = kept.fallbacks.map((fallback) => fallback.output_config ? {
+		...fallback,
+		output_config: withoutFormat(fallback.output_config)
+	} : fallback);
+	return kept;
+}
+function toolDefinition(tool) {
+	if (!("run" in tool)) return tool;
+	const apiKeys = BETA_CLIENT_TOOL_UNION_KEYS;
+	const fields = "toJSON" in tool && typeof tool.toJSON === "function" ? tool.toJSON() : tool;
+	return {
+		...Object.fromEntries(Object.entries(fields).filter(([key]) => apiKeys.includes(key))),
+		...wasCreatedByStainlessHelper(tool) && { [SDK_HELPER_SYMBOL]: tool[SDK_HELPER_SYMBOL] }
+	};
+}
+/**
+* What every turn of `thread` overrides: `tools` with only each runnable tool's API fields (see `toolDefinition()`), not
+* its functions or other properties such as a class's own state. The thread's own `tools` keeps the runnable tools,
+* which the loop calls.
+*/
+function turnParams(thread) {
+	const { tools } = thread._state.params;
+	return tools ? { tools: tools.map(toolDefinition) } : {};
+}
+function withToolDefinitions(messages) {
+	return messages.map((message) => {
+		if (message.role !== "system" || !Array.isArray(message.content)) return message;
+		const content = message.content.map((block) => block.type === "tool_addition" && block.tool.type === "tool_definition" ? {
+			...block,
+			tool: {
+				...block.tool,
+				definition: toolDefinition(block.tool.definition)
+			}
+		} : block);
+		return {
+			...message,
+			content
+		};
+	});
+}
+/**
+* Whether `message` has a `tool_addition` block holding a runnable tool: the only kind of block
+* `withToolDefinitions()` changes.
+*/
+function addsRunnableTool(message) {
+	return message.role === "system" && Array.isArray(message.content) && message.content.some((block) => block.type === "tool_addition" && block.tool.type === "tool_definition" && "run" in block.tool.definition);
+}
+async function generateToolResponse(params, runnable, available, lastMessage, requestOptions, calls, client, toolOtelContext) {
+	if (!lastMessage || lastMessage.role !== "assistant" || !lastMessage.content || typeof lastMessage.content === "string") return null;
+	const toolUseBlocks = lastMessage.content.filter((content) => content.type === "tool_use");
+	if (toolUseBlocks.length === 0) return null;
+	const sequences = /* @__PURE__ */ new Map();
+	return {
+		role: "user",
+		content: await Promise.all(toolUseBlocks.map(async (toolUse) => {
+			const call = calls?.get(toolUse.id);
+			const started = call?.status === "started" ? call.result : void 0;
+			if (toolUse.toolset_name) {
+				const family = toolUse.toolset_name;
+				const sequence = sequences.get(family) ?? {
+					tail: Promise.resolve(),
+					failed: false
+				};
+				sequences.set(family, sequence);
+				const registered = params.tools.some((t) => isRunnableToolset(t) && toolsetFamily(t) === family);
+				const run = started ?? sequence.tail.then(() => sequence.failed ? toolsetResultBlock(toolUse, notExecutedText(family), true) : runToolsetCall(params, family, toolUse, requestOptions, client, toolOtelContext));
+				sequence.tail = run.then(({ is_error }) => {
+					if (is_error && registered) sequence.failed = true;
+				}, () => {
+					sequence.failed = true;
+				});
+				calls?.set(toolUse.id, {
+					status: "started",
+					result: run
+				});
+				return run;
+			}
+			if (started) return started;
+			if (!(available.has(toolUse.name) ? runnable.get(toolUse.name) : void 0) && params.tools.some((t) => isRunnableToolset(t) && toolsetFamily(t) === toolUse.name)) {
+				const sequence = sequences.get(toolUse.name) ?? {
+					tail: Promise.resolve(),
+					failed: false
+				};
+				sequences.set(toolUse.name, sequence);
+				sequence.tail = sequence.tail.then(() => {
+					sequence.failed = true;
+				});
+				return malformedToolsetCallResult(toolUse);
+			}
+			const result = runToolCall(runnable, available, toolUse, requestOptions, client, toolOtelContext);
+			calls?.set(toolUse.id, {
+				status: "started",
+				result
+			});
+			return result;
+		}))
+	};
+}
+/** Runs a toolset's call with the toolset of its family in the run. */
+async function runToolsetCall(params, family, toolUse, requestOptions, client, toolOtelContext) {
+	const toolset = params.tools.find((t) => isRunnableToolset(t) && toolsetFamily(t) === family);
+	if (!toolset) return toolsetResultBlock(toolUse, `Error: Toolset '${quotedName(family)}' member '${quotedName(toolUse.name)}' not found`, true);
+	return (await withToolUseSpan(client, toolset, toolUse, {
+		signal: requestOptions?.signal,
+		conversationId: requestOptions?.openTelemetry?.conversationId,
+		parentContext: toolOtelContext
+	}, async () => {
+		const block = await runToolsetMember(toolset, toolUse, { signal: requestOptions?.signal });
+		return {
+			block,
+			content: block.content ?? [],
+			isError: block.is_error === true
+		};
+	})).block;
+}
+async function runToolCall(runnable, available, toolUse, requestOptions, client, toolOtelContext) {
+	const tool = available.has(toolUse.name) ? runnable.get(toolUse.name) : void 0;
+	if (!tool) return toolNotFoundResult(toolUse);
+	const outcome = await withToolUseSpan(client, tool, toolUse, {
+		signal: requestOptions?.signal,
+		conversationId: requestOptions?.openTelemetry?.conversationId,
+		parentContext: toolOtelContext
+	}, () => runRunnableTool(tool, toolUse.input, {
+		toolUse,
+		toolUseBlock: toolUse,
+		signal: requestOptions?.signal
+	}));
+	return {
+		type: "tool_result",
+		tool_use_id: toolUse.id,
+		content: outcome.content,
+		...outcome.isError ? { is_error: true } : void 0
+	};
+}
+/** The assistant turn the loop answers next: the last one in the history, unless `tool_result`s already follow it. */
+function lastAssistantMessage(messages) {
+	for (let i = messages.length - 1; i >= 0; i--) {
+		const message = messages[i];
+		if (message.role === "assistant") return message;
+		if (message.role === "user" && Array.isArray(message.content) && message.content.some((block) => block.type === "tool_result")) return;
+	}
+}
+function hasToolUse(message) {
+	return Array.isArray(message?.content) && message.content.some((block) => block.type === "tool_use");
+}
+/**
+* A definition's family, as the API computes it for a toolset: its type without the date, and without `_toolset`.
+* So a later `browser_toolset_*` version is the browser family, and `computer_20250124` the computer family.
+*/
+function definitionFamily(tool) {
+	return (tool.type ?? "custom").replace(/_\d{8}$/, "").replace(/_toolset$/, "");
+}
+function toolNotFoundResult(toolUse) {
+	return {
+		type: "tool_result",
+		tool_use_id: toolUse.id,
+		content: `Error: Tool '${toolUse.name}' not found`,
+		is_error: true
+	};
+}
+/** The error for a toolset call with malformed actions. None of its actions run. */
+function malformedToolsetCallResult(toolUse) {
+	return {
+		type: "tool_result",
+		tool_use_id: toolUse.id,
+		content: `Error: the '${quotedName(toolUse.name)}' toolset could not run this call${malformedActions(toolUse.input)}; nothing in the batch was executed`,
+		is_error: true
+	};
+}
+/** What is wrong with the call's `actions`. It quotes action names but no other part of the input. */
+function malformedActions(input) {
+	const fields = typeof input === "object" && input !== null ? input : {};
+	if (!("actions" in fields)) {
+		const action = "action" in fields ? fields.action : void 0;
+		return typeof action === "string" ? `: the call has no 'actions' list (action: '${quotedName(action)}')` : ": the call has no 'actions' list";
+	}
+	const { actions } = fields;
+	if (typeof actions === "string") return ": 'actions' is text, not a list of actions";
+	if (!Array.isArray(actions)) return ": 'actions' is not a list of actions";
+	if (actions.length === 0) return ": the 'actions' list is empty";
+	const names = [];
+	for (const [i, entry] of actions.entries()) {
+		const action = typeof entry === "object" && entry !== null && "action" in entry ? entry.action : void 0;
+		if (typeof action !== "string") return `: action ${i} must be an object with a string 'action' field`;
+		names.push(`'${quotedName(action)}'`);
+	}
+	const more = names.length > 10 ? `, and ${names.length - 10} more` : "";
+	return `: its actions could not be run as sent (actions: ${names.slice(0, 10).join(", ")}${more})`;
+}
+function applyToolChange(block, available) {
+	switch (block.type) {
+		case "tool_removal":
+		case "tool_addition": applyToolReference(block, available);
+	}
+}
+function applyToolReference(block, available) {
+	const name = changedToolName(block.tool);
+	if (name === void 0) return;
+	if (block.type === "tool_removal") available.delete(name);
+	else available.add(name);
+}
+function changedToolName(tool) {
+	switch (tool.type) {
+		case "tool_reference": return tool.name;
+		case "tool_definition": return "name" in tool.definition ? tool.definition.name : void 0;
+		default: return;
+	}
+}
+/**
+* Sorts every stop reason into one of three buckets: `run_tools` turns run their client tool
+* calls and continue the loop; `resume` turns are sent back unchanged so the server continues
+* them; `stop` turns end the loop without running any tool calls.
+*/
+function determineNextStepFromStopReason(stopReason) {
+	if (stopReason === null) return "stop";
+	if (isUnfinishedStopReason(stopReason)) return "resume";
+	switch (stopReason) {
+		case "tool_use": return "run_tools";
+		case "end_turn":
+		case "stop_sequence":
+		case "max_tokens":
+		case "model_context_window_exceeded":
+		case "refusal": return "stop";
+		default: return "stop";
+	}
+}
+// node_modules/@anthropic-ai/sdk/lib/threads/BetaMessageThread.mjs
+/**
+* A conversation the server holds between turns, so each request sends only the new messages.
+*
+* Create one with `client.beta.messages.thread(...)`. A thread runs one turn at a time.
+*/
+var BetaMessageThread = class BetaMessageThread {
+	/** Start a thread on `client` with the params of `client.beta.messages.thread()`. Sends nothing. */
+	constructor(client, params, options) {
+		if (!client._supportsMessageThreads) throw new require_promise.AnthropicError("Message threads are not available on this client; use `client.beta.messages.create()` with the full `messages` instead");
+		assertOneOutputFormat(params);
+		this._client = client;
+		this._state = new ThreadState({
+			params,
+			options: options ?? {},
+			threading: true,
+			logger: require_promise.loggerFor(client)
+		});
+	}
+	/** @internal A thread over an existing state. */
+	static _fromState(client, state) {
+		const thread = Object.create(BetaMessageThread.prototype);
+		return Object.assign(thread, {
+			_client: client,
+			_state: state
+		});
+	}
+	/** The full conversation, in a new array: every message the server holds plus those staged for the next turn. */
+	get messages() {
+		return this._state.messages;
+	}
+	/** The response `id` the next turn continues from, or `null` when the next turn starts a new thread. */
+	get previousMessageId() {
+		return this._state.previousMessageId;
+	}
+	/** The params of a `client.beta.messages.thread()` call for the whole conversation, in a new object. */
+	get params() {
+		return {
+			...this._state.params,
+			unsupportedRequestBehavior: this._state.unsupportedRequestBehavior
+		};
+	}
+	/** Stage messages for the next turn without sending anything. */
+	append(...messages) {
+		this._state.push(messages);
+	}
+	/**
+	* Send the staged messages and `messages` as one turn and resolve to the reply. `params` and `options` apply to this
+	* turn only. Throws while another `send()` / `parse()` / `stream()` on this thread is in progress.
+	*/
+	send(messages, params = {}, options = {}) {
+		return this._send(messages, params, options, (reply) => reply);
+	}
+	/**
+	* Like `send()`, and parses the reply into `parsed_output` against the `output_config.format` (or `output_format`)
+	* the thread was created with.
+	*/
+	parse(messages, params = {}, options = {}) {
+		return this._send(messages, params, options, (reply) => parseBetaMessage(reply, this._state.params, { logger: require_promise.loggerFor(this._client) }));
+	}
+	/** @internal */
+	_send(messages, params, options, parseReply) {
+		const turn = this._state.startTurn(toMessageList(messages), params);
+		const received = (async () => {
+			try {
+				const { request, props } = await this._createWithRecovery(turn, options, { stream: false });
+				const reply = await request;
+				this._state.recordReply(turn, reply);
+				return {
+					props,
+					reply
+				};
+			} finally {
+				this._state.endTurn(turn);
+			}
+		})();
+		return new APIPromise(this._client, received.then(({ props }) => props), async () => {
+			const { props, reply } = await received;
+			return addResponseIDs(parseReply(reply), props.response);
+		});
+	}
+	/** Like `send()`, and returns the reply's stream. The turn is in progress until the stream ends or is aborted. */
+	stream(messages, params = {}, options = {}) {
+		const stream = new BetaMessageStream(this._state.params, {
+			logger: require_promise.loggerFor(this._client),
+			client: this._client
+		});
+		this._stream(stream, messages, params, options);
+		return stream;
+	}
+	/**
+	* @internal `stream()` on a stream the caller made: the thread records the reply once `stream` reaches `message_stop`,
+	* and is free for the next turn when the request ends or `stream` is aborted, before the final events fire.
+	*/
+	_stream(stream, messages, turnParams, turnOptions) {
+		const turn = this._state.startTurn(toMessageList(messages), turnParams);
+		let received;
+		let completedBlocks = 0;
+		let stopped = false;
+		stream.on("streamEvent", (event, snapshot) => {
+			if (stopped) return;
+			received = snapshot;
+			if (event.type === "content_block_stop") completedBlocks += 1;
+			if (event.type === "message_stop") {
+				stopped = true;
+				this._state.recordReply(turn, snapshot);
+				this._state.endTurn(turn);
+			}
+		});
+		const endEarly = () => {
+			if (stopped) return;
+			stopped = true;
+			if (received) this._state.recordPartialReply(received, completedBlocks);
+			this._state.endTurn(turn);
+		};
+		stream.controller.signal.addEventListener("abort", endEarly, { once: true });
+		const createTurn = (_body, options) => new APIPromise(this._client, this._createWithRecovery(turn, {
+			...turnOptions,
+			signal: options?.signal
+		}, { stream: true }).then(({ props }) => props));
+		stream._start(createTurn, this._state.params, { signal: turnOptions.signal ?? this._state.options.signal }, endEarly);
+	}
+	/**
+	* Change the request fields and request options of all later turns without sending anything. `system` and `tools`
+	* cannot change once a turn has created the thread.
+	*/
+	update(params = {}, options = {}) {
+		this._state.update(params, options);
+	}
+	toolRunner(params = {}, options = {}) {
+		rejectThreadField(params);
+		return new BetaToolRunner(this, params, options);
+	}
+	/**
+	* Return a new, independent thread with a copy of this one's history, request fields and request options, and no
+	* `previousMessageId`. Sends nothing.
+	*/
+	fork() {
+		return BetaMessageThread._fromState(this._client, this._state.fork());
+	}
+	/**
+	* @internal One `create()` call for `turn` and the response to it, re-sent as long as the state can recover from
+	* the rejection.
+	*/
+	async _createWithRecovery(turn, turnOptions, { stream }) {
+		for (;;) {
+			const { params, options } = this._state.buildCreateArguments(turn, turnOptions, { stream });
+			const request = this._client.beta.messages.create({
+				...params,
+				stream
+			}, options);
+			try {
+				return {
+					request,
+					props: await request._responseProps()
+				};
+			} catch (error) {
+				if (!this._state.recoversFrom(error)) throw error;
+			}
+		}
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/beta/messages/messages.mjs
+const DEPRECATED_MODELS = {
+	"claude-sonnet-4-5": "November 30th, 2026",
+	"claude-sonnet-4-5-20250929": "November 30th, 2026"
+};
+const MODELS_TO_WARN_WITH_THINKING_ENABLED = ["claude-mythos-preview", "claude-opus-4-6"];
+var Messages = /* @__PURE__ */ (() => {
+	class Messages extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.batches = new Batches(this._client);
+		}
+		create(params, options) {
+			const modifiedParams = transformOutputFormat(params);
+			const { betas, user_profile_id, workspace_id, ...body } = modifiedParams;
+			if (body.model in DEPRECATED_MODELS) console.warn(`The model '${body.model}' is deprecated and will reach end-of-life on ${DEPRECATED_MODELS[body.model]}\nPlease migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.`);
+			if (MODELS_TO_WARN_WITH_THINKING_ENABLED.includes(body.model) && body.thinking && body.thinking.type === "enabled") console.warn(`Using Claude with ${body.model} and 'thinking.type=enabled' is deprecated. Use 'thinking.type=adaptive' instead which results in better model performance in our testing: https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking`);
+			let timeout = options?.timeout ?? this._client._options.timeout;
+			if (!body.stream && timeout == null) {
+				const maxNonstreamingTokens = MODEL_NONSTREAMING_TOKENS[body.model] ?? void 0;
+				timeout = this._client.calculateNonstreamingTimeout(body.max_tokens, maxNonstreamingTokens);
+			}
+			const headers = messagesCreateHeaders(modifiedParams, options);
+			const call = this._client._tracer && startApiCallSpan(this._client, "anthropic.messages.create", options, messagesCreateSpanSettings(this._client, body, headers));
+			recordMessagesCreateRequest(this._client, call, body);
+			const request = this._client.post("/v1/messages", {
+				body,
+				timeout: timeout ?? 6e5,
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: call,
+				headers,
+				stream: modifiedParams.stream ?? false
+			});
+			return call ? request._thenUnwrap((data) => {
+				recordMessagesCreateResponse(this._client, call, body, data);
+				return data;
+			}) : request;
+		}
+		/**
+		* Send a structured list of input messages with text and/or image content, along with an expected `output_format` and
+		* the response will be automatically parsed and available in the `parsed_output` property of the message.
+		*
+		* @example
+		* ```ts
+		* const message = await client.beta.messages.parse({
+		*   model: 'claude-3-5-sonnet-20241022',
+		*   max_tokens: 1024,
+		*   messages: [{ role: 'user', content: 'What is 2+2?' }],
+		*   output_format: zodOutputFormat(z.object({ answer: z.number() }), 'math'),
+		* });
+		*
+		* console.log(message.parsed_output?.answer); // 4
+		* ```
+		*/
+		parse(params, options) {
+			options = {
+				...options,
+				headers: buildHeaders([{ "anthropic-beta": [...params.betas ?? [], "structured-outputs-2025-12-15"].toString() }, options?.headers])
+			};
+			return this.create(params, options).then((message) => parseBetaMessage(message, params, { logger: this._client.logger ?? console }));
+		}
+		/**
+		* Create a Message stream
+		*/
+		stream(body, options) {
+			return BetaMessageStream.createMessage(this, body, options, { client: this._client });
+		}
+		/**
+		* Count the number of tokens in a Message.
+		*
+		* The Token Count API can be used to count the number of tokens in a Message,
+		* including tools, images, and documents, without creating it.
+		*
+		* Learn more about token counting in our
+		* [user guide](https://platform.claude.com/docs/en/build-with-claude/token-counting)
+		*
+		* @example
+		* ```ts
+		* const betaMessageTokensCount =
+		*   await client.beta.messages.countTokens({
+		*     messages: [{ content: 'Hello, world', role: 'user' }],
+		*     model: 'claude-opus-5-5',
+		*   });
+		* ```
+		*/
+		countTokens(params, options) {
+			const { betas, user_profile_id, workspace_id, ...body } = transformOutputFormat(params);
+			const headers = buildHeaders([{
+				"anthropic-beta": [...betas ?? [], "token-counting-2024-11-01"].toString(),
+				...user_profile_id != null ? { "anthropic-user-profile-id": user_profile_id } : void 0,
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]);
+			const call = startApiCallSpan(this._client, "anthropic.messages.count_tokens", options, {
+				route: "/v1/messages/count_tokens",
+				attributes: { [ATTR_GEN_AI_REQUEST_MODEL]: body.model }
+			});
+			const request = this._client.post("/v1/messages/count_tokens", {
+				body,
+				...options,
+				__qualifiers: { beta: "true" },
+				__span: call,
+				headers
+			});
+			return call ? request._thenUnwrap((count) => {
+				recordCountTokensResponse(this._client, call, count);
+				return count;
+			}) : request;
+		}
+		/**
+		* Run the tools the model calls until it stops asking for them, yielding each assistant message.
+		*
+		* On a client with message threads the loop runs over one, so each turn sends only new messages. Pass
+		* `thread: false` to send the full history every turn. To run the loop over an existing thread, call
+		* `toolRunner()` on the thread itself.
+		*/
+		toolRunner(body, options) {
+			return new BetaToolRunner(this._client, body, options);
+		}
+		/** @internal The thread that a tool runner with the params `body` runs over, and the runner's own settings. */
+		_toolRunnerThread(body) {
+			assertOneOutputFormat(body);
+			const { settings, thread, threadParams } = splitToolRunnerParams(body);
+			const state = new ThreadState({
+				params: {
+					...threadParams,
+					unsupportedRequestBehavior: "continue_unthreaded"
+				},
+				options: {},
+				threading: thread !== false && this._client._supportsMessageThreads,
+				logger: require_promise.loggerFor(this._client)
+			});
+			return {
+				thread: BetaMessageThread._fromState(this._client, state),
+				settings
+			};
+		}
+		/**
+		* Start a message thread: a conversation the server holds between turns, so each request sends only the new
+		* messages. Takes the params of `create()` except `thread`, with `messages` optional, and sends nothing.
+		*
+		* @example
+		* ```ts
+		* const thread = client.beta.messages.thread({ model: 'claude-opus-5', max_tokens: 1024 });
+		* const first = await thread.send({ role: 'user', content: 'Hello, Claude' });
+		* const second = await thread.send({ role: 'user', content: 'How are you?' });
+		* ```
+		*/
+		thread(params, options) {
+			return new BetaMessageThread(this._client, params, options);
+		}
+	}
+	Messages.Batches = Batches;
+	Messages.BetaToolRunner = BetaToolRunner;
+	Messages.ToolError = require_promise.ToolError;
+	return Messages;
+})();
+const BETA_CLIENT_TOOL_UNION_KEYS = [
+	"input_schema",
+	"name",
+	"allowed_callers",
+	"cache_control",
+	"defer_loading",
+	"description",
+	"eager_input_streaming",
+	"input_examples",
+	"strict",
+	"type",
+	"configs",
+	"display_height_px",
+	"display_width_px",
+	"display_number",
+	"enable_zoom",
+	"max_characters"
+];
+// node_modules/@anthropic-ai/sdk/resources/beta/beta.mjs
+var Beta = /* @__PURE__ */ (() => {
+	class Beta extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.models = new Models$1(this._client);
+			this.messages = new Messages(this._client);
+			this.agents = new Agents(this._client);
+			this.environments = new Environments(this._client);
+			this.sessions = new Sessions(this._client);
+			this.deployments = new Deployments(this._client);
+			this.deploymentRuns = new DeploymentRuns(this._client);
+			this.vaults = new Vaults(this._client);
+			this.memoryStores = new MemoryStores(this._client);
+			this.files = new Files$1(this._client);
+			this.skills = new Skills$1(this._client);
+			this.webhooks = new Webhooks$1(this._client);
+			this.userProfiles = new UserProfiles$1(this._client);
+			this.dreams = new Dreams(this._client);
+			this.tunnels = new Tunnels(this._client);
+			this.organization = new Organization$1(this._client);
+		}
+	}
+	Beta.Models = Models$1;
+	Beta.Messages = Messages;
+	Beta.Agents = Agents;
+	Beta.Environments = Environments;
+	Beta.Sessions = Sessions;
+	Beta.Deployments = Deployments;
+	Beta.DeploymentRuns = DeploymentRuns;
+	Beta.Vaults = Vaults;
+	Beta.MemoryStores = MemoryStores;
+	Beta.Files = Files$1;
+	Beta.Skills = Skills$1;
+	Beta.Webhooks = Webhooks$1;
+	Beta.UserProfiles = UserProfiles$1;
+	Beta.Dreams = Dreams;
+	Beta.Tunnels = Tunnels;
+	Beta.Organization = Organization$1;
+	return Beta;
+})();
+// node_modules/@anthropic-ai/sdk/resources/files.mjs
+var Files = class extends APIResource {
+	/**
+	* List Files
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const fileMetadata of client.files.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/files", PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.files.list", options, {
+				route: "/v1/files",
+				queryParams: [
+					"ids",
+					"limit",
+					"page"
+				]
+			})
+		});
+	}
+	/**
+	* Delete File
+	*
+	* @example
+	* ```ts
+	* const deletedFile = await client.files.delete('file_id');
+	* ```
+	*/
+	delete(fileID, params = {}, options) {
+		const { workspace_id } = params ?? {};
+		return this._client.delete(path`/v1/files/${fileID}`, {
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.files.delete", options, {
+				route: "/v1/files/{file_id}",
+				attributes: { "anthropic.file.id": fileID }
+			})
+		});
+	}
+	/**
+	* Download File
+	*
+	* @example
+	* ```ts
+	* const response = await client.files.download('file_id');
+	*
+	* const content = await response.blob();
+	* console.log(content);
+	* ```
+	*/
+	download(fileID, params = {}, options) {
+		const { workspace_id } = params ?? {};
+		return this._client.get(path`/v1/files/${fileID}/content`, {
+			...options,
+			headers: buildHeaders([{
+				Accept: "application/binary",
+				...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0
+			}, options?.headers]),
+			__binaryResponse: true,
+			__span: startApiCallSpan(this._client, "anthropic.files.download", options, {
+				route: "/v1/files/{file_id}/content",
+				attributes: { "anthropic.file.id": fileID }
+			})
+		});
+	}
+	/**
+	* Get File Metadata
+	*
+	* @example
+	* ```ts
+	* const fileMetadata = await client.files.retrieveMetadata(
+	*   'file_id',
+	* );
+	* ```
+	*/
+	retrieveMetadata(fileID, params = {}, options) {
+		const { workspace_id } = params ?? {};
+		return this._client.get(path`/v1/files/${fileID}`, {
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.files.retrieve_metadata", options, {
+				route: "/v1/files/{file_id}",
+				attributes: { "anthropic.file.id": fileID }
+			})
+		});
+	}
+	/**
+	* Upload File
+	*
+	* @example
+	* ```ts
+	* const fileMetadata = await client.files.upload({
+	*   file: fs.createReadStream('path/to/file'),
+	* });
+	* ```
+	*/
+	upload(params, options) {
+		const { workspace_id, ...body } = params;
+		return this._client.post("/v1/files", multipartFormRequestOptions({
+			body,
+			...options,
+			headers: buildHeaders([
+				{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 },
+				stainlessHelperHeaderFromFile(body.file),
+				options?.headers
+			]),
+			__span: startApiCallSpan(this._client, "anthropic.files.upload", options, {
+				route: "/v1/files",
+				createdIDAttribute: "anthropic.file.id"
+			})
+		}, this._client));
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/models.mjs
+var Models = class extends APIResource {
+	/**
+	* Get a specific model.
+	*
+	* The Models API response can be used to determine information about a specific
+	* model or resolve a model alias to a model ID.
+	*
+	* @example
+	* ```ts
+	* const modelInfo = await client.models.retrieve('model_id');
+	* ```
+	*/
+	retrieve(modelID, params = {}, options) {
+		const { workspace_id } = params ?? {};
+		return this._client.get(path`/v1/models/${modelID}`, {
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.models.retrieve", options, {
+				route: "/v1/models/{model_id}",
+				attributes: { "anthropic.model.id": modelID }
+			})
+		});
+	}
+	/**
+	* List available models.
+	*
+	* The Models API response can be used to determine which models are available for
+	* use in the API. More recently released models are listed first.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const modelInfo of client.models.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(params = {}, options) {
+		const { workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList("/v1/models", Page, {
+			query,
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.models.list", options, {
+				route: "/v1/models",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"lifecycle",
+					"limit"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/api-keys.mjs
+var APIKeys = class extends APIResource {
+	/**
+	* Get API Key
+	*
+	* @example
+	* ```ts
+	* const apiKey = await client.organization.apiKeys.retrieve(
+	*   'api_key_id',
+	* );
+	* ```
+	*/
+	retrieve(apiKeyID, options) {
+		return this._client.get(path`/v1/organizations/api_keys/${apiKeyID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.api_keys.retrieve", options, {
+				route: "/v1/organizations/api_keys/{api_key_id}",
+				attributes: { "anthropic.organization.api_key.id": apiKeyID }
+			})
+		});
+	}
+	/**
+	* Update API Key
+	*
+	* @example
+	* ```ts
+	* const apiKey = await client.organization.apiKeys.update(
+	*   'api_key_id',
+	* );
+	* ```
+	*/
+	update(apiKeyID, body, options) {
+		return this._client.post(path`/v1/organizations/api_keys/${apiKeyID}`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.api_keys.update", options, {
+				route: "/v1/organizations/api_keys/{api_key_id}",
+				attributes: { "anthropic.organization.api_key.id": apiKeyID }
+			})
+		});
+	}
+	/**
+	* List API Keys
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const apiKey of client.organization.apiKeys.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/api_keys", Page, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.api_keys.list", options, {
+				route: "/v1/organizations/api_keys",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"created_by_user_id",
+					"limit",
+					"status",
+					"workspace_id"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/compliance-settings.mjs
+var ComplianceSettings = class extends APIResource {
+	/**
+	* Retrieve your organization's Compliance Settings.
+	*
+	* Compliance Settings is a singleton resource: there is exactly one per
+	* organization, addressed without an identifier. The `state` field reflects
+	* whether the Compliance API is enabled. An organization with a parent
+	* organization reads the state inherited from the parent's configuration.
+	*
+	* @example
+	* ```ts
+	* const organizationComplianceSettings =
+	*   await client.organization.complianceSettings.retrieve();
+	* ```
+	*/
+	retrieve(options) {
+		return this._client.get("/v1/organizations/compliance_settings", {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.compliance_settings.retrieve", options, { route: "/v1/organizations/compliance_settings" })
+		});
+	}
+	/**
+	* Update your organization's Compliance Settings.
+	*
+	* Setting `state` to `enabled` turns on the Compliance API and begins capturing
+	* organization activity events. Setting it to `disabled` turns both off. `state`
+	* reflects whether the Compliance API is enabled.
+	*
+	* A request that sets `state` to its current value succeeds and leaves the
+	* resource unchanged. A `disabled` request stays in effect until a later `enabled`
+	* request or the organization's next provisioning action that enables Access
+	* Transparency: enabling Access Transparency also enables the Compliance API,
+	* which serves its activity events, so such provisioning (including re-runs)
+	* re-enables the Compliance API even after a `disabled` request. Automated
+	* provisioning never disables compliance settings.
+	*
+	* @example
+	* ```ts
+	* const organizationComplianceSettings =
+	*   await client.organization.complianceSettings.update({
+	*     state: { type: 'enabled' },
+	*   });
+	* ```
+	*/
+	update(body, options) {
+		return this._client.post("/v1/organizations/compliance_settings", {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.compliance_settings.update", options, { route: "/v1/organizations/compliance_settings" })
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/external-keys.mjs
+var ExternalKeys = class extends APIResource {
+	/**
+	* Create an external key config owned by the caller's organization.
+	*
+	* @example
+	* ```ts
+	* const externalKey =
+	*   await client.organization.externalKeys.create({
+	*     provider_config: {
+	*       kms_arn:
+	*         'arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222',
+	*       type: 'aws',
+	*     },
+	*   });
+	* ```
+	*/
+	create(body, options) {
+		return this._client.post("/v1/organizations/external_keys", {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.create", options, {
+				route: "/v1/organizations/external_keys",
+				createdIDAttribute: "anthropic.organization.external_key.id"
+			})
+		});
+	}
+	/**
+	* Retrieve a single external key config in the caller's organization by ID.
+	*
+	* @example
+	* ```ts
+	* const externalKey =
+	*   await client.organization.externalKeys.retrieve(
+	*     'external_key_id',
+	*   );
+	* ```
+	*/
+	retrieve(externalKeyID, options) {
+		return this._client.get(path`/v1/organizations/external_keys/${externalKeyID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.retrieve", options, {
+				route: "/v1/organizations/external_keys/{external_key_id}",
+				attributes: { "anthropic.organization.external_key.id": externalKeyID }
+			})
+		});
+	}
+	/**
+	* Partially update an external key config. Omitted fields are left unchanged.
+	*
+	* `display_name` is always editable. `geo` and `provider_config` cannot be changed
+	* once any workspace references this config, because previously encrypted data
+	* requires the original key identity to decrypt.
+	*
+	* @example
+	* ```ts
+	* const externalKey =
+	*   await client.organization.externalKeys.update(
+	*     'external_key_id',
+	*   );
+	* ```
+	*/
+	update(externalKeyID, body, options) {
+		return this._client.post(path`/v1/organizations/external_keys/${externalKeyID}`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.update", options, {
+				route: "/v1/organizations/external_keys/{external_key_id}",
+				attributes: { "anthropic.organization.external_key.id": externalKeyID }
+			})
+		});
+	}
+	/**
+	* List external key configs in the caller's organization.
+	*
+	* Results are ordered by creation time (newest first). Use the `next_page` cursor
+	* from the response to fetch subsequent pages.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const externalKey of client.organization.externalKeys.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/external_keys", PageCursor, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.list", options, {
+				route: "/v1/organizations/external_keys",
+				queryParams: ["limit", "page"]
+			})
+		});
+	}
+	/**
+	* Delete an external key config.
+	*
+	* The request is rejected if any workspace still references this config.
+	*
+	* @example
+	* ```ts
+	* const externalKey =
+	*   await client.organization.externalKeys.delete(
+	*     'external_key_id',
+	*   );
+	* ```
+	*/
+	delete(externalKeyID, options) {
+		return this._client.delete(path`/v1/organizations/external_keys/${externalKeyID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.delete", options, {
+				route: "/v1/organizations/external_keys/{external_key_id}",
+				attributes: { "anthropic.organization.external_key.id": externalKeyID }
+			})
+		});
+	}
+	/**
+	* Validate an external key config against the customer's KMS.
+	*
+	* Anthropic performs an encrypt/decrypt roundtrip against the configured KMS key
+	* and waits up to 30 seconds for the result. The response status is `success` if
+	* the roundtrip succeeded, or `failure` with an error message if it failed or
+	* timed out.
+	*
+	* @example
+	* ```ts
+	* const response =
+	*   await client.organization.externalKeys.validate(
+	*     'external_key_id',
+	*   );
+	* ```
+	*/
+	validate(externalKeyID, options) {
+		return this._client.post(path`/v1/organizations/external_keys/${externalKeyID}/validate`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.external_keys.validate", options, {
+				route: "/v1/organizations/external_keys/{external_key_id}/validate",
+				attributes: { "anthropic.organization.external_key.id": externalKeyID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/invites.mjs
+var Invites = class extends APIResource {
+	/**
+	* Invite a user to join the organization by email.
+	*
+	* On plans that draw members from a finite pool of purchased seats, the invite
+	* automatically consumes a seat from the lowest tier with availability; there is
+	* no seat-tier parameter. When no seat is free the request fails with a 400 error
+	* rather than purchasing a seat.
+	*
+	* @example
+	* ```ts
+	* const organizationInvite =
+	*   await client.organization.invites.create({
+	*     email: 'user@emaildomain.com',
+	*     role: 'user',
+	*   });
+	* ```
+	*/
+	create(body, options) {
+		return this._client.post("/v1/organizations/invites", {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.invites.create", options, {
+				route: "/v1/organizations/invites",
+				createdIDAttribute: "anthropic.organization.invite.id"
+			})
+		});
+	}
+	/**
+	* Retrieve an invite by ID.
+	*
+	* @example
+	* ```ts
+	* const organizationInvite =
+	*   await client.organization.invites.retrieve('invite_id');
+	* ```
+	*/
+	retrieve(inviteID, options) {
+		return this._client.get(path`/v1/organizations/invites/${inviteID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.invites.retrieve", options, {
+				route: "/v1/organizations/invites/{invite_id}",
+				attributes: { "anthropic.organization.invite.id": inviteID }
+			})
+		});
+	}
+	/**
+	* List the organization's invites.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const organizationInvite of client.organization.invites.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/invites", Page, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.invites.list", options, {
+				route: "/v1/organizations/invites",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"email",
+					"limit",
+					"roles",
+					"statuses"
+				]
+			})
+		});
+	}
+	/**
+	* Delete a pending invite.
+	*
+	* @example
+	* ```ts
+	* const invite = await client.organization.invites.delete(
+	*   'invite_id',
+	* );
+	* ```
+	*/
+	delete(inviteID, options) {
+		return this._client.delete(path`/v1/organizations/invites/${inviteID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.invites.delete", options, {
+				route: "/v1/organizations/invites/{invite_id}",
+				attributes: { "anthropic.organization.invite.id": inviteID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/rate-limits.mjs
+var RateLimits$1 = class extends APIResource {
+	/**
+	* List Messages API rate limits for your organization.
+	*
+	* Each entry corresponds to one rate-limit group (either a model family or an
+	* API-surface category such as the Message Batches API or the web search tool) and
+	* contains the set of limiter values that apply to it.
+	*
+	* When `limit` is omitted, every matching entry is returned in a single page; when
+	* `limit` truncates the result, follow `next_page` to fetch the remaining entries.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const organizationRateLimit of client.organization.rateLimits.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/rate_limits", PageCursor, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.rate_limits.list", options, {
+				route: "/v1/organizations/rate_limits",
+				queryParams: [
+					"group_type",
+					"limit",
+					"model",
+					"page"
+				]
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/users.mjs
+var Users = class extends APIResource {
+	/**
+	* Retrieve a member of the organization by user ID.
+	*
+	* @example
+	* ```ts
+	* const organizationUser =
+	*   await client.organization.users.retrieve('user_id');
+	* ```
+	*/
+	retrieve(userID, options) {
+		return this._client.get(path`/v1/organizations/users/${userID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.users.retrieve", options, {
+				route: "/v1/organizations/users/{user_id}",
+				attributes: { "anthropic.organization.user.id": userID }
+			})
+		});
+	}
+	/**
+	* Update a member's organization role.
+	*
+	* @example
+	* ```ts
+	* const organizationUser =
+	*   await client.organization.users.update('user_id', {
+	*     role: 'user',
+	*   });
+	* ```
+	*/
+	update(userID, body, options) {
+		return this._client.post(path`/v1/organizations/users/${userID}`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.users.update", options, {
+				route: "/v1/organizations/users/{user_id}",
+				attributes: { "anthropic.organization.user.id": userID }
+			})
+		});
+	}
+	/**
+	* List the organization's members.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const organizationUser of client.organization.users.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/users", Page, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.users.list", options, {
+				route: "/v1/organizations/users",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"email",
+					"limit",
+					"roles"
+				]
+			})
+		});
+	}
+	/**
+	* Remove a member from the organization.
+	*
+	* @example
+	* ```ts
+	* const user = await client.organization.users.remove(
+	*   'user_id',
+	* );
+	* ```
+	*/
+	remove(userID, options) {
+		return this._client.delete(path`/v1/organizations/users/${userID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.users.remove", options, {
+				route: "/v1/organizations/users/{user_id}",
+				attributes: { "anthropic.organization.user.id": userID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/federation/issuers.mjs
+var Issuers = class extends APIResource {
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Register an OIDC issuer that Anthropic will trust for workload identity
+	* federation in your organization.
+	*
+	* The `jwks` field controls how the issuer's signing keys are obtained and takes
+	* one of three shapes selected by `type`: `discovery` (resolve keys through OIDC
+	* discovery), `explicit_url` (fetch keys from a fixed JWKS URL), or `inline`
+	* (provide a static key set). When `jwks.type` is `discovery` and no
+	* `discovery_base` is set, the issuer URL must be publicly reachable over HTTPS so
+	* Anthropic can fetch the discovery document; for `explicit_url` and `inline`
+	* modes the issuer URL is only matched as the JWT's `iss` claim and is not
+	* fetched.
+	*
+	* @example
+	* ```ts
+	* const federationIssuer =
+	*   await client.organization.federation.issuers.create({
+	*     issuer_url: 'x',
+	*     name: 'x',
+	*   });
+	* ```
+	*/
+	create(body, options) {
+		return this._client.post("/v1/organizations/federation_issuers", {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.issuers.create", options, {
+				route: "/v1/organizations/federation_issuers",
+				createdIDAttribute: "anthropic.organization.federation_issuer.id"
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Retrieve a federation issuer by its ID (`fdis_...`).
+	*
+	* @example
+	* ```ts
+	* const federationIssuer =
+	*   await client.organization.federation.issuers.retrieve(
+	*     'federation_issuer_id',
+	*   );
+	* ```
+	*/
+	retrieve(federationIssuerID, options) {
+		return this._client.get(path`/v1/organizations/federation_issuers/${federationIssuerID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.issuers.retrieve", options, {
+				route: "/v1/organizations/federation_issuers/{federation_issuer_id}",
+				attributes: { "anthropic.organization.federation_issuer.id": federationIssuerID }
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Partially update a federation issuer.
+	*
+	* Setting `jwks` replaces the full JWKS shape at once. Archived issuers cannot be
+	* updated; this returns 400. Create a new issuer instead.
+	*
+	* Updating an issuer that backs a rule with a scope outside `workspace:developer`
+	* or `workspace:inference` requires a Console session.
+	*
+	* @example
+	* ```ts
+	* const federationIssuer =
+	*   await client.organization.federation.issuers.update(
+	*     'federation_issuer_id',
+	*   );
+	* ```
+	*/
+	update(federationIssuerID, body, options) {
+		return this._client.post(path`/v1/organizations/federation_issuers/${federationIssuerID}`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.issuers.update", options, {
+				route: "/v1/organizations/federation_issuers/{federation_issuer_id}",
+				attributes: { "anthropic.organization.federation_issuer.id": federationIssuerID }
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* List federation issuers in your organization.
+	*
+	* Archived issuers are excluded unless `include_archived=true`.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const federationIssuer of client.organization.federation.issuers.list()) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(query = {}, options) {
+		return this._client.getAPIList("/v1/organizations/federation_issuers", PageCursor, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.issuers.list", options, {
+				route: "/v1/organizations/federation_issuers",
+				queryParams: [
+					"include_archived",
+					"limit",
+					"page"
+				]
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Archive a federation issuer.
+	*
+	* Idempotent; re-archiving returns the issuer with its original `archived_at`.
+	* Rejected with 400 if any live (non-archived) federation rule still references
+	* the issuer; archive those rules first (a rule's issuer cannot be changed), or
+	* recreate them against another issuer.
+	*
+	* @example
+	* ```ts
+	* const federationIssuer =
+	*   await client.organization.federation.issuers.archive(
+	*     'federation_issuer_id',
+	*   );
+	* ```
+	*/
+	archive(federationIssuerID, options) {
+		return this._client.post(path`/v1/organizations/federation_issuers/${federationIssuerID}/archive`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.issuers.archive", options, {
+				route: "/v1/organizations/federation_issuers/{federation_issuer_id}/archive",
+				attributes: { "anthropic.organization.federation_issuer.id": federationIssuerID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/federation/rules/workspaces.mjs
+var Workspaces$2 = class extends APIResource {
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* List workspaces where this federation rule is enabled.
+	*
+	* Returns all workspace enablements in a single response; the `limit` and `page`
+	* parameters are accepted but have no effect, and `next_page` is always `null`.
+	* Returns explicit per-workspace enablements only; for rules with
+	* `applies_to_all_workspaces` or a legacy single `workspace_id`, check those
+	* fields on the rule itself.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const federationRuleWorkspace of client.organization.federation.rules.workspaces.list(
+	*   'federation_rule_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(federationRuleID, query = {}, options) {
+		return this._client.getAPIList(path`/v1/organizations/federation_rules/${federationRuleID}/workspaces`, PageCursor, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.workspaces.list", options, {
+				route: "/v1/organizations/federation_rules/{federation_rule_id}/workspaces",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.organization.federation_rule.id": federationRuleID }
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Enable a federation rule for a workspace.
+	*
+	* Idempotent; re-enabling returns the existing enablement. The rule and workspace
+	* must both belong to your organization. Membership of the rule's target service
+	* account in this workspace is not checked at enablement: token exchange into this
+	* workspace is rejected unless the target is a member (it is implicitly a member
+	* of the default workspace). Archived rules are rejected with 400. OAuth callers
+	* may only manage rules whose `oauth_scope` is `workspace:developer` or
+	* `workspace:inference`; other scopes require a Console session.
+	*
+	* @example
+	* ```ts
+	* const federationRuleWorkspace =
+	*   await client.organization.federation.rules.workspaces.add(
+	*     'federation_rule_id',
+	*     { workspace_id: 'workspace_id' },
+	*   );
+	* ```
+	*/
+	add(federationRuleID, body, options) {
+		return this._client.post(path`/v1/organizations/federation_rules/${federationRuleID}/workspaces`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.workspaces.add", options, {
+				route: "/v1/organizations/federation_rules/{federation_rule_id}/workspaces",
+				attributes: { "anthropic.organization.federation_rule.id": federationRuleID },
+				createdIDAttribute: "anthropic.organization.federation_rule.workspace.id",
+				createdIDField: "workspace_id"
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Disable a federation rule for a workspace.
+	*
+	* Idempotent; succeeds even if the enablement was already removed. OAuth callers
+	* may only manage rules whose `oauth_scope` is `workspace:developer` or
+	* `workspace:inference`; other scopes require a Console session.
+	*
+	* @example
+	* ```ts
+	* const workspace =
+	*   await client.organization.federation.rules.workspaces.remove(
+	*     'workspace_id',
+	*     { federation_rule_id: 'federation_rule_id' },
+	*   );
+	* ```
+	*/
+	remove(workspaceID, params, options) {
+		const { federation_rule_id } = params;
+		return this._client.delete(path`/v1/organizations/federation_rules/${federation_rule_id}/workspaces/${workspaceID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.workspaces.remove", options, {
+				route: "/v1/organizations/federation_rules/{federation_rule_id}/workspaces/{workspace_id}",
+				attributes: {
+					"anthropic.organization.federation_rule.id": federation_rule_id,
+					"anthropic.organization.federation_rule.workspace.id": workspaceID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/federation/rules/rules.mjs
+var Rules = /* @__PURE__ */ (() => {
+	class Rules extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.workspaces = new Workspaces$2(this._client);
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Create a federation rule owned by your organization.
+		*
+		* The referenced issuer and the target service account must already exist in the
+		* same organization; invalid references are rejected with a 400 error. The
+		* workspace reference is validated. Membership is not checked at rule creation:
+		* token exchange resolves a single enabled workspace per call and is rejected
+		* unless the target service account is a member of that workspace (it is
+		* implicitly a member of the default workspace). Rules on well-known shared
+		* issuers (GitHub Actions, GitLab, Buildkite, Terraform Cloud, Google) must
+		* constrain tenant identity via an identity-bearing claim, a tenant-pinning
+		* subject prefix (such as `repo:YOUR_ORG/...`), or a CEL condition referencing one
+		* of those identity claims (e.g. `claims.repository_owner`). OAuth callers may
+		* only manage rules whose `oauth_scope` is `workspace:developer` or
+		* `workspace:inference`; other scopes require a Console session.
+		*
+		* @example
+		* ```ts
+		* const federationRule =
+		*   await client.organization.federation.rules.create({
+		*     issuer_id: 'issuer_id',
+		*     match: {},
+		*     name: 'x',
+		*     oauth_scope: 'x',
+		*     target: {
+		*       service_account_id: 'svac_01SDCCSbTxrXDpWc1phhtcfK',
+		*       type: 'service_account',
+		*     },
+		*   });
+		* ```
+		*/
+		create(body, options) {
+			return this._client.post("/v1/organizations/federation_rules", {
+				body,
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.create", options, {
+					route: "/v1/organizations/federation_rules",
+					createdIDAttribute: "anthropic.organization.federation_rule.id"
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Retrieve a federation rule by its ID (`fdrl_...`).
+		*
+		* @example
+		* ```ts
+		* const federationRule =
+		*   await client.organization.federation.rules.retrieve(
+		*     'federation_rule_id',
+		*   );
+		* ```
+		*/
+		retrieve(federationRuleID, options) {
+			return this._client.get(path`/v1/organizations/federation_rules/${federationRuleID}`, {
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.retrieve", options, {
+					route: "/v1/organizations/federation_rules/{federation_rule_id}",
+					attributes: { "anthropic.organization.federation_rule.id": federationRuleID }
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Partially update a federation rule.
+		*
+		* `issuer_id` is immutable. `match` and `target` are replaced as whole objects
+		* when set. Referenced service accounts and workspaces must exist in your
+		* organization; invalid references are rejected with a 400 error. Archived rules
+		* cannot be updated; this returns 400. Create a new rule instead. Rules on
+		* well-known shared issuers (GitHub Actions, GitLab, Buildkite, Terraform Cloud,
+		* Google) must constrain tenant identity via an identity-bearing claim, a
+		* tenant-pinning subject prefix (such as `repo:YOUR_ORG/...`), or a CEL condition
+		* referencing one of those identity claims (e.g. `claims.repository_owner`). On
+		* these issuers the requirement is re-checked on every update; if an existing
+		* rule's stored match does not yet constrain tenant identity, any update (even a
+		* rename or description change) must also supply a conforming `match` in the same
+		* request. OAuth callers may only manage rules whose `oauth_scope` is
+		* `workspace:developer` or `workspace:inference`; other scopes require a Console
+		* session.
+		*
+		* @example
+		* ```ts
+		* const federationRule =
+		*   await client.organization.federation.rules.update(
+		*     'federation_rule_id',
+		*   );
+		* ```
+		*/
+		update(federationRuleID, body, options) {
+			return this._client.post(path`/v1/organizations/federation_rules/${federationRuleID}`, {
+				body,
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.update", options, {
+					route: "/v1/organizations/federation_rules/{federation_rule_id}",
+					attributes: { "anthropic.organization.federation_rule.id": federationRuleID }
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* List federation rules in your organization.
+		*
+		* Optionally filter by issuer with `issuer_id`. Archived rules are excluded unless
+		* `include_archived=true`.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const federationRule of client.organization.federation.rules.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(query = {}, options) {
+			return this._client.getAPIList("/v1/organizations/federation_rules", PageCursor, {
+				query,
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.list", options, {
+					route: "/v1/organizations/federation_rules",
+					queryParams: [
+						"include_archived",
+						"issuer_id",
+						"limit",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Archive a federation rule.
+		*
+		* Token exchange through this rule stops immediately. Idempotent; re-archiving
+		* returns the rule with its original `archived_at`. Archiving clears the rule's
+		* workspace targeting (`workspace_id` and `workspace_ids` are emptied). Tokens
+		* already minted before archive remain valid until they expire. OAuth callers may
+		* only manage rules whose `oauth_scope` is `workspace:developer` or
+		* `workspace:inference`; other scopes require a Console session.
+		*
+		* @example
+		* ```ts
+		* const federationRule =
+		*   await client.organization.federation.rules.archive(
+		*     'federation_rule_id',
+		*   );
+		* ```
+		*/
+		archive(federationRuleID, options) {
+			return this._client.post(path`/v1/organizations/federation_rules/${federationRuleID}/archive`, {
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.federation.rules.archive", options, {
+					route: "/v1/organizations/federation_rules/{federation_rule_id}/archive",
+					attributes: { "anthropic.organization.federation_rule.id": federationRuleID }
+				})
+			});
+		}
+	}
+	Rules.Workspaces = Workspaces$2;
+	return Rules;
+})();
+// node_modules/@anthropic-ai/sdk/resources/organization/federation/federation.mjs
+var Federation = /* @__PURE__ */ (() => {
+	class Federation extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.issuers = new Issuers(this._client);
+			this.rules = new Rules(this._client);
+		}
+	}
+	Federation.Issuers = Issuers;
+	Federation.Rules = Rules;
+	return Federation;
+})();
+// node_modules/@anthropic-ai/sdk/resources/organization/service-accounts/workspaces.mjs
+var Workspaces$1 = class extends APIResource {
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* List the workspaces a service account is a member of.
+	*
+	* Each entry includes the service account's `workspace_role` in that workspace.
+	* Use `limit` and the `next_page` cursor to paginate. When the service account has
+	* no explicit default-workspace membership, the implicit (`implicit: true`)
+	* membership is returned as the first entry on the first page; with `limit=1` the
+	* first page may return up to 2 entries (the implicit entry plus one explicit
+	* membership) so a pagination cursor can be derived. Memberships are returned only
+	* while the service account is active. Without a `page` cursor, an archived
+	* service account returns an empty list. A `page` cursor that does not match an
+	* active membership returns a 400 invalid-request error. A cursor stops matching
+	* when the membership is removed, the workspace is deleted, or the service account
+	* is archived. Restart pagination from the first page to recover.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const serviceAccountWorkspaceMember of client.organization.serviceAccounts.workspaces.list(
+	*   'service_account_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(serviceAccountID, query = {}, options) {
+		return this._client.getAPIList(path`/v1/organizations/service_accounts/${serviceAccountID}/workspaces`, PageCursor, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.workspaces.list", options, {
+				route: "/v1/organizations/service_accounts/{service_account_id}/workspaces",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.organization.service_account.id": serviceAccountID }
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Add a service account to a workspace with the given `workspace_role`.
+	*
+	* Mirror of `POST /workspaces/{workspace_id}/service_accounts`, addressed from the
+	* service-account side; both create the same membership. If the service account is
+	* already an explicit member of the workspace, its `workspace_role` is replaced
+	* with the value supplied here. Archived workspaces return 400. Archived service
+	* accounts cannot be added and are rejected.
+	*
+	* @example
+	* ```ts
+	* const serviceAccountWorkspaceMember =
+	*   await client.organization.serviceAccounts.workspaces.add(
+	*     'service_account_id',
+	*     {
+	*       workspace_id: 'workspace_id',
+	*       workspace_role: 'workspace_admin',
+	*     },
+	*   );
+	* ```
+	*/
+	add(serviceAccountID, body, options) {
+		return this._client.post(path`/v1/organizations/service_accounts/${serviceAccountID}/workspaces`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.workspaces.add", options, {
+				route: "/v1/organizations/service_accounts/{service_account_id}/workspaces",
+				attributes: { "anthropic.organization.service_account.id": serviceAccountID },
+				createdIDAttribute: "anthropic.organization.service_account.workspace.id",
+				createdIDField: "workspace_id"
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Remove a service account from a workspace.
+	*
+	* Mirror of
+	* `DELETE /workspaces/{workspace_id}/service_accounts/{service_account_id}`,
+	* addressed from the service-account side. Removal is idempotent (returns 200 even
+	* if the membership was already removed). A DELETE against the implicit
+	* default-workspace membership returns 200 but is a no-op and the membership
+	* persists; deleting an explicit default-workspace row reverts to the implicit
+	* `workspace_user` membership. Archived workspaces return 400.
+	*
+	* @example
+	* ```ts
+	* const workspace =
+	*   await client.organization.serviceAccounts.workspaces.remove(
+	*     'workspace_id',
+	*     { service_account_id: 'service_account_id' },
+	*   );
+	* ```
+	*/
+	remove(workspaceID, params, options) {
+		const { service_account_id } = params;
+		return this._client.delete(path`/v1/organizations/service_accounts/${service_account_id}/workspaces/${workspaceID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.workspaces.remove", options, {
+				route: "/v1/organizations/service_accounts/{service_account_id}/workspaces/{workspace_id}",
+				attributes: {
+					"anthropic.organization.service_account.id": service_account_id,
+					"anthropic.organization.service_account.workspace.id": workspaceID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/service-accounts/service-accounts.mjs
+var ServiceAccounts$1 = /* @__PURE__ */ (() => {
+	class ServiceAccounts extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.workspaces = new Workspaces$1(this._client);
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Create a service account.
+		*
+		* A service account is a named workload identity that federation rules target.
+		* `organization_role` is `developer` (default) or `admin`; a rule may only be
+		* created or retargeted to grant `org:admin` scope when the target's
+		* `organization_role` is `admin`. Creating an `admin`-role service account
+		* requires an interactive credential (a user OAuth token or a Console session) — a
+		* workload may only create `developer`-role service accounts.
+		*
+		* @example
+		* ```ts
+		* const serviceAccount =
+		*   await client.organization.serviceAccounts.create({
+		*     name: 'ci-deploy-bot',
+		*   });
+		* ```
+		*/
+		create(body, options) {
+			return this._client.post("/v1/organizations/service_accounts", {
+				body,
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.create", options, {
+					route: "/v1/organizations/service_accounts",
+					createdIDAttribute: "anthropic.organization.service_account.id"
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Retrieve a service account by its ID (`svac_...`).
+		*
+		* @example
+		* ```ts
+		* const serviceAccount =
+		*   await client.organization.serviceAccounts.retrieve(
+		*     'service_account_id',
+		*   );
+		* ```
+		*/
+		retrieve(serviceAccountID, options) {
+			return this._client.get(path`/v1/organizations/service_accounts/${serviceAccountID}`, {
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.retrieve", options, {
+					route: "/v1/organizations/service_accounts/{service_account_id}",
+					attributes: { "anthropic.organization.service_account.id": serviceAccountID }
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Update a service account.
+		*
+		* Only `description` and `organization_role` are mutable; `name` cannot be
+		* changed. Archived service accounts cannot be updated; this returns 400. Setting
+		* `organization_role` to `admin` (even when unchanged) requires an interactive
+		* credential (a user OAuth token or a Console session).
+		*
+		* @example
+		* ```ts
+		* const serviceAccount =
+		*   await client.organization.serviceAccounts.update(
+		*     'service_account_id',
+		*   );
+		* ```
+		*/
+		update(serviceAccountID, body, options) {
+			return this._client.post(path`/v1/organizations/service_accounts/${serviceAccountID}`, {
+				body,
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.update", options, {
+					route: "/v1/organizations/service_accounts/{service_account_id}",
+					attributes: { "anthropic.organization.service_account.id": serviceAccountID }
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* List service accounts in the caller's organization.
+		*
+		* Results are ordered by creation time, newest first. Use `limit` and the
+		* `next_page` cursor to paginate; set `include_archived=true` to include archived
+		* service accounts.
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const serviceAccount of client.organization.serviceAccounts.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(query = {}, options) {
+			return this._client.getAPIList("/v1/organizations/service_accounts", PageCursor, {
+				query,
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.list", options, {
+					route: "/v1/organizations/service_accounts",
+					queryParams: [
+						"include_archived",
+						"limit",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* **Requires an OAuth access token with the `org:admin` scope**, from
+		* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+		* API keys are not accepted. See
+		* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+		*
+		* Archive a service account.
+		*
+		* Idempotent; re-archiving returns the service account with its original
+		* `archived_at`. Rejected with 400 if any live (non-archived) federation rule
+		* still targets this service account, same as issuer archival; archive those rules
+		* first or change their target to another service account.
+		*
+		* @example
+		* ```ts
+		* const serviceAccount =
+		*   await client.organization.serviceAccounts.archive(
+		*     'service_account_id',
+		*   );
+		* ```
+		*/
+		archive(serviceAccountID, options) {
+			return this._client.post(path`/v1/organizations/service_accounts/${serviceAccountID}/archive`, {
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.service_accounts.archive", options, {
+					route: "/v1/organizations/service_accounts/{service_account_id}/archive",
+					attributes: { "anthropic.organization.service_account.id": serviceAccountID }
+				})
+			});
+		}
+	}
+	ServiceAccounts.Workspaces = Workspaces$1;
+	return ServiceAccounts;
+})();
+// node_modules/@anthropic-ai/sdk/resources/organization/workspaces/members.mjs
+var Members = class extends APIResource {
+	/**
+	* Get Workspace Member
+	*
+	* @example
+	* ```ts
+	* const workspaceMember =
+	*   await client.organization.workspaces.members.retrieve(
+	*     'user_id',
+	*     { workspace_id: 'workspace_id' },
+	*   );
+	* ```
+	*/
+	retrieve(userID, params, options) {
+		const { workspace_id } = params;
+		return this._client.get(path`/v1/organizations/workspaces/${workspace_id}/members/${userID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.members.retrieve", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/members/{user_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.member.id": userID
+				}
+			})
+		});
+	}
+	/**
+	* Update Workspace Member
+	*
+	* @example
+	* ```ts
+	* const workspaceMember =
+	*   await client.organization.workspaces.members.update(
+	*     'user_id',
+	*     {
+	*       workspace_id: 'workspace_id',
+	*       workspace_role: 'workspace_admin',
+	*     },
+	*   );
+	* ```
+	*/
+	update(userID, params, options) {
+		const { workspace_id, ...body } = params;
+		return this._client.post(path`/v1/organizations/workspaces/${workspace_id}/members/${userID}`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.members.update", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/members/{user_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.member.id": userID
+				}
+			})
+		});
+	}
+	/**
+	* List Workspace Members
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const workspaceMember of client.organization.workspaces.members.list(
+	*   'workspace_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(workspaceID, query = {}, options) {
+		return this._client.getAPIList(path`/v1/organizations/workspaces/${workspaceID}/members`, Page, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.members.list", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/members",
+				queryParams: [
+					"after_id",
+					"before_id",
+					"limit"
+				],
+				attributes: { "anthropic.organization.workspace.id": workspaceID }
+			})
+		});
+	}
+	/**
+	* Create Workspace Member
+	*
+	* @example
+	* ```ts
+	* const workspaceMember =
+	*   await client.organization.workspaces.members.add(
+	*     'workspace_id',
+	*     {
+	*       user_id: 'user_01WCz1FkmYMm4gnmykNKUu3Q',
+	*       workspace_role: 'workspace_admin',
+	*     },
+	*   );
+	* ```
+	*/
+	add(workspaceID, body, options) {
+		return this._client.post(path`/v1/organizations/workspaces/${workspaceID}/members`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.members.add", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/members",
+				attributes: { "anthropic.organization.workspace.id": workspaceID },
+				createdIDAttribute: "anthropic.organization.workspace.member.id",
+				createdIDField: "user_id"
+			})
+		});
+	}
+	/**
+	* Delete Workspace Member
+	*
+	* @example
+	* ```ts
+	* const member =
+	*   await client.organization.workspaces.members.remove(
+	*     'user_id',
+	*     { workspace_id: 'workspace_id' },
+	*   );
+	* ```
+	*/
+	remove(userID, params, options) {
+		const { workspace_id } = params;
+		return this._client.delete(path`/v1/organizations/workspaces/${workspace_id}/members/${userID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.members.remove", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/members/{user_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.member.id": userID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/workspaces/rate-limits.mjs
+var RateLimits = class extends APIResource {
+	/**
+	* Set or clear rate-limit overrides for one rate-limit group in a workspace.
+	*
+	* Only the limiter types named in `limits` change: an integer `value` sets that
+	* type's override and `null` clears it. Types not named keep their current value.
+	* A value above the organization's own limit is stored, but the organization limit
+	* still applies, so the lower of the two is enforced.
+	*
+	* Returns the targeted group's entry with this request applied, in the shape
+	* `GET /v1/organizations/workspaces/{workspace_id}/rate_limits` returns. Changes
+	* take effect within about an hour.
+	*
+	* @example
+	* ```ts
+	* const workspaceRateLimit =
+	*   await client.organization.workspaces.rateLimits.update(
+	*     'rate_limit_id',
+	*     {
+	*       workspace_id: 'workspace_id',
+	*       limits: [{ type: 'fast_itpmca', value: 0 }],
+	*     },
+	*   );
+	* ```
+	*/
+	update(rateLimitID, params, options) {
+		const { workspace_id, ...body } = params;
+		return this._client.post(path`/v1/organizations/workspaces/${workspace_id}/rate_limits/${rateLimitID}`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.rate_limits.update", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/rate_limits/{rate_limit_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.rate_limit.id": rateLimitID
+				}
+			})
+		});
+	}
+	/**
+	* List a workspace's rate limits.
+	*
+	* By default, returns only the groups and limiter types that have a
+	* workspace-level override. With `include_inherited=true`, returns every group
+	* with organization-level limits the workspace can see, listing for each the
+	* values it inherits from the organization as well as its own overrides. Each
+	* value's `source` says which it is.
+	*
+	* When `limit` is omitted, every matching entry is returned in a single page; when
+	* `limit` truncates the result, follow `next_page` to fetch the remaining entries.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const workspaceRateLimit of client.organization.workspaces.rateLimits.list(
+	*   'workspace_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(workspaceID, query = {}, options) {
+		return this._client.getAPIList(path`/v1/organizations/workspaces/${workspaceID}/rate_limits`, PageCursor, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.rate_limits.list", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/rate_limits",
+				queryParams: [
+					"group_type",
+					"include_inherited",
+					"limit",
+					"page"
+				],
+				attributes: { "anthropic.organization.workspace.id": workspaceID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/workspaces/service-accounts.mjs
+var ServiceAccounts = class extends APIResource {
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Retrieve a service account's membership in a workspace.
+	*
+	* Returns the membership record, including the service account's `workspace_role`
+	* in this workspace. Archived workspaces return 400. For the default workspace,
+	* returns the implicit (`implicit: true`) membership when no explicit membership
+	* exists; an explicitly added membership is returned with its assigned role. An
+	* archived service account returns 404.
+	*
+	* @example
+	* ```ts
+	* const serviceAccountWorkspaceMember =
+	*   await client.organization.workspaces.serviceAccounts.retrieve(
+	*     'service_account_id',
+	*     { workspace_id: 'workspace_id' },
+	*   );
+	* ```
+	*/
+	retrieve(serviceAccountID, params, options) {
+		const { workspace_id } = params;
+		return this._client.get(path`/v1/organizations/workspaces/${workspace_id}/service_accounts/${serviceAccountID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.service_accounts.retrieve", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.service_account.id": serviceAccountID
+				}
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Change a service account's role in a workspace.
+	*
+	* The new `workspace_role` replaces the current one. Only explicit memberships can
+	* be updated; to set a role on the implicit default-workspace membership, add the
+	* service account explicitly with
+	* `POST /workspaces/{workspace_id}/service_accounts`. Archived workspaces
+	* return 400. Archived service accounts cannot be updated and are rejected.
+	*
+	* @example
+	* ```ts
+	* const serviceAccountWorkspaceMember =
+	*   await client.organization.workspaces.serviceAccounts.update(
+	*     'service_account_id',
+	*     {
+	*       workspace_id: 'workspace_id',
+	*       workspace_role: 'workspace_admin',
+	*     },
+	*   );
+	* ```
+	*/
+	update(serviceAccountID, params, options) {
+		const { workspace_id, ...body } = params;
+		return this._client.post(path`/v1/organizations/workspaces/${workspace_id}/service_accounts/${serviceAccountID}`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.service_accounts.update", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.service_account.id": serviceAccountID
+				}
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* List the service accounts that are members of a workspace.
+	*
+	* Each entry includes the service account's `workspace_role`. Use `limit` and the
+	* `next_page` cursor to paginate. Archived workspaces return 400; use
+	* `GET /service_accounts/{id}/workspaces` to audit memberships of an archived
+	* workspace. The implicit default-workspace membership is not included in this
+	* list. Memberships of archived service accounts are omitted from the results.
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const serviceAccountWorkspaceMember of client.organization.workspaces.serviceAccounts.list(
+	*   'workspace_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(workspaceID, query = {}, options) {
+		return this._client.getAPIList(path`/v1/organizations/workspaces/${workspaceID}/service_accounts`, PageCursor, {
+			query,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.service_accounts.list", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/service_accounts",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.organization.workspace.id": workspaceID }
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Add a service account to a workspace with the given `workspace_role`.
+	*
+	* The role determines what the service account can do in the workspace and which
+	* workspace-scoped permissions it can be granted when authenticating through
+	* federation. Every service account is already an implicit `workspace_user` member
+	* of the default workspace; adding it explicitly assigns a chosen role. If the
+	* service account is already an explicit member of the workspace, its
+	* `workspace_role` is replaced with the value supplied here. Archived workspaces
+	* return 400. Archived service accounts cannot be added and are rejected.
+	*
+	* @example
+	* ```ts
+	* const serviceAccountWorkspaceMember =
+	*   await client.organization.workspaces.serviceAccounts.add(
+	*     'workspace_id',
+	*     {
+	*       service_account_id: 'service_account_id',
+	*       workspace_role: 'workspace_admin',
+	*     },
+	*   );
+	* ```
+	*/
+	add(workspaceID, body, options) {
+		return this._client.post(path`/v1/organizations/workspaces/${workspaceID}/service_accounts`, {
+			body,
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.service_accounts.add", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/service_accounts",
+				attributes: { "anthropic.organization.workspace.id": workspaceID },
+				createdIDAttribute: "anthropic.organization.workspace.service_account.id",
+				createdIDField: "service_account_id"
+			})
+		});
+	}
+	/**
+	* **Requires an OAuth access token with the `org:admin` scope**, from
+	* `ant auth login --scope org:admin` or a workload identity federation rule; Admin
+	* API keys are not accepted. See
+	* [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+	*
+	* Remove a service account from a workspace.
+	*
+	* Removal is idempotent (returns 200 even if the membership was already removed).
+	* A DELETE against the implicit default-workspace membership returns 200 but is a
+	* no-op and the membership persists; deleting an explicit default-workspace row
+	* reverts to the implicit `workspace_user` membership. Archived workspaces
+	* return 400.
+	*
+	* @example
+	* ```ts
+	* const serviceAccount =
+	*   await client.organization.workspaces.serviceAccounts.remove(
+	*     'service_account_id',
+	*     { workspace_id: 'workspace_id' },
+	*   );
+	* ```
+	*/
+	remove(serviceAccountID, params, options) {
+		const { workspace_id } = params;
+		return this._client.delete(path`/v1/organizations/workspaces/${workspace_id}/service_accounts/${serviceAccountID}`, {
+			...options,
+			__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.service_accounts.remove", options, {
+				route: "/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}",
+				attributes: {
+					"anthropic.organization.workspace.id": workspace_id,
+					"anthropic.organization.workspace.service_account.id": serviceAccountID
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/organization/workspaces/workspaces.mjs
+var Workspaces = /* @__PURE__ */ (() => {
+	class Workspaces extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.rateLimits = new RateLimits(this._client);
+			this.members = new Members(this._client);
+			this.serviceAccounts = new ServiceAccounts(this._client);
+		}
+		/**
+		* Create Workspace
+		*
+		* @example
+		* ```ts
+		* const workspace =
+		*   await client.organization.workspaces.create({
+		*     name: 'x',
+		*   });
+		* ```
+		*/
+		create(body, options) {
+			return this._client.post("/v1/organizations/workspaces", {
+				body,
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.create", options, {
+					route: "/v1/organizations/workspaces",
+					createdIDAttribute: "anthropic.organization.workspace.id"
+				})
+			});
+		}
+		/**
+		* Get Workspace
+		*
+		* @example
+		* ```ts
+		* const workspace =
+		*   await client.organization.workspaces.retrieve(
+		*     'workspace_id',
+		*   );
+		* ```
+		*/
+		retrieve(workspaceID, options) {
+			return this._client.get(path`/v1/organizations/workspaces/${workspaceID}`, {
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.retrieve", options, {
+					route: "/v1/organizations/workspaces/{workspace_id}",
+					attributes: { "anthropic.organization.workspace.id": workspaceID }
+				})
+			});
+		}
+		/**
+		* Update Workspace
+		*
+		* @example
+		* ```ts
+		* const workspace =
+		*   await client.organization.workspaces.update(
+		*     'workspace_id',
+		*   );
+		* ```
+		*/
+		update(workspaceID, body, options) {
+			return this._client.post(path`/v1/organizations/workspaces/${workspaceID}`, {
+				body,
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.update", options, {
+					route: "/v1/organizations/workspaces/{workspace_id}",
+					attributes: { "anthropic.organization.workspace.id": workspaceID }
+				})
+			});
+		}
+		/**
+		* List Workspaces
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const workspace of client.organization.workspaces.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(query = {}, options) {
+			return this._client.getAPIList("/v1/organizations/workspaces", Page, {
+				query,
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.list", options, {
+					route: "/v1/organizations/workspaces",
+					queryParams: [
+						"after_id",
+						"before_id",
+						"include_archived",
+						"include_default",
+						"limit"
+					]
+				})
+			});
+		}
+		/**
+		* Archive Workspace
+		*
+		* @example
+		* ```ts
+		* const workspace =
+		*   await client.organization.workspaces.archive(
+		*     'workspace_id',
+		*   );
+		* ```
+		*/
+		archive(workspaceID, options) {
+			return this._client.post(path`/v1/organizations/workspaces/${workspaceID}/archive`, {
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.workspaces.archive", options, {
+					route: "/v1/organizations/workspaces/{workspace_id}/archive",
+					attributes: { "anthropic.organization.workspace.id": workspaceID }
+				})
+			});
+		}
+	}
+	Workspaces.RateLimits = RateLimits;
+	Workspaces.Members = Members;
+	Workspaces.ServiceAccounts = ServiceAccounts;
+	return Workspaces;
+})();
+// node_modules/@anthropic-ai/sdk/resources/organization/organization.mjs
+var Organization = /* @__PURE__ */ (() => {
+	class Organization extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.apiKeys = new APIKeys(this._client);
+			this.externalKeys = new ExternalKeys(this._client);
+			this.federation = new Federation(this._client);
+			this.invites = new Invites(this._client);
+			this.serviceAccounts = new ServiceAccounts$1(this._client);
+			this.users = new Users(this._client);
+			this.workspaces = new Workspaces(this._client);
+			this.rateLimits = new RateLimits$1(this._client);
+			this.complianceSettings = new ComplianceSettings(this._client);
+		}
+		/**
+		* Retrieve information about the organization associated with the authenticated
+		* API key.
+		*
+		* @example
+		* ```ts
+		* const organizationInfo =
+		*   await client.organization.retrieve();
+		* ```
+		*/
+		retrieve(options) {
+			return this._client.get("/v1/organizations/me", {
+				...options,
+				__span: startApiCallSpan(this._client, "anthropic.organization.retrieve", options, { route: "/v1/organizations/me" })
+			});
+		}
+	}
+	Organization.APIKeys = APIKeys;
+	Organization.ExternalKeys = ExternalKeys;
+	Organization.Federation = Federation;
+	Organization.Invites = Invites;
+	Organization.ServiceAccounts = ServiceAccounts$1;
+	Organization.Users = Users;
+	Organization.Workspaces = Workspaces;
+	Organization.RateLimits = RateLimits$1;
+	Organization.ComplianceSettings = ComplianceSettings;
+	return Organization;
+})();
+// node_modules/@anthropic-ai/sdk/resources/skills/versions.mjs
+var Versions = class extends APIResource {
+	/**
+	* Create Skill Version
+	*
+	* @example
+	* ```ts
+	* const skillVersion = await client.skills.versions.create(
+	*   'skill_id',
+	*   { files: [fs.createReadStream('path/to/file')] },
+	* );
+	* ```
+	*/
+	create(skillID, params, options) {
+		const { workspace_id, ...body } = params;
+		return this._client.post(path`/v1/skills/${skillID}/versions`, multipartFormRequestOptions({
+			body,
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.skills.versions.create", options, {
+				route: "/v1/skills/{skill_id}/versions",
+				attributes: { "anthropic.skill.id": skillID },
+				createdIDAttribute: "anthropic.skill.version.id"
+			})
+		}, this._client, false));
+	}
+	/**
+	* Get Skill Version
+	*
+	* @example
+	* ```ts
+	* const skillVersion = await client.skills.versions.retrieve(
+	*   'version',
+	*   { skill_id: 'skill_id' },
+	* );
+	* ```
+	*/
+	retrieve(version, params, options) {
+		const { skill_id, workspace_id } = params;
+		return this._client.get(path`/v1/skills/${skill_id}/versions/${version}`, {
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.skills.versions.retrieve", options, {
+				route: "/v1/skills/{skill_id}/versions/{version}",
+				attributes: {
+					"anthropic.skill.id": skill_id,
+					"anthropic.skill.version.id": version
+				}
+			})
+		});
+	}
+	/**
+	* List Skill Versions
+	*
+	* @example
+	* ```ts
+	* // Automatically fetches more pages as needed.
+	* for await (const skillVersion of client.skills.versions.list(
+	*   'skill_id',
+	* )) {
+	*   // ...
+	* }
+	* ```
+	*/
+	list(skillID, params = {}, options) {
+		const { workspace_id, ...query } = params ?? {};
+		return this._client.getAPIList(path`/v1/skills/${skillID}/versions`, PageCursor, {
+			query,
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.skills.versions.list", options, {
+				route: "/v1/skills/{skill_id}/versions",
+				queryParams: ["limit", "page"],
+				attributes: { "anthropic.skill.id": skillID }
+			})
+		});
+	}
+	/**
+	* Delete Skill Version
+	*
+	* @example
+	* ```ts
+	* const deletedSkillVersion =
+	*   await client.skills.versions.delete('version', {
+	*     skill_id: 'skill_id',
+	*   });
+	* ```
+	*/
+	delete(version, params, options) {
+		const { skill_id, workspace_id } = params;
+		return this._client.delete(path`/v1/skills/${skill_id}/versions/${version}`, {
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.skills.versions.delete", options, {
+				route: "/v1/skills/{skill_id}/versions/{version}",
+				attributes: {
+					"anthropic.skill.id": skill_id,
+					"anthropic.skill.version.id": version
+				}
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/skills/skills.mjs
+var Skills = /* @__PURE__ */ (() => {
+	class Skills extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.versions = new Versions(this._client);
+		}
+		/**
+		* Create Skill
+		*
+		* @example
+		* ```ts
+		* const skill = await client.skills.create({
+		*   files: [fs.createReadStream('path/to/file')],
+		* });
+		* ```
+		*/
+		create(params, options) {
+			const { workspace_id, ...body } = params;
+			return this._client.post("/v1/skills", multipartFormRequestOptions({
+				body,
+				...options,
+				headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+				__span: startApiCallSpan(this._client, "anthropic.skills.create", options, {
+					route: "/v1/skills",
+					createdIDAttribute: "anthropic.skill.id"
+				})
+			}, this._client, false));
+		}
+		/**
+		* Get Skill
+		*
+		* @example
+		* ```ts
+		* const skill = await client.skills.retrieve('skill_id');
+		* ```
+		*/
+		retrieve(skillID, params = {}, options) {
+			const { workspace_id } = params ?? {};
+			return this._client.get(path`/v1/skills/${skillID}`, {
+				...options,
+				headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+				__span: startApiCallSpan(this._client, "anthropic.skills.retrieve", options, {
+					route: "/v1/skills/{skill_id}",
+					attributes: { "anthropic.skill.id": skillID }
+				})
+			});
+		}
+		/**
+		* List Skills
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const skill of client.skills.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/skills", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+				__span: startApiCallSpan(this._client, "anthropic.skills.list", options, {
+					route: "/v1/skills",
+					queryParams: [
+						"limit",
+						"page",
+						"source"
+					]
+				})
+			});
+		}
+		/**
+		* Delete Skill
+		*
+		* @example
+		* ```ts
+		* const deletedSkill = await client.skills.delete('skill_id');
+		* ```
+		*/
+		delete(skillID, params = {}, options) {
+			const { workspace_id } = params ?? {};
+			return this._client.delete(path`/v1/skills/${skillID}`, {
+				...options,
+				headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+				__span: startApiCallSpan(this._client, "anthropic.skills.delete", options, {
+					route: "/v1/skills/{skill_id}",
+					attributes: { "anthropic.skill.id": skillID }
+				})
+			});
+		}
+	}
+	Skills.Versions = Versions;
+	return Skills;
+})();
+// node_modules/@anthropic-ai/sdk/resources/user-profiles/action-urls.mjs
+var ActionURLs = class extends APIResource {
+	/**
+	* Create Action URL
+	*
+	* @example
+	* ```ts
+	* const userProfileActionURL =
+	*   await client.userProfiles.actionURLs.create(
+	*     'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+	*     { action: { type: 'enroll_end_user' } },
+	*   );
+	* ```
+	*/
+	create(userProfileID, params, options) {
+		const { workspace_id, ...body } = params;
+		return this._client.post(path`/v1/user_profiles/${userProfileID}/action_urls`, {
+			body,
+			...options,
+			headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+			__span: startApiCallSpan(this._client, "anthropic.user_profiles.action_urls.create", options, {
+				route: "/v1/user_profiles/{user_profile_id}/action_urls",
+				attributes: { "anthropic.user_profile.id": userProfileID }
+			})
+		});
+	}
+};
+// node_modules/@anthropic-ai/sdk/resources/user-profiles/user-profiles.mjs
+var UserProfiles = /* @__PURE__ */ (() => {
+	class UserProfiles extends APIResource {
+		constructor() {
+			super(...arguments);
+			this.actionURLs = new ActionURLs(this._client);
+		}
+		/**
+		* Create User Profile
+		*
+		* @example
+		* ```ts
+		* const userProfile = await client.userProfiles.create();
+		* ```
+		*/
+		create(params, options) {
+			const { workspace_id, ...body } = params;
+			return this._client.post("/v1/user_profiles", {
+				body,
+				...options,
+				headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.create", options, {
+					route: "/v1/user_profiles",
+					createdIDAttribute: "anthropic.user_profile.id"
+				})
+			});
+		}
+		/**
+		* Get User Profile
+		*
+		* @example
+		* ```ts
+		* const userProfile = await client.userProfiles.retrieve(
+		*   'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+		* );
+		* ```
+		*/
+		retrieve(userProfileID, params = {}, options) {
+			const { workspace_id } = params ?? {};
+			return this._client.get(path`/v1/user_profiles/${userProfileID}`, {
+				...options,
+				headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.retrieve", options, {
+					route: "/v1/user_profiles/{user_profile_id}",
+					attributes: { "anthropic.user_profile.id": userProfileID }
+				})
+			});
+		}
+		/**
+		* Update User Profile
+		*
+		* @example
+		* ```ts
+		* const userProfile = await client.userProfiles.update(
+		*   'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+		* );
+		* ```
+		*/
+		update(userProfileID, params, options) {
+			const { workspace_id, ...body } = params;
+			return this._client.post(path`/v1/user_profiles/${userProfileID}`, {
+				body,
+				...options,
+				headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.update", options, {
+					route: "/v1/user_profiles/{user_profile_id}",
+					attributes: { "anthropic.user_profile.id": userProfileID }
+				})
+			});
+		}
+		/**
+		* List User Profiles
+		*
+		* @example
+		* ```ts
+		* // Automatically fetches more pages as needed.
+		* for await (const userProfile of client.userProfiles.list()) {
+		*   // ...
+		* }
+		* ```
+		*/
+		list(params = {}, options) {
+			const { workspace_id, ...query } = params ?? {};
+			return this._client.getAPIList("/v1/user_profiles", PageCursor, {
+				query,
+				...options,
+				headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.list", options, {
+					route: "/v1/user_profiles",
+					queryParams: [
+						"enforcement_status",
+						"limit",
+						"order",
+						"order_by",
+						"page"
+					]
+				})
+			});
+		}
+		/**
+		* Delete User Profile
+		*
+		* @example
+		* ```ts
+		* const deletedUserProfile = await client.userProfiles.delete(
+		*   'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+		* );
+		* ```
+		*/
+		delete(userProfileID, params = {}, options) {
+			const { workspace_id } = params ?? {};
+			return this._client.delete(path`/v1/user_profiles/${userProfileID}`, {
+				...options,
+				headers: buildHeaders([{ ...workspace_id != null ? { "anthropic-workspace-id": workspace_id } : void 0 }, options?.headers]),
+				__span: startApiCallSpan(this._client, "anthropic.user_profiles.delete", options, {
+					route: "/v1/user_profiles/{user_profile_id}",
+					attributes: { "anthropic.user_profile.id": userProfileID }
+				})
+			});
+		}
+	}
+	UserProfiles.ActionURLs = ActionURLs;
+	return UserProfiles;
+})();
+// node_modules/@anthropic-ai/sdk/client.mjs
+var _BaseAnthropic_instances;
+var _a;
+var _BaseAnthropic_encoder;
+var _BaseAnthropic_apiKeyFunction;
+var _BaseAnthropic_openTelemetry;
+var _BaseAnthropic_baseURLOverridden;
+let warnedOfKeyAndTokenInEnv = false;
+/**
+* Base class for Anthropic API clients.
+*/
+var BaseAnthropic = /* @__PURE__ */ (() => {
+	/**
+	* Base class for Anthropic API clients.
+	*/
+	class BaseAnthropic {
+		/**
+		* The active credential provider. Default credential resolution runs once
+		* at construction time. If it fails, the error is surfaced on every
+		* request and the client must be reconstructed — there is no retry path.
+		*
+		* Clones returned by {@link withOptions} share the parent's auth state
+		* (provider, token cache, pending resolution, and any resolution error)
+		* unless the caller passes an explicit `apiKey`, `authToken`,
+		* `credentials`, `config`, or `profile` override.
+		*/
+		get credentials() {
+			return this._authState.provider;
+		}
+		/**
+		* The `openTelemetry` option as this client settled it when it was constructed: `propagation` and
+		* each field of `traces` from the option, or else its default. A client constructed without the
+		* option has what the environment variables said. One constructed with `openTelemetry: false` has
+		* `traces.enabled: false` here.
+		*
+		* The value is frozen. It is a valid `openTelemetry` option, so a copy of this client can change
+		* one setting and keep the others:
+		*
+		* ```ts
+		* const { openTelemetry } = client;
+		* client.withOptions({
+		*   openTelemetry: { ...openTelemetry, traces: { ...openTelemetry.traces, contentMode: 'content' } },
+		* });
+		* ```
+		*/
+		get openTelemetry() {
+			return require_promise.__classPrivateFieldGet(this, _BaseAnthropic_openTelemetry, "f");
+		}
+		/**
+		* The instrumentation scope of this client's spans: the version of the package that the client
+		* is from, and for the client of another platform the platform's name, which the scope's name
+		* ends with. The clients for other platforms override it. The constructor calls it.
+		* @internal
+		*/
+		_instrumentationScope() {
+			return { version: VERSION$1 };
+		}
+		/**
+		* API Client for interfacing with the Anthropic API.
+		*
+		* @param {string | null | undefined} [opts.apiKey=process.env['ANTHROPIC_API_KEY'] ?? null]
+		* @param {string | null | undefined} [opts.authToken=process.env['ANTHROPIC_AUTH_TOKEN'] ?? null]
+		* @param {string | null | undefined} [opts.webhookKey=process.env['ANTHROPIC_WEBHOOK_SIGNING_KEY'] ?? null]
+		* @param {string} [opts.baseURL=process.env['ANTHROPIC_BASE_URL'] ?? https://api.anthropic.com] - Override the default base URL for the API.
+		* @param {number} [opts.timeout=10 minutes] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
+		* @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
+		* @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
+		* @param {number} [opts.maxRetries=2] - The maximum number of times the client will retry a request.
+		* @param {HeadersLike} opts.defaultHeaders - Default headers to include with every request to the API.
+		* @param {Record<string, string | undefined>} opts.defaultQuery - Default query parameters to include with every request to the API.
+		* @param {boolean} [opts.dangerouslyAllowBrowser=false] - By default, client-side use of this library is not allowed, as it risks exposing your secret API credentials to attackers.
+		*/
+		constructor({ baseURL = require_promise.readEnv("ANTHROPIC_BASE_URL"), apiKey, authToken, webhookKey = require_promise.readEnv("ANTHROPIC_WEBHOOK_SIGNING_KEY") ?? null, ...opts } = {}) {
+			_BaseAnthropic_instances.add(this);
+			this._requestAuthFlags = /* @__PURE__ */ new WeakMap();
+			_BaseAnthropic_encoder.set(this, void 0);
+			_BaseAnthropic_apiKeyFunction.set(this, void 0);
+			_BaseAnthropic_openTelemetry.set(this, void 0);
+			/**
+			* The `gen_ai.provider.name` of this client's spans: the platform that serves its requests.
+			* The clients for third-party platforms override it.
+			* @internal
+			*/
+			this._genAIProviderName = "anthropic";
+			/**
+			* Whether this client talks to a surface that holds message threads. `client.beta.messages.thread()` throws where
+			* this is false, and `client.beta.messages.toolRunner()` sends the full history every turn.
+			* @internal
+			*/
+			this._supportsMessageThreads = false;
+			const given = {
+				apiKey,
+				authToken,
+				...opts
+			};
+			const passed = require_promise.CREDENTIAL_OPTIONS.filter((name) => given[name] != null);
+			if (passed.length > 1) {
+				const list = (names) => names.map((name) => `\`${name}\``).join(", ");
+				throw new TypeError(`Pass at most one of ${list(require_promise.CREDENTIAL_OPTIONS)}. Received ${list(passed)}.`);
+			}
+			const [passedName] = passed;
+			const env = passedName != null ? null : {
+				apiKey: apiKey === void 0 ? require_promise.readEnv("ANTHROPIC_API_KEY") : void 0,
+				authToken: authToken === void 0 ? require_promise.readEnv("ANTHROPIC_AUTH_TOKEN") : void 0
+			};
+			const credential = passedName != null ? {
+				type: passedName,
+				value: given[passedName]
+			} : env?.apiKey != null ? {
+				type: "apiKey",
+				value: env.apiKey
+			} : env?.authToken != null ? {
+				type: "authToken",
+				value: env.authToken
+			} : { type: "defaultChain" };
+			const options = {
+				apiKey: credential.type === "apiKey" ? credential.value : null,
+				authToken: credential.type === "authToken" ? credential.value : null,
+				webhookKey,
+				...opts,
+				baseURL: baseURL || `https://api.anthropic.com`
+			};
+			if (!options.dangerouslyAllowBrowser && isRunningInBrowser()) throw new require_promise.AnthropicError("It looks like you're running in a browser-like environment.\n\nThis is disabled by default, as it risks exposing your secret API credentials to attackers.\nIf you understand the risks and have appropriate mitigations in place,\nyou can set the `dangerouslyAllowBrowser` option to `true`, e.g.,\n\nnew Anthropic({ apiKey, dangerouslyAllowBrowser: true });\n");
+			this.baseURL = options.baseURL;
+			this._baseURLIsExplicit = opts.__baseURLIsExplicit ?? !!baseURL;
+			this.timeout = options.timeout ?? _a.DEFAULT_TIMEOUT;
+			this.logger = options.logger ?? console;
+			this.logLevel = require_promise.defaultLogLevel;
+			this.logLevel = require_promise.parseLogLevel(options.logLevel, "ClientOptions.logLevel", require_promise.loggerFor(this)) ?? require_promise.parseLogLevel(require_promise.readEnv("ANTHROPIC_LOG"), "process.env['ANTHROPIC_LOG']", require_promise.loggerFor(this)) ?? "warn";
+			if (env?.apiKey != null && env.authToken != null && !warnedOfKeyAndTokenInEnv) {
+				warnedOfKeyAndTokenInEnv = true;
+				require_promise.loggerFor(this).warn("Anthropic: ANTHROPIC_API_KEY and ANTHROPIC_AUTH_TOKEN are both set. Using ANTHROPIC_API_KEY.");
+			}
+			this.fetchOptions = options.fetchOptions;
+			this.maxRetries = require_promise.validatePositiveInteger("maxRetries", options.maxRetries ?? 2);
+			const scope = this._instrumentationScope();
+			require_promise.__classPrivateFieldSet(this, _BaseAnthropic_openTelemetry, resolveOpenTelemetryOptions(options.openTelemetry), "f");
+			options.openTelemetry = require_promise.__classPrivateFieldGet(this, _BaseAnthropic_openTelemetry, "f");
+			this._tracer = guardTracing(this, () => getTracer(require_promise.__classPrivateFieldGet(this, _BaseAnthropic_openTelemetry, "f"), scope.version, scope.platform));
+			this.fetch = options.fetch ?? getDefaultFetch();
+			require_promise.__classPrivateFieldSet(this, _BaseAnthropic_encoder, FallbackEncoder, "f");
+			this.middleware = [...options.middleware ?? []];
+			const customHeadersEnv = require_promise.readEnv("ANTHROPIC_CUSTOM_HEADERS");
+			if (customHeadersEnv) {
+				const parsed = {};
+				for (const line of customHeadersEnv.split("\n")) {
+					const colon = line.indexOf(":");
+					if (colon >= 0) parsed[line.substring(0, colon).trim()] = line.substring(colon + 1).trim();
+				}
+				options.defaultHeaders = {
+					...parsed,
+					...options.defaultHeaders
+				};
+			}
+			const inherited = opts.__auth;
+			delete options.__auth;
+			delete options.__baseURLIsExplicit;
+			this._options = options;
+			this.apiKey = typeof options.apiKey === "string" ? options.apiKey : null;
+			require_promise.__classPrivateFieldSet(this, _BaseAnthropic_apiKeyFunction, typeof options.apiKey === "function" ? options.apiKey : null, "f");
+			this.authToken = options.authToken ?? null;
+			this.webhookKey = webhookKey;
+			if (inherited) {
+				this._authState = inherited;
+				if (!this._baseURLIsExplicit && inherited.baseURL) this.baseURL = inherited.baseURL;
+			} else {
+				this._authState = {
+					provider: null,
+					tokenCache: null,
+					resolution: null,
+					error: null,
+					extraHeaders: {}
+				};
+				switch (credential.type) {
+					case "apiKey":
+					case "authToken": break;
+					case "credentials":
+						this._authState.provider = credential.value;
+						this._authState.tokenCache = this._makeTokenCache(credential.value);
+						break;
+					case "config": {
+						const result = resolveCredentialsFromConfig(credential.value, this._credentialResolverOptions());
+						this._authState.provider = result.provider;
+						this._authState.tokenCache = this._makeTokenCache(result.provider);
+						this._authState.extraHeaders = result.extraHeaders;
+						this._applyCredentialBaseURL(result.baseURL);
+						break;
+					}
+					case "profile":
+						this._authState.resolution = this._resolveDefaultCredentials(credential.value);
+						break;
+					case "defaultChain": if (this._shouldResolveDefaultCredentials()) this._authState.resolution = this._resolveDefaultCredentials();
+				}
+			}
+		}
+		/**
+		* Whether to lazily resolve auth from the default credential chain when no
+		* explicit auth is configured. Called once from the constructor, so
+		* overrides must not depend on subclass instance state. Subclasses that
+		* bring their own auth scheme return false so unrelated local credentials
+		* are never resolved or allowed to supply a base URL.
+		*/
+		_shouldResolveDefaultCredentials() {
+			return true;
+		}
+		/**
+		* Stores a profile/config-supplied base URL on the shared auth state and, if
+		* the caller did not pin `baseURL` via constructor option or env, adopts it
+		* as this client's outbound API host. Precedence: ctor opt > env > profile >
+		* hardcoded default.
+		*/
+		_applyCredentialBaseURL(baseURL) {
+			if (!baseURL) return;
+			const normalized = baseURL.replace(/\/+$/, "");
+			this._authState.baseURL = normalized;
+			if (!this._baseURLIsExplicit) this.baseURL = normalized;
+		}
+		/**
+		* Options bag passed into the credential chain. `baseURL` here is only the
+		* fallback host for the token-exchange POST when the config itself omits
+		* `base_url`; the chain returns the config's own `base_url` (if any) on
+		* {@link CredentialResult.baseURL}, which {@link _applyCredentialBaseURL}
+		* then adopts for outbound API requests. The two are deliberately decoupled
+		* so this fallback never round-trips into precedence.
+		*/
+		_credentialResolverOptions() {
+			return {
+				baseURL: this.baseURL,
+				fetch: this._credentialsFetch(),
+				userAgent: this.getUserAgent(),
+				onCacheWriteError: (err) => {
+					require_promise.loggerFor(this).debug("credential cache write failed (best-effort)", err);
+				},
+				onSafetyWarning: (msg) => {
+					require_promise.loggerFor(this).warn(msg);
+				}
+			};
+		}
+		/**
+		* A `Fetch` for first-party credential token-exchange requests (OIDC
+		* federation jwt-bearer grants, user-OAuth refresh grants) that routes
+		* through this client's middleware chain, so middleware observes token
+		* traffic like any other request. Only client-level middleware applies:
+		* a minted token is shared across requests, so attributing the exchange
+		* to any one request's per-request middleware would be arbitrary. For the
+		* same reason, `ctx.options` is undefined for these requests.
+		*/
+		_credentialsFetch() {
+			return wrapFetchWithMiddleware(this.fetch, this.middleware, void 0, this);
+		}
+		_makeTokenCache(provider) {
+			return new TokenCache(provider, (err) => {
+				require_promise.loggerFor(this).debug("advisory token refresh failed; serving cached token", err);
+			});
+		}
+		/**
+		* Create a new client instance re-using the same options given to the
+		* current client with optional overriding.
+		*
+		* Passing `apiKey`, `authToken`, `credentials`, `config`, or `profile`
+		* replaces the current client's credential, whatever its kind. With none of
+		* them passed, the new client keeps it. Either way it keeps
+		* `defaultHeaders`, including an `X-Api-Key` or `Authorization` set there.
+		*/
+		withOptions(options) {
+			options = { ...options };
+			for (const name of require_promise.CREDENTIAL_OPTIONS) if (options[name] === void 0) delete options[name];
+			const overridesAuth = require_promise.CREDENTIAL_OPTIONS.some((name) => name in options);
+			const replacesCredential = require_promise.CREDENTIAL_OPTIONS.some((name) => options[name] != null);
+			const internal = {
+				...this._options,
+				...this._baseURLIsExplicit ? { baseURL: this.baseURL } : {},
+				maxRetries: this.maxRetries,
+				timeout: this.timeout,
+				logger: this.logger,
+				logLevel: this.logLevel,
+				fetch: this.fetch,
+				fetchOptions: this.fetchOptions,
+				middleware: this.middleware,
+				apiKey: this.apiKey ?? require_promise.__classPrivateFieldGet(this, _BaseAnthropic_apiKeyFunction, "f"),
+				authToken: this.authToken,
+				webhookKey: this.webhookKey,
+				...replacesCredential ? Object.fromEntries(require_promise.CREDENTIAL_OPTIONS.map((name) => [name, null])) : {},
+				...options,
+				openTelemetry: options.openTelemetry ?? require_promise.__classPrivateFieldGet(this, _BaseAnthropic_openTelemetry, "f"),
+				__auth: overridesAuth ? void 0 : this._authState,
+				__baseURLIsExplicit: "baseURL" in options ? true : this._baseURLIsExplicit
+			};
+			return new this.constructor(internal);
+		}
+		/**
+		* Lazily resolves credentials from config files or environment variables.
+		* Called once from the constructor when no explicit auth is provided, or
+		* when an explicit `profile` was passed (in which case a missing/unresolved
+		* profile is surfaced as an error instead of falling through to "no auth").
+		* The returned promise is stored and awaited on the first request.
+		*/
+		async _resolveDefaultCredentials(profile) {
+			try {
+				const result = await defaultCredentials(this._credentialResolverOptions(), profile);
+				if (result) {
+					this._authState.provider = result.provider;
+					this._authState.tokenCache = this._makeTokenCache(result.provider);
+					this._authState.extraHeaders = result.extraHeaders;
+					this._applyCredentialBaseURL(result.baseURL);
+				} else if (profile != null) throw new require_promise.AnthropicError(`Profile "${profile}" could not be resolved (no <config_dir>/configs/${profile}.json found).`);
+			} catch (err) {
+				this._authState.error = err;
+			} finally {
+				this._authState.resolution = null;
+			}
+		}
+		defaultQuery() {
+			return this._options.defaultQuery;
+		}
+		validateHeaders({ values, nulls }) {
+			if (values.get("x-api-key") || values.get("authorization")) return;
+			if (this._authState.error) throw this._authState.error;
+			if (this._authState.tokenCache || this._authState.resolution) return;
+			if (this.apiKey && values.get("authorization")) return;
+			if (nulls.has("authorization")) return;
+			if (this.authToken && values.get("authorization")) return;
+			if (nulls.has("authorization")) return;
+			throw new Error("Could not resolve authentication method. Expected one of apiKey, authToken, credentials, config, or profile to be set. Or for the \"Authorization\" header to be explicitly omitted");
+		}
+		_authFlags(opts) {
+			let flags = this._requestAuthFlags.get(opts);
+			if (!flags) {
+				flags = {
+					usedTokenCache: false,
+					didRefreshFor401: false
+				};
+				this._requestAuthFlags.set(opts, flags);
+			}
+			return flags;
+		}
+		async authHeaders(opts) {
+			if (this._authState.resolution) await this._authState.resolution;
+			if (this._authState.error) return;
+			if (require_promise.__classPrivateFieldGet(this, _BaseAnthropic_apiKeyFunction, "f") && this.apiKey == null) {
+				let apiKey;
+				try {
+					apiKey = await require_promise.__classPrivateFieldGet(this, _BaseAnthropic_apiKeyFunction, "f").call(this);
+				} catch (err) {
+					throw new require_promise.AnthropicError(`The \`apiKey\` function failed: ${require_promise.castToError(err).message}`, { cause: err });
+				}
+				if (!apiKey) throw new require_promise.AnthropicError(`The \`apiKey\` function must return a non-empty string. It returned ${JSON.stringify(apiKey)}.`);
+				return buildHeaders([{ Authorization: `Bearer ${apiKey}` }]);
+			}
+			if (this._authState.tokenCache && this.apiKey == null) {
+				const token = await this._authState.tokenCache.getToken();
+				this._authFlags(opts).usedTokenCache = true;
+				return buildHeaders([{ Authorization: `Bearer ${token}` }]);
+			}
+			return buildHeaders([await this.bearerAuth(opts), await this.apiKeyAuth(opts)]);
+		}
+		async apiKeyAuth(opts) {
+			if (this.apiKey == null) return;
+			return buildHeaders([{ Authorization: `Bearer ${this.apiKey}` }]);
+		}
+		async bearerAuth(opts) {
+			if (this.authToken == null) return;
+			return buildHeaders([{ Authorization: `Bearer ${this.authToken}` }]);
+		}
+		stringifyQuery(query) {
+			return stringifyQuery(query);
+		}
+		getUserAgent() {
+			return `Anthropic/JS ${VERSION$1}`;
+		}
+		makeStatusError(status, error, message, headers) {
+			return require_promise.APIError.generate(status, error, message, headers);
+		}
+		buildURL(path, query, defaultBaseURL) {
+			const baseURL = !require_promise.__classPrivateFieldGet(this, _BaseAnthropic_instances, "m", _BaseAnthropic_baseURLOverridden).call(this) && defaultBaseURL || this.baseURL;
+			const url = require_promise.isAbsoluteURL(path) ? new URL(path) : new URL(baseURL + (baseURL.endsWith("/") && path.startsWith("/") ? path.slice(1) : path));
+			const defaultQuery = this.defaultQuery();
+			const pathQuery = Object.fromEntries(url.searchParams);
+			if (!require_promise.isEmptyObj(defaultQuery) || !require_promise.isEmptyObj(pathQuery)) query = {
+				...pathQuery,
+				...defaultQuery,
+				...query
+			};
+			if (typeof query === "object" && query && !Array.isArray(query)) url.search = this.stringifyQuery(query);
+			return url.toString();
+		}
+		_calculateNonstreamingTimeout(maxTokens) {
+			const defaultTimeout = 600;
+			if (3600 * maxTokens / 128e3 > defaultTimeout) throw new require_promise.AnthropicError("Streaming is required for operations that may take longer than 10 minutes. See https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/typescript#streaming-responses for more details");
+			return defaultTimeout * 1e3;
+		}
+		/**
+		* Used as a callback for mutating the given `FinalRequestOptions` object.
+		*/
+		async prepareOptions(options) {}
+		/**
+		* Used as a callback for mutating the given `RequestInit` object.
+		*
+		* This is useful for cases where you want to add certain headers based off of
+		* the request properties, e.g. `method` or `url`.
+		*
+		* Runs after all middleware (including {@link backendMiddleware}),
+		* immediately before each underlying fetch call, so it sees exactly what
+		* goes over the wire, except the trace-context headers of a traced call
+		* (`traceparent`, `tracestate`, `baggage`, and any other that the registered
+		* propagator writes): the client sets them again after this hook, so that a
+		* signature does not cover them. Middleware may replay a request by calling
+		* `next()` more than once, so this hook can run multiple times per attempt:
+		* overrides must be idempotent and overwrite headers from a previous
+		* invocation rather than append to them.
+		*/
+		async prepareRequest(request, { url, options }) {
+			if (this._authState.tokenCache && this.apiKey == null) {
+				const headers = request.headers instanceof Headers ? request.headers : new Headers(request.headers);
+				for (const [k, v] of Object.entries(this._authState.extraHeaders)) if (!headers.has(k)) headers.set(k, v);
+				const existing = headers.get("anthropic-beta")?.split(",").map((s) => s.trim());
+				if (!existing?.includes("oauth-2025-04-20")) headers.set("anthropic-beta", [...existing ?? [], OAUTH_API_BETA_HEADER].join(","));
+				request.headers = headers;
+			}
+		}
+		/**
+		* Internal {@link Middleware} composed innermost in the chain — inside both
+		* client-level and per-request middleware, immediately around the underlying
+		* `fetch`. Subclasses for third-party backends override this to adapt the
+		* canonical Anthropic-shaped request to the backend's wire shape (URL/body
+		* rewriting, request signing) and to normalize the wire response back to the
+		* canonical shape (e.g. AWS EventStream to SSE).
+		*
+		* Running inside the user's middleware means user middleware always observes
+		* canonical Anthropic-shaped traffic, and the adaptation re-runs (e.g.
+		* re-signs) on every `next()` invocation, covering whatever the middleware
+		* mutated. It does not see the trace-context headers of a traced call: see
+		* {@link prepareRequest}.
+		*
+		* Errors thrown here follow the middleware error policy: they propagate to
+		* the caller as-is — no retries, no `APIConnectionError` wrapping — unless
+		* retryable (see {@link Middleware}); throw a `RetryableError` to opt into
+		* the retry path.
+		*/
+		backendMiddleware() {
+			return [];
+		}
+		get(path, opts) {
+			return this.methodRequest("get", path, opts);
+		}
+		post(path, opts) {
+			return this.methodRequest("post", path, opts);
+		}
+		patch(path, opts) {
+			return this.methodRequest("patch", path, opts);
+		}
+		put(path, opts) {
+			return this.methodRequest("put", path, opts);
+		}
+		delete(path, opts) {
+			return this.methodRequest("delete", path, opts);
+		}
+		methodRequest(method, path, opts) {
+			return this.request(Promise.resolve(opts).then((opts) => {
+				return {
+					method,
+					path,
+					...opts
+				};
+			}));
+		}
+		request(options, remainingRetries = null) {
+			if (!this._tracer) return new APIPromise(this, this.makeRequest(options, remainingRetries, void 0));
+			return new APIPromise(this, this.makeTracedRequest(options, remainingRetries));
+		}
+		/**
+		* Makes the request inside the call span that the SDK method started and passed in the options
+		* (`__span`). The span ends here when the call fails, and otherwise when the application has
+		* read the response body: see `APIPromise`.
+		*/
+		async makeTracedRequest(optionsInput, retriesRemaining) {
+			const options = await optionsInput;
+			const span = options.__span?.span;
+			if (!span) return this.makeRequest(options, retriesRemaining, void 0);
+			try {
+				return await context.with(trace.setSpan(context.active(), span), () => this.makeRequest(options, retriesRemaining, void 0, span));
+			} catch (error) {
+				const result = {
+					status: "error",
+					options,
+					error
+				};
+				setAnthropicSpanAttributes(this, span, result);
+				guardTracing(this, () => endApiCallSpan(span, result));
+				throw error;
+			}
+		}
+		async makeRequest(optionsInput, retriesRemaining, retryOfRequestLogID, span) {
+			const options = await optionsInput;
+			let maxRetries = require_promise.validatePositiveInteger("maxRetries", options.maxRetries ?? this.maxRetries);
+			if (this.isStreamBody(options.body)) maxRetries = 0;
+			if (retriesRemaining == null) {
+				retriesRemaining = maxRetries;
+				this._requestAuthFlags.delete(options);
+			}
+			await this.prepareOptions(options);
+			const { req, url, timeout } = await this.buildRequest(options, { retryCount: maxRetries - retriesRemaining });
+			/** Not an API request ID, just for correlating local log entries. */
+			const requestLogID = "log_" + (Math.random() * (1 << 24) | 0).toString(16).padStart(6, "0");
+			const retryLogStr = retryOfRequestLogID === void 0 ? "" : `, retryOf: ${retryOfRequestLogID}`;
+			if (span && this.openTelemetry.propagation) req.headers = guardTracing(this, () => injectTraceHeaders(span, req.headers)) ?? req.headers;
+			const startTime = Date.now();
+			if (options.signal?.aborted) throw new require_promise.APIUserAbortError();
+			const controller = new AbortController();
+			const response = await this.fetchWithTimeout(url, req, timeout, controller, options, {
+				requestLogID,
+				retryOfRequestLogID
+			}).catch(require_promise.castToError);
+			const headersTime = Date.now();
+			if (response instanceof globalThis.Error) {
+				releaseRequestSignal(controller);
+				const retryMessage = `retrying, ${retriesRemaining} attempts remaining`;
+				if (options.signal?.aborted) throw new require_promise.APIUserAbortError();
+				const isTimeout = require_promise.isAbortError(response) || /timed? ?out/i.test(String(response) + ("cause" in response ? String(response.cause) : ""));
+				const hasMiddleware = this.middleware.length > 0 || !!options.middleware?.length || this.backendMiddleware().length > 0;
+				if (hasMiddleware && !isTimeout && !isRetryableError(response)) {
+					require_promise.loggerFor(this).info(`[${requestLogID}] middleware error (not retryable)`);
+					require_promise.debugLogRequestDetails(require_promise.loggerFor(this), `[${requestLogID}] middleware error (not retryable)`, {
+						retryOfRequestLogID,
+						url,
+						durationMs: headersTime - startTime,
+						message: response.message
+					});
+					throw response;
+				}
+				if (retriesRemaining) {
+					require_promise.loggerFor(this).info(`[${requestLogID}] connection ${isTimeout ? "timed out" : "failed"} - ${retryMessage}`);
+					require_promise.debugLogRequestDetails(require_promise.loggerFor(this), `[${requestLogID}] connection ${isTimeout ? "timed out" : "failed"} (${retryMessage})`, {
+						retryOfRequestLogID,
+						url,
+						durationMs: headersTime - startTime,
+						message: response.message
+					});
+					return this.retryRequest(options, retriesRemaining, retryOfRequestLogID ?? requestLogID, span);
+				}
+				require_promise.loggerFor(this).info(`[${requestLogID}] connection ${isTimeout ? "timed out" : "failed"} - error; no more retries left`);
+				require_promise.debugLogRequestDetails(require_promise.loggerFor(this), `[${requestLogID}] connection ${isTimeout ? "timed out" : "failed"} (error; no more retries left)`, {
+					retryOfRequestLogID,
+					url,
+					durationMs: headersTime - startTime,
+					message: response.message
+				});
+				if (isTimeout) throw new require_promise.APIConnectionTimeoutError();
+				if (hasMiddleware && !isFetchOriginError(response)) throw response;
+				throw new require_promise.APIConnectionError({ cause: response });
+			}
+			const responseInfo = `[${requestLogID}${retryLogStr}${[...response.headers.entries()].filter(([name]) => name === "request-id" || name === "anthropic-workspace-id").map(([name, value]) => ", " + name + ": " + JSON.stringify(value)).join("")}] ${req.method} ${url} ${response.ok ? "succeeded" : "failed"} with status ${response.status} in ${headersTime - startTime}ms`;
+			if (!response.ok) {
+				const shouldRetry = await this.shouldRetry(response, options);
+				if (retriesRemaining && shouldRetry) {
+					const retryMessage = `retrying, ${retriesRemaining} attempts remaining`;
+					await CancelReadableStream(response.body);
+					releaseRequestSignal(controller);
+					require_promise.loggerFor(this).info(`${responseInfo} - ${retryMessage}`);
+					require_promise.debugLogRequestDetails(require_promise.loggerFor(this), `[${requestLogID}] response error (${retryMessage})`, {
+						retryOfRequestLogID,
+						url: response.url,
+						status: response.status,
+						headers: response.headers,
+						durationMs: headersTime - startTime
+					});
+					return this.retryRequest(options, retriesRemaining, retryOfRequestLogID ?? requestLogID, span, response.headers);
+				}
+				const retryMessage = shouldRetry ? `error; no more retries left` : `error; not retryable`;
+				require_promise.loggerFor(this).info(`${responseInfo} - ${retryMessage}`);
+				const errText = await response.text().catch((err) => require_promise.castToError(err).message);
+				const errJSON = require_promise.safeJSON(errText);
+				const errMessage = errJSON ? void 0 : errText;
+				require_promise.debugLogRequestDetails(require_promise.loggerFor(this), `[${requestLogID}] response error (${retryMessage})`, {
+					retryOfRequestLogID,
+					url: response.url,
+					status: response.status,
+					headers: response.headers,
+					message: errMessage,
+					durationMs: Date.now() - startTime
+				});
+				releaseRequestSignal(controller);
+				throw this.makeStatusError(response.status, errJSON, errMessage, response.headers);
+			}
+			require_promise.loggerFor(this).info(responseInfo);
+			require_promise.debugLogRequestDetails(require_promise.loggerFor(this), `[${requestLogID}] response start`, {
+				retryOfRequestLogID,
+				url: response.url,
+				status: response.status,
+				headers: response.headers,
+				durationMs: headersTime - startTime
+			});
+			armAbandonmentBackstop(response.body ?? response, controller);
+			return {
+				response,
+				options,
+				controller,
+				requestLogID,
+				retryOfRequestLogID,
+				startTime
+			};
+		}
+		getAPIList(path, Page, opts) {
+			return this.requestAPIList(Page, opts && "then" in opts ? opts.then((opts) => ({
+				method: "get",
+				path,
+				...opts
+			})) : {
+				method: "get",
+				path,
+				...opts
+			});
+		}
+		requestAPIList(Page, options) {
+			if (!this._tracer) {
+				const request = this.makeRequest(options, null, void 0);
+				return new PagePromise(this, request, Page);
+			}
+			const request = this.makeTracedRequest(options, null);
+			return new PagePromise(this, request, Page);
+		}
+		async fetchWithTimeout(url, init, ms, controller, requestOptions, logCtx) {
+			const { signal, method, ...options } = init || {};
+			const abort = this._makeAbort(controller);
+			if (signal) {
+				signal.addEventListener("abort", abort, { once: true });
+				registerRequestSignalCleanup(controller, signal, abort);
+			}
+			const isReadableBody = globalThis.ReadableStream && options.body instanceof globalThis.ReadableStream || typeof options.body === "object" && options.body !== null && Symbol.asyncIterator in options.body;
+			const fetchOptions = {
+				signal: controller.signal,
+				...isReadableBody ? { duplex: "half" } : {},
+				method: "GET",
+				...options
+			};
+			if (method) fetchOptions.method = method.toUpperCase();
+			const baseFetch = this.fetch;
+			const timedFetch = async (innerUrl, innerInit) => {
+				const timeout = setTimeout(abort, ms);
+				try {
+					return await baseFetch.call(void 0, innerUrl, innerInit);
+				} finally {
+					clearTimeout(timeout);
+				}
+			};
+			const innerFetch = requestOptions === void 0 ? timedFetch : (async (innerUrl, innerInit = {}) => {
+				const innerUrlStr = typeof innerUrl === "string" ? innerUrl : innerUrl instanceof URL ? innerUrl.href : innerUrl.url;
+				innerInit.headers = innerInit.headers instanceof Headers ? innerInit.headers : new Headers(innerInit.headers);
+				let traceHeaders = [];
+				if (requestOptions.__span) {
+					innerInit.headers = new Headers(innerInit.headers);
+					traceHeaders = takeTraceHeaders(innerInit.headers);
+				}
+				await this.prepareRequest(innerInit, {
+					url: innerUrlStr,
+					options: requestOptions
+				});
+				if (traceHeaders.length) innerInit.headers = buildHeaders([innerInit.headers, traceHeaders]).values;
+				const call = requestOptions.__span;
+				if (call) guardTracing(this, () => recordAttempt(call, innerInit.method ?? "GET", innerUrlStr, this.openTelemetry.traces.contentMode === "content"));
+				if (logCtx) require_promise.debugLogRequestDetails(require_promise.loggerFor(this), `[${logCtx.requestLogID}] sending request`, {
+					retryOfRequestLogID: logCtx.retryOfRequestLogID,
+					method: innerInit.method,
+					url: innerUrlStr,
+					options: requestOptions,
+					headers: innerInit.headers
+				});
+				return timedFetch(innerUrl, innerInit);
+			});
+			const requestMiddleware = requestOptions?.middleware;
+			const backendMiddleware = requestOptions?.__span ? this.backendMiddleware().map(withoutTraceHeaders) : this.backendMiddleware();
+			return await wrapFetchWithMiddleware(innerFetch, requestMiddleware?.length || backendMiddleware.length ? [
+				...this.middleware,
+				...requestMiddleware ?? [],
+				...backendMiddleware
+			] : this.middleware, requestOptions, this)(url, fetchOptions);
+		}
+		async shouldRetry(response, options) {
+			const flags = this._authFlags(options);
+			if (response.status === 401 && this._authState.tokenCache && flags.usedTokenCache && !flags.didRefreshFor401) {
+				flags.didRefreshFor401 = true;
+				this._authState.tokenCache.invalidate();
+				return true;
+			}
+			const shouldRetryHeader = response.headers.get("x-should-retry");
+			if (shouldRetryHeader === "true") return true;
+			if (shouldRetryHeader === "false") return false;
+			if (response.status === 408) return true;
+			if (response.status === 409) return true;
+			if (response.status === 429) return true;
+			if (response.status >= 500) return true;
+			return false;
+		}
+		async retryRequest(options, retriesRemaining, requestLogID, span, responseHeaders) {
+			let timeoutMillis;
+			const retryAfterMillisHeader = responseHeaders?.get("retry-after-ms");
+			if (retryAfterMillisHeader) {
+				const timeoutMs = parseFloat(retryAfterMillisHeader);
+				if (!Number.isNaN(timeoutMs)) timeoutMillis = timeoutMs;
+			}
+			const retryAfterHeader = responseHeaders?.get("retry-after");
+			if (retryAfterHeader && !timeoutMillis) {
+				const timeoutSeconds = parseFloat(retryAfterHeader);
+				if (!Number.isNaN(timeoutSeconds)) timeoutMillis = timeoutSeconds * 1e3;
+				else timeoutMillis = Date.parse(retryAfterHeader) - Date.now();
+			}
+			if (timeoutMillis === void 0 || !(timeoutMillis > 0 && timeoutMillis <= 2 ** 31 - 1)) {
+				const maxRetries = options.maxRetries ?? this.maxRetries;
+				timeoutMillis = this.calculateDefaultRetryTimeoutMillis(retriesRemaining, maxRetries);
+			}
+			await sleep(timeoutMillis, options.signal ?? void 0);
+			return this.makeRequest(options, retriesRemaining - 1, requestLogID, span);
+		}
+		calculateDefaultRetryTimeoutMillis(retriesRemaining, maxRetries) {
+			const initialRetryDelay = .5;
+			const maxRetryDelay = 8;
+			const numRetries = maxRetries - retriesRemaining;
+			return Math.min(initialRetryDelay * Math.pow(2, numRetries), maxRetryDelay) * (1 - Math.random() * .25) * 1e3;
+		}
+		calculateNonstreamingTimeout(maxTokens, maxNonstreamingTokens) {
+			const maxTime = 36e5;
+			const defaultTime = 6e5;
+			if (maxTime * maxTokens / 128e3 > defaultTime || maxNonstreamingTokens != null && maxTokens > maxNonstreamingTokens) throw new require_promise.AnthropicError("Streaming is required for operations that may take longer than 10 minutes. See https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/typescript#long-requests for more details");
+			return defaultTime;
+		}
+		async buildRequest(inputOptions, { retryCount = 0 } = {}) {
+			const options = { ...inputOptions };
+			const { method, path, query, defaultBaseURL } = options;
+			if (this._authState.resolution) await this._authState.resolution;
+			if (!this._baseURLIsExplicit && this._authState.baseURL && this.baseURL !== this._authState.baseURL) this.baseURL = this._authState.baseURL;
+			const url = this.buildURL(path, query, defaultBaseURL);
+			if ("timeout" in options) require_promise.validatePositiveInteger("timeout", options.timeout);
+			options.timeout = options.timeout ?? this.timeout;
+			const { bodyHeaders, body } = this.buildBody({ options });
+			return {
+				req: {
+					method,
+					headers: await this.buildHeaders({
+						options: inputOptions,
+						method,
+						bodyHeaders,
+						retryCount,
+						timeout: options.timeout
+					}),
+					...options.signal && { signal: options.signal },
+					...globalThis.ReadableStream && body instanceof globalThis.ReadableStream && { duplex: "half" },
+					...body && { body },
+					...this.fetchOptions ?? {},
+					...options.fetchOptions ?? {}
+				},
+				url,
+				timeout: options.timeout
+			};
+		}
+		async buildHeaders({ options, method, bodyHeaders, retryCount, timeout }) {
+			const headers = buildHeaders([
+				{
+					Accept: "application/json",
+					"User-Agent": this.getUserAgent(),
+					"X-Stainless-Retry-Count": String(retryCount),
+					"X-Stainless-Timeout": String(Math.trunc(timeout / 1e3)),
+					...getPlatformHeaders(),
+					...this._options.dangerouslyAllowBrowser ? { "anthropic-dangerous-direct-browser-access": "true" } : void 0,
+					"anthropic-version": "2026-10-21"
+				},
+				await this.authHeaders(options),
+				this._options.defaultHeaders,
+				bodyHeaders,
+				options.headers
+			]);
+			this.validateHeaders(headers);
+			return headers.values;
+		}
+		_makeAbort(controller) {
+			return () => controller.abort();
+		}
+		buildBody({ options: { body, headers: rawHeaders } }) {
+			if (!body) return {
+				bodyHeaders: void 0,
+				body: void 0
+			};
+			const headers = buildHeaders([rawHeaders]);
+			if (ArrayBuffer.isView(body) || body instanceof ArrayBuffer || body instanceof DataView || typeof body === "string" && headers.values.has("content-type") || globalThis.Blob && body instanceof globalThis.Blob || body instanceof FormData || body instanceof URLSearchParams || globalThis.ReadableStream && body instanceof globalThis.ReadableStream) return {
+				bodyHeaders: void 0,
+				body
+			};
+			else if (this.isStreamBody(body)) return {
+				bodyHeaders: void 0,
+				body: ReadableStreamFrom(body)
+			};
+			else if (typeof body === "object" && headers.values.get("content-type") === "application/x-www-form-urlencoded") return {
+				bodyHeaders: { "content-type": "application/x-www-form-urlencoded" },
+				body: this.stringifyQuery(body)
+			};
+			else return require_promise.__classPrivateFieldGet(this, _BaseAnthropic_encoder, "f").call(this, {
+				body,
+				headers
+			});
+		}
+		/**
+		* Whether `body` is sent as a stream, which can be read only once:
+		* a `ReadableStream`, an async iterable or an iterator.
+		*/
+		isStreamBody(body) {
+			if (globalThis.ReadableStream && body instanceof globalThis.ReadableStream) return true;
+			return typeof body === "object" && body !== null && (Symbol.asyncIterator in body || Symbol.iterator in body && "next" in body && typeof body.next === "function");
+		}
+	}
+	_a = BaseAnthropic, _BaseAnthropic_encoder = /* @__PURE__ */ new WeakMap(), _BaseAnthropic_apiKeyFunction = /* @__PURE__ */ new WeakMap(), _BaseAnthropic_openTelemetry = /* @__PURE__ */ new WeakMap(), _BaseAnthropic_instances = /* @__PURE__ */ new WeakSet(), _BaseAnthropic_baseURLOverridden = function _BaseAnthropic_baseURLOverridden() {
+		return this.baseURL !== "https://api.anthropic.com";
+	};
+	BaseAnthropic.Anthropic = _a;
+	BaseAnthropic.DEFAULT_TIMEOUT = 6e5;
+	BaseAnthropic.AnthropicError = require_promise.AnthropicError;
+	BaseAnthropic.APIError = require_promise.APIError;
+	BaseAnthropic.APIConnectionError = require_promise.APIConnectionError;
+	BaseAnthropic.APIConnectionTimeoutError = require_promise.APIConnectionTimeoutError;
+	BaseAnthropic.APIUserAbortError = require_promise.APIUserAbortError;
+	BaseAnthropic.NotFoundError = require_promise.NotFoundError;
+	BaseAnthropic.ConflictError = require_promise.ConflictError;
+	BaseAnthropic.RateLimitError = require_promise.RateLimitError;
+	BaseAnthropic.BadRequestError = require_promise.BadRequestError;
+	BaseAnthropic.AuthenticationError = require_promise.AuthenticationError;
+	BaseAnthropic.InternalServerError = require_promise.InternalServerError;
+	BaseAnthropic.PermissionDeniedError = require_promise.PermissionDeniedError;
+	BaseAnthropic.UnprocessableEntityError = require_promise.UnprocessableEntityError;
+	BaseAnthropic.toFile = toFile;
+	return BaseAnthropic;
+})();
+/**
+* API Client for interfacing with the Anthropic API.
+*/
+var Anthropic = /* @__PURE__ */ (() => {
+	/**
+	* API Client for interfacing with the Anthropic API.
+	*/
+	class Anthropic extends BaseAnthropic {
+		constructor() {
+			super(...arguments);
+			/** @internal */
+			this._supportsMessageThreads = true;
+			this.messages = new Messages$1(this);
+			this.models = new Models(this);
+			this.files = new Files(this);
+			this.skills = new Skills(this);
+			this.userProfiles = new UserProfiles(this);
+			this.organization = new Organization(this);
+			this.beta = new Beta(this);
+		}
+	}
+	Anthropic.Messages = Messages$1;
+	Anthropic.Models = Models;
+	Anthropic.Files = Files;
+	Anthropic.Skills = Skills;
+	Anthropic.UserProfiles = UserProfiles;
+	Anthropic.Organization = Organization;
+	Anthropic.Beta = Beta;
+	return Anthropic;
+})();
 // src/llm/anthropic.ts
 /**
 * A native Anthropic Messages adapter.
-* The OpenAI-compat shim ignores `response_format` and `strict`, so we go native and force a single tool call whose input schema is ours;
-* that is the reliable way to get constrained JSON from the Messages API.
+* Structured outputs constrain the response to our JSON Schema.
+* Current models reject a forced `tool_choice` and sampling parameters,
+* so the request sends neither.
 */
 var AnthropicProvider = class {
 	model;
-	baseUrl;
-	apiKey;
+	client;
 	maxTokens;
-	fetchFn;
 	constructor(config) {
 		this.model = config.model;
-		this.baseUrl = (config.baseUrl ?? "https://api.anthropic.com").replace(/\/$/, "");
-		this.apiKey = config.apiKey;
-		this.maxTokens = config.maxTokens ?? 1024;
-		this.fetchFn = config.fetch ?? fetch;
+		this.maxTokens = config.maxTokens ?? 16e3;
+		this.client = new Anthropic({
+			apiKey: config.apiKey,
+			baseURL: config.baseUrl,
+			fetch: config.fetch
+		});
 	}
 	async complete(request) {
-		const res = await this.fetchFn(`${this.baseUrl}/v1/messages`, {
-			method: "POST",
-			headers: {
-				"content-type": "application/json",
-				"x-api-key": this.apiKey,
-				"anthropic-version": "2023-06-01"
-			},
-			body: JSON.stringify({
-				model: this.model,
-				max_tokens: this.maxTokens,
-				temperature: 0,
-				system: request.system,
-				tools: [{
-					name: request.schemaName,
-					description: "Emit the classification as structured data.",
-					input_schema: request.jsonSchema
-				}],
-				tool_choice: {
-					type: "tool",
-					name: request.schemaName
-				},
-				messages: [{
-					role: "user",
-					content: request.user
-				}]
-			})
+		const { $schema: _, ...schema } = request.jsonSchema;
+		const response = await this.client.messages.create({
+			model: this.model,
+			max_tokens: this.maxTokens,
+			system: request.system,
+			output_config: { format: {
+				type: "json_schema",
+				schema
+			} },
+			messages: [{
+				role: "user",
+				content: request.user
+			}]
 		});
-		if (!res.ok) {
-			const text = await res.text().catch(() => "");
-			throw new Error(`Anthropic request failed: ${res.status} ${text}`);
+		if (response.stop_reason === "refusal") {
+			const category = response.stop_details?.category ?? "unspecified";
+			throw new Error(`Anthropic declined the request (category: ${category})`);
 		}
-		const toolUse = (await res.json()).content?.find((c) => c.type === "tool_use");
-		if (!toolUse || toolUse.input === void 0) throw new Error("Anthropic response missing tool_use input");
-		return JSON.stringify(toolUse.input);
+		if (response.stop_reason === "max_tokens") throw new Error(`Anthropic response hit max_tokens (${this.maxTokens})`);
+		const text = response.content.flatMap((block) => block.type === "text" ? [block.text] : []).join("");
+		if (!text) throw new Error("Anthropic response has no text content");
+		return text;
 	}
 };
 // src/llm/copilot.ts

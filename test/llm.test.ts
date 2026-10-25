@@ -123,25 +123,61 @@ describe("openai adapter", () => {
 });
 
 describe("anthropic adapter", () => {
-  it("forces a tool call and reads its input", async () => {
-    const fetchMock = vi.fn(async () => ({
-      ok: true,
-      json: async () => ({
-        content: [{ type: "tool_use", input: { kind: "feature", summary: "s", notes: "n" } }],
-      }),
-    })) as unknown as typeof fetch;
+  function anthropicFetch(message: Record<string, unknown>) {
+    return vi.fn(
+      async () =>
+        new Response(
+          JSON.stringify({
+            id: "msg_1",
+            type: "message",
+            role: "assistant",
+            model: "claude",
+            usage: { input_tokens: 1, output_tokens: 1 },
+            stop_details: null,
+            ...message,
+          }),
+          { status: 200, headers: { "content-type": "application/json" } },
+        ),
+    ) as unknown as typeof fetch;
+  }
 
-    const provider = new AnthropicProvider({ apiKey: "k", model: "claude", fetch: fetchMock });
-    const out = await provider.complete({
-      system: "s",
-      user: "u",
-      jsonSchema: classificationJsonSchema(),
-      schemaName: "classification",
+  const request = {
+    system: "s",
+    user: "u",
+    jsonSchema: classificationJsonSchema(),
+    schemaName: "classification",
+  };
+
+  it("requests structured output and reads the text", async () => {
+    const fetchMock = anthropicFetch({
+      stop_reason: "end_turn",
+      content: [{ type: "text", text: '{"kind":"feature","summary":"s","notes":"n"}' }],
     });
+    const provider = new AnthropicProvider({ apiKey: "k", model: "claude", fetch: fetchMock });
+    const out = await provider.complete(request);
     expect(JSON.parse(out).kind).toBe("feature");
+
     const call = (fetchMock as unknown as ReturnType<typeof vi.fn>).mock.calls[0]!;
     const body = JSON.parse((call[1] as { body: string }).body);
-    expect(body.tool_choice).toEqual({ type: "tool", name: "classification" });
+    expect(body.output_config.format.type).toBe("json_schema");
+    expect(body.output_config.format.schema.required).toEqual(["kind", "summary", "notes"]);
+    expect(body.output_config.format.schema.$schema).toBeUndefined();
+    // Current models return 400 for a forced tool choice or a sampling parameter.
+    expect(body.tool_choice).toBeUndefined();
+    expect(body.temperature).toBeUndefined();
+  });
+
+  it("throws on a refusal so the entry falls back to unknown", async () => {
+    const provider = new AnthropicProvider({
+      apiKey: "k",
+      model: "claude",
+      fetch: anthropicFetch({
+        stop_reason: "refusal",
+        stop_details: { type: "refusal", category: null, explanation: null },
+        content: [],
+      }),
+    });
+    await expect(provider.complete(request)).rejects.toThrow(/declined/);
   });
 });
 
