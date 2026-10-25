@@ -20378,7 +20378,8 @@ async function classify(pr, options = {}) {
 async function bootstrapEntries(client, config, provider, options = {}) {
 	const firstBatch = await client.getMergedReleasePr(config.releaseBranch) === null;
 	const tag = await client.latestTag();
-	const numbers = await client.listMergedPrNumbersSinceTag(tag);
+	const discovered = await client.listMergedPrNumbersSinceTag(tag);
+	const numbers = [.../* @__PURE__ */ new Set([...discovered, ...options.include ?? []])].sort((a, b) => a - b);
 	const entries = [];
 	const unreleasedPrs = new Set(numbers);
 	for (const number of numbers) {
@@ -23346,7 +23347,7 @@ function renderEntryComment(entry, releasePr) {
 		`- summary: ${entry.summary}`
 	];
 	if (entry.notes.trim().length > 0) lines.push("", "<details>", "<summary>Release notes</summary>", "", entry.notes.trim(), "</details>");
-	lines.push("", "Until the release merges, the PR author or anyone with write access can correct this", "with a comment such as `/onegai kind: fix`, `/onegai summary: <one line>`,", "or `/onegai notes:` followed by the notes on the next lines.");
+	lines.push("", "Until the release merges, the PR author or anyone with write access can correct this with a comment such as `/onegai kind: fix`, `/onegai summary: <one line>`, or `/onegai notes:` followed by the notes on the next lines.");
 	return lines.join("\n");
 }
 async function regenerateAndUpsert(client, config, entries, existingBody) {
@@ -23411,7 +23412,8 @@ async function handlePullRequestMerged(client, ctx, prNumber) {
 	if (isNew && entry && config.commentOnMerge) await client.postComment(prNumber, renderEntryComment(entry, releasePrNumber));
 }
 /**
-* `workflow_dispatch`: rebuild the release PR from the merges since the latest release.
+* `workflow_dispatch`: rebuild the release PR from the merges since the latest release
+* and the PRs already in its ledger, so a repository without tags loses nothing.
 * Every entry is classified again with the current prompt and provider;
 * fields a person corrected keep their corrections.
 */
@@ -23419,7 +23421,10 @@ async function handleRebuild(client, ctx) {
 	const config = await client.getConfig(ctx.configPath);
 	const releasePr = await client.findReleasePr(config.releaseBranch);
 	const previous = releasePr ? require_version$1.parseSnapshot(releasePr.body, releasePr.comments) : [];
-	let entries = await bootstrapEntries(client, config, ctx.provider, { onProviderError: ctx.warn });
+	let entries = await bootstrapEntries(client, config, ctx.provider, {
+		onProviderError: ctx.warn,
+		include: previous.map((e) => e.pr)
+	});
 	entries = entries.map((fresh) => {
 		const prior = previous.find((e) => e.pr === fresh.pr);
 		return prior ? applyPins(fresh, prior) : fresh;
