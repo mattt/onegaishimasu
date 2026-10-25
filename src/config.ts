@@ -11,14 +11,14 @@ export const configSchema = z.object({
       model: z.string().optional(),
       baseUrl: z.string().optional(),
     })
-    .default({})
+    .prefault({})
     // Copilot defaults to `auto` so the model name never goes stale;
     // BYO providers have no evergreen alias, so the model must be explicit.
     .transform((provider, ctx) => {
       const model = provider.model ?? (provider.type === "copilot" ? "auto" : undefined);
       if (!model) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
+          code: "custom",
           message: `provider.model is required when provider.type is "${provider.type}"`,
         });
         return z.NEVER;
@@ -30,13 +30,13 @@ export const configSchema = z.object({
     .object({
       capBreakingAtMinor: z.boolean().default(true),
     })
-    .default({}),
+    .prefault({}),
   render: z
     .object({
       announcement: z.boolean().default(false),
       credits: z.boolean().default(true),
     })
-    .default({}),
+    .prefault({}),
   voicePath: z.string().optional(),
   /** Comment the classified entry on the merged PR so the author can correct it. */
   commentOnMerge: z.boolean().default(true),
