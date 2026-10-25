@@ -96,5 +96,6 @@ describe("computeBump", () => {
     );
     expect(result.forced).toBe(true);
     expect(result.next).toBe("3.0.0");
+    expect(result.forcedBy).toBe(1);
   });
 });

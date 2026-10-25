@@ -1,7 +1,7 @@
 import type { PullRequestInput } from "../pr.js";
 
 /** Bumped when the prompt changes. Recorded as provenance, never a cache key. */
-export const PROMPT_VERSION = "1";
+export const PROMPT_VERSION = "2";
 
 export const SYSTEM_PROMPT = [
   "You classify a merged GitHub pull request for release-note generation.",
@@ -22,9 +22,17 @@ export const SYSTEM_PROMPT = [
   "- internal: refactors, tests, CI, chores with no user-facing effect",
   "- unknown: you genuinely cannot tell",
   "",
-  "Write `summary` as one terse line in the imperative mood. Write `notes` as",
-  "short prose a user would want to read, including migration guidance when the",
-  "change is breaking.",
+  "Write for the people who use the project, not for its maintainers.",
+  "",
+  "Write `summary` as one sentence of at most 15 words in the imperative mood,",
+  'such as "Fix tags pointing at the wrong commit". Describe the effect a user',
+  "notices, not the implementation. Do not name files, functions, tests, or",
+  "dependencies unless the change is about them.",
+  "",
+  "Leave `notes` empty unless a user must do something or should know a limit:",
+  "migration steps for a breaking change, a new setting to configure, or a",
+  "changed default. Then write at most three short sentences. Do not repeat the",
+  "summary, list every change, or mention documentation, tests, or CI.",
   "",
   "Respond with ONLY a JSON object matching the schema. No prose outside it.",
 ].join("\n");

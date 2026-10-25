@@ -32,7 +32,12 @@ export function extractReleaseNotes(body: string): string {
   if (start === -1) return body;
   const after = body.slice(start + "## Release notes".length);
   const end = after.indexOf("<details>");
-  return (end === -1 ? after : after.slice(0, end)).trim();
+  const notes = end === -1 ? after : after.slice(0, end);
+  // The section markers only serve regeneration; the published release doesn't need them.
+  return notes
+    .replace(/^<!-- \/?onegai:section [^>]*-->\n?/gm, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 /** A compact rendering of an entry for the comment left on the merged PR. */
