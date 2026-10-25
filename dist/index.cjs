@@ -1,5 +1,5 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_version$1 = require("./version-odrbwsqH.cjs");
+const require_version$1 = require("./version-xneg5MKd.cjs");
 const require_promise = require("./promise-BzCuvIAN.cjs");
 let node_crypto = require("node:crypto");
 require("node:fs");
@@ -20078,9 +20078,17 @@ const SYSTEM_PROMPT = [
 	"- internal: refactors, tests, CI, chores with no user-facing effect",
 	"- unknown: you genuinely cannot tell",
 	"",
-	"Write `summary` as one terse line in the imperative mood. Write `notes` as",
-	"short prose a user would want to read, including migration guidance when the",
-	"change is breaking.",
+	"Write for the people who use the project, not for its maintainers.",
+	"",
+	"Write `summary` as one sentence of at most 15 words in the imperative mood,",
+	"such as \"Fix tags pointing at the wrong commit\". Describe the effect a user",
+	"notices, not the implementation. Do not name files, functions, tests, or",
+	"dependencies unless the change is about them.",
+	"",
+	"Leave `notes` empty unless a user must do something or should know a limit:",
+	"migration steps for a breaking change, a new setting to configure, or a",
+	"changed default. Then write at most three short sentences. Do not repeat the",
+	"summary, list every change, or mention documentation, tests, or CI.",
 	"",
 	"Respond with ONLY a JSON object matching the schema. No prose outside it."
 ].join("\n");
@@ -20311,7 +20319,7 @@ async function classify(pr, options = {}) {
 	if (options.provider) {
 		provenance = {
 			model: options.provider.model,
-			promptVersion: options.promptVersion ?? "1"
+			promptVersion: options.promptVersion ?? "2"
 		};
 		const result = await completeWithSchema(options.provider, {
 			system: SYSTEM_PROMPT,
@@ -23257,7 +23265,7 @@ function today() {
 function renderWarnings(warnings, firstBatch) {
 	if (warnings.length === 0 && !firstBatch) return "";
 	const lines = ["> [!WARNING]"];
-	if (firstBatch) lines.push("> Some entries were classified in the first run, before anyone could review them while context was fresh. Check them carefully.");
+	if (firstBatch) lines.push("> This is the first release, so most entries were classified without a comment on their PR. Check each one below, and correct it with a `/onegai` command on its PR.");
 	for (const w of warnings) switch (w.type) {
 		case "unknown":
 			lines.push(`> - #${w.pr}: classified \`unknown\` — resolve before releasing.`);
@@ -23271,7 +23279,7 @@ function renderWarnings(warnings, firstBatch) {
 }
 function renderReasoning(bump) {
 	if (!bump.forced && bump.level === "none") return "No release-worthy changes yet.";
-	const header = bump.forced ? `Proposed version: **${bump.current} → ${bump.next}** (forced by Release-As)` : `Proposed version: **${bump.current} → ${bump.next}** (${bump.level})`;
+	const header = bump.forced ? `Proposed version: **${bump.current} → ${bump.next}** (set by \`Release-As\` in #${bump.forcedBy})` : `Proposed version: **${bump.current} → ${bump.next}** (${bump.level})`;
 	const causes = bump.reasons.map((r) => `- #${r.pr} ${r.kind} (${r.level})`);
 	return causes.length > 0 ? `${header}\n\nCaused by:\n${causes.join("\n")}` : header;
 }
@@ -23326,7 +23334,7 @@ function extractReleaseNotes(body) {
 	if (start === -1) return body;
 	const after = body.slice(start + 16);
 	const end = after.indexOf("<details>");
-	return (end === -1 ? after : after.slice(0, end)).trim();
+	return (end === -1 ? after : after.slice(0, end)).replace(/^<!-- \/?onegai:section [^>]*-->\n?/gm, "").replace(/\n{3,}/g, "\n\n").trim();
 }
 /** A compact rendering of an entry for the comment left on the merged PR. */
 function renderEntryComment(entry, releasePr) {
@@ -25876,7 +25884,7 @@ function redactSensitive(body) {
 */
 async function checkCredentialsFileSafety(path, onWarn = (m) => console.warn(`anthropic-sdk: ${m}`)) {
 	if (typeof process === "undefined" || process.platform === "win32") return;
-	const { fs } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	const { fs } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
 	let resolved = path;
 	let st;
 	try {
@@ -25896,7 +25904,7 @@ async function checkCredentialsFileSafety(path, onWarn = (m) => console.warn(`an
 * Creates the parent directory with mode 0700 and the file with mode 0600.
 */
 async function writeCredentialsFileAtomic(targetPath, data) {
-	const { fs, path } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
 	const dir = path.dirname(targetPath);
 	await fs.promises.mkdir(dir, {
 		recursive: true,
@@ -26952,7 +26960,7 @@ const loadConfigWithSource = async (profile) => {
 	const profileName = profile ?? await getActiveProfileName();
 	if (profileName === null) return null;
 	validateProfileName(profileName);
-	const { fs, path } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
 	const configPath = path.join(rootConfigPath, "configs", `${profileName}.json`);
 	let configRaw;
 	try {
@@ -27006,12 +27014,12 @@ const getCredentialsPath = async (config, profile) => {
 	const profileName = profile ?? await getActiveProfileName();
 	if (!profileName) return null;
 	validateProfileName(profileName);
-	const { path } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	const { path } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
 	return path.join(rootConfigPath, "credentials", `${profileName}.json`);
 };
 const getRootConfigPath = async () => {
 	if (!supportsLocalConfigFiles()) return null;
-	const { path } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	const { path } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
 	const configDir = require_promise.readEnv("ANTHROPIC_CONFIG_DIR");
 	if (configDir) return configDir;
 	if (getPlatformHeaders()["X-Stainless-OS"] === "Windows") {
@@ -27036,7 +27044,7 @@ const getActiveProfileName = async () => {
 	if (!rootConfigPath) return null;
 	const profileName = require_promise.readEnv("ANTHROPIC_PROFILE");
 	if (profileName) return profileName;
-	const { fs, path } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
 	const filePath = path.join(rootConfigPath, "active_config");
 	try {
 		return (await fs.promises.readFile(filePath, "utf-8")).trim() || "default";
@@ -27053,7 +27061,7 @@ const getActiveProfileName = async () => {
 function identityTokenFromFile(path) {
 	if (!path) throw new require_promise.AnthropicError("Identity token file path is empty");
 	return async () => {
-		const { fs } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
 		let content;
 		try {
 			content = await fs.promises.readFile(path, "utf-8");
@@ -27140,7 +27148,7 @@ function oidcFederationProvider(config) {
 */
 function userOAuthProvider(config) {
 	return async (opts) => {
-		const { fs } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
 		await checkCredentialsFileSafety(config.credentialsPath, config.onSafetyWarning);
 		let raw;
 		try {
@@ -27320,7 +27328,7 @@ function resolveIdentityTokenProvider(auth) {
 */
 function cachedExchangeProvider(exchange, credentialsPath, onCacheWriteError, onSafetyWarning) {
 	return async (opts) => {
-		const { fs } = await Promise.resolve().then(() => require("./node-Cbowwvpm.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
 		await checkCredentialsFileSafety(credentialsPath, onSafetyWarning);
 		let existing;
 		try {
@@ -32208,7 +32216,7 @@ var EnvironmentWorker = /* @__PURE__ */ (() => {
 		const ctrl = new AbortController();
 		const detachExternal = linkAbort(externalSignal, ctrl);
 		const lease = new Lease(ctrl);
-		const agentToolset = await Promise.resolve().then(() => require("./node-BHu21w2n.cjs"));
+		const agentToolset = await Promise.resolve().then(() => require("./node-BRj8UEq4.cjs"));
 		let leaseTtlMs;
 		let runner;
 		const heartbeatPromise = heartbeatLoop(sessionClient, work, lease, log, this.requestOptions, (ttlMs) => {

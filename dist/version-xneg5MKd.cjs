@@ -12384,7 +12384,7 @@ function mostSevereKind(kinds) {
 * Conflict is flagged when the evidence implies more than one kind.
 */
 function deriveConfidence(evidence) {
-	const hasDeterministic = evidence.some((e) => isDeterministicSource(e.source));
+	const hasDeterministic = evidence.some((e) => isDeterministicSource(e.source) && e.source !== "release-as");
 	const hasModel = evidence.some((e) => e.source === "model");
 	const conflict = new Set(evidence.map((e) => e.impliedKind).filter((k) => k !== void 0)).size > 1;
 	let confidence;
@@ -12511,11 +12511,11 @@ function buildSections(entries) {
 	}
 	const deps = entries.filter((e) => e.kind === "deps");
 	if (deps.length > 0) {
-		const list = deps.map((e) => `${e.summary} (#${e.pr})`).join("; ");
+		const markdown = deps.length <= 3 ? deps.map((e) => `- ${e.summary} (#${e.pr})`).join("\n") : `- ${deps.length} dependency updates: ${deps.map((e) => `${e.summary} (#${e.pr})`).join("; ")}`;
 		sections.push({
 			id: "deps",
 			title: "Dependencies",
-			markdown: `- ${deps.length} dependency update(s): ${list}`
+			markdown
 		});
 	}
 	return sections;
@@ -13925,7 +13925,10 @@ function readReleaseAs(entries) {
 	for (const entry of entries) for (const ev of entry.evidence) {
 		if (ev.source !== "release-as") continue;
 		const version = ev.detail.replace(/^Release-As:\s*v?/i, "").trim();
-		if (import_semver.default.valid(version) && (best === null || import_semver.default.gt(version, best))) best = version;
+		if (import_semver.default.valid(version) && (best === null || import_semver.default.gt(version, best.version))) best = {
+			version,
+			pr: entry.pr
+		};
 	}
 	return best;
 }
@@ -13964,14 +13967,15 @@ function computeBump(entries, current, options = {}) {
 			pr: entry.pr
 		});
 	}
-	const forcedVersion = readReleaseAs(entries);
-	if (forcedVersion) return {
+	const forced = readReleaseAs(entries);
+	if (forced) return {
 		current: normalizedCurrent,
-		next: forcedVersion,
+		next: forced.version,
 		level,
 		reasons,
 		warnings,
-		forced: true
+		forced: true,
+		forcedBy: forced.pr
 	};
 	return {
 		current: normalizedCurrent,
