@@ -19871,10 +19871,9 @@ var OctokitClient = class {
 		});
 		for (const pr of prs.data) {
 			if (!pr.merged_at || !pr.merge_commit_sha) continue;
-			const version = parseReleaseTitle(pr.title);
-			if (version) return {
+			return {
 				number: pr.number,
-				version,
+				version: parseReleaseTitle(pr.title),
 				body: pr.body ?? "",
 				mergeSha: pr.merge_commit_sha
 			};
@@ -20325,6 +20324,7 @@ async function classify(pr, options = {}) {
 			raw: "",
 			errors: error instanceof Error ? error.message : String(error)
 		}));
+		if (!result.ok) options.onProviderError?.(`PR #${pr.number}: ${result.errors}`);
 		if (result.ok) {
 			modelKind = result.value.kind;
 			summary = result.value.summary;
@@ -20360,11 +20360,15 @@ async function classify(pr, options = {}) {
 }
 // src/bootstrap.ts
 /**
-* The first run anchors to the latest release: classify the merges since that tag, marked first-batch.
-* A repo with no releases starts empty.
+* A cycle with no open release PR anchors to the latest release:
+* classify the merges since that tag.
+* Entries are marked first-batch only before the first release PR merges,
+* because only then could nobody have reviewed them on their PRs.
+* A repo with no tags starts empty.
 * There is no backfill behind the latest release, ever.
 */
-async function bootstrapEntries(client, config, provider) {
+async function bootstrapEntries(client, config, provider, options = {}) {
+	const firstBatch = await client.getMergedReleasePr(config.releaseBranch) === null;
 	const tag = await client.latestTag();
 	const numbers = await client.listMergedPrNumbersSinceTag(tag);
 	const entries = [];
@@ -20380,7 +20384,8 @@ async function bootstrapEntries(client, config, provider) {
 			provider,
 			labelMap: config.labels,
 			unreleasedPrs,
-			firstBatch: true
+			firstBatch,
+			onProviderError: options.onProviderError
 		});
 		entries.push(entry);
 	}
@@ -23324,15 +23329,17 @@ function extractReleaseNotes(body) {
 	return (end === -1 ? after : after.slice(0, end)).trim();
 }
 /** A compact rendering of an entry for the comment left on the merged PR. */
-function renderEntryComment(entry) {
-	return [
-		"Onegaishimasu classified this PR:",
+function renderEntryComment(entry, releasePr) {
+	const sources = [...new Set(entry.evidence.map((e) => e.source))].join(", ") || "none";
+	const lines = [
+		releasePr ? `Onegaishimasu added this PR to the release in #${releasePr}:` : "Onegaishimasu classified this PR:",
 		"",
-		`- kind: \`${entry.kind}\` (confidence: ${entry.confidence})`,
-		`- summary: ${entry.summary}`,
-		"",
-		"Correct it with `/onegai kind: ...`, `/onegai summary: ...`, or `/onegai notes: ...`."
-	].join("\n");
+		`- kind: \`${entry.kind}\` (confidence: ${entry.confidence}; evidence: ${sources})`,
+		`- summary: ${entry.summary}`
+	];
+	if (entry.notes.trim().length > 0) lines.push("", "<details>", "<summary>Release notes</summary>", "", entry.notes.trim(), "</details>");
+	lines.push("", "Until the release merges, the PR author or anyone with write access can correct this", "with a comment such as `/onegai kind: fix`, `/onegai summary: <one line>`,", "or `/onegai notes:` followed by the notes on the next lines.");
+	return lines.join("\n");
 }
 async function regenerateAndUpsert(client, config, entries, existingBody) {
 	const defaultBranch = await client.getDefaultBranch();
@@ -23362,6 +23369,7 @@ async function regenerateAndUpsert(client, config, entries, existingBody) {
 		overflowComments: result.overflowComments
 	});
 	for (const comment of result.overflowComments) await client.postComment(prNumber, comment);
+	return prNumber;
 }
 /** `pull_request` closed-and-merged: classify the PR, then regenerate. */
 async function handlePullRequestMerged(client, ctx, prNumber) {
@@ -23370,7 +23378,11 @@ async function handlePullRequestMerged(client, ctx, prNumber) {
 	if (merged.headRef === config.releaseBranch) return;
 	const releasePr = await client.findReleasePr(config.releaseBranch);
 	let entries = releasePr ? require_version$1.parseSnapshot(releasePr.body, releasePr.comments) : [];
-	if (!releasePr && entries.length === 0) entries = await bootstrapEntries(client, config, ctx.provider);
+	let isNew = false;
+	if (!releasePr && entries.length === 0) {
+		entries = await bootstrapEntries(client, config, ctx.provider, { onProviderError: ctx.warn });
+		isNew = entries.some((e) => e.pr === prNumber);
+	}
 	if (!entries.some((e) => e.pr === prNumber)) {
 		const diff = applyDiffBudget(await client.getPrDiff(prNumber).catch(() => ""), { maxChars: config.diffBudget });
 		const unreleasedPrs = new Set(entries.map((e) => e.pr));
@@ -23380,10 +23392,33 @@ async function handlePullRequestMerged(client, ctx, prNumber) {
 		}, {
 			provider: ctx.provider,
 			labelMap: config.labels,
-			unreleasedPrs
+			unreleasedPrs,
+			onProviderError: ctx.warn
 		});
 		entries = upsertEntry(entries, entry);
-		if (config.commentOnMerge) await client.postComment(prNumber, renderEntryComment(entry));
+		isNew = true;
+	}
+	const releasePrNumber = await regenerateAndUpsert(client, config, entries, releasePr?.body);
+	const entry = entries.find((e) => e.pr === prNumber);
+	if (isNew && entry && config.commentOnMerge) await client.postComment(prNumber, renderEntryComment(entry, releasePrNumber));
+}
+/**
+* `workflow_dispatch`: rebuild the release PR from the merges since the latest release.
+* Every entry is classified again with the current prompt and provider;
+* fields a person corrected keep their corrections.
+*/
+async function handleRebuild(client, ctx) {
+	const config = await client.getConfig(ctx.configPath);
+	const releasePr = await client.findReleasePr(config.releaseBranch);
+	const previous = releasePr ? require_version$1.parseSnapshot(releasePr.body, releasePr.comments) : [];
+	let entries = await bootstrapEntries(client, config, ctx.provider, { onProviderError: ctx.warn });
+	entries = entries.map((fresh) => {
+		const prior = previous.find((e) => e.pr === fresh.pr);
+		return prior ? applyPins(fresh, prior) : fresh;
+	});
+	if (entries.length === 0 && !releasePr) {
+		ctx.warn?.("No merged PRs since the latest release; there is nothing to rebuild.");
+		return;
 	}
 	await regenerateAndUpsert(client, config, entries, releasePr?.body);
 }
@@ -23404,6 +23439,7 @@ async function handleIssueComment(client, ctx) {
 	}
 	if (command.type === "invalid") {
 		await client.addReaction(ctx.commentId, "-1");
+		await client.postComment(ctx.prNumber, `Onegaishimasu couldn't run that command (${command.reason}). Try \`/onegai kind: fix\`, \`/onegai summary: <one line>\`, \`/onegai notes:\`, \`/onegai pin\`, or \`/onegai reclassify\`.`);
 		return;
 	}
 	const releasePr = await client.findReleasePr(config.releaseBranch);
@@ -23411,6 +23447,7 @@ async function handleIssueComment(client, ctx) {
 	const existing = entries.find((e) => e.pr === ctx.prNumber);
 	if (!existing) {
 		await client.addReaction(ctx.commentId, "-1");
+		await client.postComment(ctx.prNumber, "Onegaishimasu has no unreleased entry for this PR, so there is nothing to correct. It may already be part of a published release.");
 		return;
 	}
 	if (command.type === "reclassify") {
@@ -23422,15 +23459,16 @@ async function handleIssueComment(client, ctx) {
 		}, {
 			provider: ctx.provider,
 			labelMap: config.labels,
-			unreleasedPrs
+			unreleasedPrs,
+			onProviderError: ctx.warn
 		});
 		entries = upsertEntry(entries, applyPins(fresh, existing));
 	} else {
 		const { entry } = applyCommand(existing, command);
 		entries = upsertEntry(entries, entry);
 	}
-	await client.addReaction(ctx.commentId, "+1");
 	await regenerateAndUpsert(client, config, entries, releasePr?.body);
+	await client.addReaction(ctx.commentId, "+1");
 }
 /** `push` to the default branch: detect a merged release PR, then tag and publish. */
 async function handlePush(client, ctx) {
@@ -23439,6 +23477,10 @@ async function handlePush(client, ctx) {
 	if (!merged) return;
 	const manifestPath = config.manifestFiles[0] ?? "package.json";
 	const version = await client.getManifestVersion(manifestPath, merged.mergeSha) ?? merged.version;
+	if (!version) {
+		ctx.warn?.(`Release PR #${merged.number} merged, but no version was found to tag.`);
+		return;
+	}
 	if (await client.tagExists(version)) return;
 	const notes = extractReleaseNotes(merged.body);
 	await client.tagAndRelease(version, notes, merged.mergeSha);
@@ -46759,9 +46801,14 @@ async function run() {
 		const configPath = import_core.getInput("config-path") || ".github/onegai.yml";
 		const apiKey = import_core.getInput("provider-api-key") || void 0;
 		const client = new OctokitClient(import_github.getOctokit(token), import_github.context.repo);
+		const config = await client.getConfig(configPath);
+		const provider = createProvider(config, apiKey);
+		const warn = (message) => import_core.warning(message);
+		if (!provider) warn(`provider.type is "${config.provider.type}" but the provider-api-key input is empty; classifying from labels and commit prefixes only.`);
 		const ctx = {
 			configPath,
-			provider: createProvider(await client.getConfig(configPath), apiKey)
+			provider,
+			warn
 		};
 		const { eventName, payload } = import_github.context;
 		if (eventName === "pull_request" && payload.action === "closed" && payload.pull_request?.merged) await handlePullRequestMerged(client, ctx, payload.pull_request.number);
@@ -46774,6 +46821,7 @@ async function run() {
 			association: payload.comment.author_association ?? "NONE"
 		});
 		else if (eventName === "push") await handlePush(client, ctx);
+		else if (eventName === "workflow_dispatch") await handleRebuild(client, ctx);
 		else import_core.info(`No handler for event ${eventName} (${payload.action ?? "no action"})`);
 	} catch (error) {
 		import_core.setFailed(error instanceof Error ? error.message : String(error));
