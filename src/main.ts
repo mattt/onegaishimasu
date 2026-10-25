@@ -1,7 +1,12 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import { OctokitClient } from "./github/api.js";
-import { handleIssueComment, handlePullRequestMerged, handlePush } from "./github/handlers.js";
+import {
+  handleIssueComment,
+  handlePullRequestMerged,
+  handlePush,
+  handleRebuild,
+} from "./github/handlers.js";
 import { createProvider } from "./llm/factory.js";
 
 /** The Action entry point: read the event, build the client, dispatch. */
@@ -15,7 +20,14 @@ export async function run(): Promise<void> {
     const client = new OctokitClient(octokit, github.context.repo);
     const config = await client.getConfig(configPath);
     const provider = createProvider(config, apiKey);
-    const ctx = { configPath, provider };
+    const warn = (message: string) => core.warning(message);
+    if (!provider) {
+      warn(
+        `provider.type is "${config.provider.type}" but the provider-api-key input is empty; ` +
+          "classifying from labels and commit prefixes only.",
+      );
+    }
+    const ctx = { configPath, provider, warn };
 
     const { eventName, payload } = github.context;
 
@@ -41,6 +53,8 @@ export async function run(): Promise<void> {
       });
     } else if (eventName === "push") {
       await handlePush(client, ctx);
+    } else if (eventName === "workflow_dispatch") {
+      await handleRebuild(client, ctx);
     } else {
       core.info(`No handler for event ${eventName} (${payload.action ?? "no action"})`);
     }
