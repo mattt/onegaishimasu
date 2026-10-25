@@ -282,6 +282,28 @@ describe("release cycles", () => {
     expect(rebuilt.kind).toBe("feature");
   });
 
+  it("keeps the ledger on a rebuild in a repository without tags", async () => {
+    const corrected = entry(42, { summary: "Human summary", pinned: ["summary"] });
+    const releaseBody = `body\n<details>\n${serialize(corrected)}\n</details>`;
+    const { client, state } = makeClient({
+      mergedSinceTag: [],
+      releasePr: { number: 999, body: releaseBody, comments: [] },
+    });
+    await handleRebuild(client, ctx);
+
+    const entries = parseSnapshot(state.upserts[0]!.body);
+    expect(entries.map((e) => e.pr)).toEqual([42]);
+    expect(entries[0]!.summary).toBe("Human summary");
+  });
+
+  it("writes the comment footer as one paragraph", async () => {
+    const { client, state } = makeClient();
+    await handlePullRequestMerged(client, ctx, 42);
+    const footer = state.comments[0]!.body.split("\n\n").at(-1)!;
+    expect(footer).toMatch(/^Until the release merges/);
+    expect(footer).not.toContain("\n");
+  });
+
   it("does nothing on a rebuild with no merges and no release PR", async () => {
     const warnings: string[] = [];
     const { client, state } = makeClient();

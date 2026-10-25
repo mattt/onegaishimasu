@@ -63,9 +63,9 @@ export function renderEntryComment(entry: Entry, releasePr?: number): string {
   }
   lines.push(
     "",
-    "Until the release merges, the PR author or anyone with write access can correct this",
-    "with a comment such as `/onegai kind: fix`, `/onegai summary: <one line>`,",
-    "or `/onegai notes:` followed by the notes on the next lines.",
+    "Until the release merges, the PR author or anyone with write access can correct this " +
+      "with a comment such as `/onegai kind: fix`, `/onegai summary: <one line>`, " +
+      "or `/onegai notes:` followed by the notes on the next lines.",
   );
   return lines.join("\n");
 }
@@ -164,7 +164,8 @@ export async function handlePullRequestMerged(
 }
 
 /**
- * `workflow_dispatch`: rebuild the release PR from the merges since the latest release.
+ * `workflow_dispatch`: rebuild the release PR from the merges since the latest release
+ * and the PRs already in its ledger, so a repository without tags loses nothing.
  * Every entry is classified again with the current prompt and provider;
  * fields a person corrected keep their corrections.
  */
@@ -175,6 +176,7 @@ export async function handleRebuild(client: GitHubClient, ctx: HandlerContext): 
 
   let entries = await bootstrapEntries(client, config, ctx.provider, {
     onProviderError: ctx.warn,
+    include: previous.map((e) => e.pr),
   });
   entries = entries.map((fresh) => {
     const prior = previous.find((e) => e.pr === fresh.pr);
