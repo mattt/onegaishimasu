@@ -87,7 +87,7 @@ provider:
 ```yaml
 - uses: owner/onegaishimasu@v1
   with:
-    provider-api-key: ${{ secrets.PROVIDER_API_KEY }}
+    provider-api-key: ${{ secrets.ONEGAI_PROVIDER_API_KEY }}
 ```
 
 ## Corrections
