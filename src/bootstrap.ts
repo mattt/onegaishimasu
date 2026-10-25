@@ -17,11 +17,16 @@ export async function bootstrapEntries(
   client: GitHubClient,
   config: Config,
   provider?: Provider,
-  options: { onProviderError?: (message: string) => void } = {},
+  options: {
+    onProviderError?: (message: string) => void;
+    /** PRs to classify even when tag comparison doesn't find them, such as the current ledger. */
+    include?: number[];
+  } = {},
 ): Promise<Entry[]> {
   const firstBatch = (await client.getMergedReleasePr(config.releaseBranch)) === null;
   const tag = await client.latestTag();
-  const numbers = await client.listMergedPrNumbersSinceTag(tag);
+  const discovered = await client.listMergedPrNumbersSinceTag(tag);
+  const numbers = [...new Set([...discovered, ...(options.include ?? [])])].sort((a, b) => a - b);
 
   const entries: Entry[] = [];
   const unreleasedPrs = new Set(numbers);
