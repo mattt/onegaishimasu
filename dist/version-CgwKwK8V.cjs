@@ -1,11 +1,11 @@
-//#region \0rolldown/runtime.js
+// \0rolldown/runtime.js
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
+var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod, mod.exports), cb = null), mod.exports);
 var __copyProps = (to, from, except, desc) => {
 	if (from && typeof from === "object" || typeof from === "function") for (var keys = __getOwnPropNames(from), i = 0, n = keys.length, key; i < n; i++) {
 		key = keys[i];
@@ -20,8 +20,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 	value: mod,
 	enumerable: true
 }) : target, mod));
-//#endregion
-//#region node_modules/yaml/dist/nodes/identity.js
+// node_modules/yaml/dist/nodes/identity.js
 var require_identity = /* @__PURE__ */ __commonJSMin(((exports) => {
 	const ALIAS = Symbol.for("yaml.alias");
 	const DOC = Symbol.for("yaml.document");
@@ -70,8 +69,7 @@ var require_identity = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.isScalar = isScalar;
 	exports.isSeq = isSeq;
 }));
-//#endregion
-//#region node_modules/yaml/dist/visit.js
+// node_modules/yaml/dist/visit.js
 var require_visit = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	const BREAK = Symbol("break visit");
@@ -261,8 +259,7 @@ var require_visit = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.visit = visit;
 	exports.visitAsync = visitAsync;
 }));
-//#endregion
-//#region node_modules/yaml/dist/doc/directives.js
+// node_modules/yaml/dist/doc/directives.js
 var require_directives = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var visit = require_visit();
@@ -425,8 +422,7 @@ var require_directives = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Directives.defaultTags = { "!!": "tag:yaml.org,2002:" };
 	exports.Directives = Directives;
 }));
-//#endregion
-//#region node_modules/yaml/dist/doc/anchors.js
+// node_modules/yaml/dist/doc/anchors.js
 var require_anchors = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var visit = require_visit();
@@ -492,8 +488,7 @@ var require_anchors = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.createNodeAnchors = createNodeAnchors;
 	exports.findNewAnchor = findNewAnchor;
 }));
-//#endregion
-//#region node_modules/yaml/dist/doc/applyReviver.js
+// node_modules/yaml/dist/doc/applyReviver.js
 var require_applyReviver = /* @__PURE__ */ __commonJSMin(((exports) => {
 	/**
 	* Applies the JSON.parse reviver algorithm as defined in the ECMA-262 spec,
@@ -534,8 +529,7 @@ var require_applyReviver = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.applyReviver = applyReviver;
 }));
-//#endregion
-//#region node_modules/yaml/dist/nodes/toJS.js
+// node_modules/yaml/dist/nodes/toJS.js
 var require_toJS = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	/**
@@ -571,8 +565,7 @@ var require_toJS = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.toJS = toJS;
 }));
-//#endregion
-//#region node_modules/yaml/dist/nodes/Node.js
+// node_modules/yaml/dist/nodes/Node.js
 var require_Node = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var applyReviver = require_applyReviver();
 	var identity = require_identity();
@@ -605,8 +598,7 @@ var require_Node = /* @__PURE__ */ __commonJSMin(((exports) => {
 	};
 	exports.NodeBase = NodeBase;
 }));
-//#endregion
-//#region node_modules/yaml/dist/nodes/Alias.js
+// node_modules/yaml/dist/nodes/Alias.js
 var require_Alias = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var anchors = require_anchors();
 	var visit = require_visit();
@@ -699,8 +691,7 @@ var require_Alias = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.Alias = Alias;
 }));
-//#endregion
-//#region node_modules/yaml/dist/nodes/Scalar.js
+// node_modules/yaml/dist/nodes/Scalar.js
 var require_Scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var Node = require_Node();
@@ -726,8 +717,7 @@ var require_Scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.Scalar = Scalar;
 	exports.isScalarValue = isScalarValue;
 }));
-//#endregion
-//#region node_modules/yaml/dist/doc/createNode.js
+// node_modules/yaml/dist/doc/createNode.js
 var require_createNode = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Alias = require_Alias();
 	var identity = require_identity();
@@ -789,8 +779,7 @@ var require_createNode = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.createNode = createNode;
 }));
-//#endregion
-//#region node_modules/yaml/dist/nodes/Collection.js
+// node_modules/yaml/dist/nodes/Collection.js
 var require_Collection = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var createNode = require_createNode();
 	var identity = require_identity();
@@ -910,8 +899,7 @@ var require_Collection = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.collectionFromPath = collectionFromPath;
 	exports.isEmptyPath = isEmptyPath;
 }));
-//#endregion
-//#region node_modules/yaml/dist/stringify/stringifyComment.js
+// node_modules/yaml/dist/stringify/stringifyComment.js
 var require_stringifyComment = /* @__PURE__ */ __commonJSMin(((exports) => {
 	/**
 	* Stringifies a comment.
@@ -930,8 +918,7 @@ var require_stringifyComment = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.lineComment = lineComment;
 	exports.stringifyComment = stringifyComment;
 }));
-//#endregion
-//#region node_modules/yaml/dist/stringify/foldFlowLines.js
+// node_modules/yaml/dist/stringify/foldFlowLines.js
 var require_foldFlowLines = /* @__PURE__ */ __commonJSMin(((exports) => {
 	const FOLD_FLOW = "flow";
 	const FOLD_BLOCK = "block";
@@ -1050,8 +1037,7 @@ var require_foldFlowLines = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.FOLD_QUOTED = FOLD_QUOTED;
 	exports.foldFlowLines = foldFlowLines;
 }));
-//#endregion
-//#region node_modules/yaml/dist/stringify/stringifyString.js
+// node_modules/yaml/dist/stringify/stringifyString.js
 var require_stringifyString = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Scalar = require_Scalar();
 	var foldFlowLines = require_foldFlowLines();
@@ -1274,8 +1260,7 @@ var require_stringifyString = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.stringifyString = stringifyString;
 }));
-//#endregion
-//#region node_modules/yaml/dist/stringify/stringify.js
+// node_modules/yaml/dist/stringify/stringify.js
 var require_stringify = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var anchors = require_anchors();
 	var identity = require_identity();
@@ -1382,8 +1367,7 @@ var require_stringify = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.createStringifyContext = createStringifyContext;
 	exports.stringify = stringify;
 }));
-//#endregion
-//#region node_modules/yaml/dist/stringify/stringifyPair.js
+// node_modules/yaml/dist/stringify/stringifyPair.js
 var require_stringifyPair = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var Scalar = require_Scalar();
@@ -1479,24 +1463,22 @@ var require_stringifyPair = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.stringifyPair = stringifyPair;
 }));
-//#endregion
-//#region node_modules/yaml/dist/log.js
+// node_modules/yaml/dist/log.js
 var require_log = /* @__PURE__ */ __commonJSMin(((exports) => {
-	var node_process$2 = require("process");
+	var node_process = require("process");
 	function debug(logLevel, ...messages) {
 		if (logLevel === "debug") console.log(...messages);
 	}
 	function warn(logLevel, warning) {
 		if (logLevel === "debug" || logLevel === "warn") {
-			if (typeof node_process$2.emitWarning === "function") node_process$2.emitWarning(warning);
+			if (typeof node_process.emitWarning === "function") node_process.emitWarning(warning);
 			else console.warn(warning);
 		}
 	}
 	exports.debug = debug;
 	exports.warn = warn;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/yaml-1.1/merge.js
+// node_modules/yaml/dist/schema/yaml-1.1/merge.js
 var require_merge = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var Scalar = require_Scalar();
@@ -1538,8 +1520,7 @@ var require_merge = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.isMergeKey = isMergeKey;
 	exports.merge = merge;
 }));
-//#endregion
-//#region node_modules/yaml/dist/nodes/addPairToJSMap.js
+// node_modules/yaml/dist/nodes/addPairToJSMap.js
 var require_addPairToJSMap = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var log = require_log();
 	var merge = require_merge();
@@ -1589,8 +1570,7 @@ var require_addPairToJSMap = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.addPairToJSMap = addPairToJSMap;
 }));
-//#endregion
-//#region node_modules/yaml/dist/nodes/Pair.js
+// node_modules/yaml/dist/nodes/Pair.js
 var require_Pair = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var createNode = require_createNode();
 	var stringifyPair = require_stringifyPair();
@@ -1622,8 +1602,7 @@ var require_Pair = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.Pair = Pair;
 	exports.createPair = createPair;
 }));
-//#endregion
-//#region node_modules/yaml/dist/stringify/stringifyCollection.js
+// node_modules/yaml/dist/stringify/stringifyCollection.js
 var require_stringifyCollection = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var stringify = require_stringify();
@@ -1740,8 +1719,7 @@ var require_stringifyCollection = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.stringifyCollection = stringifyCollection;
 }));
-//#endregion
-//#region node_modules/yaml/dist/nodes/YAMLMap.js
+// node_modules/yaml/dist/nodes/YAMLMap.js
 var require_YAMLMap = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var stringifyCollection = require_stringifyCollection();
 	var addPairToJSMap = require_addPairToJSMap();
@@ -1849,8 +1827,7 @@ var require_YAMLMap = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.YAMLMap = YAMLMap;
 	exports.findPair = findPair;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/common/map.js
+// node_modules/yaml/dist/schema/common/map.js
 var require_map = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var YAMLMap = require_YAMLMap();
@@ -1866,8 +1843,7 @@ var require_map = /* @__PURE__ */ __commonJSMin(((exports) => {
 		createNode: (schema, obj, ctx) => YAMLMap.YAMLMap.from(schema, obj, ctx)
 	};
 }));
-//#endregion
-//#region node_modules/yaml/dist/nodes/YAMLSeq.js
+// node_modules/yaml/dist/nodes/YAMLSeq.js
 var require_YAMLSeq = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var createNode = require_createNode();
 	var stringifyCollection = require_stringifyCollection();
@@ -1972,8 +1948,7 @@ var require_YAMLSeq = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.YAMLSeq = YAMLSeq;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/common/seq.js
+// node_modules/yaml/dist/schema/common/seq.js
 var require_seq = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var YAMLSeq = require_YAMLSeq();
@@ -1989,8 +1964,7 @@ var require_seq = /* @__PURE__ */ __commonJSMin(((exports) => {
 		createNode: (schema, obj, ctx) => YAMLSeq.YAMLSeq.from(schema, obj, ctx)
 	};
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/common/string.js
+// node_modules/yaml/dist/schema/common/string.js
 var require_string = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var stringifyString = require_stringifyString();
 	exports.string = {
@@ -2004,8 +1978,7 @@ var require_string = /* @__PURE__ */ __commonJSMin(((exports) => {
 		}
 	};
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/common/null.js
+// node_modules/yaml/dist/schema/common/null.js
 var require_null = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Scalar = require_Scalar();
 	const nullTag = {
@@ -2019,8 +1992,7 @@ var require_null = /* @__PURE__ */ __commonJSMin(((exports) => {
 	};
 	exports.nullTag = nullTag;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/core/bool.js
+// node_modules/yaml/dist/schema/core/bool.js
 var require_bool$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Scalar = require_Scalar();
 	const boolTag = {
@@ -2038,8 +2010,7 @@ var require_bool$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	};
 	exports.boolTag = boolTag;
 }));
-//#endregion
-//#region node_modules/yaml/dist/stringify/stringifyNumber.js
+// node_modules/yaml/dist/stringify/stringifyNumber.js
 var require_stringifyNumber = /* @__PURE__ */ __commonJSMin(((exports) => {
 	function stringifyNumber({ format, minFractionDigits, tag, value }) {
 		if (typeof value === "bigint") return String(value);
@@ -2059,8 +2030,7 @@ var require_stringifyNumber = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.stringifyNumber = stringifyNumber;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/core/float.js
+// node_modules/yaml/dist/schema/core/float.js
 var require_float$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Scalar = require_Scalar();
 	var stringifyNumber = require_stringifyNumber();
@@ -2100,8 +2070,7 @@ var require_float$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.floatExp = floatExp;
 	exports.floatNaN = floatNaN;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/core/int.js
+// node_modules/yaml/dist/schema/core/int.js
 var require_int$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var stringifyNumber = require_stringifyNumber();
 	const intIdentify = (value) => typeof value === "bigint" || Number.isInteger(value);
@@ -2141,8 +2110,7 @@ var require_int$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.intHex = intHex;
 	exports.intOct = intOct;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/core/schema.js
+// node_modules/yaml/dist/schema/core/schema.js
 var require_schema$2 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var map = require_map();
 	var _null = require_null();
@@ -2165,8 +2133,7 @@ var require_schema$2 = /* @__PURE__ */ __commonJSMin(((exports) => {
 		float.float
 	];
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/json/schema.js
+// node_modules/yaml/dist/schema/json/schema.js
 var require_schema$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Scalar = require_Scalar();
 	var map = require_map();
@@ -2227,8 +2194,7 @@ var require_schema$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
 		}
 	});
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/yaml-1.1/binary.js
+// node_modules/yaml/dist/schema/yaml-1.1/binary.js
 var require_binary = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var node_buffer = require("buffer");
 	var Scalar = require_Scalar();
@@ -2283,8 +2249,7 @@ var require_binary = /* @__PURE__ */ __commonJSMin(((exports) => {
 		}
 	};
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/yaml-1.1/pairs.js
+// node_modules/yaml/dist/schema/yaml-1.1/pairs.js
 var require_pairs = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var Pair = require_Pair();
@@ -2344,8 +2309,7 @@ var require_pairs = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.pairs = pairs;
 	exports.resolvePairs = resolvePairs;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/yaml-1.1/omap.js
+// node_modules/yaml/dist/schema/yaml-1.1/omap.js
 var require_omap = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var toJS = require_toJS();
@@ -2409,8 +2373,7 @@ var require_omap = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.YAMLOMap = YAMLOMap;
 	exports.omap = omap;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/yaml-1.1/bool.js
+// node_modules/yaml/dist/schema/yaml-1.1/bool.js
 var require_bool = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Scalar = require_Scalar();
 	function boolStringify({ value, source }, ctx) {
@@ -2436,8 +2399,7 @@ var require_bool = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.falseTag = falseTag;
 	exports.trueTag = trueTag;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/yaml-1.1/float.js
+// node_modules/yaml/dist/schema/yaml-1.1/float.js
 var require_float = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Scalar = require_Scalar();
 	var stringifyNumber = require_stringifyNumber();
@@ -2480,8 +2442,7 @@ var require_float = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.floatExp = floatExp;
 	exports.floatNaN = floatNaN;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/yaml-1.1/int.js
+// node_modules/yaml/dist/schema/yaml-1.1/int.js
 var require_int = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var stringifyNumber = require_stringifyNumber();
 	const intIdentify = (value) => typeof value === "bigint" || Number.isInteger(value);
@@ -2553,8 +2514,7 @@ var require_int = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.intHex = intHex;
 	exports.intOct = intOct;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/yaml-1.1/set.js
+// node_modules/yaml/dist/schema/yaml-1.1/set.js
 var require_set = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var Pair = require_Pair();
@@ -2622,8 +2582,7 @@ var require_set = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.YAMLSet = YAMLSet;
 	exports.set = set;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/yaml-1.1/timestamp.js
+// node_modules/yaml/dist/schema/yaml-1.1/timestamp.js
 var require_timestamp = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var stringifyNumber = require_stringifyNumber();
 	/** Internal types handle bigint as number, because TS can't figure it out. */
@@ -2705,8 +2664,7 @@ var require_timestamp = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.intTime = intTime;
 	exports.timestamp = timestamp;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/yaml-1.1/schema.js
+// node_modules/yaml/dist/schema/yaml-1.1/schema.js
 var require_schema = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var map = require_map();
 	var _null = require_null();
@@ -2745,8 +2703,7 @@ var require_schema = /* @__PURE__ */ __commonJSMin(((exports) => {
 		timestamp.timestamp
 	];
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/tags.js
+// node_modules/yaml/dist/schema/tags.js
 var require_tags = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var map = require_map();
 	var _null = require_null();
@@ -2831,8 +2788,7 @@ var require_tags = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.coreKnownTags = coreKnownTags;
 	exports.getTags = getTags;
 }));
-//#endregion
-//#region node_modules/yaml/dist/schema/Schema.js
+// node_modules/yaml/dist/schema/Schema.js
 var require_Schema = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var map = require_map();
@@ -2859,8 +2815,7 @@ var require_Schema = /* @__PURE__ */ __commonJSMin(((exports) => {
 		}
 	};
 }));
-//#endregion
-//#region node_modules/yaml/dist/stringify/stringifyDocument.js
+// node_modules/yaml/dist/stringify/stringifyDocument.js
 var require_stringifyDocument = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var stringify = require_stringify();
@@ -2921,8 +2876,7 @@ var require_stringifyDocument = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.stringifyDocument = stringifyDocument;
 }));
-//#endregion
-//#region node_modules/yaml/dist/doc/Document.js
+// node_modules/yaml/dist/doc/Document.js
 var require_Document = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Alias = require_Alias();
 	var Collection = require_Collection();
@@ -3202,8 +3156,7 @@ var require_Document = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.Document = Document;
 }));
-//#endregion
-//#region node_modules/yaml/dist/errors.js
+// node_modules/yaml/dist/errors.js
 var require_errors = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var YAMLError = class extends Error {
 		constructor(name, pos, code, message) {
@@ -3255,8 +3208,7 @@ var require_errors = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.YAMLWarning = YAMLWarning;
 	exports.prettifyError = prettifyError;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/resolve-props.js
+// node_modules/yaml/dist/compose/resolve-props.js
 var require_resolve_props = /* @__PURE__ */ __commonJSMin(((exports) => {
 	function resolveProps(tokens, { flow, indicator, next, offset, onError, parentIndent, startOnNewline }) {
 		let spaceBefore = false;
@@ -3362,8 +3314,7 @@ var require_resolve_props = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.resolveProps = resolveProps;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/util-contains-newline.js
+// node_modules/yaml/dist/compose/util-contains-newline.js
 var require_util_contains_newline = /* @__PURE__ */ __commonJSMin(((exports) => {
 	function containsNewline(key) {
 		if (!key) return null;
@@ -3391,8 +3342,7 @@ var require_util_contains_newline = /* @__PURE__ */ __commonJSMin(((exports) => 
 	}
 	exports.containsNewline = containsNewline;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/util-flow-indent-check.js
+// node_modules/yaml/dist/compose/util-flow-indent-check.js
 var require_util_flow_indent_check = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var utilContainsNewline = require_util_contains_newline();
 	function flowIndentCheck(indent, fc, onError) {
@@ -3403,8 +3353,7 @@ var require_util_flow_indent_check = /* @__PURE__ */ __commonJSMin(((exports) =>
 	}
 	exports.flowIndentCheck = flowIndentCheck;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/util-map-includes.js
+// node_modules/yaml/dist/compose/util-map-includes.js
 var require_util_map_includes = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	function mapIncludes(ctx, items, search) {
@@ -3415,8 +3364,7 @@ var require_util_map_includes = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.mapIncludes = mapIncludes;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/resolve-block-map.js
+// node_modules/yaml/dist/compose/resolve-block-map.js
 var require_resolve_block_map = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Pair = require_Pair();
 	var YAMLMap = require_YAMLMap();
@@ -3503,8 +3451,7 @@ var require_resolve_block_map = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.resolveBlockMap = resolveBlockMap;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/resolve-block-seq.js
+// node_modules/yaml/dist/compose/resolve-block-seq.js
 var require_resolve_block_seq = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var YAMLSeq = require_YAMLSeq();
 	var resolveProps = require_resolve_props();
@@ -3548,8 +3495,7 @@ var require_resolve_block_seq = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.resolveBlockSeq = resolveBlockSeq;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/resolve-end.js
+// node_modules/yaml/dist/compose/resolve-end.js
 var require_resolve_end = /* @__PURE__ */ __commonJSMin(((exports) => {
 	function resolveEnd(end, offset, reqSpace, onError) {
 		let comment = "";
@@ -3586,8 +3532,7 @@ var require_resolve_end = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.resolveEnd = resolveEnd;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/resolve-flow-collection.js
+// node_modules/yaml/dist/compose/resolve-flow-collection.js
 var require_resolve_flow_collection = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var Pair = require_Pair();
@@ -3749,8 +3694,7 @@ var require_resolve_flow_collection = /* @__PURE__ */ __commonJSMin(((exports) =
 	}
 	exports.resolveFlowCollection = resolveFlowCollection;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/compose-collection.js
+// node_modules/yaml/dist/compose/compose-collection.js
 var require_compose_collection = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var Scalar = require_Scalar();
@@ -3801,8 +3745,7 @@ var require_compose_collection = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.composeCollection = composeCollection;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/resolve-block-scalar.js
+// node_modules/yaml/dist/compose/resolve-block-scalar.js
 var require_resolve_block_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Scalar = require_Scalar();
 	function resolveBlockScalar(ctx, scalar, onError) {
@@ -3978,8 +3921,7 @@ var require_resolve_block_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.resolveBlockScalar = resolveBlockScalar;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/resolve-flow-scalar.js
+// node_modules/yaml/dist/compose/resolve-flow-scalar.js
 var require_resolve_flow_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Scalar = require_Scalar();
 	var resolveEnd = require_resolve_end();
@@ -4182,8 +4124,7 @@ var require_resolve_flow_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.resolveFlowScalar = resolveFlowScalar;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/compose-scalar.js
+// node_modules/yaml/dist/compose/compose-scalar.js
 var require_compose_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var identity = require_identity();
 	var Scalar = require_Scalar();
@@ -4243,8 +4184,7 @@ var require_compose_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.composeScalar = composeScalar;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/util-empty-scalar-position.js
+// node_modules/yaml/dist/compose/util-empty-scalar-position.js
 var require_util_empty_scalar_position = /* @__PURE__ */ __commonJSMin(((exports) => {
 	function emptyScalarPosition(offset, before, pos) {
 		if (before) {
@@ -4270,8 +4210,7 @@ var require_util_empty_scalar_position = /* @__PURE__ */ __commonJSMin(((exports
 	}
 	exports.emptyScalarPosition = emptyScalarPosition;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/compose-node.js
+// node_modules/yaml/dist/compose/compose-node.js
 var require_compose_node = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Alias = require_Alias();
 	var identity = require_identity();
@@ -4361,8 +4300,7 @@ var require_compose_node = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.composeEmptyNode = composeEmptyNode;
 	exports.composeNode = composeNode;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/compose-doc.js
+// node_modules/yaml/dist/compose/compose-doc.js
 var require_compose_doc = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var Document = require_Document();
 	var composeNode = require_compose_node();
@@ -4403,10 +4341,9 @@ var require_compose_doc = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.composeDoc = composeDoc;
 }));
-//#endregion
-//#region node_modules/yaml/dist/compose/composer.js
+// node_modules/yaml/dist/compose/composer.js
 var require_composer = /* @__PURE__ */ __commonJSMin(((exports) => {
-	var node_process$1 = require("process");
+	var node_process = require("process");
 	var directives = require_directives();
 	var Document = require_Document();
 	var errors = require_errors();
@@ -4523,7 +4460,7 @@ var require_composer = /* @__PURE__ */ __commonJSMin(((exports) => {
 		}
 		/** Advance the composer by one CST token. */
 		*next(token) {
-			if (node_process$1.env.LOG_STREAM) console.dir(token, { depth: null });
+			if (node_process.env.LOG_STREAM) console.dir(token, { depth: null });
 			switch (token.type) {
 				case "directive":
 					this.directives.add(token.source, (offset, message, warning) => {
@@ -4601,8 +4538,7 @@ var require_composer = /* @__PURE__ */ __commonJSMin(((exports) => {
 	};
 	exports.Composer = Composer;
 }));
-//#endregion
-//#region node_modules/yaml/dist/parse/cst-scalar.js
+// node_modules/yaml/dist/parse/cst-scalar.js
 var require_cst_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var resolveBlockScalar = require_resolve_block_scalar();
 	var resolveFlowScalar = require_resolve_flow_scalar();
@@ -4868,8 +4804,7 @@ var require_cst_scalar = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.resolveAsScalar = resolveAsScalar;
 	exports.setScalarValue = setScalarValue;
 }));
-//#endregion
-//#region node_modules/yaml/dist/parse/cst-stringify.js
+// node_modules/yaml/dist/parse/cst-stringify.js
 var require_cst_stringify = /* @__PURE__ */ __commonJSMin(((exports) => {
 	/**
 	* Stringify a CST document, token, or collection item
@@ -4919,8 +4854,7 @@ var require_cst_stringify = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.stringify = stringify;
 }));
-//#endregion
-//#region node_modules/yaml/dist/parse/cst-visit.js
+// node_modules/yaml/dist/parse/cst-visit.js
 var require_cst_visit = /* @__PURE__ */ __commonJSMin(((exports) => {
 	const BREAK = Symbol("break visit");
 	const SKIP = Symbol("skip children");
@@ -5010,8 +4944,7 @@ var require_cst_visit = /* @__PURE__ */ __commonJSMin(((exports) => {
 	}
 	exports.visit = visit;
 }));
-//#endregion
-//#region node_modules/yaml/dist/parse/cst.js
+// node_modules/yaml/dist/parse/cst.js
 var require_cst = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var cstScalar = require_cst_scalar();
 	var cstStringify = require_cst_stringify();
@@ -5089,8 +5022,7 @@ var require_cst = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.prettyToken = prettyToken;
 	exports.tokenType = tokenType;
 }));
-//#endregion
-//#region node_modules/yaml/dist/parse/lexer.js
+// node_modules/yaml/dist/parse/lexer.js
 var require_lexer = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var cst = require_cst();
 	function isEmpty(ch) {
@@ -5622,8 +5554,7 @@ var require_lexer = /* @__PURE__ */ __commonJSMin(((exports) => {
 	};
 	exports.Lexer = Lexer;
 }));
-//#endregion
-//#region node_modules/yaml/dist/parse/line-counter.js
+// node_modules/yaml/dist/parse/line-counter.js
 var require_line_counter = /* @__PURE__ */ __commonJSMin(((exports) => {
 	/**
 	* Tracks newlines during parsing in order to provide an efficient API for
@@ -5669,8 +5600,7 @@ var require_line_counter = /* @__PURE__ */ __commonJSMin(((exports) => {
 	};
 	exports.LineCounter = LineCounter;
 }));
-//#endregion
-//#region node_modules/yaml/dist/parse/parser.js
+// node_modules/yaml/dist/parse/parser.js
 var require_parser = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var node_process = require("process");
 	var cst = require_cst();
@@ -6535,8 +6465,7 @@ var require_parser = /* @__PURE__ */ __commonJSMin(((exports) => {
 	};
 	exports.Parser = Parser;
 }));
-//#endregion
-//#region node_modules/yaml/dist/public-api.js
+// node_modules/yaml/dist/public-api.js
 var require_public_api = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var composer = require_composer();
 	var Document = require_Document();
@@ -6624,8 +6553,7 @@ var require_public_api = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.parseDocument = parseDocument;
 	exports.stringify = stringify;
 }));
-//#endregion
-//#region node_modules/yaml/dist/index.js
+// node_modules/yaml/dist/index.js
 var require_dist = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var composer = require_composer();
 	var Document = require_Document();
@@ -6672,8 +6600,7 @@ var require_dist = /* @__PURE__ */ __commonJSMin(((exports) => {
 	exports.visit = visit.visit;
 	exports.visitAsync = visit.visitAsync;
 }));
-//#endregion
-//#region node_modules/zod/v3/helpers/util.js
+// node_modules/zod/v3/helpers/util.js
 var util;
 (function(util) {
 	util.assertEqual = (_) => {};
@@ -6768,8 +6695,7 @@ const getParsedType = (data) => {
 		default: return ZodParsedType.unknown;
 	}
 };
-//#endregion
-//#region node_modules/zod/v3/ZodError.js
+// node_modules/zod/v3/ZodError.js
 const ZodIssueCode = util.arrayToEnum([
 	"invalid_type",
 	"invalid_literal",
@@ -6867,8 +6793,7 @@ var ZodError = class ZodError extends Error {
 ZodError.create = (issues) => {
 	return new ZodError(issues);
 };
-//#endregion
-//#region node_modules/zod/v3/locales/en.js
+// node_modules/zod/v3/locales/en.js
 const errorMap = (issue, _ctx) => {
 	let message;
 	switch (issue.code) {
@@ -6945,14 +6870,12 @@ const errorMap = (issue, _ctx) => {
 	}
 	return { message };
 };
-//#endregion
-//#region node_modules/zod/v3/errors.js
+// node_modules/zod/v3/errors.js
 let overrideErrorMap = errorMap;
 function getErrorMap() {
 	return overrideErrorMap;
 }
-//#endregion
-//#region node_modules/zod/v3/helpers/parseUtil.js
+// node_modules/zod/v3/helpers/parseUtil.js
 const makeIssue = (params) => {
 	const { data, path, errorMaps, issueData } = params;
 	const fullPath = [...path, ...issueData.path || []];
@@ -7055,15 +6978,13 @@ const isAborted = (x) => x.status === "aborted";
 const isDirty = (x) => x.status === "dirty";
 const isValid = (x) => x.status === "valid";
 const isAsync = (x) => typeof Promise !== "undefined" && x instanceof Promise;
-//#endregion
-//#region node_modules/zod/v3/helpers/errorUtil.js
+// node_modules/zod/v3/helpers/errorUtil.js
 var errorUtil;
 (function(errorUtil) {
 	errorUtil.errToObj = (message) => typeof message === "string" ? { message } : message || {};
 	errorUtil.toString = (message) => typeof message === "string" ? message : message?.message;
 })(errorUtil || (errorUtil = {}));
-//#endregion
-//#region node_modules/zod/v3/types.js
+// node_modules/zod/v3/types.js
 var ParseInputLazyPath = class {
 	constructor(parent, value, path, key) {
 		this._cachedPath = [];
@@ -10222,8 +10143,7 @@ ZodNullable.create;
 ZodEffects.createWithPreprocess;
 ZodPipeline.create;
 const NEVER = INVALID;
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/Options.js
+// node_modules/zod-to-json-schema/dist/esm/Options.js
 const ignoreOverride = Symbol("Let zodToJsonSchema decide on which parser to use");
 const defaultOptions = {
 	name: void 0,
@@ -10256,8 +10176,7 @@ const getDefaultOptions = (options) => typeof options === "string" ? {
 	...defaultOptions,
 	...options
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/Refs.js
+// node_modules/zod-to-json-schema/dist/esm/Refs.js
 const getRefs = (options) => {
 	const _options = getDefaultOptions(options);
 	const currentPath = _options.name !== void 0 ? [
@@ -10281,8 +10200,7 @@ const getRefs = (options) => {
 		}]))
 	};
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/errorMessages.js
+// node_modules/zod-to-json-schema/dist/esm/errorMessages.js
 function addErrorMessage(res, key, errorMessage, refs) {
 	if (!refs?.errorMessages) return;
 	if (errorMessage) res.errorMessage = {
@@ -10294,15 +10212,13 @@ function setResponseValueAndErrors(res, key, value, errorMessage, refs) {
 	res[key] = value;
 	addErrorMessage(res, key, errorMessage, refs);
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/getRelativePath.js
+// node_modules/zod-to-json-schema/dist/esm/getRelativePath.js
 const getRelativePath = (pathA, pathB) => {
 	let i = 0;
 	for (; i < pathA.length && i < pathB.length; i++) if (pathA[i] !== pathB[i]) break;
 	return [(pathA.length - i).toString(), ...pathB.slice(i)].join("/");
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/any.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/any.js
 function parseAnyDef(refs) {
 	if (refs.target !== "openAi") return {};
 	const anyDefinitionPath = [
@@ -10313,8 +10229,7 @@ function parseAnyDef(refs) {
 	refs.flags.hasReferencedOpenAiAnyType = true;
 	return { $ref: refs.$refStrategy === "relative" ? getRelativePath(anyDefinitionPath, refs.currentPath) : anyDefinitionPath.join("/") };
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/array.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/array.js
 function parseArrayDef(def, refs) {
 	const res = { type: "array" };
 	if (def.type?._def && def.type?._def?.typeName !== ZodFirstPartyTypeKind.ZodAny) res.items = parseDef(def.type._def, {
@@ -10329,8 +10244,7 @@ function parseArrayDef(def, refs) {
 	}
 	return res;
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/bigint.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/bigint.js
 function parseBigintDef(def, refs) {
 	const res = {
 		type: "integer",
@@ -10360,23 +10274,19 @@ function parseBigintDef(def, refs) {
 	}
 	return res;
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/boolean.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/boolean.js
 function parseBooleanDef() {
 	return { type: "boolean" };
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/branded.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/branded.js
 function parseBrandedDef(_def, refs) {
 	return parseDef(_def.type._def, refs);
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/catch.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/catch.js
 const parseCatchDef = (def, refs) => {
 	return parseDef(def.innerType._def, refs);
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/date.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/date.js
 function parseDateDef(def, refs, overrideDateStrategy) {
 	const strategy = overrideDateStrategy ?? refs.dateStrategy;
 	if (Array.isArray(strategy)) return { anyOf: strategy.map((item, i) => parseDateDef(def, refs, item)) };
@@ -10407,29 +10317,25 @@ const integerDateParser = (def, refs) => {
 	}
 	return res;
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/default.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/default.js
 function parseDefaultDef(_def, refs) {
 	return {
 		...parseDef(_def.innerType._def, refs),
 		default: _def.defaultValue()
 	};
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/effects.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/effects.js
 function parseEffectsDef(_def, refs) {
 	return refs.effectStrategy === "input" ? parseDef(_def.schema._def, refs) : parseAnyDef(refs);
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/enum.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/enum.js
 function parseEnumDef(def) {
 	return {
 		type: "string",
 		enum: Array.from(def.values)
 	};
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/intersection.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/intersection.js
 const isJsonSchema7AllOfType = (type) => {
 	if ("type" in type && type.type === "string") return false;
 	return "allOf" in type;
@@ -10470,8 +10376,7 @@ function parseIntersectionDef(def, refs) {
 		...unevaluatedProperties
 	} : void 0;
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/literal.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/literal.js
 function parseLiteralDef(def, refs) {
 	const parsedType = typeof def.value;
 	if (parsedType !== "bigint" && parsedType !== "number" && parsedType !== "boolean" && parsedType !== "string") return { type: Array.isArray(def.value) ? "array" : "object" };
@@ -10484,8 +10389,7 @@ function parseLiteralDef(def, refs) {
 		const: def.value
 	};
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/string.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/string.js
 let emojiRegex = void 0;
 /**
 * Generated from the regular expressions found here as of 2024-05-22:
@@ -10747,8 +10651,7 @@ function stringifyRegExpWithFlags(regex, refs) {
 	}
 	return pattern;
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/record.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/record.js
 function parseRecordDef(def, refs) {
 	if (refs.target === "openAi") console.warn("Warning: OpenAI may not support records in schemas! Try an array of key-value pairs instead.");
 	if (refs.target === "openApi3" && def.keyType?._def.typeName === ZodFirstPartyTypeKind.ZodEnum) return {
@@ -10794,8 +10697,7 @@ function parseRecordDef(def, refs) {
 	}
 	return schema;
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/map.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/map.js
 function parseMapDef(def, refs) {
 	if (refs.mapStrategy === "record") return parseRecordDef(def, refs);
 	return {
@@ -10825,8 +10727,7 @@ function parseMapDef(def, refs) {
 		}
 	};
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/nativeEnum.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/nativeEnum.js
 function parseNativeEnumDef(def) {
 	const object = def.values;
 	const actualValues = Object.keys(def.values).filter((key) => {
@@ -10838,24 +10739,21 @@ function parseNativeEnumDef(def) {
 		enum: actualValues
 	};
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/never.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/never.js
 function parseNeverDef(refs) {
 	return refs.target === "openAi" ? void 0 : { not: parseAnyDef({
 		...refs,
 		currentPath: [...refs.currentPath, "not"]
 	}) };
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/null.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/null.js
 function parseNullDef(refs) {
 	return refs.target === "openApi3" ? {
 		enum: ["null"],
 		nullable: true
 	} : { type: "null" };
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/union.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/union.js
 const primitiveMappings = {
 	ZodString: "string",
 	ZodNumber: "number",
@@ -10910,8 +10808,7 @@ const asAnyOf = (def, refs) => {
 	})).filter((x) => !!x && (!refs.strictUnions || typeof x === "object" && Object.keys(x).length > 0));
 	return anyOf.length ? { anyOf } : void 0;
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/nullable.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/nullable.js
 function parseNullableDef(def, refs) {
 	if ([
 		"ZodString",
@@ -10950,8 +10847,7 @@ function parseNullableDef(def, refs) {
 	});
 	return base && { anyOf: [base, { type: "null" }] };
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/number.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/number.js
 function parseNumberDef(def, refs) {
 	const res = { type: "number" };
 	if (!def.checks) return res;
@@ -10982,8 +10878,7 @@ function parseNumberDef(def, refs) {
 	}
 	return res;
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/object.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/object.js
 function parseObjectDef(def, refs) {
 	const forceOptionalIntoNullable = refs.target === "openAi";
 	const result = {
@@ -11041,8 +10936,7 @@ function safeIsOptional(schema) {
 		return true;
 	}
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/optional.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/optional.js
 const parseOptionalDef = (def, refs) => {
 	if (refs.currentPath.toString() === refs.propertyPath?.toString()) return parseDef(def.innerType._def, refs);
 	const innerSchema = parseDef(def.innerType._def, {
@@ -11055,8 +10949,7 @@ const parseOptionalDef = (def, refs) => {
 	});
 	return innerSchema ? { anyOf: [{ not: parseAnyDef(refs) }, innerSchema] } : parseAnyDef(refs);
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/pipeline.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/pipeline.js
 const parsePipelineDef = (def, refs) => {
 	if (refs.pipeStrategy === "input") return parseDef(def.in._def, refs);
 	else if (refs.pipeStrategy === "output") return parseDef(def.out._def, refs);
@@ -11077,13 +10970,11 @@ const parsePipelineDef = (def, refs) => {
 		]
 	})].filter((x) => x !== void 0) };
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/promise.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/promise.js
 function parsePromiseDef(def, refs) {
 	return parseDef(def.type._def, refs);
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/set.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/set.js
 function parseSetDef(def, refs) {
 	const schema = {
 		type: "array",
@@ -11097,8 +10988,7 @@ function parseSetDef(def, refs) {
 	if (def.maxSize) setResponseValueAndErrors(schema, "maxItems", def.maxSize.value, def.maxSize.message, refs);
 	return schema;
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/tuple.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/tuple.js
 function parseTupleDef(def, refs) {
 	if (def.rest) return {
 		type: "array",
@@ -11130,23 +11020,19 @@ function parseTupleDef(def, refs) {
 		})).reduce((acc, x) => x === void 0 ? acc : [...acc, x], [])
 	};
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/undefined.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/undefined.js
 function parseUndefinedDef(refs) {
 	return { not: parseAnyDef(refs) };
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/unknown.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/unknown.js
 function parseUnknownDef(refs) {
 	return parseAnyDef(refs);
 }
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parsers/readonly.js
+// node_modules/zod-to-json-schema/dist/esm/parsers/readonly.js
 const parseReadonlyDef = (def, refs) => {
 	return parseDef(def.innerType._def, refs);
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/selectParser.js
+// node_modules/zod-to-json-schema/dist/esm/selectParser.js
 const selectParser = (def, typeName, refs) => {
 	switch (typeName) {
 		case ZodFirstPartyTypeKind.ZodString: return parseStringDef(def, refs);
@@ -11188,8 +11074,7 @@ const selectParser = (def, typeName, refs) => {
 		default: return ((_) => void 0)(typeName);
 	}
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/parseDef.js
+// node_modules/zod-to-json-schema/dist/esm/parseDef.js
 function parseDef(def, refs, forceResolution = false) {
 	const seenItem = refs.seen.get(def);
 	if (refs.override) {
@@ -11237,8 +11122,7 @@ const addMeta = (def, refs, jsonSchema) => {
 	}
 	return jsonSchema;
 };
-//#endregion
-//#region node_modules/zod-to-json-schema/dist/esm/zodToJsonSchema.js
+// node_modules/zod-to-json-schema/dist/esm/zodToJsonSchema.js
 const zodToJsonSchema = (schema, options) => {
 	const refs = getRefs(options);
 	let definitions = typeof options === "object" && options.definitions ? Object.entries(options.definitions).reduce((acc, [name, schema]) => ({
@@ -11300,8 +11184,7 @@ const zodToJsonSchema = (schema, options) => {
 	if (refs.target === "openAi" && ("anyOf" in combined || "oneOf" in combined || "allOf" in combined || "type" in combined && Array.isArray(combined.type))) console.warn("Warning: OpenAI may not support schemas with unions as roots! Try wrapping it in an object property.");
 	return combined;
 };
-//#endregion
-//#region src/entry.ts
+// src/entry.ts
 var import_dist = require_dist();
 /** Ordered least to most severe; the order drives severity and version bumps. */
 const KINDS = [
@@ -11409,8 +11292,7 @@ function deriveConfidence(evidence) {
 function entryFromYaml(yaml) {
 	return entrySchema.parse((0, import_dist.parse)(yaml));
 }
-//#endregion
-//#region src/ledger/snapshot.ts
+// src/ledger/snapshot.ts
 /**
 * GitHub caps issue and PR bodies at 65536 characters.
 * Staying under it leaves headroom for surrounding prose and an oversize entry.
@@ -11475,8 +11357,7 @@ function parseSnapshot(body, comments = []) {
 	}
 	return entries;
 }
-//#endregion
-//#region src/render/release-body.ts
+// src/render/release-body.ts
 const GROUPS = [
 	{
 		id: "breaking",
@@ -11561,8 +11442,7 @@ function renderCredits(logins) {
 	if (unique.length === 0) return "";
 	return `### Contributors\n\n${unique.map((l) => `@${l}`).join(", ")}`;
 }
-//#endregion
-//#region node_modules/semver/internal/constants.js
+// node_modules/semver/internal/constants.js
 var require_constants = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = {
 		MAX_LENGTH: 256,
@@ -11584,13 +11464,11 @@ var require_constants = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		FLAG_LOOSE: 2
 	};
 }));
-//#endregion
-//#region node_modules/semver/internal/debug.js
+// node_modules/semver/internal/debug.js
 var require_debug = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = typeof process === "object" && process.env && process.env.NODE_DEBUG && /\bsemver\b/i.test(process.env.NODE_DEBUG) ? (...args) => console.error("SEMVER", ...args) : () => {};
 }));
-//#endregion
-//#region node_modules/semver/internal/re.js
+// node_modules/semver/internal/re.js
 var require_re = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const { MAX_SAFE_COMPONENT_LENGTH, MAX_SAFE_BUILD_LENGTH, MAX_LENGTH } = require_constants();
 	const debug = require_debug();
@@ -11668,8 +11546,7 @@ var require_re = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	createToken("GTE0", "^\\s*>=\\s*0\\.0\\.0\\s*$");
 	createToken("GTE0PRE", "^\\s*>=\\s*0\\.0\\.0-0\\s*$");
 }));
-//#endregion
-//#region node_modules/semver/internal/parse-options.js
+// node_modules/semver/internal/parse-options.js
 var require_parse_options = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const looseOption = Object.freeze({ loose: true });
 	const emptyOpts = Object.freeze({});
@@ -11680,8 +11557,7 @@ var require_parse_options = /* @__PURE__ */ __commonJSMin(((exports, module) => 
 	};
 	module.exports = parseOptions;
 }));
-//#endregion
-//#region node_modules/semver/internal/identifiers.js
+// node_modules/semver/internal/identifiers.js
 var require_identifiers = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const numeric = /^[0-9]+$/;
 	const compareIdentifiers = (a, b) => {
@@ -11700,8 +11576,7 @@ var require_identifiers = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		rcompareIdentifiers
 	};
 }));
-//#endregion
-//#region node_modules/semver/classes/semver.js
+// node_modules/semver/classes/semver.js
 var require_semver$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const debug = require_debug();
 	const { MAX_LENGTH, MAX_SAFE_INTEGER } = require_constants();
@@ -11886,8 +11761,7 @@ var require_semver$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		}
 	};
 }));
-//#endregion
-//#region node_modules/semver/functions/parse.js
+// node_modules/semver/functions/parse.js
 var require_parse = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const parse = (version, options, throwErrors = false) => {
@@ -11901,8 +11775,7 @@ var require_parse = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = parse;
 }));
-//#endregion
-//#region node_modules/semver/functions/valid.js
+// node_modules/semver/functions/valid.js
 var require_valid$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const parse = require_parse();
 	const valid = (version, options) => {
@@ -11911,8 +11784,7 @@ var require_valid$1 = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = valid;
 }));
-//#endregion
-//#region node_modules/semver/functions/clean.js
+// node_modules/semver/functions/clean.js
 var require_clean = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const parse = require_parse();
 	const clean = (version, options) => {
@@ -11921,8 +11793,7 @@ var require_clean = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = clean;
 }));
-//#endregion
-//#region node_modules/semver/functions/inc.js
+// node_modules/semver/functions/inc.js
 var require_inc = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const inc = (version, release, options, identifier, identifierBase) => {
@@ -11939,8 +11810,7 @@ var require_inc = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = inc;
 }));
-//#endregion
-//#region node_modules/semver/functions/diff.js
+// node_modules/semver/functions/diff.js
 var require_diff = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const parse = require_parse();
 	const diff = (version1, version2) => {
@@ -11967,29 +11837,25 @@ var require_diff = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = diff;
 }));
-//#endregion
-//#region node_modules/semver/functions/major.js
+// node_modules/semver/functions/major.js
 var require_major = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const major = (a, loose) => new SemVer(a, loose).major;
 	module.exports = major;
 }));
-//#endregion
-//#region node_modules/semver/functions/minor.js
+// node_modules/semver/functions/minor.js
 var require_minor = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const minor = (a, loose) => new SemVer(a, loose).minor;
 	module.exports = minor;
 }));
-//#endregion
-//#region node_modules/semver/functions/patch.js
+// node_modules/semver/functions/patch.js
 var require_patch = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const patch = (a, loose) => new SemVer(a, loose).patch;
 	module.exports = patch;
 }));
-//#endregion
-//#region node_modules/semver/functions/prerelease.js
+// node_modules/semver/functions/prerelease.js
 var require_prerelease = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const parse = require_parse();
 	const prerelease = (version, options) => {
@@ -11998,29 +11864,25 @@ var require_prerelease = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = prerelease;
 }));
-//#endregion
-//#region node_modules/semver/functions/compare.js
+// node_modules/semver/functions/compare.js
 var require_compare = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const compare = (a, b, loose) => new SemVer(a, loose).compare(new SemVer(b, loose));
 	module.exports = compare;
 }));
-//#endregion
-//#region node_modules/semver/functions/rcompare.js
+// node_modules/semver/functions/rcompare.js
 var require_rcompare = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const compare = require_compare();
 	const rcompare = (a, b, loose) => compare(b, a, loose);
 	module.exports = rcompare;
 }));
-//#endregion
-//#region node_modules/semver/functions/compare-loose.js
+// node_modules/semver/functions/compare-loose.js
 var require_compare_loose = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const compare = require_compare();
 	const compareLoose = (a, b) => compare(a, b, true);
 	module.exports = compareLoose;
 }));
-//#endregion
-//#region node_modules/semver/functions/compare-build.js
+// node_modules/semver/functions/compare-build.js
 var require_compare_build = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const compareBuild = (a, b, loose) => {
@@ -12030,64 +11892,55 @@ var require_compare_build = /* @__PURE__ */ __commonJSMin(((exports, module) => 
 	};
 	module.exports = compareBuild;
 }));
-//#endregion
-//#region node_modules/semver/functions/sort.js
+// node_modules/semver/functions/sort.js
 var require_sort = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const compareBuild = require_compare_build();
 	const sort = (list, loose) => list.sort((a, b) => compareBuild(a, b, loose));
 	module.exports = sort;
 }));
-//#endregion
-//#region node_modules/semver/functions/rsort.js
+// node_modules/semver/functions/rsort.js
 var require_rsort = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const compareBuild = require_compare_build();
 	const rsort = (list, loose) => list.sort((a, b) => compareBuild(b, a, loose));
 	module.exports = rsort;
 }));
-//#endregion
-//#region node_modules/semver/functions/gt.js
+// node_modules/semver/functions/gt.js
 var require_gt = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const compare = require_compare();
 	const gt = (a, b, loose) => compare(a, b, loose) > 0;
 	module.exports = gt;
 }));
-//#endregion
-//#region node_modules/semver/functions/lt.js
+// node_modules/semver/functions/lt.js
 var require_lt = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const compare = require_compare();
 	const lt = (a, b, loose) => compare(a, b, loose) < 0;
 	module.exports = lt;
 }));
-//#endregion
-//#region node_modules/semver/functions/eq.js
+// node_modules/semver/functions/eq.js
 var require_eq = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const compare = require_compare();
 	const eq = (a, b, loose) => compare(a, b, loose) === 0;
 	module.exports = eq;
 }));
-//#endregion
-//#region node_modules/semver/functions/neq.js
+// node_modules/semver/functions/neq.js
 var require_neq = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const compare = require_compare();
 	const neq = (a, b, loose) => compare(a, b, loose) !== 0;
 	module.exports = neq;
 }));
-//#endregion
-//#region node_modules/semver/functions/gte.js
+// node_modules/semver/functions/gte.js
 var require_gte = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const compare = require_compare();
 	const gte = (a, b, loose) => compare(a, b, loose) >= 0;
 	module.exports = gte;
 }));
-//#endregion
-//#region node_modules/semver/functions/lte.js
+// node_modules/semver/functions/lte.js
 var require_lte = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const compare = require_compare();
 	const lte = (a, b, loose) => compare(a, b, loose) <= 0;
 	module.exports = lte;
 }));
-//#endregion
-//#region node_modules/semver/functions/cmp.js
+// node_modules/semver/functions/cmp.js
 var require_cmp = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const eq = require_eq();
 	const neq = require_neq();
@@ -12118,8 +11971,7 @@ var require_cmp = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = cmp;
 }));
-//#endregion
-//#region node_modules/semver/functions/coerce.js
+// node_modules/semver/functions/coerce.js
 var require_coerce = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const parse = require_parse();
@@ -12150,8 +12002,7 @@ var require_coerce = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = coerce;
 }));
-//#endregion
-//#region node_modules/semver/functions/truncate.js
+// node_modules/semver/functions/truncate.js
 var require_truncate = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const parse = require_parse();
 	const constants = require_constants();
@@ -12182,8 +12033,7 @@ var require_truncate = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = truncate;
 }));
-//#endregion
-//#region node_modules/semver/internal/lrucache.js
+// node_modules/semver/internal/lrucache.js
 var require_lrucache = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	var LRUCache = class {
 		constructor() {
@@ -12215,8 +12065,7 @@ var require_lrucache = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = LRUCache;
 }));
-//#endregion
-//#region node_modules/semver/classes/range.js
+// node_modules/semver/classes/range.js
 var require_range = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SPACE_CHARACTERS = /\s+/g;
 	module.exports = class Range {
@@ -12498,8 +12347,7 @@ var require_range = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		return true;
 	};
 }));
-//#endregion
-//#region node_modules/semver/classes/comparator.js
+// node_modules/semver/classes/comparator.js
 var require_comparator = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const ANY = Symbol("SemVer ANY");
 	module.exports = class Comparator {
@@ -12570,8 +12418,7 @@ var require_comparator = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const Range = require_range();
 }));
-//#endregion
-//#region node_modules/semver/functions/satisfies.js
+// node_modules/semver/functions/satisfies.js
 var require_satisfies = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const Range = require_range();
 	const satisfies = (version, range, options) => {
@@ -12584,15 +12431,13 @@ var require_satisfies = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = satisfies;
 }));
-//#endregion
-//#region node_modules/semver/ranges/to-comparators.js
+// node_modules/semver/ranges/to-comparators.js
 var require_to_comparators = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const Range = require_range();
 	const toComparators = (range, options) => new Range(range, options).set.map((comp) => comp.map((c) => c.value).join(" ").trim().split(" "));
 	module.exports = toComparators;
 }));
-//#endregion
-//#region node_modules/semver/ranges/max-satisfying.js
+// node_modules/semver/ranges/max-satisfying.js
 var require_max_satisfying = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const Range = require_range();
@@ -12617,8 +12462,7 @@ var require_max_satisfying = /* @__PURE__ */ __commonJSMin(((exports, module) =>
 	};
 	module.exports = maxSatisfying;
 }));
-//#endregion
-//#region node_modules/semver/ranges/min-satisfying.js
+// node_modules/semver/ranges/min-satisfying.js
 var require_min_satisfying = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const Range = require_range();
@@ -12643,8 +12487,7 @@ var require_min_satisfying = /* @__PURE__ */ __commonJSMin(((exports, module) =>
 	};
 	module.exports = minSatisfying;
 }));
-//#endregion
-//#region node_modules/semver/ranges/min-version.js
+// node_modules/semver/ranges/min-version.js
 var require_min_version = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const Range = require_range();
@@ -12683,8 +12526,7 @@ var require_min_version = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = minVersion;
 }));
-//#endregion
-//#region node_modules/semver/ranges/valid.js
+// node_modules/semver/ranges/valid.js
 var require_valid = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const Range = require_range();
 	const validRange = (range, options) => {
@@ -12696,8 +12538,7 @@ var require_valid = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = validRange;
 }));
-//#endregion
-//#region node_modules/semver/ranges/outside.js
+// node_modules/semver/ranges/outside.js
 var require_outside = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const SemVer = require_semver$1();
 	const Comparator = require_comparator();
@@ -12749,22 +12590,19 @@ var require_outside = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = outside;
 }));
-//#endregion
-//#region node_modules/semver/ranges/gtr.js
+// node_modules/semver/ranges/gtr.js
 var require_gtr = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const outside = require_outside();
 	const gtr = (version, range, options) => outside(version, range, ">", options);
 	module.exports = gtr;
 }));
-//#endregion
-//#region node_modules/semver/ranges/ltr.js
+// node_modules/semver/ranges/ltr.js
 var require_ltr = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const outside = require_outside();
 	const ltr = (version, range, options) => outside(version, range, "<", options);
 	module.exports = ltr;
 }));
-//#endregion
-//#region node_modules/semver/ranges/intersects.js
+// node_modules/semver/ranges/intersects.js
 var require_intersects = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const Range = require_range();
 	const intersects = (r1, r2, options) => {
@@ -12774,8 +12612,7 @@ var require_intersects = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = intersects;
 }));
-//#endregion
-//#region node_modules/semver/ranges/simplify.js
+// node_modules/semver/ranges/simplify.js
 var require_simplify = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const satisfies = require_satisfies();
 	const compare = require_compare();
@@ -12804,8 +12641,7 @@ var require_simplify = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		return simplified.length < original.length ? simplified : range;
 	};
 }));
-//#endregion
-//#region node_modules/semver/ranges/subset.js
+// node_modules/semver/ranges/subset.js
 var require_subset = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const Range = require_range();
 	const Comparator = require_comparator();
@@ -12903,8 +12739,7 @@ var require_subset = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	};
 	module.exports = subset;
 }));
-//#endregion
-//#region node_modules/semver/index.js
+// node_modules/semver/index.js
 var require_semver = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	const internalRe = require_re();
 	const constants = require_constants();
@@ -12959,8 +12794,7 @@ var require_semver = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		rcompareIdentifiers: identifiers.rcompareIdentifiers
 	};
 }));
-//#endregion
-//#region src/version.ts
+// src/version.ts
 var import_semver = /* @__PURE__ */ __toESM(require_semver(), 1);
 const LEVEL_RANK = {
 	none: 0,
@@ -13041,7 +12875,6 @@ function computeBump(entries, current, options = {}) {
 		forced: false
 	};
 }
-//#endregion
 Object.defineProperty(exports, "KINDS", {
 	enumerable: true,
 	get: function() {

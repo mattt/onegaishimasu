@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_version = require("./version-Dp5IOXBI.cjs");
+const require_version = require("./version-CgwKwK8V.cjs");
 let node_fs = require("node:fs");
 let node_path = require("node:path");
-//#region src/ledger/files.ts
+// src/ledger/files.ts
 /** Read and validate every entry file in a directory, sorted by PR number. */
 function readEntryDir(dir) {
 	let names;
@@ -20,8 +20,7 @@ function readEntryDir(dir) {
 	}
 	return entries.sort((a, b) => a.pr - b.pr);
 }
-//#endregion
-//#region src/cli.ts
+// src/cli.ts
 function loadEntries(options) {
 	if (options.dir) return readEntryDir(options.dir);
 	if (options.body) return require_version.parseSnapshot((0, node_fs.readFileSync)(options.body, "utf8"));
@@ -88,6 +87,5 @@ async function main(argv) {
 if (/cli\.c?js$/.test(process.argv[1] ?? "")) main(process.argv.slice(2)).then((code) => {
 	process.exitCode = code;
 });
-//#endregion
 exports.main = main;
 exports.preview = preview;
