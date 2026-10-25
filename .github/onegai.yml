@@ -1,11 +1,12 @@
-# Onegaishimasu configuration. Every field is optional; defaults shown.
+# Onegaishimasu configuration. Every field is optional; defaults shown,
+# except `provider`, which this repository sets for its own releases.
 
 provider:
-  # copilot | openai | anthropic
-  type: copilot
-  # `auto` lets Copilot route to the best available model.
+  # copilot | openai | anthropic (default: copilot)
+  type: anthropic
+  # Copilot defaults to `auto`, which routes to the best available model.
   # BYO providers (openai, anthropic) require an exact model here.
-  model: auto
+  model: claude-opus-5-5
   # baseUrl: https://api.openai.com/v1   # point at any OpenAI-compatible gateway
 
 # Character budget for the sampled diff sent to the model.
