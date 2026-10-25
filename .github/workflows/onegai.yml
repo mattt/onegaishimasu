@@ -26,8 +26,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: ./ # replace with owner/onegaishimasu@v1 outside this repo
-        # env:
-        #   # BYO provider key, if not using the Copilot default.
-        #   PROVIDER_API_KEY: ${{ secrets.PROVIDER_API_KEY }}
         # with:
-        #   provider-api-key: ${{ env.PROVIDER_API_KEY }}
+        #   # BYO provider key, if not using the Copilot default.
+        #   provider-api-key: ${{ secrets.ONEGAI_PROVIDER_API_KEY }}
