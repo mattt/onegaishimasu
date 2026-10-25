@@ -8,6 +8,8 @@ describe("scaffold", () => {
     expect(config.provider.model).toBe("auto");
     expect(config.releaseBranch).toBe("onegai--release");
     expect(config.diffBudget).toBeGreaterThan(0);
+    expect(config.preOneZero.capBreakingAtMinor).toBe(true);
+    expect(config.render).toEqual({ announcement: false, credits: true });
   });
 
   it("parses a partial config over defaults", () => {

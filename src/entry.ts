@@ -1,6 +1,5 @@
 import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 import { z } from "zod";
-import { zodToJsonSchema } from "zod-to-json-schema";
 
 /** Bumped only on breaking ledger changes. */
 export const ENTRY_SCHEMA_VERSION = 1 as const;
@@ -91,10 +90,7 @@ export type Classification = z.infer<typeof classificationSchema>;
 
 /** JSON Schema for constrained decoding. */
 export function classificationJsonSchema(): Record<string, unknown> {
-  return zodToJsonSchema(classificationSchema, {
-    target: "jsonSchema7",
-    $refStrategy: "none",
-  }) as Record<string, unknown>;
+  return z.toJSONSchema(classificationSchema, { target: "draft-7" }) as Record<string, unknown>;
 }
 
 export function kindSeverity(kind: Kind): number {

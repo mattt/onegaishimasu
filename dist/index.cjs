@@ -1,5 +1,5 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_version$1 = require("./version-CgwKwK8V.cjs");
+const require_version$1 = require("./version-jSG3uYdD.cjs");
 let node_crypto = require("node:crypto");
 require("node:fs");
 let node_child_process = require("node:child_process");
@@ -19612,20 +19612,20 @@ var import_core = /* @__PURE__ */ require_version$1.__toESM(require_core(), 1);
 var import_github = /* @__PURE__ */ require_version$1.__toESM(require_github(), 1);
 var import_dist = require_version$1.require_dist();
 /** Configuration from `.github/onegai.yml`, with defaults applied. */
-const configSchema = require_version$1.objectType({
-	provider: require_version$1.objectType({
-		type: require_version$1.enumType([
+const configSchema = require_version$1.object({
+	provider: require_version$1.object({
+		type: require_version$1._enum([
 			"copilot",
 			"openai",
 			"anthropic"
 		]).default("copilot"),
-		model: require_version$1.stringType().optional(),
-		baseUrl: require_version$1.stringType().optional()
-	}).default({}).transform((provider, ctx) => {
+		model: require_version$1.string().optional(),
+		baseUrl: require_version$1.string().optional()
+	}).prefault({}).transform((provider, ctx) => {
 		const model = provider.model ?? (provider.type === "copilot" ? "auto" : void 0);
 		if (!model) {
 			ctx.addIssue({
-				code: require_version$1.ZodIssueCode.custom,
+				code: "custom",
 				message: `provider.model is required when provider.type is "${provider.type}"`
 			});
 			return require_version$1.NEVER;
@@ -19635,18 +19635,18 @@ const configSchema = require_version$1.objectType({
 			model
 		};
 	}),
-	diffBudget: require_version$1.numberType().int().positive().default(12e3),
-	preOneZero: require_version$1.objectType({ capBreakingAtMinor: require_version$1.booleanType().default(true) }).default({}),
-	render: require_version$1.objectType({
-		announcement: require_version$1.booleanType().default(false),
-		credits: require_version$1.booleanType().default(true)
-	}).default({}),
-	voicePath: require_version$1.stringType().optional(),
+	diffBudget: require_version$1.number().int().positive().default(12e3),
+	preOneZero: require_version$1.object({ capBreakingAtMinor: require_version$1.boolean().default(true) }).prefault({}),
+	render: require_version$1.object({
+		announcement: require_version$1.boolean().default(false),
+		credits: require_version$1.boolean().default(true)
+	}).prefault({}),
+	voicePath: require_version$1.string().optional(),
 	/** Comment the classified entry on the merged PR so the author can correct it. */
-	commentOnMerge: require_version$1.booleanType().default(true),
-	labels: require_version$1.recordType(require_version$1.stringType(), require_version$1.enumType(require_version$1.KINDS)).optional(),
-	releaseBranch: require_version$1.stringType().default("onegai--release"),
-	manifestFiles: require_version$1.arrayType(require_version$1.stringType()).default(["package.json", "package-lock.json"])
+	commentOnMerge: require_version$1.boolean().default(true),
+	labels: require_version$1.record(require_version$1.string(), require_version$1._enum(require_version$1.KINDS)).optional(),
+	releaseBranch: require_version$1.string().default("onegai--release"),
+	manifestFiles: require_version$1.array(require_version$1.string()).default(["package.json", "package-lock.json"])
 });
 /** Parse config from YAML text, applying defaults. */
 function parseConfig(text) {
