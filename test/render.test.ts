@@ -67,10 +67,17 @@ describe("release body", () => {
     expect(sections[0]!.markdown).toContain("Rename foo to bar.");
   });
 
-  it("collapses dependency bumps to one line", () => {
+  it("lists a few dependency updates as bullets", () => {
     const sections = buildSections([entry(1, "deps"), entry(2, "deps")]);
     const deps = sections.find((s) => s.id === "deps")!;
-    expect(deps.markdown).toContain("2 dependency update(s)");
+    expect(deps.markdown.split("\n")).toHaveLength(2);
+  });
+
+  it("collapses many dependency updates to one line", () => {
+    const sections = buildSections([1, 2, 3, 4].map((n) => entry(n, "deps")));
+    const deps = sections.find((s) => s.id === "deps")!;
+    expect(deps.markdown).toMatch(/^- 4 dependency updates: /);
+    expect(deps.markdown).not.toContain("\n");
   });
 
   it("renders a placeholder when nothing is user-facing", () => {

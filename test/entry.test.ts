@@ -138,3 +138,13 @@ describe("yaml round-trip", () => {
     expect(entryFromYaml(entryToYaml(entry))).toEqual(entry);
   });
 });
+
+describe("confidence from Release-As", () => {
+  it("does not count a version override as evidence for the kind", () => {
+    const result = deriveConfidence([
+      { source: "release-as", detail: "Release-As: 0.1.0" },
+      { source: "model", detail: "x", impliedKind: "fix" },
+    ]);
+    expect(result.confidence).toBe("medium");
+  });
+});

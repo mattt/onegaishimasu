@@ -45,7 +45,7 @@ function renderWarnings(warnings: BumpWarning[], firstBatch: boolean): string {
   const lines: string[] = ["> [!WARNING]"];
   if (firstBatch) {
     lines.push(
-      "> Some entries were classified in the first run, before anyone could review them while context was fresh. Check them carefully.",
+      "> This is the first release, so most entries were classified without a comment on their PR. Check each one below, and correct it with a `/onegai` command on its PR.",
     );
   }
   for (const w of warnings) {
@@ -69,7 +69,7 @@ function renderReasoning(bump: BumpResult): string {
     return "No release-worthy changes yet.";
   }
   const header = bump.forced
-    ? `Proposed version: **${bump.current} → ${bump.next}** (forced by Release-As)`
+    ? `Proposed version: **${bump.current} → ${bump.next}** (set by \`Release-As\` in #${bump.forcedBy})`
     : `Proposed version: **${bump.current} → ${bump.next}** (${bump.level})`;
   const causes = bump.reasons.map((r) => `- #${r.pr} ${r.kind} (${r.level})`);
   return causes.length > 0 ? `${header}\n\nCaused by:\n${causes.join("\n")}` : header;

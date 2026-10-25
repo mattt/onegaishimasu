@@ -135,7 +135,7 @@ describe("provenance and no-provider", () => {
     const entry = await classify(pr({ title: "feat: x" }), {
       provider: fakeProvider(featureOutput),
     });
-    expect(entry.provenance).toEqual({ model: "fake-1", promptVersion: "1" });
+    expect(entry.provenance).toEqual({ model: "fake-1", promptVersion: "2" });
   });
 
   it("works deterministically with no provider at all", async () => {

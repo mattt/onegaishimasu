@@ -51,8 +51,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: owner/onegaishimasu@v1
+      - uses: mattt/onegaishimasu@v0.1.0
 ```
+
+Pin a release tag or a commit SHA.
+This workflow uses the Copilot default;
+it also needs the Copilot CLI step and token in [Providers](#providers).
 
 The `push` trigger detects a merged release PR and publishes the release.
 The `pull_request` and `issue_comment` triggers classify merges and accept corrections.
@@ -72,7 +76,7 @@ so install it before the action and pass it the token:
 ```yaml
 - uses: actions/checkout@v7
 - run: npm install -g @github/copilot
-- uses: owner/onegaishimasu@v1
+- uses: mattt/onegaishimasu@v0.1.0
   env:
     GITHUB_TOKEN: ${{ github.token }}
 ```
@@ -90,7 +94,7 @@ provider:
 ```
 
 ```yaml
-- uses: owner/onegaishimasu@v1
+- uses: mattt/onegaishimasu@v0.1.0
   with:
     provider-api-key: ${{ secrets.ONEGAI_PROVIDER_API_KEY }}
 ```
@@ -138,20 +142,20 @@ onegai preview --body saved-release-pr-body.md --current 1.2.0
 Configure in `.github/onegai.yml`.
 Every field is optional; see [.github/onegai.yml](.github/onegai.yml) for the annotated defaults.
 
-| Field                           | Default                             | Meaning                                 |
-| ------------------------------- | ----------------------------------- | --------------------------------------- |
-| `provider.type`                 | `copilot`                           | `copilot`, `openai`, or `anthropic`     |
-| `provider.model`                | `auto` (Copilot)                    | Required for `openai` and `anthropic`   |
-| `provider.baseUrl`              | —                                   | OpenAI-compatible gateway URL           |
-| `diffBudget`                    | `12000`                             | Character budget for the sampled diff   |
-| `preOneZero.capBreakingAtMinor` | `true`                              | Cap breaking at minor before 1.0.0      |
-| `render.announcement`           | `false`                             | Announcement draft for minor/major      |
-| `render.credits`                | `true`                              | Contributor credits in the release body |
-| `commentOnMerge`                | `true`                              | Comment the entry on the merged PR      |
-| `releaseBranch`                 | `onegai--release`                   | Branch carrying staged changes          |
-| `manifestFiles`                 | `[package.json, package-lock.json]` | Manifests to bump                       |
-| `voicePath`                     | —                                   | House-style instructions file           |
-| `labels`                        | —                                   | Map repository labels to kinds          |
+| Field                           | Default                             | Meaning                                  |
+| ------------------------------- | ----------------------------------- | ---------------------------------------- |
+| `provider.type`                 | `copilot`                           | `copilot`, `openai`, or `anthropic`      |
+| `provider.model`                | `auto` (Copilot)                    | Required for `openai` and `anthropic`    |
+| `provider.baseUrl`              | —                                   | OpenAI-compatible gateway URL            |
+| `diffBudget`                    | `12000`                             | Character budget for the sampled diff    |
+| `preOneZero.capBreakingAtMinor` | `true`                              | Cap breaking at minor before 1.0.0       |
+| `render.announcement`           | `false`                             | Announcement draft for minor/major       |
+| `render.credits`                | `true`                              | Contributor credits (not yet wired in)   |
+| `commentOnMerge`                | `true`                              | Comment the entry on the merged PR       |
+| `releaseBranch`                 | `onegai--release`                   | Branch carrying staged changes           |
+| `manifestFiles`                 | `[package.json, package-lock.json]` | Manifests to bump                        |
+| `voicePath`                     | —                                   | House style for notes (not yet wired in) |
+| `labels`                        | —                                   | Map repository labels to kinds           |
 
 ## The ledger
 

@@ -50,16 +50,18 @@ export interface BumpResult {
   warnings: BumpWarning[];
   /** Set when a `Release-As` footer forced an exact version. */
   forced: boolean;
+  /** The PR whose `Release-As` footer set the version, when one did. */
+  forcedBy?: number;
 }
 
-function readReleaseAs(entries: Entry[]): string | null {
-  let best: string | null = null;
+function readReleaseAs(entries: Entry[]): { version: string; pr: number } | null {
+  let best: { version: string; pr: number } | null = null;
   for (const entry of entries) {
     for (const ev of entry.evidence) {
       if (ev.source !== "release-as") continue;
       const version = ev.detail.replace(/^Release-As:\s*v?/i, "").trim();
-      if (semver.valid(version) && (best === null || semver.gt(version, best))) {
-        best = version;
+      if (semver.valid(version) && (best === null || semver.gt(version, best.version))) {
+        best = { version, pr: entry.pr };
       }
     }
   }
@@ -102,15 +104,16 @@ export function computeBump(
     if (entry.conflict) warnings.push({ type: "conflict", pr: entry.pr });
   }
 
-  const forcedVersion = readReleaseAs(entries);
-  if (forcedVersion) {
+  const forced = readReleaseAs(entries);
+  if (forced) {
     return {
       current: normalizedCurrent,
-      next: forcedVersion,
+      next: forced.version,
       level,
       reasons,
       warnings,
       forced: true,
+      forcedBy: forced.pr,
     };
   }
 

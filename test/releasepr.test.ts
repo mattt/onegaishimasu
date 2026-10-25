@@ -84,7 +84,7 @@ describe("regenerate", () => {
       manifestFiles,
       date: "2026-08-11",
     });
-    expect(result.body).toContain("first run");
+    expect(result.body).toContain("first release");
   });
 
   it("reports no release when only docs and internal changes exist", () => {

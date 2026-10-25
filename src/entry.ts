@@ -118,7 +118,10 @@ export interface ConfidenceResult {
  * Conflict is flagged when the evidence implies more than one kind.
  */
 export function deriveConfidence(evidence: Evidence[]): ConfidenceResult {
-  const hasDeterministic = evidence.some((e) => isDeterministicSource(e.source));
+  // `Release-As` sets the version, not the kind, so it says nothing about the classification.
+  const hasDeterministic = evidence.some(
+    (e) => isDeterministicSource(e.source) && e.source !== "release-as",
+  );
   const hasModel = evidence.some((e) => e.source === "model");
 
   const impliedKinds = new Set(

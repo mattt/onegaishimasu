@@ -45,14 +45,14 @@ export function buildSections(entries: Entry[]): Section[] {
     sections.push({ id: group.id, title: group.title, markdown });
   }
 
+  // A few dependency updates read best as bullets; many collapse to one line.
   const deps = entries.filter((e) => e.kind === "deps");
   if (deps.length > 0) {
-    const list = deps.map((e) => `${e.summary} (#${e.pr})`).join("; ");
-    sections.push({
-      id: "deps",
-      title: "Dependencies",
-      markdown: `- ${deps.length} dependency update(s): ${list}`,
-    });
+    const markdown =
+      deps.length <= 3
+        ? deps.map((e) => `- ${e.summary} (#${e.pr})`).join("\n")
+        : `- ${deps.length} dependency updates: ${deps.map((e) => `${e.summary} (#${e.pr})`).join("; ")}`;
+    sections.push({ id: "deps", title: "Dependencies", markdown });
   }
 
   return sections;

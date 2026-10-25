@@ -452,6 +452,21 @@ describe("extractReleaseNotes", () => {
       "## Release 1.0.0\n\n## Release notes\n\n### Features\n\n- a\n\n<details>\nledger\n</details>";
     expect(extractReleaseNotes(body)).toBe("### Features\n\n- a");
   });
+
+  it("drops the section markers", () => {
+    const body = [
+      "## Release notes",
+      "",
+      "<!-- onegai:section id=fixes hash=abc123 -->",
+      "### Bug fixes",
+      "",
+      "- b",
+      "<!-- /onegai:section id=fixes -->",
+      "",
+      "<details>",
+    ].join("\n");
+    expect(extractReleaseNotes(body)).toBe("### Bug fixes\n\n- b");
+  });
 });
 
 // Helper: serialize one entry into a ledger snapshot chunk for fixtures.
