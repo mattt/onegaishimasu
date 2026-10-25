@@ -42,6 +42,7 @@ interface FakeState {
   mergedReleasePr: MergedReleasePr | null;
   releases: { version: string; notes: string; target: string }[];
   existingTags: Set<string>;
+  manifestVersions: Record<string, string>;
 }
 
 function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; state: FakeState } {
@@ -54,6 +55,7 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
     mergedReleasePr: null,
     releases: [],
     existingTags: new Set(),
+    manifestVersions: {},
     ...state,
   };
 
@@ -66,6 +68,9 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
     },
     async getCurrentVersion() {
       return "1.2.0";
+    },
+    async getManifestVersion(_path: string, ref: string) {
+      return s.manifestVersions[ref] ?? null;
     },
     async getManifestFiles() {
       return [
@@ -318,6 +323,15 @@ describe("handlePush", () => {
     expect(state.releases).toEqual([
       { version: "1.3.0", notes: "### Features\n\n- thing", target: "def" },
     ]);
+  });
+
+  it("tags the version in the merged manifest, not an edited title", async () => {
+    const { client, state } = makeClient({
+      mergedReleasePr: { number: 999, version: "0.2.0", body: "x", mergeSha: "def" },
+      manifestVersions: { def: "0.1.0" },
+    });
+    await handlePush(client, { configPath: ".github/onegai.yml" });
+    expect(state.releases.map((r) => r.version)).toEqual(["0.1.0"]);
   });
 
   it("is idempotent when the tag already exists", async () => {

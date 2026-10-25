@@ -191,8 +191,14 @@ export async function handlePush(client: GitHubClient, ctx: HandlerContext): Pro
   const config = await client.getConfig(ctx.configPath);
   const merged = await client.getMergedReleasePr(config.releaseBranch);
   if (!merged) return;
-  if (await client.tagExists(merged.version)) return;
+
+  // The merged manifest is what ships, so it decides the tag.
+  // The PR title is only a fallback, because a person can edit it.
+  const manifestPath = config.manifestFiles[0] ?? "package.json";
+  const version =
+    (await client.getManifestVersion(manifestPath, merged.mergeSha)) ?? merged.version;
+  if (await client.tagExists(version)) return;
 
   const notes = extractReleaseNotes(merged.body);
-  await client.tagAndRelease(merged.version, notes, merged.mergeSha);
+  await client.tagAndRelease(version, notes, merged.mergeSha);
 }

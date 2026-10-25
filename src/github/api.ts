@@ -43,6 +43,8 @@ export interface GitHubClient {
   getConfig(configPath: string): Promise<Config>;
   getDefaultBranch(): Promise<string>;
   getCurrentVersion(manifestPath: string): Promise<string>;
+  /** The `version` field of a JSON manifest at a ref, or null when it has none. */
+  getManifestVersion(manifestPath: string, ref: string): Promise<string | null>;
   getManifestFiles(paths: string[]): Promise<ManifestFile[]>;
   getChangelog(): Promise<string | null>;
   findReleasePr(branch: string): Promise<ReleasePr | null>;
@@ -114,6 +116,16 @@ export class OctokitClient implements GitHubClient {
     }
     const tag = await this.latestTag();
     return (tag ?? "0.0.0").replace(/^v/, "");
+  }
+
+  async getManifestVersion(manifestPath: string, ref: string): Promise<string | null> {
+    const content = await this.getContent(manifestPath, ref);
+    if (!content) return null;
+    try {
+      return (JSON.parse(content) as { version?: string }).version ?? null;
+    } catch {
+      return null;
+    }
   }
 
   async getManifestFiles(paths: string[]): Promise<ManifestFile[]> {

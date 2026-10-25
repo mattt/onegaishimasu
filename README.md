@@ -105,6 +105,11 @@ There are two ways to correct an entry, and neither goes through a model:
 
 Commands are limited to the PR author and users with write access.
 
+To choose the next version yourself,
+add a `Release-As: 1.0.0` line to the body of a PR before it merges.
+The release PR then proposes exactly that version.
+When several unreleased PRs carry one, the highest version wins.
+
 ## CLI
 
 Preview a release from the ledger without writing anything:
