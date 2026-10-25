@@ -304,6 +304,54 @@ describe("release cycles", () => {
     expect(footer).not.toContain("\n");
   });
 
+  const revertPrs = {
+    41: {
+      mergeSha: "a41",
+      headRef: "feature",
+      input: { number: 41, title: "feat: add retry", body: "", author: "octocat", labels: [] },
+    },
+    42: {
+      mergeSha: "a42",
+      headRef: "revert-41",
+      input: {
+        number: 42,
+        title: 'Revert "feat: add retry"',
+        body: "Reverts #41",
+        author: "octocat",
+        labels: [],
+      },
+    },
+  };
+
+  function expectCancelled(upsert: UpsertInput) {
+    const entries = parseSnapshot(upsert.body);
+    expect(entries.map((e) => [e.pr, e.kind])).toEqual([
+      [41, "internal"],
+      [42, "internal"],
+    ]);
+    expect(upsert.title).toBe("chore: release 1.2.0");
+    expect(extractReleaseNotes(upsert.body)).toContain("No user-facing changes");
+    const changelog = upsert.files.find((f) => f.path === "CHANGELOG.md")!.content;
+    expect(changelog).not.toContain("#41");
+  }
+
+  it("cancels an unreleased PR and its revert", async () => {
+    const feature = entry(41, { kind: "feature" });
+    const releaseBody = `body\n<details>\n${serialize(feature)}\n</details>`;
+    const { client, state } = makeClient({
+      releasePr: { number: 999, body: releaseBody, comments: [] },
+      mergedPrs: revertPrs,
+    });
+    await handlePullRequestMerged(client, ctx, 42);
+    expectCancelled(state.upserts.at(-1)!);
+  });
+
+  it("cancels an unreleased PR and its revert on a rebuild", async () => {
+    const { client, state } = makeClient({ mergedSinceTag: [41, 42], mergedPrs: revertPrs });
+    await handleRebuild(client, ctx);
+    expectCancelled(state.upserts.at(-1)!);
+  });
+
   it("does nothing on a rebuild with no merges and no release PR", async () => {
     const warnings: string[] = [];
     const { client, state } = makeClient();

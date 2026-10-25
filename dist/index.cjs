@@ -20260,6 +20260,38 @@ function revertSignals(pr) {
 		}]
 	};
 }
+const REVERTS_DETAIL_RE = /^reverts #(?<pr>\d+)$/;
+/**
+* A revert of an unreleased PR cancels both: the classifier already marks the revert `internal`,
+* and this marks its target `internal` too, so neither reaches the notes or the version.
+* A target whose kind a person pinned keeps it.
+*/
+function cancelReverts(entries) {
+	const targets = /* @__PURE__ */ new Map();
+	for (const entry of entries) {
+		if (entry.kind !== "internal") continue;
+		for (const ev of entry.evidence) {
+			const match = ev.source === "revert" ? ev.detail.match(REVERTS_DETAIL_RE) : null;
+			if (match?.groups?.pr) targets.set(Number(match.groups.pr), entry.pr);
+		}
+	}
+	if (targets.size === 0) return entries;
+	return entries.map((entry) => {
+		const revertedBy = targets.get(entry.pr);
+		if (revertedBy === void 0 || entry.pinned.includes("kind")) return entry;
+		const detail = `reverted by #${revertedBy}`;
+		if (entry.kind === "internal" && entry.evidence.some((e) => e.detail === detail)) return entry;
+		return {
+			...entry,
+			kind: "internal",
+			evidence: [...entry.evidence, {
+				source: "revert",
+				detail,
+				impliedKind: "internal"
+			}]
+		};
+	});
+}
 // src/classify/classifier.ts
 function buildEntry(params) {
 	const { confidence, conflict } = require_version$1.deriveConfidence(params.evidence);
@@ -23291,13 +23323,14 @@ function renderReasoning(bump) {
 */
 function regenerate(input) {
 	const date = input.date ?? today();
-	const bump = require_version$1.computeBump(input.entries, input.currentVersion, { capBreakingBeforeMajor1: input.options?.capBreakingBeforeMajor1 });
+	const entries = cancelReverts(input.entries);
+	const bump = require_version$1.computeBump(entries, input.currentVersion, { capBreakingBeforeMajor1: input.options?.capBreakingBeforeMajor1 });
 	const hasRelease = bump.forced || bump.level !== "none";
-	const firstBatch = input.entries.some((e) => e.firstBatch);
-	const merged = mergeSections(require_version$1.buildSections(input.entries), input.existingBody ?? "");
+	const firstBatch = entries.some((e) => e.firstBatch);
+	const merged = mergeSections(require_version$1.buildSections(entries), input.existingBody ?? "");
 	const credits = input.options?.credits !== false ? require_version$1.renderCredits(input.contributors ?? []) : "";
-	const announcement = input.options?.announcement && (bump.level === "minor" || bump.level === "major") ? `<details>\n<summary>Announcement draft</summary>\n\n${require_version$1.renderAnnouncement(bump.next, input.entries)}\n</details>` : "";
-	const [ledgerHead, ...overflow] = require_version$1.serializeSnapshot(input.entries);
+	const announcement = input.options?.announcement && (bump.level === "minor" || bump.level === "major") ? `<details>\n<summary>Announcement draft</summary>\n\n${require_version$1.renderAnnouncement(bump.next, entries)}\n</details>` : "";
+	const [ledgerHead, ...overflow] = require_version$1.serializeSnapshot(entries);
 	const bodyParts = [
 		`## Release ${bump.next}`,
 		renderReasoning(bump),
@@ -23308,7 +23341,7 @@ function regenerate(input) {
 		announcement,
 		`<details>\n<summary>Onegaishimasu ledger</summary>\n\n${ledgerHead ?? ""}\n</details>`
 	].filter((p) => p.trim().length > 0);
-	const changelogSection = renderChangelogSection(bump.next, date, input.entries);
+	const changelogSection = renderChangelogSection(bump.next, date, entries);
 	const changelog = updateChangelog(input.existingChangelog ?? null, changelogSection);
 	const manifests = hasRelease ? updateManifests(input.manifestFiles, bump.next) : input.manifestFiles;
 	return {

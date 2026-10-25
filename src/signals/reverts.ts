@@ -1,4 +1,4 @@
-import type { Evidence } from "../entry.js";
+import type { Entry, Evidence } from "../entry.js";
 import type { PullRequestInput } from "../pr.js";
 
 const REVERT_TITLE_RE = /^Revert\s+"?/i;
@@ -34,4 +34,35 @@ export function revertSignals(pr: PullRequestInput): RevertResult {
       },
     ],
   };
+}
+
+const REVERTS_DETAIL_RE = /^reverts #(?<pr>\d+)$/;
+
+/**
+ * A revert of an unreleased PR cancels both: the classifier already marks the revert `internal`,
+ * and this marks its target `internal` too, so neither reaches the notes or the version.
+ * A target whose kind a person pinned keeps it.
+ */
+export function cancelReverts(entries: Entry[]): Entry[] {
+  const targets = new Map<number, number>();
+  for (const entry of entries) {
+    if (entry.kind !== "internal") continue;
+    for (const ev of entry.evidence) {
+      const match = ev.source === "revert" ? ev.detail.match(REVERTS_DETAIL_RE) : null;
+      if (match?.groups?.pr) targets.set(Number(match.groups.pr), entry.pr);
+    }
+  }
+  if (targets.size === 0) return entries;
+
+  return entries.map((entry) => {
+    const revertedBy = targets.get(entry.pr);
+    if (revertedBy === undefined || entry.pinned.includes("kind")) return entry;
+    const detail = `reverted by #${revertedBy}`;
+    if (entry.kind === "internal" && entry.evidence.some((e) => e.detail === detail)) return entry;
+    return {
+      ...entry,
+      kind: "internal",
+      evidence: [...entry.evidence, { source: "revert", detail, impliedKind: "internal" }],
+    };
+  });
 }

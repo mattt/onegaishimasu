@@ -1,5 +1,6 @@
 import type { Entry } from "../entry.js";
 import { serializeSnapshot } from "../ledger/snapshot.js";
+import { cancelReverts } from "../signals/reverts.js";
 import { renderChangelogSection, updateChangelog } from "../render/changelog.js";
 import { buildSections, renderAnnouncement, renderCredits } from "../render/release-body.js";
 import { mergeSections } from "../render/sections.js";
@@ -82,24 +83,25 @@ function renderReasoning(bump: BumpResult): string {
  */
 export function regenerate(input: RegenerateInput): RegenerationResult {
   const date = input.date ?? today();
-  const bump = computeBump(input.entries, input.currentVersion, {
+  const entries = cancelReverts(input.entries);
+  const bump = computeBump(entries, input.currentVersion, {
     capBreakingBeforeMajor1: input.options?.capBreakingBeforeMajor1,
   });
 
   const hasRelease = bump.forced || bump.level !== "none";
-  const firstBatch = input.entries.some((e) => e.firstBatch);
+  const firstBatch = entries.some((e) => e.firstBatch);
 
   // Notes prose, preserving human-edited sections.
-  const sections = buildSections(input.entries);
+  const sections = buildSections(entries);
   const merged = mergeSections(sections, input.existingBody ?? "");
   const credits = input.options?.credits !== false ? renderCredits(input.contributors ?? []) : "";
   const announcement =
     input.options?.announcement && (bump.level === "minor" || bump.level === "major")
-      ? `<details>\n<summary>Announcement draft</summary>\n\n${renderAnnouncement(bump.next, input.entries)}\n</details>`
+      ? `<details>\n<summary>Announcement draft</summary>\n\n${renderAnnouncement(bump.next, entries)}\n</details>`
       : "";
 
   // Ledger snapshot: first chunk in the body, overflow into comments.
-  const chunks = serializeSnapshot(input.entries);
+  const chunks = serializeSnapshot(entries);
   const [ledgerHead, ...overflow] = chunks;
 
   const bodyParts = [
@@ -113,7 +115,7 @@ export function regenerate(input: RegenerateInput): RegenerationResult {
     `<details>\n<summary>Onegaishimasu ledger</summary>\n\n${ledgerHead ?? ""}\n</details>`,
   ].filter((p) => p.trim().length > 0);
 
-  const changelogSection = renderChangelogSection(bump.next, date, input.entries);
+  const changelogSection = renderChangelogSection(bump.next, date, entries);
   const changelog = updateChangelog(input.existingChangelog ?? null, changelogSection);
   const manifests = hasRelease
     ? updateManifests(input.manifestFiles, bump.next)
