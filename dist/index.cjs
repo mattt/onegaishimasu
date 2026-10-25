@@ -19694,6 +19694,15 @@ var OctokitClient = class {
 		} catch {}
 		return (await this.latestTag() ?? "0.0.0").replace(/^v/, "");
 	}
+	async getManifestVersion(manifestPath, ref) {
+		const content = await this.getContent(manifestPath, ref);
+		if (!content) return null;
+		try {
+			return JSON.parse(content).version ?? null;
+		} catch {
+			return null;
+		}
+	}
 	async getManifestFiles(paths) {
 		const files = [];
 		for (const path of paths) {
@@ -23428,9 +23437,11 @@ async function handlePush(client, ctx) {
 	const config = await client.getConfig(ctx.configPath);
 	const merged = await client.getMergedReleasePr(config.releaseBranch);
 	if (!merged) return;
-	if (await client.tagExists(merged.version)) return;
+	const manifestPath = config.manifestFiles[0] ?? "package.json";
+	const version = await client.getManifestVersion(manifestPath, merged.mergeSha) ?? merged.version;
+	if (await client.tagExists(version)) return;
 	const notes = extractReleaseNotes(merged.body);
-	await client.tagAndRelease(merged.version, notes, merged.mergeSha);
+	await client.tagAndRelease(version, notes, merged.mergeSha);
 }
 // node_modules/@anthropic-ai/sdk/internal/utils/sleep.mjs
 /**
