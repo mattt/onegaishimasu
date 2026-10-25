@@ -27,6 +27,8 @@ export interface ClassifyOptions {
   unreleasedPrs?: Set<number>;
   /** Mark the entry as classified in the first-run batch. */
   firstBatch?: boolean;
+  /** Called with the reason when the provider fails or its output never conforms. */
+  onProviderError?: (message: string) => void;
 }
 
 function buildEntry(params: {
@@ -132,6 +134,9 @@ export async function classify(
       raw: "",
       errors: error instanceof Error ? error.message : String(error),
     }));
+    if (!result.ok) {
+      options.onProviderError?.(`PR #${pr.number}: ${result.errors}`);
+    }
     if (result.ok) {
       modelKind = result.value.kind;
       summary = result.value.summary;

@@ -15,8 +15,8 @@ A post-merge step tags and publishes the GitHub Release.
    It comments the entry on the merged PR so the author can correct it while the context is fresh.
 2. The release PR is regenerated from the accumulated entries:
    proposed version, changelog diff, release body.
-3. A person edits anything, then merges.
-   Edited material is pinned; the generator never overwrites it.
+3. A person reviews and corrects the release PR, then merges.
+   Corrections are kept when the PR is regenerated (see [Corrections](#corrections)).
 
 A release never happens without a person merging the release PR.
 
@@ -34,6 +34,7 @@ on:
     types: [created]
   push:
     branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: onegai-${{ github.repository }}
@@ -55,6 +56,10 @@ jobs:
 
 The `push` trigger detects a merged release PR and publishes the release.
 The `pull_request` and `issue_comment` triggers classify merges and accept corrections.
+The `workflow_dispatch` trigger rebuilds the release PR on demand:
+it classifies every merge since the latest release again,
+for example after you change the provider or the configuration,
+and keeps the fields that someone corrected.
 
 ## Providers
 
@@ -94,16 +99,25 @@ provider:
 
 There are two ways to correct an entry, and neither goes through a model:
 
-- Edit the release PR body directly.
-  Any divergence from generated text is detected and pinned.
-- Comment on the merged PR with a command:
+- Comment on the merged PR with a command.
+  The correction applies to the release notes and `CHANGELOG.md`,
+  and later regenerations keep it.
   - `/onegai kind: fix`
   - `/onegai summary: <text>`
-  - `/onegai notes: <text or multi-line body>`
-  - `/onegai pin`
-  - `/onegai reclassify` (the only command that re-runs the model)
+  - `/onegai notes:` followed by the notes on the next lines
+  - `/onegai pin` keeps every field as it is now
+  - `/onegai reclassify` runs the model again (the only command that does)
+- Edit a section of the release notes in the release PR body.
+  The whole section then stays as you wrote it:
+  entries of that kind merged later are not added to it,
+  and `CHANGELOG.md` still uses the entries' summaries.
+  Prefer commands for corrections to a single entry.
 
-Commands are limited to the PR author and users with write access.
+Commands are limited to the PR author and users with write access,
+and work until the release that contains the PR merges.
+Onegaishimasu reacts with 👍 after the release PR is updated.
+It reacts with 👎 to a command from anyone else,
+and replies with the reason when a command is invalid or the PR is already released.
 
 To choose the next version yourself,
 add a `Release-As: 1.0.0` line to the body of a PR before it merges.

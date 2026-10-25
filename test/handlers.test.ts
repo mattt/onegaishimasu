@@ -12,6 +12,7 @@ import {
   handleIssueComment,
   handlePullRequestMerged,
   handlePush,
+  handleRebuild,
   upsertEntry,
 } from "../src/github/handlers.js";
 import { parseSnapshot, serializeSnapshot } from "../src/ledger/snapshot.js";
@@ -42,6 +43,7 @@ interface FakeState {
   mergedReleasePr: MergedReleasePr | null;
   releases: { version: string; notes: string; target: string }[];
   existingTags: Set<string>;
+  mergedSinceTag: number[];
   manifestVersions: Record<string, string>;
 }
 
@@ -55,6 +57,7 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
     mergedReleasePr: null,
     releases: [],
     existingTags: new Set(),
+    mergedSinceTag: [],
     manifestVersions: {},
     ...state,
   };
@@ -110,7 +113,7 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
       return "v1.2.0";
     },
     async listMergedPrNumbersSinceTag() {
-      return [];
+      return s.mergedSinceTag;
     },
     async getMergedReleasePr() {
       return s.mergedReleasePr;
@@ -237,7 +240,97 @@ describe("handlePullRequestMerged", () => {
   });
 });
 
+describe("release cycles", () => {
+  const ctx = { configPath: ".github/onegai.yml", provider: fakeProvider(featureOutput) };
+
+  it("marks the first cycle's backlog first-batch and comments on the merged PR", async () => {
+    const { client, state } = makeClient({ mergedSinceTag: [41, 42] });
+    await handlePullRequestMerged(client, ctx, 42);
+
+    const entries = parseSnapshot(state.upserts[0]!.body);
+    expect(entries.map((e) => e.pr)).toEqual([41, 42]);
+    expect(entries.every((e) => e.firstBatch)).toBe(true);
+    expect(state.comments.filter((c) => c.pr === 42)).toHaveLength(1);
+    expect(state.comments[0]!.body).toContain("#999");
+  });
+
+  it("does not mark later cycles first-batch", async () => {
+    const { client, state } = makeClient({
+      mergedSinceTag: [42],
+      mergedReleasePr: { number: 18, version: "0.1.0", body: "x", mergeSha: "rel" },
+    });
+    await handlePullRequestMerged(client, ctx, 42);
+
+    const entries = parseSnapshot(state.upserts[0]!.body);
+    expect(entries.map((e) => e.firstBatch)).toEqual([false]);
+    expect(state.comments.some((c) => c.pr === 42)).toBe(true);
+  });
+
+  it("rebuilds every entry and keeps human corrections", async () => {
+    const corrected = entry(42, { kind: "fix", summary: "Human summary", pinned: ["summary"] });
+    const releaseBody = `body\n<details>\n${serialize(corrected)}\n</details>`;
+    const { client, state } = makeClient({
+      mergedSinceTag: [41, 42],
+      releasePr: { number: 999, body: releaseBody, comments: [] },
+    });
+    await handleRebuild(client, ctx);
+
+    const entries = parseSnapshot(state.upserts[0]!.body);
+    expect(entries.map((e) => e.pr)).toEqual([41, 42]);
+    const rebuilt = entries.find((e) => e.pr === 42)!;
+    expect(rebuilt.summary).toBe("Human summary");
+    expect(rebuilt.kind).toBe("feature");
+  });
+
+  it("does nothing on a rebuild with no merges and no release PR", async () => {
+    const warnings: string[] = [];
+    const { client, state } = makeClient();
+    await handleRebuild(client, { ...ctx, warn: (m) => warnings.push(m) });
+    expect(state.upserts).toHaveLength(0);
+    expect(warnings).toHaveLength(1);
+  });
+
+  it("reports a provider failure", async () => {
+    const warnings: string[] = [];
+    const failing: Provider = {
+      model: "fake-1",
+      async complete(): Promise<string> {
+        throw new Error("401 invalid x-api-key");
+      },
+    };
+    const { client } = makeClient();
+    await handlePullRequestMerged(
+      client,
+      { configPath: ".github/onegai.yml", provider: failing, warn: (m) => warnings.push(m) },
+      42,
+    );
+    expect(warnings.some((w) => w.includes("PR #42") && w.includes("401"))).toBe(true);
+  });
+});
+
 describe("handleIssueComment", () => {
+  it("explains an invalid command", async () => {
+    const { client, state } = makeClient({
+      mergedPrs: {
+        42: {
+          mergeSha: "abc",
+          headRef: "feature",
+          input: { number: 42, title: "feat: x", body: "", author: "octocat", labels: [] },
+        },
+      },
+    });
+    await handleIssueComment(client, {
+      configPath: ".github/onegai.yml",
+      prNumber: 42,
+      commentId: 7,
+      commentBody: "/onegai kind: feat",
+      commenter: "octocat",
+      association: "NONE",
+    });
+    expect(state.reactions).toContainEqual({ id: 7, content: "-1" });
+    expect(state.comments[0]!.body).toContain("not a valid kind: feat");
+  });
+
   it("applies a verbatim field command from a permitted user", async () => {
     const existing = entry(42, { kind: "feature", summary: "auto" });
     const releaseBody = `body\n<details>\n${serialize(existing)}\n</details>`;
@@ -328,6 +421,15 @@ describe("handlePush", () => {
   it("tags the version in the merged manifest, not an edited title", async () => {
     const { client, state } = makeClient({
       mergedReleasePr: { number: 999, version: "0.2.0", body: "x", mergeSha: "def" },
+      manifestVersions: { def: "0.1.0" },
+    });
+    await handlePush(client, { configPath: ".github/onegai.yml" });
+    expect(state.releases.map((r) => r.version)).toEqual(["0.1.0"]);
+  });
+
+  it("releases a merged release PR whose title no longer names a version", async () => {
+    const { client, state } = makeClient({
+      mergedReleasePr: { number: 999, version: null, body: "x", mergeSha: "def" },
       manifestVersions: { def: "0.1.0" },
     });
     await handlePush(client, { configPath: ".github/onegai.yml" });

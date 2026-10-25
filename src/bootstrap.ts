@@ -6,15 +6,20 @@ import type { GitHubClient } from "./github/api.js";
 import type { Provider } from "./llm/provider.js";
 
 /**
- * The first run anchors to the latest release: classify the merges since that tag, marked first-batch.
- * A repo with no releases starts empty.
+ * A cycle with no open release PR anchors to the latest release:
+ * classify the merges since that tag.
+ * Entries are marked first-batch only before the first release PR merges,
+ * because only then could nobody have reviewed them on their PRs.
+ * A repo with no tags starts empty.
  * There is no backfill behind the latest release, ever.
  */
 export async function bootstrapEntries(
   client: GitHubClient,
   config: Config,
   provider?: Provider,
+  options: { onProviderError?: (message: string) => void } = {},
 ): Promise<Entry[]> {
+  const firstBatch = (await client.getMergedReleasePr(config.releaseBranch)) === null;
   const tag = await client.latestTag();
   const numbers = await client.listMergedPrNumbersSinceTag(tag);
 
@@ -28,7 +33,13 @@ export async function bootstrapEntries(
     const diff = applyDiffBudget(rawDiff, { maxChars: config.diffBudget });
     const entry = await classify(
       { ...merged.input, diff },
-      { provider, labelMap: config.labels, unreleasedPrs, firstBatch: true },
+      {
+        provider,
+        labelMap: config.labels,
+        unreleasedPrs,
+        firstBatch,
+        onProviderError: options.onProviderError,
+      },
     );
     entries.push(entry);
   }

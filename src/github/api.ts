@@ -20,7 +20,8 @@ export interface MergedPr {
 
 export interface MergedReleasePr {
   number: number;
-  version: string;
+  /** The version in the title, if it still has one; the merged manifest decides. */
+  version: string | null;
   body: string;
   /** The merge commit, which the release tag points at. */
   mergeSha: string;
@@ -311,10 +312,13 @@ export class OctokitClient implements GitHubClient {
     });
     for (const pr of prs.data) {
       if (!pr.merged_at || !pr.merge_commit_sha) continue;
-      const version = parseReleaseTitle(pr.title);
-      if (version) {
-        return { number: pr.number, version, body: pr.body ?? "", mergeSha: pr.merge_commit_sha };
-      }
+      // Every merged PR from the release branch is a release, whatever its title says.
+      return {
+        number: pr.number,
+        version: parseReleaseTitle(pr.title),
+        body: pr.body ?? "",
+        mergeSha: pr.merge_commit_sha,
+      };
     }
     return null;
   }
