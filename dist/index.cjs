@@ -23581,6 +23581,7 @@ async function handleIssueComment(client, ctx) {
 	}
 	const releasePr = await client.findReleasePr(config.releaseBranch);
 	let entries = releasePr ? require_version$1.parseSnapshot(releasePr.body, releasePr.comments) : [];
+	if (!releasePr) entries = await bootstrapEntries(client, config, ctx.provider, { onProviderError: ctx.warn });
 	const existing = entries.find((e) => e.pr === ctx.prNumber);
 	if (!existing) {
 		await client.addReaction(ctx.commentId, "-1");
@@ -23604,8 +23605,9 @@ async function handleIssueComment(client, ctx) {
 		const { entry } = applyCommand(existing, command);
 		entries = upsertEntry(entries, entry);
 	}
-	await regenerateAndUpsert(client, config, entries, releasePr?.body);
+	const updated = await regenerateAndUpsert(client, config, entries, releasePr?.body);
 	await client.addReaction(ctx.commentId, "+1");
+	if (updated === null) await client.postComment(ctx.prNumber, "Onegaishimasu applied the correction, but nothing merged since the latest release needs a release yet, so there is no release PR to record it in. The next release classifies this PR again.");
 }
 /** `push` to the default branch: detect a merged release PR, then tag and publish. */
 async function handlePush(client, ctx) {

@@ -238,6 +238,11 @@ export async function handleIssueComment(client: GitHubClient, ctx: CommentConte
 
   const releasePr = await client.findReleasePr(config.releaseBranch);
   let entries: Entry[] = releasePr ? parseSnapshot(releasePr.body, releasePr.comments) : [];
+  // With nothing to release there is no release PR to hold the ledger,
+  // so classify the merges since the latest release again to find this PR's entry.
+  if (!releasePr) {
+    entries = await bootstrapEntries(client, config, ctx.provider, { onProviderError: ctx.warn });
+  }
   const existing = entries.find((e) => e.pr === ctx.prNumber);
   if (!existing) {
     await client.addReaction(ctx.commentId, "-1");
@@ -269,8 +274,16 @@ export async function handleIssueComment(client: GitHubClient, ctx: CommentConte
     entries = upsertEntry(entries, entry);
   }
 
-  await regenerateAndUpsert(client, config, entries, releasePr?.body);
+  const updated = await regenerateAndUpsert(client, config, entries, releasePr?.body);
   await client.addReaction(ctx.commentId, "+1");
+  if (updated === null) {
+    await client.postComment(
+      ctx.prNumber,
+      "Onegaishimasu applied the correction, but nothing merged since the latest release " +
+        "needs a release yet, so there is no release PR to record it in. " +
+        "The next release classifies this PR again.",
+    );
+  }
 }
 
 /** `push` to the default branch: detect a merged release PR, then tag and publish. */

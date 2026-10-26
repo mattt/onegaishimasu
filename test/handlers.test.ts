@@ -409,6 +409,57 @@ describe("release cycles", () => {
   });
 });
 
+describe("corrections without a release PR", () => {
+  const docsPr = {
+    43: {
+      mergeSha: "a43",
+      headRef: "docs",
+      input: { number: 43, title: "docs: fix a typo", body: "", author: "octocat", labels: [] },
+    },
+  };
+  const command = (body: string) => ({
+    configPath: ".github/onegai.yml",
+    prNumber: 43,
+    commentId: 7,
+    commentBody: body,
+    commenter: "octocat",
+    association: "NONE",
+  });
+
+  it("opens a release PR when a correction makes the change release-worthy", async () => {
+    const { client, state } = makeClient({ mergedSinceTag: [43], mergedPrs: docsPr });
+    await handleIssueComment(client, command("/onegai kind: fix"));
+
+    expect(state.upserts).toHaveLength(1);
+    const entries = parseSnapshot(state.upserts[0]!.body);
+    expect(entries.map((e) => [e.pr, e.kind])).toEqual([[43, "fix"]]);
+    expect(state.reactions).toContainEqual({ id: 7, content: "+1" });
+  });
+
+  it("reclassifies an unknown entry when the provider works again", async () => {
+    const unlabeled = {
+      43: { ...docsPr[43], input: { ...docsPr[43].input, title: "Tweak retries" } },
+    };
+    const { client, state } = makeClient({ mergedSinceTag: [43], mergedPrs: unlabeled });
+    await handleIssueComment(client, {
+      ...command("/onegai reclassify"),
+      provider: fakeProvider(featureOutput),
+    });
+
+    const entries = parseSnapshot(state.upserts[0]!.body);
+    expect(entries[0]!.kind).toBe("feature");
+  });
+
+  it("explains when a correction still needs no release", async () => {
+    const { client, state } = makeClient({ mergedSinceTag: [43], mergedPrs: docsPr });
+    await handleIssueComment(client, command("/onegai summary: Fix a typo in the README"));
+
+    expect(state.upserts).toHaveLength(0);
+    expect(state.reactions).toContainEqual({ id: 7, content: "+1" });
+    expect(state.comments.at(-1)!.body).toContain("no release PR to record it in");
+  });
+});
+
 describe("handleIssueComment", () => {
   it("explains an invalid command", async () => {
     const { client, state } = makeClient({
