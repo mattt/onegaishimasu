@@ -28,6 +28,9 @@ commentOnMerge: true
 # Branch that carries the staged release changes.
 releaseBranch: onegai--release
 
+# Move a `v<major>` tag to each release, for GitHub Actions consumers (default: false).
+floatingMajorTag: true
+
 # Version manifests to bump on release.
 manifestFiles:
   - package.json
