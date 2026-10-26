@@ -14076,6 +14076,12 @@ Object.defineProperty(exports, "entryFromYaml", {
 		return entryFromYaml;
 	}
 });
+Object.defineProperty(exports, "kindSeverity", {
+	enumerable: true,
+	get: function() {
+		return kindSeverity;
+	}
+});
 Object.defineProperty(exports, "mostSevereKind", {
 	enumerable: true,
 	get: function() {

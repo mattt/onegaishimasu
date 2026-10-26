@@ -1,4 +1,4 @@
-const require_version = require("./version-BbievtPc.cjs");
+const require_version = require("./version-BoaCRO5U.cjs");
 let node_stream = require("node:stream");
 node_stream = require_version.__toESM(node_stream, 1);
 let node_util = require("node:util");

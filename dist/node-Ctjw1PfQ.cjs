@@ -1,4 +1,4 @@
-const require_version = require("./version-BbievtPc.cjs");
+const require_version = require("./version-BoaCRO5U.cjs");
 const require_promise = require("./promise-BzCuvIAN.cjs");
 let node_crypto = require("node:crypto");
 node_crypto = require_version.__toESM(node_crypto, 1);
