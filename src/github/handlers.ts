@@ -1,3 +1,4 @@
+import semver from "semver";
 import { bootstrapEntries } from "../bootstrap.js";
 import { classify } from "../classify/classifier.js";
 import { applyDiffBudget } from "../classify/diff-budget.js";
@@ -285,4 +286,16 @@ export async function handlePush(client: GitHubClient, ctx: HandlerContext): Pro
 
   const notes = extractReleaseNotes(merged.body);
   await client.tagAndRelease(version, notes, merged.mergeSha);
+
+  // Consumers of an action pin `@v1` and expect it to follow the latest 1.x release.
+  // A pre-release never moves it.
+  if (config.floatingMajorTag && semver.valid(version) && !semver.prerelease(version)) {
+    const floating = `v${semver.major(version)}`;
+    try {
+      await client.moveTag(floating, merged.mergeSha);
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : String(error);
+      ctx.warn?.(`Released v${version}, but couldn't move ${floating}: ${reason}`);
+    }
+  }
 }

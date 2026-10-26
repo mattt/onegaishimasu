@@ -51,10 +51,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: mattt/onegaishimasu@v0.1.0
+      - uses: mattt/onegaishimasu@v0
 ```
 
-Pin a release tag or a commit SHA.
+`@v0` follows the latest 0.x release.
+Pin a full version such as `@v0.1.0`, or a commit SHA, to stay on one release.
 This workflow uses the Copilot default;
 it also needs the Copilot CLI step and token in [Providers](#providers).
 
@@ -76,7 +77,7 @@ so install it before the action and pass it the token:
 ```yaml
 - uses: actions/checkout@v7
 - run: npm install -g @github/copilot
-- uses: mattt/onegaishimasu@v0.1.0
+- uses: mattt/onegaishimasu@v0
   env:
     GITHUB_TOKEN: ${{ github.token }}
 ```
@@ -94,7 +95,7 @@ provider:
 ```
 
 ```yaml
-- uses: mattt/onegaishimasu@v0.1.0
+- uses: mattt/onegaishimasu@v0
   with:
     provider-api-key: ${{ secrets.ONEGAI_PROVIDER_API_KEY }}
 ```
@@ -145,20 +146,21 @@ onegai preview --body saved-release-pr-body.md --current 1.2.0
 Configure in `.github/onegai.yml`.
 Every field is optional; see [.github/onegai.yml](.github/onegai.yml) for the annotated defaults.
 
-| Field                           | Default                             | Meaning                                  |
-| ------------------------------- | ----------------------------------- | ---------------------------------------- |
-| `provider.type`                 | `copilot`                           | `copilot`, `openai`, or `anthropic`      |
-| `provider.model`                | `auto` (Copilot)                    | Required for `openai` and `anthropic`    |
-| `provider.baseUrl`              | —                                   | OpenAI-compatible gateway URL            |
-| `diffBudget`                    | `12000`                             | Character budget for the sampled diff    |
-| `preOneZero.capBreakingAtMinor` | `true`                              | Cap breaking at minor before 1.0.0       |
-| `render.announcement`           | `false`                             | Announcement draft for minor/major       |
-| `render.credits`                | `true`                              | Contributor credits (not yet wired in)   |
-| `commentOnMerge`                | `true`                              | Comment the entry on the merged PR       |
-| `releaseBranch`                 | `onegai--release`                   | Branch carrying staged changes           |
-| `manifestFiles`                 | `[package.json, package-lock.json]` | Manifests to bump                        |
-| `voicePath`                     | —                                   | House style for notes (not yet wired in) |
-| `labels`                        | —                                   | Map repository labels to kinds           |
+| Field                           | Default                             | Meaning                                       |
+| ------------------------------- | ----------------------------------- | --------------------------------------------- |
+| `provider.type`                 | `copilot`                           | `copilot`, `openai`, or `anthropic`           |
+| `provider.model`                | `auto` (Copilot)                    | Required for `openai` and `anthropic`         |
+| `provider.baseUrl`              | —                                   | OpenAI-compatible gateway URL                 |
+| `diffBudget`                    | `12000`                             | Character budget for the sampled diff         |
+| `preOneZero.capBreakingAtMinor` | `true`                              | Cap breaking at minor before 1.0.0            |
+| `render.announcement`           | `false`                             | Announcement draft for minor/major            |
+| `render.credits`                | `true`                              | Contributor credits (not yet wired in)        |
+| `commentOnMerge`                | `true`                              | Comment the entry on the merged PR            |
+| `releaseBranch`                 | `onegai--release`                   | Branch carrying staged changes                |
+| `floatingMajorTag`              | `false`                             | Move `v<major>` to each release (for actions) |
+| `manifestFiles`                 | `[package.json, package-lock.json]` | Manifests to bump                             |
+| `voicePath`                     | —                                   | House style for notes (not yet wired in)      |
+| `labels`                        | —                                   | Map repository labels to kinds                |
 
 ## The ledger
 

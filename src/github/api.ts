@@ -59,6 +59,8 @@ export interface GitHubClient {
   getMergedReleasePr(branch: string): Promise<MergedReleasePr | null>;
   tagExists(version: string): Promise<boolean>;
   tagAndRelease(version: string, notes: string, target: string): Promise<void>;
+  /** Point a tag at a commit, creating the tag if it doesn't exist. */
+  moveTag(tag: string, target: string): Promise<void>;
 }
 
 /** Parse the version from a release PR title such as "chore: release 1.2.0". */
@@ -329,6 +331,26 @@ export class OctokitClient implements GitHubClient {
       return true;
     } catch {
       return false;
+    }
+  }
+
+  async moveTag(tag: string, target: string): Promise<void> {
+    const exists = await this.octokit.rest.git
+      .getRef({ ...this.repo, ref: `tags/${tag}` })
+      .then(() => true)
+      .catch((error: { status?: number }) => {
+        if (error.status === 404) return false;
+        throw error;
+      });
+    if (exists) {
+      await this.octokit.rest.git.updateRef({
+        ...this.repo,
+        ref: `tags/${tag}`,
+        sha: target,
+        force: true,
+      });
+    } else {
+      await this.octokit.rest.git.createRef({ ...this.repo, ref: `refs/tags/${tag}`, sha: target });
     }
   }
 

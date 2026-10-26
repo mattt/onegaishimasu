@@ -45,6 +45,8 @@ interface FakeState {
   existingTags: Set<string>;
   mergedSinceTag: number[];
   manifestVersions: Record<string, string>;
+  movedTags: { tag: string; target: string }[];
+  config: string | null;
 }
 
 function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; state: FakeState } {
@@ -59,12 +61,14 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
     existingTags: new Set(),
     mergedSinceTag: [],
     manifestVersions: {},
+    movedTags: [],
+    config: null,
     ...state,
   };
 
   const client: GitHubClient = {
     async getConfig() {
-      return parseConfig(null);
+      return parseConfig(s.config);
     },
     async getDefaultBranch() {
       return "main";
@@ -123,6 +127,9 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
     },
     async tagAndRelease(version: string, notes: string, target: string) {
       s.releases.push({ version, notes, target });
+    },
+    async moveTag(tag: string, target: string) {
+      s.movedTags.push({ tag, target });
     },
   };
 
@@ -504,6 +511,47 @@ describe("handlePush", () => {
     });
     await handlePush(client, { configPath: ".github/onegai.yml" });
     expect(state.releases.map((r) => r.version)).toEqual(["0.1.0"]);
+  });
+
+  it("moves the floating major tag when configured", async () => {
+    const { client, state } = makeClient({
+      config: "floatingMajorTag: true\n",
+      mergedReleasePr: { number: 999, version: "0.1.0", body: "x", mergeSha: "def" },
+      manifestVersions: { def: "0.1.0" },
+    });
+    await handlePush(client, { configPath: ".github/onegai.yml" });
+    expect(state.movedTags).toEqual([{ tag: "v0", target: "def" }]);
+  });
+
+  it("leaves the floating tag alone for a pre-release or when not configured", async () => {
+    const pre = makeClient({
+      config: "floatingMajorTag: true\n",
+      mergedReleasePr: { number: 999, version: null, body: "x", mergeSha: "def" },
+      manifestVersions: { def: "1.0.0-beta.1" },
+    });
+    await handlePush(pre.client, { configPath: ".github/onegai.yml" });
+    expect(pre.state.releases).toHaveLength(1);
+    expect(pre.state.movedTags).toHaveLength(0);
+
+    const off = makeClient({
+      mergedReleasePr: { number: 999, version: "1.3.0", body: "x", mergeSha: "def" },
+    });
+    await handlePush(off.client, { configPath: ".github/onegai.yml" });
+    expect(off.state.movedTags).toHaveLength(0);
+  });
+
+  it("keeps the release and warns when the floating tag can't move", async () => {
+    const warnings: string[] = [];
+    const { client, state } = makeClient({
+      config: "floatingMajorTag: true\n",
+      mergedReleasePr: { number: 999, version: "1.3.0", body: "x", mergeSha: "def" },
+    });
+    client.moveTag = async () => {
+      throw new Error("403 Resource not accessible by integration");
+    };
+    await handlePush(client, { configPath: ".github/onegai.yml", warn: (m) => warnings.push(m) });
+    expect(state.releases).toHaveLength(1);
+    expect(warnings[0]).toContain("couldn't move v1");
   });
 
   it("is idempotent when the tag already exists", async () => {
