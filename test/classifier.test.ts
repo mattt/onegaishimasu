@@ -30,6 +30,29 @@ const featureOutput = JSON.stringify({
 });
 
 describe("classifier short-circuits", () => {
+  it("keeps a breaking label and a Release-As footer on a dependency PR", async () => {
+    const entry = await classify(
+      pr({
+        author: "dependabot[bot]",
+        title: "Bump lodash from 1 to 2",
+        labels: ["breaking-change"],
+        body: "Release-As: 2.0.0",
+      }),
+      { provider: fakeProvider("should not be used") },
+    );
+    expect(entry.kind).toBe("breaking");
+    expect(entry.evidence.some((e) => e.source === "release-as")).toBe(true);
+    expect(entry.provenance).toBeUndefined();
+  });
+
+  it("does not flag a conflict for a chore(deps) title", async () => {
+    const entry = await classify(
+      pr({ author: "dependabot[bot]", title: "chore(deps): bump lodash from 1 to 2" }),
+    );
+    expect(entry.kind).toBe("deps");
+    expect(entry.conflict).toBe(false);
+  });
+
   it("classifies dependabot PRs as deps without inference", async () => {
     const entry = await classify(
       pr({ author: "dependabot[bot]", title: "Bump lodash from 1 to 2" }),

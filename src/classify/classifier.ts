@@ -7,6 +7,7 @@ import {
   classificationJsonSchema,
   classificationSchema,
   deriveConfidence,
+  kindSeverity,
   mostSevereKind,
 } from "../entry.js";
 import { completeWithSchema } from "../llm/conform.js";
@@ -70,13 +71,24 @@ export async function classify(
   const firstBatch = options.firstBatch ?? false;
   const labelMap = options.labelMap ?? DEFAULT_LABEL_MAP;
 
-  // 1. Dependency-bot PRs skip inference entirely.
+  // 1. Dependency-bot PRs skip inference entirely,
+  // but an explicit signal stronger than `deps` (a breaking label, a `!` prefix)
+  // and a `Release-As` footer still count.
   const bot = botSignals(pr);
   if (bot.isBot) {
+    const explicit = [
+      ...conventionalSignals(pr).evidence,
+      ...labelSignals(pr, labelMap).evidence,
+    ].filter(
+      (e) =>
+        e.source === "release-as" ||
+        (e.impliedKind !== undefined && kindSeverity(e.impliedKind) > kindSeverity("deps")),
+    );
+    const kinds = explicit.flatMap((e) => (e.impliedKind ? [e.impliedKind] : []));
     return buildEntry({
       pr: pr.number,
-      kind: "deps",
-      evidence: bot.evidence,
+      kind: mostSevereKind(["deps", ...kinds]),
+      evidence: [...bot.evidence, ...explicit],
       summary: pr.title,
       notes: "",
       firstBatch,
