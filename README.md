@@ -156,7 +156,7 @@ Every field is optional; see [.github/onegai.yml](.github/onegai.yml) for the an
 | `render.announcement`           | `false`                             | Announcement draft for minor/major            |
 | `render.credits`                | `true`                              | Contributor credits (not yet wired in)        |
 | `commentOnMerge`                | `true`                              | Comment the entry on the merged PR            |
-| `releaseBranch`                 | `onegai--release`                   | Branch carrying staged changes                |
+| `releaseBranch`                 | `onegai/release`                    | Branch carrying staged changes                |
 | `floatingMajorTag`              | `false`                             | Move `v<major>` to each release (for actions) |
 | `manifestFiles`                 | `[package.json, package-lock.json]` | Manifests to bump                             |
 | `voicePath`                     | —                                   | House style for notes (not yet wired in)      |

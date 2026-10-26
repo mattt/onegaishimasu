@@ -26,7 +26,8 @@ render:
 commentOnMerge: true
 
 # Branch that carries the staged release changes.
-releaseBranch: onegai--release
+# Git can't create it while a branch named `onegai` exists.
+releaseBranch: onegai/release
 
 # Move a `v<major>` tag to each release, for GitHub Actions consumers (default: false).
 floatingMajorTag: true

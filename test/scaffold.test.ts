@@ -6,7 +6,7 @@ describe("scaffold", () => {
     const config = parseConfig(null);
     expect(config.provider.type).toBe("copilot");
     expect(config.provider.model).toBe("auto");
-    expect(config.releaseBranch).toBe("onegai--release");
+    expect(config.releaseBranch).toBe("onegai/release");
     expect(config.diffBudget).toBeGreaterThan(0);
     expect(config.preOneZero.capBreakingAtMinor).toBe(true);
     expect(config.render).toEqual({ announcement: false, credits: true });
@@ -19,7 +19,7 @@ describe("scaffold", () => {
     expect(config.provider.type).toBe("openai");
     expect(config.provider.model).toBe("gpt-5.6-terra");
     expect(config.diffBudget).toBe(5000);
-    expect(config.releaseBranch).toBe("onegai--release");
+    expect(config.releaseBranch).toBe("onegai/release");
   });
 
   it("requires a model for BYO providers", () => {
