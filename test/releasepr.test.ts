@@ -195,3 +195,28 @@ describe("release notes introduction", () => {
     expect(second.body).toBe(first.body);
   });
 });
+
+describe("initial release", () => {
+  const zero = [
+    { path: "package.json", content: JSON.stringify({ name: "x", version: "0.0.0" }, null, 2) },
+  ];
+
+  it("marks the first release after 0.0.0 in the changelog", () => {
+    const result = regenerate({
+      entries: [entry(1, "feature")],
+      currentVersion: "0.0.0",
+      manifestFiles: zero,
+    });
+    expect(result.changelog).toContain("## [0.1.0]");
+    expect(result.changelog).toContain("- Initial release.");
+  });
+
+  it("does not mark a later release", () => {
+    const result = regenerate({
+      entries: [entry(1, "feature")],
+      currentVersion: "1.0.9",
+      manifestFiles: zero,
+    });
+    expect(result.changelog).not.toContain("Initial release");
+  });
+});

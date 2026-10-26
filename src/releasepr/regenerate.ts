@@ -117,7 +117,9 @@ export function regenerate(input: RegenerateInput): RegenerationResult {
     `<details>\n<summary>Onegaishimasu ledger</summary>\n\n${ledgerHead ?? ""}\n</details>`,
   ].filter((p) => p.trim().length > 0);
 
-  const changelogSection = renderChangelogSection(bump.next, date, entries);
+  const changelogSection = renderChangelogSection(bump.next, date, entries, {
+    initial: bump.current === "0.0.0" && bump.next !== bump.current,
+  });
   const changelog = updateChangelog(input.existingChangelog ?? null, changelogSection);
   const manifests = hasRelease
     ? updateManifests(input.manifestFiles, bump.next)
