@@ -26,6 +26,19 @@ function entry(pr: number, kind: Kind, overrides: Partial<Entry> = {}): Entry {
 }
 
 describe("changelog", () => {
+  it("opens the initial release with an Initial release line", () => {
+    const section = renderChangelogSection("0.1.0", "2026-10-26", [entry(1, "fix")], {
+      initial: true,
+    });
+    expect(section).toContain("### Added\n\n- Initial release.\n");
+    expect(section.indexOf("### Added")).toBeLessThan(section.indexOf("### Fixed"));
+  });
+
+  it("adds no Initial release line otherwise", () => {
+    const section = renderChangelogSection("1.2.0", "2026-10-26", [entry(1, "feature")]);
+    expect(section).not.toContain("Initial release");
+  });
+
   it("groups entries by keep-a-changelog category", () => {
     const section = renderChangelogSection("1.2.0", "2026-08-11", [
       entry(1, "feature"),

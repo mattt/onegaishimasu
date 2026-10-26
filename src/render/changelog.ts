@@ -19,9 +19,18 @@ function line(entry: Entry): string {
   return `- ${marker}${entry.summary} (#${entry.pr})`;
 }
 
-/** One terse line per entry, grouped by category, omitting kinds that bump nothing. */
-export function renderChangelogSection(version: string, date: string, entries: Entry[]): string {
+/**
+ * One terse line per entry, grouped by category, omitting kinds that bump nothing.
+ * The initial release, the first after `0.0.0`, opens "Added" with "Initial release."
+ */
+export function renderChangelogSection(
+  version: string,
+  date: string,
+  entries: Entry[],
+  options: { initial?: boolean } = {},
+): string {
   const groups = new Map<string, string[]>();
+  if (options.initial) groups.set("Added", ["- Initial release."]);
   for (const entry of entries) {
     const category = CATEGORY[entry.kind];
     if (!category) continue;
