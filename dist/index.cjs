@@ -1,5 +1,5 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_version$1 = require("./version-BbievtPc.cjs");
+const require_version$1 = require("./version-BoaCRO5U.cjs");
 const require_promise = require("./promise-BzCuvIAN.cjs");
 let node_crypto = require("node:crypto");
 require("node:fs");
@@ -20366,14 +20366,18 @@ async function classify(pr, options = {}) {
 	const firstBatch = options.firstBatch ?? false;
 	const labelMap = options.labelMap ?? DEFAULT_LABEL_MAP;
 	const bot = botSignals(pr);
-	if (bot.isBot) return buildEntry({
-		pr: pr.number,
-		kind: "deps",
-		evidence: bot.evidence,
-		summary: pr.title,
-		notes: "",
-		firstBatch
-	});
+	if (bot.isBot) {
+		const explicit = [...conventionalSignals(pr).evidence, ...labelSignals(pr, labelMap).evidence].filter((e) => e.source === "release-as" || e.impliedKind !== void 0 && require_version$1.kindSeverity(e.impliedKind) > require_version$1.kindSeverity("deps"));
+		const kinds = explicit.flatMap((e) => e.impliedKind ? [e.impliedKind] : []);
+		return buildEntry({
+			pr: pr.number,
+			kind: require_version$1.mostSevereKind(["deps", ...kinds]),
+			evidence: [...bot.evidence, ...explicit],
+			summary: pr.title,
+			notes: "",
+			firstBatch
+		});
+	}
 	const revert = revertSignals(pr);
 	if (revert.isRevert && revert.targetPr !== void 0 && options.unreleasedPrs?.has(revert.targetPr)) return buildEntry({
 		pr: pr.number,
@@ -26019,7 +26023,7 @@ function redactSensitive(body) {
 */
 async function checkCredentialsFileSafety(path, onWarn = (m) => console.warn(`anthropic-sdk: ${m}`)) {
 	if (typeof process === "undefined" || process.platform === "win32") return;
-	const { fs } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
+	const { fs } = await Promise.resolve().then(() => require("./node-CzhQRVXL.cjs")).then((n) => n.node_exports);
 	let resolved = path;
 	let st;
 	try {
@@ -26039,7 +26043,7 @@ async function checkCredentialsFileSafety(path, onWarn = (m) => console.warn(`an
 * Creates the parent directory with mode 0700 and the file with mode 0600.
 */
 async function writeCredentialsFileAtomic(targetPath, data) {
-	const { fs, path } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-CzhQRVXL.cjs")).then((n) => n.node_exports);
 	const dir = path.dirname(targetPath);
 	await fs.promises.mkdir(dir, {
 		recursive: true,
@@ -27095,7 +27099,7 @@ const loadConfigWithSource = async (profile) => {
 	const profileName = profile ?? await getActiveProfileName();
 	if (profileName === null) return null;
 	validateProfileName(profileName);
-	const { fs, path } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-CzhQRVXL.cjs")).then((n) => n.node_exports);
 	const configPath = path.join(rootConfigPath, "configs", `${profileName}.json`);
 	let configRaw;
 	try {
@@ -27149,12 +27153,12 @@ const getCredentialsPath = async (config, profile) => {
 	const profileName = profile ?? await getActiveProfileName();
 	if (!profileName) return null;
 	validateProfileName(profileName);
-	const { path } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
+	const { path } = await Promise.resolve().then(() => require("./node-CzhQRVXL.cjs")).then((n) => n.node_exports);
 	return path.join(rootConfigPath, "credentials", `${profileName}.json`);
 };
 const getRootConfigPath = async () => {
 	if (!supportsLocalConfigFiles()) return null;
-	const { path } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
+	const { path } = await Promise.resolve().then(() => require("./node-CzhQRVXL.cjs")).then((n) => n.node_exports);
 	const configDir = require_promise.readEnv("ANTHROPIC_CONFIG_DIR");
 	if (configDir) return configDir;
 	if (getPlatformHeaders()["X-Stainless-OS"] === "Windows") {
@@ -27179,7 +27183,7 @@ const getActiveProfileName = async () => {
 	if (!rootConfigPath) return null;
 	const profileName = require_promise.readEnv("ANTHROPIC_PROFILE");
 	if (profileName) return profileName;
-	const { fs, path } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-CzhQRVXL.cjs")).then((n) => n.node_exports);
 	const filePath = path.join(rootConfigPath, "active_config");
 	try {
 		return (await fs.promises.readFile(filePath, "utf-8")).trim() || "default";
@@ -27196,7 +27200,7 @@ const getActiveProfileName = async () => {
 function identityTokenFromFile(path) {
 	if (!path) throw new require_promise.AnthropicError("Identity token file path is empty");
 	return async () => {
-		const { fs } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-CzhQRVXL.cjs")).then((n) => n.node_exports);
 		let content;
 		try {
 			content = await fs.promises.readFile(path, "utf-8");
@@ -27283,7 +27287,7 @@ function oidcFederationProvider(config) {
 */
 function userOAuthProvider(config) {
 	return async (opts) => {
-		const { fs } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-CzhQRVXL.cjs")).then((n) => n.node_exports);
 		await checkCredentialsFileSafety(config.credentialsPath, config.onSafetyWarning);
 		let raw;
 		try {
@@ -27463,7 +27467,7 @@ function resolveIdentityTokenProvider(auth) {
 */
 function cachedExchangeProvider(exchange, credentialsPath, onCacheWriteError, onSafetyWarning) {
 	return async (opts) => {
-		const { fs } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-CzhQRVXL.cjs")).then((n) => n.node_exports);
 		await checkCredentialsFileSafety(credentialsPath, onSafetyWarning);
 		let existing;
 		try {
@@ -32351,7 +32355,7 @@ var EnvironmentWorker = /* @__PURE__ */ (() => {
 		const ctrl = new AbortController();
 		const detachExternal = linkAbort(externalSignal, ctrl);
 		const lease = new Lease(ctrl);
-		const agentToolset = await Promise.resolve().then(() => require("./node-C23M8Z1Z.cjs"));
+		const agentToolset = await Promise.resolve().then(() => require("./node-Ctjw1PfQ.cjs"));
 		let leaseTtlMs;
 		let runner;
 		const heartbeatPromise = heartbeatLoop(sessionClient, work, lease, log, this.requestOptions, (ttlMs) => {
