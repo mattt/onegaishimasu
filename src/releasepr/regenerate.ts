@@ -137,7 +137,9 @@ export function regenerate(input: RegenerateInput): RegenerationResult {
   const changelogSection = renderChangelogSection(bump.next, date, presented, {
     initial: initial && bump.next !== bump.current,
   });
-  const changelog = updateChangelog(input.existingChangelog ?? null, changelogSection);
+  const changelog = hasRelease
+    ? updateChangelog(input.existingChangelog ?? null, changelogSection)
+    : (input.existingChangelog ?? "");
   const manifests = hasRelease
     ? updateManifests(input.manifestFiles, bump.next)
     : input.manifestFiles;

@@ -1,5 +1,5 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_version$1 = require("./version-CQUNE4NI.cjs");
+const require_version$1 = require("./version-BbievtPc.cjs");
 const require_promise = require("./promise-BzCuvIAN.cjs");
 let node_crypto = require("node:crypto");
 require("node:fs");
@@ -19611,6 +19611,7 @@ var require_github = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, 
 // src/config.ts
 var import_core = /* @__PURE__ */ require_version$1.__toESM(require_core(), 1);
 var import_github = /* @__PURE__ */ require_version$1.__toESM(require_github(), 1);
+var import_semver = /* @__PURE__ */ require_version$1.__toESM(require_version$1.require_semver(), 1);
 var import_dist$1 = require_version$1.require_dist();
 /** Configuration from `.github/onegai.yml`, with defaults applied. */
 const configSchema = require_version$1.object({
@@ -19657,6 +19658,27 @@ function parseConfig(text) {
 	return configSchema.parse((0, import_dist$1.parse)(text) ?? {});
 }
 // src/github/api.ts
+/**
+* The comments that may carry ledger chunks: those by the account that opened the release PR,
+* which is the action's own identity. GitHub records a comment's author,
+* so a chunk pasted into anyone else's comment is ignored.
+*/
+function ledgerComments(releasePrAuthor, comments) {
+	return comments.filter((c) => c.author === releasePrAuthor).map((c) => c.body);
+}
+/** The highest released version among tags such as `v1.2.3`, ignoring floating tags such as `v1`. */
+function latestVersionTag(names) {
+	let best = null;
+	for (const name of names) {
+		const version = import_semver.default.valid(name.replace(/^v/, ""));
+		if (!version || import_semver.default.prerelease(version)) continue;
+		if (best === null || import_semver.default.gt(version, best.version)) best = {
+			name,
+			version
+		};
+	}
+	return best?.name ?? null;
+}
 /** Parse the version from a release PR title such as "chore: release 1.2.0". */
 function parseReleaseTitle(title) {
 	return title.match(/release\s+v?(\d+\.\d+\.\d+[^\s]*)/i)?.[1] ?? null;
@@ -19733,7 +19755,10 @@ var OctokitClient = class {
 		return {
 			number: pr.number,
 			body: pr.body ?? "",
-			comments: comments.data.map((c) => c.body ?? "")
+			comments: ledgerComments(pr.user?.login ?? "", comments.data.map((c) => ({
+				author: c.user?.login ?? "",
+				body: c.body ?? ""
+			})))
 		};
 	}
 	async getMergedPr(number) {
@@ -19839,10 +19864,10 @@ var OctokitClient = class {
 		});
 	}
 	async latestTag() {
-		return (await this.octokit.rest.repos.listTags({
+		return latestVersionTag((await this.octokit.paginate(this.octokit.rest.repos.listTags, {
 			...this.repo,
-			per_page: 1
-		})).data[0]?.name ?? null;
+			per_page: 100
+		})).map((t) => t.name));
 	}
 	async listMergedPrNumbersSinceTag(tag) {
 		const base = tag ?? "";
@@ -19867,7 +19892,7 @@ var OctokitClient = class {
 			...this.repo,
 			state: "closed",
 			head: `${this.repo.owner}:${branch}`,
-			sort: "updated",
+			sort: "created",
 			direction: "desc",
 			per_page: 5
 		});
@@ -19924,7 +19949,6 @@ var OctokitClient = class {
 	}
 };
 // src/classify/diff-budget.ts
-var import_semver = /* @__PURE__ */ require_version$1.__toESM(require_version$1.require_semver(), 1);
 const EXCLUDE_RE = /(^|\/)(package-lock\.json|yarn\.lock|pnpm-lock\.yaml|npm-shrinkwrap\.json|.*\.min\.(js|css)|.*\.snap)$|(^|\/)(dist|build|node_modules|vendor|generated)\//;
 const MANIFEST_RE = /(^|\/)(package\.json|Cargo\.toml|pyproject\.toml|go\.mod)$/;
 const API_RE = /(^|\/)(src|lib|include)\/|\.d\.ts$|(^|\/)index\.[a-z]+$/;
@@ -23404,7 +23428,7 @@ function regenerate(input) {
 		`<details>\n<summary>Onegaishimasu ledger</summary>\n\n${ledgerHead ?? ""}\n</details>`
 	].filter((p) => p.trim().length > 0);
 	const changelogSection = renderChangelogSection(bump.next, date, presented, { initial: initial && bump.next !== bump.current });
-	const changelog = updateChangelog(input.existingChangelog ?? null, changelogSection);
+	const changelog = hasRelease ? updateChangelog(input.existingChangelog ?? null, changelogSection) : input.existingChangelog ?? "";
 	const manifests = hasRelease ? updateManifests(input.manifestFiles, bump.next) : input.manifestFiles;
 	return {
 		bump,
@@ -23460,10 +23484,11 @@ async function regenerateAndUpsert(client, config, entries, existingBody) {
 			announcement: config.render.announcement
 		}
 	});
-	const files = [...result.manifests, {
+	if (!result.hasRelease && existingBody === void 0) return null;
+	const files = result.hasRelease ? [...result.manifests, {
 		path: "CHANGELOG.md",
 		content: result.changelog
-	}];
+	}] : result.manifests;
 	const prNumber = await client.upsertReleasePr({
 		branch: config.releaseBranch,
 		baseBranch: defaultBranch,
@@ -23504,7 +23529,7 @@ async function handlePullRequestMerged(client, ctx, prNumber) {
 	}
 	const releasePrNumber = await regenerateAndUpsert(client, config, entries, releasePr?.body);
 	const entry = entries.find((e) => e.pr === prNumber);
-	if (isNew && entry && config.commentOnMerge) await client.postComment(prNumber, renderEntryComment(entry, releasePrNumber));
+	if (isNew && entry && config.commentOnMerge) await client.postComment(prNumber, renderEntryComment(entry, releasePrNumber ?? void 0));
 }
 /**
 * `workflow_dispatch`: rebuild the release PR from the merges since the latest release
@@ -23589,9 +23614,10 @@ async function handlePush(client, ctx) {
 		ctx.warn?.(`Release PR #${merged.number} merged, but no version was found to tag.`);
 		return;
 	}
-	if (await client.tagExists(version)) return;
-	const notes = extractReleaseNotes(merged.body);
-	await client.tagAndRelease(version, notes, merged.mergeSha);
+	if (!await client.tagExists(version)) {
+		const notes = extractReleaseNotes(merged.body);
+		await client.tagAndRelease(version, notes, merged.mergeSha);
+	}
 	if (config.floatingMajorTag && import_semver.default.valid(version) && !import_semver.default.prerelease(version)) {
 		const floating = `v${import_semver.default.major(version)}`;
 		try {
@@ -25993,7 +26019,7 @@ function redactSensitive(body) {
 */
 async function checkCredentialsFileSafety(path, onWarn = (m) => console.warn(`anthropic-sdk: ${m}`)) {
 	if (typeof process === "undefined" || process.platform === "win32") return;
-	const { fs } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
+	const { fs } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
 	let resolved = path;
 	let st;
 	try {
@@ -26013,7 +26039,7 @@ async function checkCredentialsFileSafety(path, onWarn = (m) => console.warn(`an
 * Creates the parent directory with mode 0700 and the file with mode 0600.
 */
 async function writeCredentialsFileAtomic(targetPath, data) {
-	const { fs, path } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
 	const dir = path.dirname(targetPath);
 	await fs.promises.mkdir(dir, {
 		recursive: true,
@@ -27069,7 +27095,7 @@ const loadConfigWithSource = async (profile) => {
 	const profileName = profile ?? await getActiveProfileName();
 	if (profileName === null) return null;
 	validateProfileName(profileName);
-	const { fs, path } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
 	const configPath = path.join(rootConfigPath, "configs", `${profileName}.json`);
 	let configRaw;
 	try {
@@ -27123,12 +27149,12 @@ const getCredentialsPath = async (config, profile) => {
 	const profileName = profile ?? await getActiveProfileName();
 	if (!profileName) return null;
 	validateProfileName(profileName);
-	const { path } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
+	const { path } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
 	return path.join(rootConfigPath, "credentials", `${profileName}.json`);
 };
 const getRootConfigPath = async () => {
 	if (!supportsLocalConfigFiles()) return null;
-	const { path } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
+	const { path } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
 	const configDir = require_promise.readEnv("ANTHROPIC_CONFIG_DIR");
 	if (configDir) return configDir;
 	if (getPlatformHeaders()["X-Stainless-OS"] === "Windows") {
@@ -27153,7 +27179,7 @@ const getActiveProfileName = async () => {
 	if (!rootConfigPath) return null;
 	const profileName = require_promise.readEnv("ANTHROPIC_PROFILE");
 	if (profileName) return profileName;
-	const { fs, path } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
 	const filePath = path.join(rootConfigPath, "active_config");
 	try {
 		return (await fs.promises.readFile(filePath, "utf-8")).trim() || "default";
@@ -27170,7 +27196,7 @@ const getActiveProfileName = async () => {
 function identityTokenFromFile(path) {
 	if (!path) throw new require_promise.AnthropicError("Identity token file path is empty");
 	return async () => {
-		const { fs } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
 		let content;
 		try {
 			content = await fs.promises.readFile(path, "utf-8");
@@ -27257,7 +27283,7 @@ function oidcFederationProvider(config) {
 */
 function userOAuthProvider(config) {
 	return async (opts) => {
-		const { fs } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
 		await checkCredentialsFileSafety(config.credentialsPath, config.onSafetyWarning);
 		let raw;
 		try {
@@ -27437,7 +27463,7 @@ function resolveIdentityTokenProvider(auth) {
 */
 function cachedExchangeProvider(exchange, credentialsPath, onCacheWriteError, onSafetyWarning) {
 	return async (opts) => {
-		const { fs } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-Bd6bUpwv.cjs")).then((n) => n.node_exports);
 		await checkCredentialsFileSafety(credentialsPath, onSafetyWarning);
 		let existing;
 		try {
@@ -32325,7 +32351,7 @@ var EnvironmentWorker = /* @__PURE__ */ (() => {
 		const ctrl = new AbortController();
 		const detachExternal = linkAbort(externalSignal, ctrl);
 		const lease = new Lease(ctrl);
-		const agentToolset = await Promise.resolve().then(() => require("./node-CjvOkmS5.cjs"));
+		const agentToolset = await Promise.resolve().then(() => require("./node-C23M8Z1Z.cjs"));
 		let leaseTtlMs;
 		let runner;
 		const heartbeatPromise = heartbeatLoop(sessionClient, work, lease, log, this.requestOptions, (ttlMs) => {

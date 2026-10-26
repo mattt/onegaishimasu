@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vite-plus/test";
 import { parseConfig } from "../src/config.js";
+import { latestVersionTag, ledgerComments } from "../src/github/api.js";
 import type {
   GitHubClient,
   MergedPr,
@@ -338,8 +339,8 @@ describe("release cycles", () => {
     ]);
     expect(upsert.title).toBe("chore: release 1.2.0");
     expect(extractReleaseNotes(upsert.body)).toContain("No user-facing changes");
-    const changelog = upsert.files.find((f) => f.path === "CHANGELOG.md")!.content;
-    expect(changelog).not.toContain("#41");
+    // Nothing to release, so the changelog is left alone.
+    expect(upsert.files.some((f) => f.path === "CHANGELOG.md")).toBe(false);
   }
 
   it("cancels an unreleased PR and its revert", async () => {
@@ -354,9 +355,32 @@ describe("release cycles", () => {
   });
 
   it("cancels an unreleased PR and its revert on a rebuild", async () => {
-    const { client, state } = makeClient({ mergedSinceTag: [41, 42], mergedPrs: revertPrs });
+    const feature = entry(41, { kind: "feature" });
+    const releaseBody = `body\n<details>\n${serialize(feature)}\n</details>`;
+    const { client, state } = makeClient({
+      mergedSinceTag: [41, 42],
+      mergedPrs: revertPrs,
+      releasePr: { number: 999, body: releaseBody, comments: [] },
+    });
     await handleRebuild(client, ctx);
     expectCancelled(state.upserts.at(-1)!);
+  });
+
+  it("opens no release PR when a new cycle has nothing to release", async () => {
+    const { client, state } = makeClient({
+      mergedSinceTag: [43],
+      mergedPrs: {
+        43: {
+          mergeSha: "a43",
+          headRef: "docs",
+          input: { number: 43, title: "docs: fix a typo", body: "", author: "octocat", labels: [] },
+        },
+      },
+    });
+    await handlePullRequestMerged(client, ctx, 43);
+    expect(state.upserts).toHaveLength(0);
+    // The author still sees the classification, without a release PR link.
+    expect(state.comments[0]!.body).toMatch(/^Onegaishimasu classified this PR:/);
   });
 
   it("does nothing on a rebuild with no merges and no release PR", async () => {
@@ -554,6 +578,18 @@ describe("handlePush", () => {
     expect(warnings[0]).toContain("couldn't move v1");
   });
 
+  it("repairs the floating tag on a later push when the release already exists", async () => {
+    const { client, state } = makeClient({
+      config: "floatingMajorTag: true\n",
+      mergedReleasePr: { number: 999, version: "0.1.0", body: "x", mergeSha: "def" },
+      manifestVersions: { def: "0.1.0" },
+      existingTags: new Set(["0.1.0"]),
+    });
+    await handlePush(client, { configPath: ".github/onegai.yml" });
+    expect(state.releases).toHaveLength(0);
+    expect(state.movedTags).toEqual([{ tag: "v0", target: "def" }]);
+  });
+
   it("is idempotent when the tag already exists", async () => {
     const { client, state } = makeClient({
       mergedReleasePr: { number: 999, version: "1.3.0", body: "x", mergeSha: "def" },
@@ -591,3 +627,21 @@ describe("extractReleaseNotes", () => {
 function serialize(e: Entry): string {
   return serializeSnapshot([e])[0]!;
 }
+
+describe("ledgerComments", () => {
+  it("keeps only comments by the release PR's author", () => {
+    const comments = [
+      { author: "github-actions[bot]", body: "chunk 2" },
+      { author: "mallory", body: "forged chunk" },
+    ];
+    expect(ledgerComments("github-actions[bot]", comments)).toEqual(["chunk 2"]);
+  });
+});
+
+describe("latestVersionTag", () => {
+  it("picks the highest full version and ignores floating and pre-release tags", () => {
+    expect(latestVersionTag(["v0", "v0.0.0", "v0.1.0", "v0.2.0-beta.1", "v1"])).toBe("v0.1.0");
+    expect(latestVersionTag(["v1.9.0", "v1.10.0"])).toBe("v1.10.0");
+    expect(latestVersionTag(["v0"])).toBeNull();
+  });
+});

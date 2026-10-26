@@ -76,7 +76,7 @@ async function regenerateAndUpsert(
   config: Config,
   entries: Entry[],
   existingBody: string | undefined,
-): Promise<number> {
+): Promise<number | null> {
   const defaultBranch = await client.getDefaultBranch();
   const manifestPath = config.manifestFiles[0] ?? "package.json";
   const currentVersion = await client.getCurrentVersion(manifestPath);
@@ -96,7 +96,13 @@ async function regenerateAndUpsert(
     },
   });
 
-  const files = [...result.manifests, { path: "CHANGELOG.md", content: result.changelog }];
+  // Nothing to release, such as after a docs-only merge: don't open a release PR for it.
+  // The next merge's new cycle classifies this PR again from the tag.
+  if (!result.hasRelease && existingBody === undefined) return null;
+
+  const files = result.hasRelease
+    ? [...result.manifests, { path: "CHANGELOG.md", content: result.changelog }]
+    : result.manifests;
 
   const prNumber = await client.upsertReleasePr({
     branch: config.releaseBranch,
@@ -160,7 +166,7 @@ export async function handlePullRequestMerged(
 
   const entry = entries.find((e) => e.pr === prNumber);
   if (isNew && entry && config.commentOnMerge) {
-    await client.postComment(prNumber, renderEntryComment(entry, releasePrNumber));
+    await client.postComment(prNumber, renderEntryComment(entry, releasePrNumber ?? undefined));
   }
 }
 
@@ -282,13 +288,13 @@ export async function handlePush(client: GitHubClient, ctx: HandlerContext): Pro
     ctx.warn?.(`Release PR #${merged.number} merged, but no version was found to tag.`);
     return;
   }
-  if (await client.tagExists(version)) return;
-
-  const notes = extractReleaseNotes(merged.body);
-  await client.tagAndRelease(version, notes, merged.mergeSha);
+  if (!(await client.tagExists(version))) {
+    const notes = extractReleaseNotes(merged.body);
+    await client.tagAndRelease(version, notes, merged.mergeSha);
+  }
 
   // Consumers of an action pin `@v1` and expect it to follow the latest 1.x release.
-  // A pre-release never moves it.
+  // A pre-release never moves it. Every push checks it, so a failed move is repaired next time.
   if (config.floatingMajorTag && semver.valid(version) && !semver.prerelease(version)) {
     const floating = `v${semver.major(version)}`;
     try {
