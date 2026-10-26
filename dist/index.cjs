@@ -20568,9 +20568,13 @@ const CATEGORY_ORDER = [
 function line(entry) {
 	return `- ${entry.kind === "breaking" ? "**Breaking:** " : ""}${entry.summary} (#${entry.pr})`;
 }
-/** One terse line per entry, grouped by category, omitting kinds that bump nothing. */
-function renderChangelogSection(version, date, entries) {
+/**
+* One terse line per entry, grouped by category, omitting kinds that bump nothing.
+* The initial release, the first after `0.0.0`, opens "Added" with "Initial release."
+*/
+function renderChangelogSection(version, date, entries, options = {}) {
 	const groups = /* @__PURE__ */ new Map();
+	if (options.initial) groups.set("Added", ["- Initial release."]);
 	for (const entry of entries) {
 		const category = CATEGORY[entry.kind];
 		if (!category) continue;
@@ -23363,7 +23367,7 @@ function regenerate(input) {
 		announcement,
 		`<details>\n<summary>Onegaishimasu ledger</summary>\n\n${ledgerHead ?? ""}\n</details>`
 	].filter((p) => p.trim().length > 0);
-	const changelogSection = renderChangelogSection(bump.next, date, entries);
+	const changelogSection = renderChangelogSection(bump.next, date, entries, { initial: bump.current === "0.0.0" && bump.next !== bump.current });
 	const changelog = updateChangelog(input.existingChangelog ?? null, changelogSection);
 	const manifests = hasRelease ? updateManifests(input.manifestFiles, bump.next) : input.manifestFiles;
 	return {
