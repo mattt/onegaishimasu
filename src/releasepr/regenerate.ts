@@ -1,3 +1,4 @@
+import semver from "semver";
 import type { Entry } from "../entry.js";
 import { serializeSnapshot } from "../ledger/snapshot.js";
 import { cancelReverts } from "../signals/reverts.js";
@@ -81,10 +82,26 @@ function renderReasoning(bump: BumpResult): string {
  * version and reasoning, warnings, rendered notes flowing around pinned sections, the ledger snapshot, the changelog, and updated manifests.
  * Pure and re-runnable; the GitHub side applies the result.
  */
+/**
+ * The initial release, the first after `0.0.0`, has no earlier release to break,
+ * so a breaking entry is presented as a feature, without migration notes that a person didn't pin.
+ * The ledger keeps the classification as it was made.
+ */
+function asInitialRelease(entries: Entry[]): Entry[] {
+  return entries.map((entry) =>
+    entry.kind === "breaking"
+      ? { ...entry, kind: "feature", notes: entry.pinned.includes("notes") ? entry.notes : "" }
+      : entry,
+  );
+}
+
 export function regenerate(input: RegenerateInput): RegenerationResult {
   const date = input.date ?? today();
   const entries = cancelReverts(input.entries);
-  const bump = computeBump(entries, input.currentVersion, {
+  const initial = (semver.valid(input.currentVersion) ?? "0.0.0") === "0.0.0";
+  // What the release presents; `entries` stays the record.
+  const presented = initial ? asInitialRelease(entries) : entries;
+  const bump = computeBump(presented, input.currentVersion, {
     capBreakingBeforeMajor1: input.options?.capBreakingBeforeMajor1,
   });
 
@@ -92,13 +109,13 @@ export function regenerate(input: RegenerateInput): RegenerationResult {
   const firstBatch = entries.some((e) => e.firstBatch);
 
   // Notes prose, preserving the introduction and sections that a person wrote.
-  const sections = buildSections(entries);
+  const sections = buildSections(presented);
   const merged = mergeSections(sections, input.existingBody ?? "");
   const intro = extractIntro(input.existingBody ?? "");
   const credits = input.options?.credits !== false ? renderCredits(input.contributors ?? []) : "";
   const announcement =
     input.options?.announcement && (bump.level === "minor" || bump.level === "major")
-      ? `<details>\n<summary>Announcement draft</summary>\n\n${renderAnnouncement(bump.next, entries)}\n</details>`
+      ? `<details>\n<summary>Announcement draft</summary>\n\n${renderAnnouncement(bump.next, presented)}\n</details>`
       : "";
 
   // Ledger snapshot: first chunk in the body, overflow into comments.
@@ -117,8 +134,8 @@ export function regenerate(input: RegenerateInput): RegenerationResult {
     `<details>\n<summary>Onegaishimasu ledger</summary>\n\n${ledgerHead ?? ""}\n</details>`,
   ].filter((p) => p.trim().length > 0);
 
-  const changelogSection = renderChangelogSection(bump.next, date, entries, {
-    initial: bump.current === "0.0.0" && bump.next !== bump.current,
+  const changelogSection = renderChangelogSection(bump.next, date, presented, {
+    initial: initial && bump.next !== bump.current,
   });
   const changelog = updateChangelog(input.existingChangelog ?? null, changelogSection);
   const manifests = hasRelease
