@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: ./ # replace with owner/onegaishimasu@v1 outside this repo
+      - uses: ./ # outside this repository, use mattt/onegaishimasu@v0
         with:
-          # BYO provider key, if not using the Copilot default.
+          # The Anthropic key; see the README's quick start.
           provider-api-key: ${{ secrets.ONEGAI_PROVIDER_API_KEY }}

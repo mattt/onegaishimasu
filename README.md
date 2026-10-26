@@ -22,42 +22,56 @@ A release never happens without a person merging the release PR.
 
 ## Quick start
 
-Swap your release-please workflow for this one:
+These steps set up Onegaishimasu with Anthropic's API,
+the provider that this repository uses for its own releases.
 
-```yaml
-name: Onegaishimasu
+1. In the repository's **Settings → Actions → General**,
+   turn on **Allow GitHub Actions to create and approve pull requests**,
+   so the action can open the release PR.
+2. Add your Anthropic API key as an Actions secret named `ONEGAI_PROVIDER_API_KEY`.
+3. Add `.github/onegai.yml`:
 
-on:
-  pull_request:
-    types: [closed]
-  issue_comment:
-    types: [created]
-  push:
-    branches: [main]
-  workflow_dispatch:
+   ```yaml
+   provider:
+     type: anthropic
+     model: claude-opus-5-5
+   ```
 
-concurrency:
-  group: onegai-${{ github.repository }}
-  cancel-in-progress: false
+4. Replace your release-please workflow with this one:
 
-permissions:
-  contents: write
-  pull-requests: write
-  issues: write
-  # copilot-requests: write   # org repos using the Copilot default
+   ```yaml
+   name: Onegaishimasu
 
-jobs:
-  onegai:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: mattt/onegaishimasu@v0
-```
+   on:
+     pull_request:
+       types: [closed]
+     issue_comment:
+       types: [created]
+     push:
+       branches: [main] # your default branch
+     workflow_dispatch:
+
+   concurrency:
+     group: onegai-${{ github.repository }}
+     cancel-in-progress: false
+
+   permissions:
+     contents: write
+     pull-requests: write
+     issues: write
+
+   jobs:
+     onegai:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v7
+         - uses: mattt/onegaishimasu@v0
+           with:
+             provider-api-key: ${{ secrets.ONEGAI_PROVIDER_API_KEY }}
+   ```
 
 `@v0` follows the latest 0.x release.
 Pin a full version such as `@v0.1.0`, or a commit SHA, to stay on one release.
-This workflow uses the Copilot default;
-it also needs the Copilot CLI step and token in [Providers](#providers).
 
 The `push` trigger detects a merged release PR and publishes the release.
 The `pull_request` and `issue_comment` triggers classify merges and accept corrections.
@@ -68,23 +82,10 @@ and keeps the fields that someone corrected.
 
 ## Providers
 
-The default is GitHub Copilot, which needs no secrets:
-on org-owned repos with the policy enabled, the built-in `GITHUB_TOKEN` carries `copilot-requests: write`,
-and inference stays inside GitHub.
-The action runs the [Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli-in-actions),
-so install it before the action and pass it the token:
-
-```yaml
-- uses: actions/checkout@v7
-- run: npm install -g @github/copilot
-- uses: mattt/onegaishimasu@v0
-  env:
-    GITHUB_TOKEN: ${{ github.token }}
-```
-
-To use a specific model, bring your own key.
-One adapter speaks the OpenAI Chat Completions format (OpenAI, Azure, OpenRouter, Groq, Mistral, DeepSeek, Ollama, vLLM, any gateway);
-another speaks Anthropic Messages.
+Set the provider in `.github/onegai.yml`.
+An adapter for Anthropic Messages and one for the OpenAI Chat Completions format
+(OpenAI, Azure, OpenRouter, Groq, Mistral, DeepSeek, Ollama, vLLM, any gateway)
+take their key from the `provider-api-key` input, as in the quick start:
 
 ```yaml
 # .github/onegai.yml
@@ -94,11 +95,31 @@ provider:
   baseUrl: https://api.openai.com/v1
 ```
 
+GitHub Copilot needs no secret,
+but only on organization repositories whose Copilot policy allows the Copilot CLI,
+which the action runs.
+Set `type: copilot` (the default, with `model: auto`),
+and change the workflow to grant the permission, install the CLI, and pass it the token:
+
 ```yaml
-- uses: mattt/onegaishimasu@v0
-  with:
-    provider-api-key: ${{ secrets.ONEGAI_PROVIDER_API_KEY }}
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  copilot-requests: write
+
+jobs:
+  onegai:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: npm install -g @github/copilot
+      - uses: mattt/onegaishimasu@v0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 ```
+
+The Copilot and OpenAI-compatible providers have not run in a live release yet.
 
 ## Corrections
 
