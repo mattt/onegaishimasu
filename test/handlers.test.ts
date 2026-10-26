@@ -206,7 +206,7 @@ describe("handlePullRequestMerged", () => {
       mergedPrs: {
         999: {
           mergeSha: "abc",
-          headRef: "onegai--release",
+          headRef: "onegai/release",
           input: {
             number: 999,
             title: "chore: release 1.3.0",

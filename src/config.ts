@@ -41,7 +41,7 @@ export const configSchema = z.object({
   /** Comment the classified entry on the merged PR so the author can correct it. */
   commentOnMerge: z.boolean().default(true),
   labels: z.record(z.string(), z.enum(KINDS)).optional(),
-  releaseBranch: z.string().default("onegai--release"),
+  releaseBranch: z.string().default("onegai/release"),
   /** Move a `v<major>` tag to each new release, as GitHub Actions consumers expect. */
   floatingMajorTag: z.boolean().default(false),
   manifestFiles: z.array(z.string()).default(["package.json", "package-lock.json"]),
