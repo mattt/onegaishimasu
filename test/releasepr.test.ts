@@ -211,6 +211,35 @@ describe("initial release", () => {
     expect(result.changelog).toContain("- Initial release.");
   });
 
+  it("presents a breaking change in the initial release as a feature", () => {
+    const breaking = entry(1, "breaking", { notes: "To keep the old name, set `x`." });
+    const result = regenerate({
+      entries: [breaking, entry(2, "fix")],
+      currentVersion: "0.0.0",
+      manifestFiles: zero,
+      options: { capBreakingBeforeMajor1: false },
+    });
+    expect(result.bump.next).toBe("0.1.0");
+    const notes = extractReleaseNotes(result.body);
+    expect(notes).not.toContain("Breaking changes");
+    expect(notes).not.toContain("To keep the old name");
+    expect(notes).toContain("### Features\n\n- Summary 1 (#1)");
+    expect(result.changelog).not.toContain("**Breaking:**");
+    expect(result.bump.warnings).toHaveLength(0);
+    // The ledger keeps the classification as it was made.
+    expect(parseSnapshot(result.body).find((e) => e.pr === 1)!.kind).toBe("breaking");
+  });
+
+  it("keeps a breaking change in a later release", () => {
+    const result = regenerate({
+      entries: [entry(1, "breaking")],
+      currentVersion: "1.0.9",
+      manifestFiles: zero,
+    });
+    expect(result.body).toContain("Breaking changes");
+    expect(result.bump.next).toBe("2.0.0");
+  });
+
   it("does not mark a later release", () => {
     const result = regenerate({
       entries: [entry(1, "feature")],
