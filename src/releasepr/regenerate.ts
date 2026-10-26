@@ -3,7 +3,7 @@ import { serializeSnapshot } from "../ledger/snapshot.js";
 import { cancelReverts } from "../signals/reverts.js";
 import { renderChangelogSection, updateChangelog } from "../render/changelog.js";
 import { buildSections, renderAnnouncement, renderCredits } from "../render/release-body.js";
-import { mergeSections } from "../render/sections.js";
+import { extractIntro, mergeSections } from "../render/sections.js";
 import { type BumpResult, type BumpWarning, computeBump } from "../version.js";
 import { type ManifestFile, updateManifests } from "./manifests.js";
 
@@ -91,9 +91,10 @@ export function regenerate(input: RegenerateInput): RegenerationResult {
   const hasRelease = bump.forced || bump.level !== "none";
   const firstBatch = entries.some((e) => e.firstBatch);
 
-  // Notes prose, preserving human-edited sections.
+  // Notes prose, preserving the introduction and sections that a person wrote.
   const sections = buildSections(entries);
   const merged = mergeSections(sections, input.existingBody ?? "");
+  const intro = extractIntro(input.existingBody ?? "");
   const credits = input.options?.credits !== false ? renderCredits(input.contributors ?? []) : "";
   const announcement =
     input.options?.announcement && (bump.level === "minor" || bump.level === "major")
@@ -109,6 +110,7 @@ export function regenerate(input: RegenerateInput): RegenerationResult {
     renderReasoning(bump),
     renderWarnings(bump.warnings, firstBatch),
     "## Release notes",
+    intro,
     merged.body || "_No user-facing changes._",
     credits,
     announcement,

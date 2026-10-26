@@ -101,7 +101,7 @@ provider:
 
 ## Corrections
 
-There are two ways to correct an entry, and neither goes through a model:
+There are two ways to correct an entry and one way to add your own text, and none of them goes through a model:
 
 - Comment on the merged PR with a command.
   The correction applies to the release notes and `CHANGELOG.md`,
@@ -116,6 +116,9 @@ There are two ways to correct an entry, and neither goes through a model:
   entries of that kind merged later are not added to it,
   and `CHANGELOG.md` still uses the entries' summaries.
   Prefer commands for corrections to a single entry.
+- Write an introduction in the release PR body,
+  under "## Release notes" and above the first generated section.
+  Regeneration keeps it as you wrote it, and the published release starts with it.
 
 Commands are limited to the PR author and users with write access,
 and work until the release that contains the PR merges.
