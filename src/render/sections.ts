@@ -79,3 +79,26 @@ export function mergeSections(
 
   return { body: rendered.join("\n\n"), pinned };
 }
+
+const NOTES_HEADING_RE = /^## Release notes[ \t]*$/m;
+
+/** Where generated content starts below the notes heading. */
+const GENERATED_STARTS = [
+  "<!-- onegai:section ",
+  "_No user-facing changes._",
+  "### Contributors",
+  "<details>",
+];
+
+/**
+ * The introduction a person wrote under "## Release notes", above the generated sections.
+ * Regeneration keeps it verbatim, and the published release includes it.
+ */
+export function extractIntro(body: string): string {
+  const text = body.replace(/\r\n/g, "\n");
+  const heading = NOTES_HEADING_RE.exec(text);
+  if (!heading) return "";
+  const after = text.slice(heading.index + heading[0].length);
+  const ends = GENERATED_STARTS.map((marker) => after.indexOf(marker)).filter((i) => i >= 0);
+  return after.slice(0, ends.length > 0 ? Math.min(...ends) : after.length).trim();
+}
