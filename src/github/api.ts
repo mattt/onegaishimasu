@@ -1,4 +1,5 @@
 import type { getOctokit } from "@actions/github";
+import semver from "semver";
 import { type Config, parseConfig } from "../config.js";
 import type { ManifestFile } from "../releasepr/manifests.js";
 import type { PullRequestInput } from "../pr.js";
@@ -61,6 +62,29 @@ export interface GitHubClient {
   tagAndRelease(version: string, notes: string, target: string): Promise<void>;
   /** Point a tag at a commit, creating the tag if it doesn't exist. */
   moveTag(tag: string, target: string): Promise<void>;
+}
+
+/**
+ * The comments that may carry ledger chunks: those by the account that opened the release PR,
+ * which is the action's own identity. GitHub records a comment's author,
+ * so a chunk pasted into anyone else's comment is ignored.
+ */
+export function ledgerComments(
+  releasePrAuthor: string,
+  comments: { author: string; body: string }[],
+): string[] {
+  return comments.filter((c) => c.author === releasePrAuthor).map((c) => c.body);
+}
+
+/** The highest released version among tags such as `v1.2.3`, ignoring floating tags such as `v1`. */
+export function latestVersionTag(names: string[]): string | null {
+  let best: { name: string; version: string } | null = null;
+  for (const name of names) {
+    const version = semver.valid(name.replace(/^v/, ""));
+    if (!version || semver.prerelease(version)) continue;
+    if (best === null || semver.gt(version, best.version)) best = { name, version };
+  }
+  return best?.name ?? null;
 }
 
 /** Parse the version from a release PR title such as "chore: release 1.2.0". */
@@ -160,7 +184,10 @@ export class OctokitClient implements GitHubClient {
     return {
       number: pr.number,
       body: pr.body ?? "",
-      comments: comments.data.map((c) => c.body ?? ""),
+      comments: ledgerComments(
+        pr.user?.login ?? "",
+        comments.data.map((c) => ({ author: c.user?.login ?? "", body: c.body ?? "" })),
+      ),
     };
   }
 
@@ -278,8 +305,11 @@ export class OctokitClient implements GitHubClient {
   }
 
   async latestTag(): Promise<string | null> {
-    const tags = await this.octokit.rest.repos.listTags({ ...this.repo, per_page: 1 });
-    return tags.data[0]?.name ?? null;
+    const tags = await this.octokit.paginate(this.octokit.rest.repos.listTags, {
+      ...this.repo,
+      per_page: 100,
+    });
+    return latestVersionTag(tags.map((t) => t.name));
   }
 
   async listMergedPrNumbersSinceTag(tag: string | null): Promise<number[]> {
@@ -308,7 +338,9 @@ export class OctokitClient implements GitHubClient {
       ...this.repo,
       state: "closed",
       head: `${this.repo.owner}:${branch}`,
-      sort: "updated",
+      // Each cycle opens a new release PR, so the newest one is the latest release;
+      // sorting by update time would let a comment on an old release PR win.
+      sort: "created",
       direction: "desc",
       per_page: 5,
     });
