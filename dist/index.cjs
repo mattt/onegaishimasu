@@ -1,5 +1,5 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_version$1 = require("./version-xneg5MKd.cjs");
+const require_version$1 = require("./version-CQUNE4NI.cjs");
 const require_promise = require("./promise-BzCuvIAN.cjs");
 let node_crypto = require("node:crypto");
 require("node:fs");
@@ -19647,6 +19647,8 @@ const configSchema = require_version$1.object({
 	commentOnMerge: require_version$1.boolean().default(true),
 	labels: require_version$1.record(require_version$1.string(), require_version$1._enum(require_version$1.KINDS)).optional(),
 	releaseBranch: require_version$1.string().default("onegai--release"),
+	/** Move a `v<major>` tag to each new release, as GitHub Actions consumers expect. */
+	floatingMajorTag: require_version$1.boolean().default(false),
 	manifestFiles: require_version$1.array(require_version$1.string()).default(["package.json", "package-lock.json"])
 });
 /** Parse config from YAML text, applying defaults. */
@@ -19891,6 +19893,25 @@ var OctokitClient = class {
 			return false;
 		}
 	}
+	async moveTag(tag, target) {
+		if (await this.octokit.rest.git.getRef({
+			...this.repo,
+			ref: `tags/${tag}`
+		}).then(() => true).catch((error) => {
+			if (error.status === 404) return false;
+			throw error;
+		})) await this.octokit.rest.git.updateRef({
+			...this.repo,
+			ref: `tags/${tag}`,
+			sha: target,
+			force: true
+		});
+		else await this.octokit.rest.git.createRef({
+			...this.repo,
+			ref: `refs/tags/${tag}`,
+			sha: target
+		});
+	}
 	async tagAndRelease(version, notes, target) {
 		const tag = `v${version}`;
 		await this.octokit.rest.repos.createRelease({
@@ -19903,6 +19924,7 @@ var OctokitClient = class {
 	}
 };
 // src/classify/diff-budget.ts
+var import_semver = /* @__PURE__ */ require_version$1.__toESM(require_version$1.require_semver(), 1);
 const EXCLUDE_RE = /(^|\/)(package-lock\.json|yarn\.lock|pnpm-lock\.yaml|npm-shrinkwrap\.json|.*\.min\.(js|css)|.*\.snap)$|(^|\/)(dist|build|node_modules|vendor|generated)\//;
 const MANIFEST_RE = /(^|\/)(package\.json|Cargo\.toml|pyproject\.toml|go\.mod)$/;
 const API_RE = /(^|\/)(src|lib|include)\/|\.d\.ts$|(^|\/)index\.[a-z]+$/;
@@ -23556,6 +23578,15 @@ async function handlePush(client, ctx) {
 	if (await client.tagExists(version)) return;
 	const notes = extractReleaseNotes(merged.body);
 	await client.tagAndRelease(version, notes, merged.mergeSha);
+	if (config.floatingMajorTag && import_semver.default.valid(version) && !import_semver.default.prerelease(version)) {
+		const floating = `v${import_semver.default.major(version)}`;
+		try {
+			await client.moveTag(floating, merged.mergeSha);
+		} catch (error) {
+			const reason = error instanceof Error ? error.message : String(error);
+			ctx.warn?.(`Released v${version}, but couldn't move ${floating}: ${reason}`);
+		}
+	}
 }
 // node_modules/@anthropic-ai/sdk/internal/utils/sleep.mjs
 /**
@@ -25948,7 +25979,7 @@ function redactSensitive(body) {
 */
 async function checkCredentialsFileSafety(path, onWarn = (m) => console.warn(`anthropic-sdk: ${m}`)) {
 	if (typeof process === "undefined" || process.platform === "win32") return;
-	const { fs } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
+	const { fs } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
 	let resolved = path;
 	let st;
 	try {
@@ -25968,7 +25999,7 @@ async function checkCredentialsFileSafety(path, onWarn = (m) => console.warn(`an
 * Creates the parent directory with mode 0700 and the file with mode 0600.
 */
 async function writeCredentialsFileAtomic(targetPath, data) {
-	const { fs, path } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
 	const dir = path.dirname(targetPath);
 	await fs.promises.mkdir(dir, {
 		recursive: true,
@@ -27024,7 +27055,7 @@ const loadConfigWithSource = async (profile) => {
 	const profileName = profile ?? await getActiveProfileName();
 	if (profileName === null) return null;
 	validateProfileName(profileName);
-	const { fs, path } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
 	const configPath = path.join(rootConfigPath, "configs", `${profileName}.json`);
 	let configRaw;
 	try {
@@ -27078,12 +27109,12 @@ const getCredentialsPath = async (config, profile) => {
 	const profileName = profile ?? await getActiveProfileName();
 	if (!profileName) return null;
 	validateProfileName(profileName);
-	const { path } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
+	const { path } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
 	return path.join(rootConfigPath, "credentials", `${profileName}.json`);
 };
 const getRootConfigPath = async () => {
 	if (!supportsLocalConfigFiles()) return null;
-	const { path } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
+	const { path } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
 	const configDir = require_promise.readEnv("ANTHROPIC_CONFIG_DIR");
 	if (configDir) return configDir;
 	if (getPlatformHeaders()["X-Stainless-OS"] === "Windows") {
@@ -27108,7 +27139,7 @@ const getActiveProfileName = async () => {
 	if (!rootConfigPath) return null;
 	const profileName = require_promise.readEnv("ANTHROPIC_PROFILE");
 	if (profileName) return profileName;
-	const { fs, path } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
+	const { fs, path } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
 	const filePath = path.join(rootConfigPath, "active_config");
 	try {
 		return (await fs.promises.readFile(filePath, "utf-8")).trim() || "default";
@@ -27125,7 +27156,7 @@ const getActiveProfileName = async () => {
 function identityTokenFromFile(path) {
 	if (!path) throw new require_promise.AnthropicError("Identity token file path is empty");
 	return async () => {
-		const { fs } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
 		let content;
 		try {
 			content = await fs.promises.readFile(path, "utf-8");
@@ -27212,7 +27243,7 @@ function oidcFederationProvider(config) {
 */
 function userOAuthProvider(config) {
 	return async (opts) => {
-		const { fs } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
 		await checkCredentialsFileSafety(config.credentialsPath, config.onSafetyWarning);
 		let raw;
 		try {
@@ -27392,7 +27423,7 @@ function resolveIdentityTokenProvider(auth) {
 */
 function cachedExchangeProvider(exchange, credentialsPath, onCacheWriteError, onSafetyWarning) {
 	return async (opts) => {
-		const { fs } = await Promise.resolve().then(() => require("./node-BtlFWv2g.cjs")).then((n) => n.node_exports);
+		const { fs } = await Promise.resolve().then(() => require("./node-DiP2spBn.cjs")).then((n) => n.node_exports);
 		await checkCredentialsFileSafety(credentialsPath, onSafetyWarning);
 		let existing;
 		try {
@@ -32280,7 +32311,7 @@ var EnvironmentWorker = /* @__PURE__ */ (() => {
 		const ctrl = new AbortController();
 		const detachExternal = linkAbort(externalSignal, ctrl);
 		const lease = new Lease(ctrl);
-		const agentToolset = await Promise.resolve().then(() => require("./node-BRj8UEq4.cjs"));
+		const agentToolset = await Promise.resolve().then(() => require("./node-CjvOkmS5.cjs"));
 		let leaseTtlMs;
 		let runner;
 		const heartbeatPromise = heartbeatLoop(sessionClient, work, lease, log, this.requestOptions, (ttlMs) => {

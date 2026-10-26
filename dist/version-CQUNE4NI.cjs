@@ -12399,156 +12399,6 @@ function deriveConfidence(evidence) {
 function entryFromYaml(yaml) {
 	return entrySchema.parse((0, import_dist.parse)(yaml));
 }
-// src/ledger/snapshot.ts
-/**
-* GitHub caps issue and PR bodies at 65536 characters.
-* Staying under it leaves headroom for surrounding prose and an oversize entry.
-*/
-const DEFAULT_MAX_CHUNK = 6e4;
-const START = (part, total) => `<!-- onegai:ledger:start part=${part}/${total} -->`;
-const END = "<!-- onegai:ledger:end -->";
-/** Matches one snapshot chunk and captures its part index and fenced YAML. */
-const CHUNK_RE = /<!-- onegai:ledger:start part=(\d+)\/(\d+) -->\s*```yaml\n([\s\S]*?)\n```\s*<!-- onegai:ledger:end -->/g;
-function wrapChunk(yaml, part, total) {
-	return `${START(part, total)}\n\`\`\`yaml\n${yaml}\n\`\`\`\n${END}`;
-}
-/**
-* Serialize entries into self-contained ledger chunks.
-* The first chunk belongs in the release PR body; overflow spills into bot comments.
-* Each chunk carries its part index so order survives reassembly.
-*/
-function serializeSnapshot(entries, maxChunkSize = DEFAULT_MAX_CHUNK) {
-	const serialized = entries.map((e) => entrySchema.parse(e)).map((e) => (0, import_dist.stringify)([e]).trimEnd());
-	if (serialized.length === 0) return [wrapChunk((0, import_dist.stringify)([]).trimEnd(), 1, 1)];
-	const overhead = wrapChunk("", 9, 9).length + 16;
-	const budget = Math.max(maxChunkSize - overhead, 1);
-	const groups = [];
-	let current = [];
-	let currentLen = 0;
-	for (const item of serialized) {
-		const addition = item.length + 1;
-		if (current.length > 0 && currentLen + addition > budget) {
-			groups.push(current);
-			current = [];
-			currentLen = 0;
-		}
-		current.push(item);
-		currentLen += addition;
-	}
-	if (current.length > 0) groups.push(current);
-	const total = groups.length;
-	return groups.map((group, i) => wrapChunk(group.join("\n"), i + 1, total));
-}
-/**
-* Reassemble entries from a release PR body and its bot comments.
-* Chunks are found wherever they appear, ordered by part index, and concatenated.
-* Non-chunk text is ignored, so parsing never depends on how GitHub renders the body.
-*/
-function parseSnapshot(body, comments = []) {
-	const sources = [body, ...comments].map((s) => s.replace(/\r\n/g, "\n"));
-	const found = [];
-	for (const source of sources) for (const match of source.matchAll(CHUNK_RE)) {
-		const part = Number(match[1]);
-		const yaml = match[3] ?? "";
-		found.push({
-			part,
-			yaml
-		});
-	}
-	found.sort((a, b) => a.part - b.part);
-	const entries = [];
-	for (const { yaml } of found) {
-		const parsed = (0, import_dist.parse)(yaml);
-		if (!Array.isArray(parsed)) continue;
-		for (const item of parsed) entries.push(entrySchema.parse(item));
-	}
-	return entries;
-}
-// src/render/release-body.ts
-const GROUPS = [
-	{
-		id: "breaking",
-		title: "Breaking changes",
-		kinds: ["breaking"]
-	},
-	{
-		id: "features",
-		title: "Features",
-		kinds: ["feature"]
-	},
-	{
-		id: "fixes",
-		title: "Bug fixes",
-		kinds: ["fix"]
-	},
-	{
-		id: "perf",
-		title: "Performance",
-		kinds: ["perf"]
-	}
-];
-function entryProse(entry) {
-	const head = `- ${entry.summary} (#${entry.pr})`;
-	if (entry.notes.trim().length === 0) return head;
-	return `${head}\n${entry.notes.trim().split("\n").map((l) => `  ${l}`).join("\n")}`;
-}
-/**
-* Build the grouped prose sections of a release body.
-* Breaking changes carry their migration notes; dependency bumps collapse to one line.
-* Stateless: a pure function from entries to sections.
-*/
-function buildSections(entries) {
-	const sections = [];
-	for (const group of GROUPS) {
-		const matching = entries.filter((e) => group.kinds.includes(e.kind));
-		if (matching.length === 0) continue;
-		const markdown = matching.map(entryProse).join("\n");
-		sections.push({
-			id: group.id,
-			title: group.title,
-			markdown
-		});
-	}
-	const deps = entries.filter((e) => e.kind === "deps");
-	if (deps.length > 0) {
-		const markdown = deps.length <= 3 ? deps.map((e) => `- ${e.summary} (#${e.pr})`).join("\n") : `- ${deps.length} dependency updates: ${deps.map((e) => `${e.summary} (#${e.pr})`).join("; ")}`;
-		sections.push({
-			id: "deps",
-			title: "Dependencies",
-			markdown
-		});
-	}
-	return sections;
-}
-/** Render sections as plain markdown, for previews and non-pinned output. */
-function renderReleaseNotesPlain(entries) {
-	const sections = buildSections(entries);
-	if (sections.length === 0) return "_No user-facing changes._";
-	return sections.map((s) => `### ${s.title}\n\n${s.markdown}`).join("\n\n");
-}
-/**
-* A blog-post-shaped announcement draft for minor and major releases.
-* A stateless template; the prose layer is meant to improve without touching stored judgment.
-*/
-function renderAnnouncement(version, entries) {
-	const features = entries.filter((e) => e.kind === "feature");
-	const breaking = entries.filter((e) => e.kind === "breaking");
-	const fixes = entries.filter((e) => e.kind === "fix");
-	const parts = [`## Announcing ${version}`, ""];
-	const headline = [];
-	if (breaking.length > 0) headline.push(`${breaking.length} breaking change(s)`);
-	if (features.length > 0) headline.push(`${features.length} new feature(s)`);
-	if (fixes.length > 0) headline.push(`${fixes.length} fix(es)`);
-	parts.push(headline.length > 0 ? `This release brings ${headline.join(", ")}.` : "This release contains internal changes.");
-	for (const e of [...breaking, ...features]) parts.push("", `### ${e.summary}`, "", e.notes.trim() || "_No details provided._");
-	return parts.join("\n");
-}
-/** Render a compact credits line from contributor logins. */
-function renderCredits(logins) {
-	const unique = [...new Set(logins)].filter((l) => l.length > 0).sort();
-	if (unique.length === 0) return "";
-	return `### Contributors\n\n${unique.map((l) => `@${l}`).join(", ")}`;
-}
 // node_modules/semver/internal/constants.js
 var require_constants = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = {
@@ -13901,6 +13751,156 @@ var require_semver = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		rcompareIdentifiers: identifiers.rcompareIdentifiers
 	};
 }));
+// src/ledger/snapshot.ts
+/**
+* GitHub caps issue and PR bodies at 65536 characters.
+* Staying under it leaves headroom for surrounding prose and an oversize entry.
+*/
+const DEFAULT_MAX_CHUNK = 6e4;
+const START = (part, total) => `<!-- onegai:ledger:start part=${part}/${total} -->`;
+const END = "<!-- onegai:ledger:end -->";
+/** Matches one snapshot chunk and captures its part index and fenced YAML. */
+const CHUNK_RE = /<!-- onegai:ledger:start part=(\d+)\/(\d+) -->\s*```yaml\n([\s\S]*?)\n```\s*<!-- onegai:ledger:end -->/g;
+function wrapChunk(yaml, part, total) {
+	return `${START(part, total)}\n\`\`\`yaml\n${yaml}\n\`\`\`\n${END}`;
+}
+/**
+* Serialize entries into self-contained ledger chunks.
+* The first chunk belongs in the release PR body; overflow spills into bot comments.
+* Each chunk carries its part index so order survives reassembly.
+*/
+function serializeSnapshot(entries, maxChunkSize = DEFAULT_MAX_CHUNK) {
+	const serialized = entries.map((e) => entrySchema.parse(e)).map((e) => (0, import_dist.stringify)([e]).trimEnd());
+	if (serialized.length === 0) return [wrapChunk((0, import_dist.stringify)([]).trimEnd(), 1, 1)];
+	const overhead = wrapChunk("", 9, 9).length + 16;
+	const budget = Math.max(maxChunkSize - overhead, 1);
+	const groups = [];
+	let current = [];
+	let currentLen = 0;
+	for (const item of serialized) {
+		const addition = item.length + 1;
+		if (current.length > 0 && currentLen + addition > budget) {
+			groups.push(current);
+			current = [];
+			currentLen = 0;
+		}
+		current.push(item);
+		currentLen += addition;
+	}
+	if (current.length > 0) groups.push(current);
+	const total = groups.length;
+	return groups.map((group, i) => wrapChunk(group.join("\n"), i + 1, total));
+}
+/**
+* Reassemble entries from a release PR body and its bot comments.
+* Chunks are found wherever they appear, ordered by part index, and concatenated.
+* Non-chunk text is ignored, so parsing never depends on how GitHub renders the body.
+*/
+function parseSnapshot(body, comments = []) {
+	const sources = [body, ...comments].map((s) => s.replace(/\r\n/g, "\n"));
+	const found = [];
+	for (const source of sources) for (const match of source.matchAll(CHUNK_RE)) {
+		const part = Number(match[1]);
+		const yaml = match[3] ?? "";
+		found.push({
+			part,
+			yaml
+		});
+	}
+	found.sort((a, b) => a.part - b.part);
+	const entries = [];
+	for (const { yaml } of found) {
+		const parsed = (0, import_dist.parse)(yaml);
+		if (!Array.isArray(parsed)) continue;
+		for (const item of parsed) entries.push(entrySchema.parse(item));
+	}
+	return entries;
+}
+// src/render/release-body.ts
+const GROUPS = [
+	{
+		id: "breaking",
+		title: "Breaking changes",
+		kinds: ["breaking"]
+	},
+	{
+		id: "features",
+		title: "Features",
+		kinds: ["feature"]
+	},
+	{
+		id: "fixes",
+		title: "Bug fixes",
+		kinds: ["fix"]
+	},
+	{
+		id: "perf",
+		title: "Performance",
+		kinds: ["perf"]
+	}
+];
+function entryProse(entry) {
+	const head = `- ${entry.summary} (#${entry.pr})`;
+	if (entry.notes.trim().length === 0) return head;
+	return `${head}\n${entry.notes.trim().split("\n").map((l) => `  ${l}`).join("\n")}`;
+}
+/**
+* Build the grouped prose sections of a release body.
+* Breaking changes carry their migration notes; dependency bumps collapse to one line.
+* Stateless: a pure function from entries to sections.
+*/
+function buildSections(entries) {
+	const sections = [];
+	for (const group of GROUPS) {
+		const matching = entries.filter((e) => group.kinds.includes(e.kind));
+		if (matching.length === 0) continue;
+		const markdown = matching.map(entryProse).join("\n");
+		sections.push({
+			id: group.id,
+			title: group.title,
+			markdown
+		});
+	}
+	const deps = entries.filter((e) => e.kind === "deps");
+	if (deps.length > 0) {
+		const markdown = deps.length <= 3 ? deps.map((e) => `- ${e.summary} (#${e.pr})`).join("\n") : `- ${deps.length} dependency updates: ${deps.map((e) => `${e.summary} (#${e.pr})`).join("; ")}`;
+		sections.push({
+			id: "deps",
+			title: "Dependencies",
+			markdown
+		});
+	}
+	return sections;
+}
+/** Render sections as plain markdown, for previews and non-pinned output. */
+function renderReleaseNotesPlain(entries) {
+	const sections = buildSections(entries);
+	if (sections.length === 0) return "_No user-facing changes._";
+	return sections.map((s) => `### ${s.title}\n\n${s.markdown}`).join("\n\n");
+}
+/**
+* A blog-post-shaped announcement draft for minor and major releases.
+* A stateless template; the prose layer is meant to improve without touching stored judgment.
+*/
+function renderAnnouncement(version, entries) {
+	const features = entries.filter((e) => e.kind === "feature");
+	const breaking = entries.filter((e) => e.kind === "breaking");
+	const fixes = entries.filter((e) => e.kind === "fix");
+	const parts = [`## Announcing ${version}`, ""];
+	const headline = [];
+	if (breaking.length > 0) headline.push(`${breaking.length} breaking change(s)`);
+	if (features.length > 0) headline.push(`${features.length} new feature(s)`);
+	if (fixes.length > 0) headline.push(`${fixes.length} fix(es)`);
+	parts.push(headline.length > 0 ? `This release brings ${headline.join(", ")}.` : "This release contains internal changes.");
+	for (const e of [...breaking, ...features]) parts.push("", `### ${e.summary}`, "", e.notes.trim() || "_No details provided._");
+	return parts.join("\n");
+}
+/** Render a compact credits line from contributor logins. */
+function renderCredits(logins) {
+	const unique = [...new Set(logins)].filter((l) => l.length > 0).sort();
+	if (unique.length === 0) return "";
+	return `### Contributors\n\n${unique.map((l) => `@${l}`).join(", ")}`;
+}
 // src/version.ts
 var import_semver = /* @__PURE__ */ __toESM(require_semver(), 1);
 const LEVEL_RANK = {
