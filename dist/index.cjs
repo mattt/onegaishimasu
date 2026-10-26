@@ -20656,6 +20656,26 @@ function mergeSections(fresh, existingBody) {
 		pinned
 	};
 }
+const NOTES_HEADING_RE = /^## Release notes[ \t]*$/m;
+/** Where generated content starts below the notes heading. */
+const GENERATED_STARTS = [
+	"<!-- onegai:section ",
+	"_No user-facing changes._",
+	"### Contributors",
+	"<details>"
+];
+/**
+* The introduction a person wrote under "## Release notes", above the generated sections.
+* Regeneration keeps it verbatim, and the published release includes it.
+*/
+function extractIntro(body) {
+	const text = body.replace(/\r\n/g, "\n");
+	const heading = NOTES_HEADING_RE.exec(text);
+	if (!heading) return "";
+	const after = text.slice(heading.index + heading[0].length);
+	const ends = GENERATED_STARTS.map((marker) => after.indexOf(marker)).filter((i) => i >= 0);
+	return after.slice(0, ends.length > 0 ? Math.min(...ends) : after.length).trim();
+}
 // node_modules/detect-indent/index.js
 var require_detect_indent = /* @__PURE__ */ require_version$1.__commonJSMin(((exports, module) => {
 	const INDENT_REGEX = /^(?:( )+|\t+)/;
@@ -23328,6 +23348,7 @@ function regenerate(input) {
 	const hasRelease = bump.forced || bump.level !== "none";
 	const firstBatch = entries.some((e) => e.firstBatch);
 	const merged = mergeSections(require_version$1.buildSections(entries), input.existingBody ?? "");
+	const intro = extractIntro(input.existingBody ?? "");
 	const credits = input.options?.credits !== false ? require_version$1.renderCredits(input.contributors ?? []) : "";
 	const announcement = input.options?.announcement && (bump.level === "minor" || bump.level === "major") ? `<details>\n<summary>Announcement draft</summary>\n\n${require_version$1.renderAnnouncement(bump.next, entries)}\n</details>` : "";
 	const [ledgerHead, ...overflow] = require_version$1.serializeSnapshot(entries);
@@ -23336,6 +23357,7 @@ function regenerate(input) {
 		renderReasoning(bump),
 		renderWarnings(bump.warnings, firstBatch),
 		"## Release notes",
+		intro,
 		merged.body || "_No user-facing changes._",
 		credits,
 		announcement,
