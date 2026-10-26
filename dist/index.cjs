@@ -19646,7 +19646,7 @@ const configSchema = require_version$1.object({
 	/** Comment the classified entry on the merged PR so the author can correct it. */
 	commentOnMerge: require_version$1.boolean().default(true),
 	labels: require_version$1.record(require_version$1.string(), require_version$1._enum(require_version$1.KINDS)).optional(),
-	releaseBranch: require_version$1.string().default("onegai--release"),
+	releaseBranch: require_version$1.string().default("onegai/release"),
 	/** Move a `v<major>` tag to each new release, as GitHub Actions consumers expect. */
 	floatingMajorTag: require_version$1.boolean().default(false),
 	manifestFiles: require_version$1.array(require_version$1.string()).default(["package.json", "package-lock.json"])
