@@ -23367,16 +23367,30 @@ function renderReasoning(bump) {
 * version and reasoning, warnings, rendered notes flowing around pinned sections, the ledger snapshot, the changelog, and updated manifests.
 * Pure and re-runnable; the GitHub side applies the result.
 */
+/**
+* The initial release, the first after `0.0.0`, has no earlier release to break,
+* so a breaking entry is presented as a feature, without migration notes that a person didn't pin.
+* The ledger keeps the classification as it was made.
+*/
+function asInitialRelease(entries) {
+	return entries.map((entry) => entry.kind === "breaking" ? {
+		...entry,
+		kind: "feature",
+		notes: entry.pinned.includes("notes") ? entry.notes : ""
+	} : entry);
+}
 function regenerate(input) {
 	const date = input.date ?? today();
 	const entries = cancelReverts(input.entries);
-	const bump = require_version$1.computeBump(entries, input.currentVersion, { capBreakingBeforeMajor1: input.options?.capBreakingBeforeMajor1 });
+	const initial = (import_semver.default.valid(input.currentVersion) ?? "0.0.0") === "0.0.0";
+	const presented = initial ? asInitialRelease(entries) : entries;
+	const bump = require_version$1.computeBump(presented, input.currentVersion, { capBreakingBeforeMajor1: input.options?.capBreakingBeforeMajor1 });
 	const hasRelease = bump.forced || bump.level !== "none";
 	const firstBatch = entries.some((e) => e.firstBatch);
-	const merged = mergeSections(require_version$1.buildSections(entries), input.existingBody ?? "");
+	const merged = mergeSections(require_version$1.buildSections(presented), input.existingBody ?? "");
 	const intro = extractIntro(input.existingBody ?? "");
 	const credits = input.options?.credits !== false ? require_version$1.renderCredits(input.contributors ?? []) : "";
-	const announcement = input.options?.announcement && (bump.level === "minor" || bump.level === "major") ? `<details>\n<summary>Announcement draft</summary>\n\n${require_version$1.renderAnnouncement(bump.next, entries)}\n</details>` : "";
+	const announcement = input.options?.announcement && (bump.level === "minor" || bump.level === "major") ? `<details>\n<summary>Announcement draft</summary>\n\n${require_version$1.renderAnnouncement(bump.next, presented)}\n</details>` : "";
 	const [ledgerHead, ...overflow] = require_version$1.serializeSnapshot(entries);
 	const bodyParts = [
 		`## Release ${bump.next}`,
@@ -23389,7 +23403,7 @@ function regenerate(input) {
 		announcement,
 		`<details>\n<summary>Onegaishimasu ledger</summary>\n\n${ledgerHead ?? ""}\n</details>`
 	].filter((p) => p.trim().length > 0);
-	const changelogSection = renderChangelogSection(bump.next, date, entries, { initial: bump.current === "0.0.0" && bump.next !== bump.current });
+	const changelogSection = renderChangelogSection(bump.next, date, presented, { initial: initial && bump.next !== bump.current });
 	const changelog = updateChangelog(input.existingChangelog ?? null, changelogSection);
 	const manifests = hasRelease ? updateManifests(input.manifestFiles, bump.next) : input.manifestFiles;
 	return {
