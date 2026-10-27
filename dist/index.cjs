@@ -19650,6 +19650,15 @@ const configSchema = require_version$1.object({
 	releaseBranch: require_version$1.string().default("onegai/release"),
 	/** Move a `v<major>` tag to each new release, as GitHub Actions consumers expect. */
 	floatingMajorTag: require_version$1.boolean().default(false),
+	/**
+	* A workflow to start at each new release's tag, such as one that publishes to npm.
+	* Tags created with GITHUB_TOKEN start no workflows, but a workflow_dispatch does.
+	*/
+	publish: require_version$1.object({
+		workflow: require_version$1.string(),
+		/** The workflow_dispatch input that receives the tag, such as `v1.2.3`. */
+		tagInput: require_version$1.string().default("tag")
+	}).optional(),
 	manifestFiles: require_version$1.array(require_version$1.string()).default(["package.json", "package-lock.json"])
 });
 /** Parse config from YAML text, applying defaults. */
@@ -19917,6 +19926,14 @@ var OctokitClient = class {
 		} catch {
 			return false;
 		}
+	}
+	async dispatchWorkflow(workflow, ref, inputs) {
+		await this.octokit.rest.actions.createWorkflowDispatch({
+			...this.repo,
+			workflow_id: workflow,
+			ref,
+			inputs
+		});
 	}
 	async moveTag(tag, target) {
 		if (await this.octokit.rest.git.getRef({
@@ -23623,6 +23640,15 @@ async function handlePush(client, ctx) {
 	if (!await client.tagExists(version)) {
 		const notes = extractReleaseNotes(merged.body);
 		await client.tagAndRelease(version, notes, merged.mergeSha);
+		if (config.publish) {
+			const tag = `v${version}`;
+			try {
+				await client.dispatchWorkflow(config.publish.workflow, tag, { [config.publish.tagInput]: tag });
+			} catch (error) {
+				const reason = error instanceof Error ? error.message : String(error);
+				ctx.warn?.(`Released ${tag}, but couldn't start ${config.publish.workflow}: ${reason}. Check that the workflow has a workflow_dispatch trigger and that this workflow has \`actions: write\`.`);
+			}
+		}
 	}
 	if (config.floatingMajorTag && import_semver.default.valid(version) && !import_semver.default.prerelease(version)) {
 		const floating = `v${import_semver.default.major(version)}`;
