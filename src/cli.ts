@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-import { readFileSync } from "node:fs";
+import { readFileSync, realpathSync } from "node:fs";
 import type { Entry } from "./entry.js";
+import { init, parseInitArgs, type InitDependencies } from "./init.js";
 import { readEntryDir } from "./ledger/files.js";
 import { parseSnapshot } from "./ledger/snapshot.js";
 import { renderReleaseNotesPlain } from "./render/release-body.js";
@@ -56,11 +57,27 @@ export function preview(options: PreviewOptions): string {
   return lines.join("\n");
 }
 
-const USAGE = `onegai — preview a release from the ledger, writing nothing.
+const USAGE = `onegai — set up Onegaishimasu or preview a release.
 
 Usage:
+  onegai init [--provider anthropic|openai|copilot] [--model <name>]
+              [--publish-workflow <file>] [--tag-input <name>]
+              [--dry-run] [--no-pr] [--force]
   onegai preview --dir <entries-dir> [--current <version>] [--pre-1.0]
   onegai preview --body <release-pr-body-file> [--current <version>] [--pre-1.0]
+
+Init options:
+  --provider <name>          Provider (default anthropic).
+  --model <name>             Default claude-opus-5-5 for anthropic, auto for copilot;
+                            required for openai.
+  --publish-workflow <file>  Publish workflow in .github/workflows (auto-detected).
+  --tag-input <name>         Dispatch input for the release tag (default tag).
+  --dry-run                 Print files and commands without making changes.
+  --no-pr                   Write and commit locally; skip remote changes.
+  --force                   Replace existing Onegaishimasu files.
+
+Init uses your gh login. Provide ONEGAI_PROVIDER_API_KEY through the environment
+or stdin (not needed for copilot, --dry-run, or --no-pr).
 
 Options:
   --dir <path>      Read entries from a directory of entry files.
@@ -75,8 +92,21 @@ function getFlag(argv: string[], name: string): string | undefined {
 }
 
 /** CLI entry point. Returns a process exit code. */
-export async function main(argv: string[]): Promise<number> {
+export async function main(argv: string[], initDependencies?: InitDependencies): Promise<number> {
   const command = argv[0];
+  if (command === "init") {
+    if (argv.includes("--help") || argv.includes("-h")) {
+      process.stdout.write(USAGE);
+      return 0;
+    }
+    try {
+      await init(parseInitArgs(argv.slice(1)), initDependencies);
+      return 0;
+    } catch (error) {
+      process.stderr.write(`error: ${error instanceof Error ? error.message : String(error)}\n`);
+      return 1;
+    }
+  }
   if (command !== "preview") {
     process.stdout.write(USAGE);
     return command === undefined || command === "--help" || command === "-h" ? 0 : 1;
@@ -99,7 +129,17 @@ export async function main(argv: string[]): Promise<number> {
   return 0;
 }
 
-if (/cli\.c?js$/.test(process.argv[1] ?? "")) {
+/** The script path, through symlinks such as `node_modules/.bin/onegai`, as `npx` runs it. */
+export function scriptPath(argv1: string | undefined): string {
+  if (!argv1) return "";
+  try {
+    return realpathSync(argv1);
+  } catch {
+    return argv1;
+  }
+}
+
+if (/cli\.c?js$/.test(scriptPath(process.argv[1]))) {
   void main(process.argv.slice(2)).then((code) => {
     process.exitCode = code;
   });

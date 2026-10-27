@@ -32383,7 +32383,7 @@ var EnvironmentWorker = /* @__PURE__ */ (() => {
 		const ctrl = new AbortController();
 		const detachExternal = linkAbort(externalSignal, ctrl);
 		const lease = new Lease(ctrl);
-		const agentToolset = await Promise.resolve().then(() => require("./node-Ctjw1PfQ.cjs"));
+		const agentToolset = await Promise.resolve().then(() => require("./node-DkrPo_z0.cjs"));
 		let leaseTtlMs;
 		let runner;
 		const heartbeatPromise = heartbeatLoop(sessionClient, work, lease, log, this.requestOptions, (ttlMs) => {
