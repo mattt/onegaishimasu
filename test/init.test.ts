@@ -227,6 +227,7 @@ describe("init plan and execution", () => {
     const commands = steps.filter((step) => step.kind === "command");
     expect(commands.map((step) => [step.command, ...step.args.slice(0, 2)])).toEqual([
       ["git", "status", "--porcelain"],
+      ["git", "fetch", "origin"],
       ["git", "switch", "-c"],
       ["git", "add", "--"],
       ["git", "commit", "-m"],
@@ -241,9 +242,13 @@ describe("init plan and execution", () => {
       "PUT",
       "repos/example/project/actions/permissions/workflow",
       "-F",
-      "default_workflow_permissions=write",
-      "-F",
       "can_approve_pull_request_reviews=true",
+    ]);
+    expect(commands.find((step) => step.args[0] === "switch")?.args).toEqual([
+      "switch",
+      "-c",
+      "onegai/setup",
+      "origin/trunk",
     ]);
     expect(commands.find((step) => step.role === "pr")?.args).toContain("trunk");
     expect(JSON.stringify(steps)).not.toContain("stdin-secret");
@@ -331,7 +336,7 @@ describe("init plan and execution", () => {
       expect(output).toContain(permissionsHelp(repository, status as "403" | "409"));
       expect(output).toContain("https://github.com/example/project/settings/actions");
       expect(output).toContain("https://github.com/organizations/example/settings/actions");
-      expect(output).toContain('"Read and write permissions"');
+      expect(output).not.toContain("Read and write permissions");
       expect(output).toContain('"Allow GitHub Actions to create and approve pull requests"');
       expect(output).toContain("complete the permission changes above");
       expect(h.calls.some((call) => call.args[0] === "push")).toBe(true);

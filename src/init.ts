@@ -202,7 +202,13 @@ export function planInit(
   const publish = detectPublishWorkflow(workflows, options);
   const steps: InitStep[] = [
     { kind: "command", command: "git", args: ["status", "--porcelain"], role: "clean" },
-    { kind: "command", command: "git", args: ["switch", "-c", SETUP_BRANCH] },
+    // Start from the default branch, so the setup PR carries only the setup commit.
+    { kind: "command", command: "git", args: ["fetch", "origin", repository.defaultBranch] },
+    {
+      kind: "command",
+      command: "git",
+      args: ["switch", "-c", SETUP_BRANCH, `origin/${repository.defaultBranch}`],
+    },
     { kind: "write", path: CONFIG_PATH, content: renderInitConfig(provider, publish) },
     {
       kind: "write",
@@ -221,8 +227,8 @@ export function planInit(
         "-X",
         "PUT",
         `repos/${repository.nameWithOwner}/actions/permissions/workflow`,
-        "-F",
-        "default_workflow_permissions=write",
+        // Only the PR setting: the workflow declares its own permissions,
+        // so the default for other workflows stays as it is.
         "-F",
         "can_approve_pull_request_reviews=true",
       ],
@@ -269,8 +275,8 @@ export function planInit(
 export function permissionsHelp(repository: Repository, status: "403" | "409"): string {
   const owner = repository.nameWithOwner.split("/")[0];
   return `GitHub blocked the workflow permission change (HTTP ${status}).
-At https://github.com/${repository.nameWithOwner}/settings/actions, under Workflow permissions, select "Read and write permissions", enable "Allow GitHub Actions to create and approve pull requests", and save.
-If organization policy locks these settings, ask an organization owner to allow both at https://github.com/organizations/${owner}/settings/actions under Workflow permissions. If enterprise policy locks them, an enterprise owner must allow them first.
+At https://github.com/${repository.nameWithOwner}/settings/actions, under Workflow permissions, enable "Allow GitHub Actions to create and approve pull requests", and save.
+If organization policy locks this setting, ask an organization owner to allow it at https://github.com/organizations/${owner}/settings/actions under Workflow permissions. If enterprise policy locks them, an enterprise owner must allow them first.
 `;
 }
 
