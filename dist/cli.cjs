@@ -480,8 +480,18 @@ async function main(argv, initDependencies) {
 	process.stdout.write(`${preview(options)}\n`);
 	return 0;
 }
-if (/cli\.c?js$/.test(process.argv[1] ?? "")) main(process.argv.slice(2)).then((code) => {
+/** The script path, through symlinks such as `node_modules/.bin/onegai`, as `npx` runs it. */
+function scriptPath(argv1) {
+	if (!argv1) return "";
+	try {
+		return (0, node_fs.realpathSync)(argv1);
+	} catch {
+		return argv1;
+	}
+}
+if (/cli\.c?js$/.test(scriptPath(process.argv[1]))) main(process.argv.slice(2)).then((code) => {
 	process.exitCode = code;
 });
 exports.main = main;
 exports.preview = preview;
+exports.scriptPath = scriptPath;
