@@ -44,6 +44,17 @@ export const configSchema = z.object({
   releaseBranch: z.string().default("onegai/release"),
   /** Move a `v<major>` tag to each new release, as GitHub Actions consumers expect. */
   floatingMajorTag: z.boolean().default(false),
+  /**
+   * A workflow to start at each new release's tag, such as one that publishes to npm.
+   * Tags created with GITHUB_TOKEN start no workflows, but a workflow_dispatch does.
+   */
+  publish: z
+    .object({
+      workflow: z.string(),
+      /** The workflow_dispatch input that receives the tag, such as `v1.2.3`. */
+      tagInput: z.string().default("tag"),
+    })
+    .optional(),
   manifestFiles: z.array(z.string()).default(["package.json", "package-lock.json"]),
 });
 
