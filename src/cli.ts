@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readFileSync } from "node:fs";
+import { readFileSync, realpathSync } from "node:fs";
 import type { Entry } from "./entry.js";
 import { init, parseInitArgs, type InitDependencies } from "./init.js";
 import { readEntryDir } from "./ledger/files.js";
@@ -129,7 +129,17 @@ export async function main(argv: string[], initDependencies?: InitDependencies):
   return 0;
 }
 
-if (/cli\.c?js$/.test(process.argv[1] ?? "")) {
+/** The script path, through symlinks such as `node_modules/.bin/onegai`, as `npx` runs it. */
+export function scriptPath(argv1: string | undefined): string {
+  if (!argv1) return "";
+  try {
+    return realpathSync(argv1);
+  } catch {
+    return argv1;
+  }
+}
+
+if (/cli\.c?js$/.test(scriptPath(process.argv[1]))) {
   void main(process.argv.slice(2)).then((code) => {
     process.exitCode = code;
   });

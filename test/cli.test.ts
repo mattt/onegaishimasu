@@ -1,9 +1,9 @@
-import { mkdtempSync } from "node:fs";
+import { mkdtempSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vite-plus/test";
 import { ENTRY_SCHEMA_VERSION, type Entry } from "../src/entry.js";
-import { preview } from "../src/cli.js";
+import { preview, scriptPath } from "../src/cli.js";
 import { writeEntryFile } from "../src/ledger/files.js";
 
 function entry(pr: number, overrides: Partial<Entry> = {}): Entry {
@@ -55,5 +55,15 @@ describe("preview", () => {
     const out = preview({ dir, current: "0.1.0" });
     expect(out).toContain("Entries (0):");
     expect(out).toContain("no release-worthy changes");
+  });
+});
+
+describe("scriptPath", () => {
+  it("resolves the symlink that npx runs", () => {
+    const dir = mkdtempSync(join(tmpdir(), "onegai-cli-"));
+    writeFileSync(join(dir, "cli.cjs"), "");
+    symlinkSync(join(dir, "cli.cjs"), join(dir, "onegai"));
+    expect(scriptPath(join(dir, "onegai"))).toMatch(/cli\.cjs$/);
+    expect(scriptPath(undefined)).toBe("");
   });
 });

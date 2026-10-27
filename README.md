@@ -26,11 +26,12 @@ Run this in a clean checkout of your repository with the GitHub CLI (`gh`) insta
 and signed in:
 
 ```bash
-npx onegaishimasu init
+npx github:mattt/onegaishimasu#v0 init
 ```
 
-The package exposes the `onegai` executable, so an installed copy also supports
-`onegai init`.
+Onegaishimasu isn't published to npm, so `npx` runs it from this repository at the `v0` tag.
+An installed copy also provides the `onegai` executable.
+Add `--dry-run` to print every file and command without changing anything.
 It does the quick start's steps for you:
 it writes the configuration and workflow, enables workflow PR permissions,
 sets the provider secret, and opens a setup PR from `onegai/setup`.
