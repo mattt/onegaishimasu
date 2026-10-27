@@ -20,6 +20,42 @@ A post-merge step tags and publishes the GitHub Release.
 
 A release never happens without a person merging the release PR.
 
+## Set up with onegai init
+
+Run this in a clean checkout of your repository with the GitHub CLI (`gh`) installed
+and signed in:
+
+```bash
+npx onegaishimasu init
+```
+
+The package exposes the `onegai` executable, so an installed copy also supports
+`onegai init`.
+It does the quick start's steps for you:
+it writes the configuration and workflow, enables workflow PR permissions,
+sets the provider secret, and opens a setup PR from `onegai/setup`.
+Merge that PR to enable Onegaishimasu.
+If organization policy blocks the permission change, it prints the settings
+that an administrator must change.
+
+The default provider is Anthropic with `claude-opus-5-5`.
+Provide the API key through `ONEGAI_PROVIDER_API_KEY` in your environment,
+or enter it at the hidden stdin prompt.
+Use `--provider openai --model <name>` for OpenAI,
+or `--provider copilot` for Copilot with `auto` and no secret.
+Copilot requires the organization policy described in [Providers](#providers).
+
+If a workflow in `.github/workflows/` accepts a `workflow_dispatch` input named
+`tag`, setup configures it for publishing and grants `actions: write`.
+Use `--publish-workflow release.yml --tag-input tag` to select a workflow and input.
+If several workflows match, setup asks you to select one with the flag.
+
+Use `--dry-run` to print all proposed files and commands without changes.
+It uses read-only Git and GitHub commands to find the repository and default branch.
+Use `--no-pr` to write and commit the files locally without changing settings,
+setting secrets, pushing, or opening a PR.
+Existing Onegaishimasu files require `--force` to replace them.
+
 ## Quick start
 
 These steps set up Onegaishimasu with Anthropic's API,
