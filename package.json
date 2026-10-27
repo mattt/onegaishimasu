@@ -1,6 +1,6 @@
 {
   "name": "onegaishimasu",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A GitHub Action that maintains a release pull request, deciding versions and writing release notes from evidence rather than commit-message conventions alone.",
   "keywords": [
     "changelog",
