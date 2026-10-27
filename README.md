@@ -80,6 +80,24 @@ it classifies every merge since the latest release again,
 for example after you change the provider or the configuration,
 and keeps the fields that someone corrected.
 
+## Publishing
+
+Onegaishimasu publishes the GitHub release, not packages.
+If a workflow publishes your package when a tag is pushed,
+know that a tag created with `GITHUB_TOKEN` doesn't start it.
+Instead, give that workflow a `workflow_dispatch` trigger with an input for the tag,
+and name it in `.github/onegai.yml`:
+
+```yaml
+publish:
+  workflow: release.yml
+  tagInput: tag # the default
+```
+
+After each new release, Onegaishimasu starts that workflow at the release tag,
+with the tag, such as `v1.2.0`, as the input.
+Add `actions: write` to the Onegaishimasu workflow's permissions.
+
 ## Providers
 
 Set the provider in `.github/onegai.yml`.
@@ -179,6 +197,8 @@ Every field is optional; see [.github/onegai.yml](.github/onegai.yml) for the an
 | `commentOnMerge`                | `true`                              | Comment the entry on the merged PR            |
 | `releaseBranch`                 | `onegai/release`                    | Branch carrying staged changes                |
 | `floatingMajorTag`              | `false`                             | Move `v<major>` to each release (for actions) |
+| `publish.workflow`              | —                                   | Workflow to start at each new release's tag   |
+| `publish.tagInput`              | `tag`                               | Its input that receives the tag               |
 | `manifestFiles`                 | `[package.json, package-lock.json]` | Manifests to bump                             |
 | `voicePath`                     | —                                   | House style for notes (not yet wired in)      |
 | `labels`                        | —                                   | Map repository labels to kinds                |
@@ -195,7 +215,7 @@ See [docs/entry-schema.md](docs/entry-schema.md) for the entry schema, the publi
 ## Scope for v1
 
 npm ecosystem only.
-No registry publishing (compose with your existing publish workflow), no monorepo coordination, no pre-release channels.
+No registry publishing of its own (it starts your publish workflow; see [Publishing](#publishing)), no monorepo coordination, no pre-release channels.
 The first run classifies merges since your latest release tag and flags them as unreviewed.
 Nothing behind the latest release is backfilled.
 

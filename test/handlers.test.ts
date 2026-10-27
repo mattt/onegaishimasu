@@ -47,6 +47,7 @@ interface FakeState {
   mergedSinceTag: number[];
   manifestVersions: Record<string, string>;
   movedTags: { tag: string; target: string }[];
+  dispatches: { workflow: string; ref: string; inputs: Record<string, string> }[];
   config: string | null;
 }
 
@@ -63,6 +64,7 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
     mergedSinceTag: [],
     manifestVersions: {},
     movedTags: [],
+    dispatches: [],
     config: null,
     ...state,
   };
@@ -131,6 +133,9 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
     },
     async moveTag(tag: string, target: string) {
       s.movedTags.push({ tag, target });
+    },
+    async dispatchWorkflow(workflow: string, ref: string, inputs: Record<string, string>) {
+      s.dispatches.push({ workflow, ref, inputs });
     },
   };
 
@@ -639,6 +644,41 @@ describe("handlePush", () => {
     await handlePush(client, { configPath: ".github/onegai.yml" });
     expect(state.releases).toHaveLength(0);
     expect(state.movedTags).toEqual([{ tag: "v0", target: "def" }]);
+  });
+
+  it("starts the publish workflow at the new tag", async () => {
+    const { client, state } = makeClient({
+      config: "publish:\n  workflow: release.yml\n",
+      mergedReleasePr: { number: 999, version: "1.1.0", body: "x", mergeSha: "def" },
+    });
+    await handlePush(client, { configPath: ".github/onegai.yml" });
+    expect(state.dispatches).toEqual([
+      { workflow: "release.yml", ref: "v1.1.0", inputs: { tag: "v1.1.0" } },
+    ]);
+  });
+
+  it("doesn't start the publish workflow again for an existing release", async () => {
+    const { client, state } = makeClient({
+      config: "publish:\n  workflow: release.yml\n  tagInput: version\n",
+      mergedReleasePr: { number: 999, version: "1.1.0", body: "x", mergeSha: "def" },
+      existingTags: new Set(["1.1.0"]),
+    });
+    await handlePush(client, { configPath: ".github/onegai.yml" });
+    expect(state.dispatches).toHaveLength(0);
+  });
+
+  it("keeps the release and warns when the publish workflow can't start", async () => {
+    const warnings: string[] = [];
+    const { client, state } = makeClient({
+      config: "publish:\n  workflow: release.yml\n",
+      mergedReleasePr: { number: 999, version: "1.1.0", body: "x", mergeSha: "def" },
+    });
+    client.dispatchWorkflow = async () => {
+      throw new Error("403 Resource not accessible by integration");
+    };
+    await handlePush(client, { configPath: ".github/onegai.yml", warn: (m) => warnings.push(m) });
+    expect(state.releases).toHaveLength(1);
+    expect(warnings[0]).toContain("couldn't start release.yml");
   });
 
   it("is idempotent when the tag already exists", async () => {

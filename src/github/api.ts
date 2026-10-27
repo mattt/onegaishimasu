@@ -62,6 +62,8 @@ export interface GitHubClient {
   tagAndRelease(version: string, notes: string, target: string): Promise<void>;
   /** Point a tag at a commit, creating the tag if it doesn't exist. */
   moveTag(tag: string, target: string): Promise<void>;
+  /** Start a workflow through workflow_dispatch at a branch or tag. */
+  dispatchWorkflow(workflow: string, ref: string, inputs: Record<string, string>): Promise<void>;
 }
 
 /**
@@ -364,6 +366,19 @@ export class OctokitClient implements GitHubClient {
     } catch {
       return false;
     }
+  }
+
+  async dispatchWorkflow(
+    workflow: string,
+    ref: string,
+    inputs: Record<string, string>,
+  ): Promise<void> {
+    await this.octokit.rest.actions.createWorkflowDispatch({
+      ...this.repo,
+      workflow_id: workflow,
+      ref,
+      inputs,
+    });
   }
 
   async moveTag(tag: string, target: string): Promise<void> {

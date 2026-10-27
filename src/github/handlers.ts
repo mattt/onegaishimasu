@@ -304,6 +304,22 @@ export async function handlePush(client: GitHubClient, ctx: HandlerContext): Pro
   if (!(await client.tagExists(version))) {
     const notes = extractReleaseNotes(merged.body);
     await client.tagAndRelease(version, notes, merged.mergeSha);
+
+    // Only for a new release: a publish workflow usually fails on a version it already published.
+    if (config.publish) {
+      const tag = `v${version}`;
+      try {
+        await client.dispatchWorkflow(config.publish.workflow, tag, {
+          [config.publish.tagInput]: tag,
+        });
+      } catch (error) {
+        const reason = error instanceof Error ? error.message : String(error);
+        ctx.warn?.(
+          `Released ${tag}, but couldn't start ${config.publish.workflow}: ${reason}. ` +
+            "Check that the workflow has a workflow_dispatch trigger and that this workflow has `actions: write`.",
+        );
+      }
+    }
   }
 
   // Consumers of an action pin `@v1` and expect it to follow the latest 1.x release.
