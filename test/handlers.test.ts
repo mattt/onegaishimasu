@@ -1,6 +1,7 @@
+import { getOctokit } from "@actions/github";
 import { describe, expect, it } from "vite-plus/test";
 import { parseConfig } from "../src/config.js";
-import { latestVersionTag, ledgerComments } from "../src/github/api.js";
+import { latestVersionTag, ledgerComments, OctokitClient } from "../src/github/api.js";
 import type {
   GitHubClient,
   MergedPr,
@@ -97,6 +98,7 @@ function makeClient(state: Partial<FakeState> = {}): { client: GitHubClient; sta
       return (
         s.mergedPrs[number] ?? {
           mergeSha: "sha",
+          baseRef: "main",
           headRef: `feature-${number}`,
           input: { number, title: "feat: default", body: "", author: "octocat", labels: [] },
         }
@@ -167,11 +169,64 @@ describe("upsertEntry", () => {
 });
 
 describe("handlePullRequestMerged", () => {
+  function githubResponse(data: unknown, status = 200): OctokitClient {
+    const octokit = getOctokit("fixture", {
+      request: { fetch: async () => Response.json(data, { status }) },
+    });
+    return new OctokitClient(octokit, { owner: "fixture", repo: "project" });
+  }
+
+  it.each([
+    [403, { message: "Forbidden" }],
+    [503, { message: "Service unavailable" }],
+    [200, []],
+    [200, { type: "file", content: "", encoding: "none" }],
+  ] as const)(
+    "leaves the release PR alone after an unreadable changelog (%i, %j)",
+    async (status, data) => {
+      const { client, state } = makeClient({
+        releasePr: { number: 999, body: serialize(entry(41)), comments: [] },
+      });
+      client.getChangelog = () => githubResponse(data, status).getChangelog();
+
+      await expect(
+        handlePullRequestMerged(client, { configPath: "config.yml" }, 42),
+      ).rejects.toThrow();
+      expect(state.upserts).toHaveLength(0);
+      expect(state.comments).toHaveLength(0);
+    },
+  );
+
+  it("creates the changelog when GitHub reports it missing", async () => {
+    const { client, state } = makeClient();
+    client.getChangelog = () => githubResponse({ message: "Not Found" }, 404).getChangelog();
+    await handlePullRequestMerged(client, { configPath: "config.yml" }, 42);
+    expect(state.upserts[0]?.files.find((f) => f.path === "CHANGELOG.md")?.content).toContain(
+      "## [1.3.0]",
+    );
+  });
+
+  it("ignores a merge into a maintenance branch", async () => {
+    const { client, state } = makeClient();
+    const api = githubResponse({
+      number: 42,
+      title: "fix: backport",
+      labels: [],
+      base: { ref: "stable" },
+      head: { ref: "fix" },
+    });
+    client.getMergedPr = (number) => api.getMergedPr(number);
+    await handlePullRequestMerged(client, { configPath: "config.yml" }, 42);
+    expect(state.upserts).toHaveLength(0);
+    expect(state.comments).toHaveLength(0);
+  });
+
   it("classifies a merged PR and upserts the release PR", async () => {
     const { client, state } = makeClient({
       mergedPrs: {
         42: {
           mergeSha: "abc",
+          baseRef: "main",
           headRef: "feature",
           input: { number: 42, title: "feat: add retry", body: "", author: "octocat", labels: [] },
         },
@@ -212,6 +267,7 @@ describe("handlePullRequestMerged", () => {
       mergedPrs: {
         999: {
           mergeSha: "abc",
+          baseRef: "main",
           headRef: "onegai/release",
           input: {
             number: 999,
@@ -295,6 +351,25 @@ describe("release cycles", () => {
     expect(rebuilt.kind).toBe("feature");
   });
 
+  it("excludes maintenance merges from a rebuild and from unreleased revert targets", async () => {
+    const { client, state } = makeClient({
+      mergedSinceTag: [41, 42],
+      releasePr: { number: 999, body: serialize(entry(43)), comments: [] },
+    });
+    for (const number of [41, 43]) {
+      state.mergedPrs[number] = { ...(await client.getMergedPr(number)), baseRef: "stable" };
+    }
+    const revert = await client.getMergedPr(42);
+    state.mergedPrs[42] = {
+      ...revert,
+      input: { ...revert.input, title: 'Revert "backport"', body: "Reverts #41" },
+    };
+    await handleRebuild(client, ctx);
+    expect(parseSnapshot(state.upserts[0]!.body).map((e) => [e.pr, e.kind])).toEqual([
+      [42, "feature"],
+    ]);
+  });
+
   it("keeps the ledger on a rebuild in a repository without tags", async () => {
     const corrected = entry(42, { summary: "Human summary", pinned: ["summary"] });
     const releaseBody = `body\n<details>\n${serialize(corrected)}\n</details>`;
@@ -320,11 +395,13 @@ describe("release cycles", () => {
   const revertPrs = {
     41: {
       mergeSha: "a41",
+      baseRef: "main",
       headRef: "feature",
       input: { number: 41, title: "feat: add retry", body: "", author: "octocat", labels: [] },
     },
     42: {
       mergeSha: "a42",
+      baseRef: "main",
       headRef: "revert-41",
       input: {
         number: 42,
@@ -377,6 +454,7 @@ describe("release cycles", () => {
       mergedPrs: {
         43: {
           mergeSha: "a43",
+          baseRef: "main",
           headRef: "docs",
           input: { number: 43, title: "docs: fix a typo", body: "", author: "octocat", labels: [] },
         },
@@ -418,6 +496,7 @@ describe("corrections without a release PR", () => {
   const docsPr = {
     43: {
       mergeSha: "a43",
+      baseRef: "main",
       headRef: "docs",
       input: { number: 43, title: "docs: fix a typo", body: "", author: "octocat", labels: [] },
     },
@@ -466,11 +545,28 @@ describe("corrections without a release PR", () => {
 });
 
 describe("handleIssueComment", () => {
+  it("ignores a correction on a maintenance PR left in an old ledger", async () => {
+    const { client, state } = makeClient({
+      releasePr: { number: 999, body: serialize(entry(42)), comments: [] },
+    });
+    state.mergedPrs[42] = { ...(await client.getMergedPr(42)), baseRef: "stable" };
+    await handleIssueComment(client, {
+      configPath: "config.yml",
+      prNumber: 42,
+      commentId: 7,
+      commentBody: "/onegai kind: fix",
+      commenter: "maintainer",
+      association: "MEMBER",
+    });
+    expect(state.upserts).toHaveLength(0);
+  });
+
   it("explains an invalid command", async () => {
     const { client, state } = makeClient({
       mergedPrs: {
         42: {
           mergeSha: "abc",
+          baseRef: "main",
           headRef: "feature",
           input: { number: 42, title: "feat: x", body: "", author: "octocat", labels: [] },
         },
@@ -496,6 +592,7 @@ describe("handleIssueComment", () => {
       mergedPrs: {
         42: {
           mergeSha: "abc",
+          baseRef: "main",
           headRef: "feature",
           input: { number: 42, title: "feat: x", body: "", author: "octocat", labels: [] },
         },
@@ -525,6 +622,7 @@ describe("handleIssueComment", () => {
       mergedPrs: {
         42: {
           mergeSha: "abc",
+          baseRef: "main",
           headRef: "feature",
           input: { number: 42, title: "feat: x", body: "", author: "octocat", labels: [] },
         },

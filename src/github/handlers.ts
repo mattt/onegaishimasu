@@ -74,10 +74,10 @@ export function renderEntryComment(entry: Entry, releasePr?: number): string {
 async function regenerateAndUpsert(
   client: GitHubClient,
   config: Config,
+  defaultBranch: string,
   entries: Entry[],
   existingBody: string | undefined,
 ): Promise<number | null> {
-  const defaultBranch = await client.getDefaultBranch();
   const manifestPath = config.manifestFiles[0] ?? "package.json";
   const currentVersion = await client.getCurrentVersion(manifestPath);
   const manifestFiles = await client.getManifestFiles(config.manifestFiles);
@@ -130,7 +130,8 @@ export async function handlePullRequestMerged(
 
   // The release PR's own merge is handled by the push handler.
   // Classifying it here would open the next release PR with the changes just released.
-  if (merged.headRef === config.releaseBranch) return;
+  const defaultBranch = await client.getDefaultBranch();
+  if (merged.baseRef !== defaultBranch || merged.headRef === config.releaseBranch) return;
 
   const releasePr = await client.findReleasePr(config.releaseBranch);
   let entries = releasePr ? parseSnapshot(releasePr.body, releasePr.comments) : [];
@@ -138,7 +139,7 @@ export async function handlePullRequestMerged(
   // A new cycle: classify the merges since the latest release, this one included.
   let isNew = false;
   if (!releasePr && entries.length === 0) {
-    entries = await bootstrapEntries(client, config, ctx.provider, {
+    entries = await bootstrapEntries(client, config, defaultBranch, ctx.provider, {
       onProviderError: ctx.warn,
     });
     isNew = entries.some((e) => e.pr === prNumber);
@@ -162,7 +163,13 @@ export async function handlePullRequestMerged(
     isNew = true;
   }
 
-  const releasePrNumber = await regenerateAndUpsert(client, config, entries, releasePr?.body);
+  const releasePrNumber = await regenerateAndUpsert(
+    client,
+    config,
+    defaultBranch,
+    entries,
+    releasePr?.body,
+  );
 
   const entry = entries.find((e) => e.pr === prNumber);
   if (isNew && entry && config.commentOnMerge) {
@@ -179,9 +186,10 @@ export async function handlePullRequestMerged(
 export async function handleRebuild(client: GitHubClient, ctx: HandlerContext): Promise<void> {
   const config = await client.getConfig(ctx.configPath);
   const releasePr = await client.findReleasePr(config.releaseBranch);
+  const defaultBranch = await client.getDefaultBranch();
   const previous = releasePr ? parseSnapshot(releasePr.body, releasePr.comments) : [];
 
-  let entries = await bootstrapEntries(client, config, ctx.provider, {
+  let entries = await bootstrapEntries(client, config, defaultBranch, ctx.provider, {
     onProviderError: ctx.warn,
     include: previous.map((e) => e.pr),
   });
@@ -194,7 +202,7 @@ export async function handleRebuild(client: GitHubClient, ctx: HandlerContext): 
     ctx.warn?.("No merged PRs since the latest release; there is nothing to rebuild.");
     return;
   }
-  await regenerateAndUpsert(client, config, entries, releasePr?.body);
+  await regenerateAndUpsert(client, config, defaultBranch, entries, releasePr?.body);
 }
 
 export interface CommentContext extends HandlerContext {
@@ -236,12 +244,17 @@ export async function handleIssueComment(client: GitHubClient, ctx: CommentConte
     return;
   }
 
+  const defaultBranch = await client.getDefaultBranch();
+  if (merged.baseRef !== defaultBranch) return;
+
   const releasePr = await client.findReleasePr(config.releaseBranch);
   let entries: Entry[] = releasePr ? parseSnapshot(releasePr.body, releasePr.comments) : [];
   // With nothing to release there is no release PR to hold the ledger,
   // so classify the merges since the latest release again to find this PR's entry.
   if (!releasePr) {
-    entries = await bootstrapEntries(client, config, ctx.provider, { onProviderError: ctx.warn });
+    entries = await bootstrapEntries(client, config, defaultBranch, ctx.provider, {
+      onProviderError: ctx.warn,
+    });
   }
   const existing = entries.find((e) => e.pr === ctx.prNumber);
   if (!existing) {
@@ -274,7 +287,13 @@ export async function handleIssueComment(client: GitHubClient, ctx: CommentConte
     entries = upsertEntry(entries, entry);
   }
 
-  const updated = await regenerateAndUpsert(client, config, entries, releasePr?.body);
+  const updated = await regenerateAndUpsert(
+    client,
+    config,
+    defaultBranch,
+    entries,
+    releasePr?.body,
+  );
   await client.addReaction(ctx.commentId, "+1");
   if (updated === null) {
     await client.postComment(

@@ -17,6 +17,7 @@ export interface MergedPr {
   mergeSha: string;
   /** The head branch name, used to recognize the release PR itself. */
   headRef: string;
+  baseRef: string;
 }
 
 export interface MergedReleasePr {
@@ -56,7 +57,7 @@ export interface GitHubClient {
   postComment(prNumber: number, body: string): Promise<void>;
   addReaction(commentId: number, content: "+1" | "-1"): Promise<void>;
   latestTag(): Promise<string | null>;
-  listMergedPrNumbersSinceTag(tag: string | null): Promise<number[]>;
+  listMergedPrNumbersSinceTag(tag: string | null, baseBranch: string): Promise<number[]>;
   getMergedReleasePr(branch: string): Promise<MergedReleasePr | null>;
   tagExists(version: string): Promise<boolean>;
   tagAndRelease(version: string, notes: string, target: string): Promise<void>;
@@ -107,25 +108,32 @@ export class OctokitClient implements GitHubClient {
     private readonly repo: Repo,
   ) {}
 
-  private async getContent(path: string, ref?: string): Promise<string | null> {
+  private async getFileContent(path: string, ref?: string): Promise<string | null> {
     try {
-      const res = await this.octokit.rest.repos.getContent({
+      const { data } = await this.octokit.rest.repos.getContent({
         ...this.repo,
         path,
         ...(ref ? { ref } : {}),
       });
-      const data = res.data as { content?: string; encoding?: string };
-      if (typeof data.content === "string") {
-        return Buffer.from(data.content, "base64").toString("utf8");
+      if (!("content" in data) || data.encoding !== "base64" || typeof data.content !== "string") {
+        throw new Error(`GitHub did not return file contents for ${path}.`);
       }
-      return null;
-    } catch {
-      return null;
+      return Buffer.from(data.content, "base64").toString("utf8");
+    } catch (error) {
+      if (
+        typeof error === "object" &&
+        error !== null &&
+        "status" in error &&
+        error.status === 404
+      ) {
+        return null;
+      }
+      throw error;
     }
   }
 
   async getConfig(configPath: string): Promise<Config> {
-    return parseConfig(await this.getContent(configPath));
+    return parseConfig(await this.getFileContent(configPath));
   }
 
   async getDefaultBranch(): Promise<string> {
@@ -134,7 +142,7 @@ export class OctokitClient implements GitHubClient {
   }
 
   async getCurrentVersion(manifestPath: string): Promise<string> {
-    const content = await this.getContent(manifestPath);
+    const content = await this.getFileContent(manifestPath);
     if (content) {
       try {
         const version = (JSON.parse(content) as { version?: string }).version;
@@ -148,7 +156,7 @@ export class OctokitClient implements GitHubClient {
   }
 
   async getManifestVersion(manifestPath: string, ref: string): Promise<string | null> {
-    const content = await this.getContent(manifestPath, ref);
+    const content = await this.getFileContent(manifestPath, ref);
     if (!content) return null;
     try {
       return (JSON.parse(content) as { version?: string }).version ?? null;
@@ -160,14 +168,14 @@ export class OctokitClient implements GitHubClient {
   async getManifestFiles(paths: string[]): Promise<ManifestFile[]> {
     const files: ManifestFile[] = [];
     for (const path of paths) {
-      const content = await this.getContent(path);
+      const content = await this.getFileContent(path);
       if (content !== null) files.push({ path, content });
     }
     return files;
   }
 
   async getChangelog(): Promise<string | null> {
-    return this.getContent("CHANGELOG.md");
+    return this.getFileContent("CHANGELOG.md");
   }
 
   async findReleasePr(branch: string): Promise<ReleasePr | null> {
@@ -199,6 +207,7 @@ export class OctokitClient implements GitHubClient {
     return {
       mergeSha: pr.merge_commit_sha ?? "",
       headRef: pr.head.ref,
+      baseRef: pr.base.ref,
       input: {
         number: pr.number,
         title: pr.title,
@@ -314,13 +323,12 @@ export class OctokitClient implements GitHubClient {
     return latestVersionTag(tags.map((t) => t.name));
   }
 
-  async listMergedPrNumbersSinceTag(tag: string | null): Promise<number[]> {
+  async listMergedPrNumbersSinceTag(tag: string | null, baseBranch: string): Promise<number[]> {
     const base = tag ?? "";
-    const head = await this.getDefaultBranch();
     if (!base) return [];
     const compare = await this.octokit.rest.repos.compareCommitsWithBasehead({
       ...this.repo,
-      basehead: `${base}...${head}`,
+      basehead: `${base}...${baseBranch}`,
     });
     const numbers = new Set<number>();
     for (const commit of compare.data.commits) {

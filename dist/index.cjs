@@ -19700,27 +19700,28 @@ var OctokitClient = class {
 		this.octokit = octokit;
 		this.repo = repo;
 	}
-	async getContent(path, ref) {
+	async getFileContent(path, ref) {
 		try {
-			const data = (await this.octokit.rest.repos.getContent({
+			const { data } = await this.octokit.rest.repos.getContent({
 				...this.repo,
 				path,
 				...ref ? { ref } : {}
-			})).data;
-			if (typeof data.content === "string") return Buffer.from(data.content, "base64").toString("utf8");
-			return null;
-		} catch {
-			return null;
+			});
+			if (!("content" in data) || data.encoding !== "base64" || typeof data.content !== "string") throw new Error(`GitHub did not return file contents for ${path}.`);
+			return Buffer.from(data.content, "base64").toString("utf8");
+		} catch (error) {
+			if (typeof error === "object" && error !== null && "status" in error && error.status === 404) return null;
+			throw error;
 		}
 	}
 	async getConfig(configPath) {
-		return parseConfig(await this.getContent(configPath));
+		return parseConfig(await this.getFileContent(configPath));
 	}
 	async getDefaultBranch() {
 		return (await this.octokit.rest.repos.get({ ...this.repo })).data.default_branch;
 	}
 	async getCurrentVersion(manifestPath) {
-		const content = await this.getContent(manifestPath);
+		const content = await this.getFileContent(manifestPath);
 		if (content) try {
 			const version = JSON.parse(content).version;
 			if (version) return version;
@@ -19728,7 +19729,7 @@ var OctokitClient = class {
 		return (await this.latestTag() ?? "0.0.0").replace(/^v/, "");
 	}
 	async getManifestVersion(manifestPath, ref) {
-		const content = await this.getContent(manifestPath, ref);
+		const content = await this.getFileContent(manifestPath, ref);
 		if (!content) return null;
 		try {
 			return JSON.parse(content).version ?? null;
@@ -19739,7 +19740,7 @@ var OctokitClient = class {
 	async getManifestFiles(paths) {
 		const files = [];
 		for (const path of paths) {
-			const content = await this.getContent(path);
+			const content = await this.getFileContent(path);
 			if (content !== null) files.push({
 				path,
 				content
@@ -19748,7 +19749,7 @@ var OctokitClient = class {
 		return files;
 	}
 	async getChangelog() {
-		return this.getContent("CHANGELOG.md");
+		return this.getFileContent("CHANGELOG.md");
 	}
 	async findReleasePr(branch) {
 		const pr = (await this.octokit.rest.pulls.list({
@@ -19778,6 +19779,7 @@ var OctokitClient = class {
 		return {
 			mergeSha: pr.merge_commit_sha ?? "",
 			headRef: pr.head.ref,
+			baseRef: pr.base.ref,
 			input: {
 				number: pr.number,
 				title: pr.title,
@@ -19878,13 +19880,12 @@ var OctokitClient = class {
 			per_page: 100
 		})).map((t) => t.name));
 	}
-	async listMergedPrNumbersSinceTag(tag) {
+	async listMergedPrNumbersSinceTag(tag, baseBranch) {
 		const base = tag ?? "";
-		const head = await this.getDefaultBranch();
 		if (!base) return [];
 		const compare = await this.octokit.rest.repos.compareCommitsWithBasehead({
 			...this.repo,
-			basehead: `${base}...${head}`
+			basehead: `${base}...${baseBranch}`
 		});
 		const numbers = /* @__PURE__ */ new Set();
 		for (const commit of compare.data.commits) {
@@ -20474,17 +20475,20 @@ async function classify(pr, options = {}) {
 * A repo with no tags starts empty.
 * There is no backfill behind the latest release, ever.
 */
-async function bootstrapEntries(client, config, provider, options = {}) {
+async function bootstrapEntries(client, config, defaultBranch, provider, options = {}) {
 	const firstBatch = await client.getMergedReleasePr(config.releaseBranch) === null;
 	const tag = await client.latestTag();
-	const discovered = await client.listMergedPrNumbersSinceTag(tag);
+	const discovered = await client.listMergedPrNumbersSinceTag(tag, defaultBranch);
 	const numbers = [.../* @__PURE__ */ new Set([...discovered, ...options.include ?? []])].sort((a, b) => a - b);
-	const entries = [];
-	const unreleasedPrs = new Set(numbers);
+	const eligible = [];
 	for (const number of numbers) {
 		const merged = await client.getMergedPr(number);
-		if (merged.headRef === config.releaseBranch) continue;
-		const diff = applyDiffBudget(await client.getPrDiff(number).catch(() => ""), { maxChars: config.diffBudget });
+		if (merged.baseRef === defaultBranch && merged.headRef !== config.releaseBranch) eligible.push(merged);
+	}
+	const entries = [];
+	const unreleasedPrs = new Set(eligible.map((pr) => pr.input.number));
+	for (const merged of eligible) {
+		const diff = applyDiffBudget(await client.getPrDiff(merged.input.number).catch(() => ""), { maxChars: config.diffBudget });
 		const entry = await classify({
 			...merged.input,
 			diff
@@ -23490,8 +23494,7 @@ function renderEntryComment(entry, releasePr) {
 	lines.push("", "Until the release merges, the PR author or anyone with write access can correct this with a comment such as `/onegai kind: fix`, `/onegai summary: <one line>`, or `/onegai notes:` followed by the notes on the next lines.");
 	return lines.join("\n");
 }
-async function regenerateAndUpsert(client, config, entries, existingBody) {
-	const defaultBranch = await client.getDefaultBranch();
+async function regenerateAndUpsert(client, config, defaultBranch, entries, existingBody) {
 	const manifestPath = config.manifestFiles[0] ?? "package.json";
 	const result = regenerate({
 		entries,
@@ -23525,12 +23528,13 @@ async function regenerateAndUpsert(client, config, entries, existingBody) {
 async function handlePullRequestMerged(client, ctx, prNumber) {
 	const config = await client.getConfig(ctx.configPath);
 	const merged = await client.getMergedPr(prNumber);
-	if (merged.headRef === config.releaseBranch) return;
+	const defaultBranch = await client.getDefaultBranch();
+	if (merged.baseRef !== defaultBranch || merged.headRef === config.releaseBranch) return;
 	const releasePr = await client.findReleasePr(config.releaseBranch);
 	let entries = releasePr ? require_version$1.parseSnapshot(releasePr.body, releasePr.comments) : [];
 	let isNew = false;
 	if (!releasePr && entries.length === 0) {
-		entries = await bootstrapEntries(client, config, ctx.provider, { onProviderError: ctx.warn });
+		entries = await bootstrapEntries(client, config, defaultBranch, ctx.provider, { onProviderError: ctx.warn });
 		isNew = entries.some((e) => e.pr === prNumber);
 	}
 	if (!entries.some((e) => e.pr === prNumber)) {
@@ -23548,7 +23552,7 @@ async function handlePullRequestMerged(client, ctx, prNumber) {
 		entries = upsertEntry(entries, entry);
 		isNew = true;
 	}
-	const releasePrNumber = await regenerateAndUpsert(client, config, entries, releasePr?.body);
+	const releasePrNumber = await regenerateAndUpsert(client, config, defaultBranch, entries, releasePr?.body);
 	const entry = entries.find((e) => e.pr === prNumber);
 	if (isNew && entry && config.commentOnMerge) await client.postComment(prNumber, renderEntryComment(entry, releasePrNumber ?? void 0));
 }
@@ -23561,8 +23565,9 @@ async function handlePullRequestMerged(client, ctx, prNumber) {
 async function handleRebuild(client, ctx) {
 	const config = await client.getConfig(ctx.configPath);
 	const releasePr = await client.findReleasePr(config.releaseBranch);
+	const defaultBranch = await client.getDefaultBranch();
 	const previous = releasePr ? require_version$1.parseSnapshot(releasePr.body, releasePr.comments) : [];
-	let entries = await bootstrapEntries(client, config, ctx.provider, {
+	let entries = await bootstrapEntries(client, config, defaultBranch, ctx.provider, {
 		onProviderError: ctx.warn,
 		include: previous.map((e) => e.pr)
 	});
@@ -23574,7 +23579,7 @@ async function handleRebuild(client, ctx) {
 		ctx.warn?.("No merged PRs since the latest release; there is nothing to rebuild.");
 		return;
 	}
-	await regenerateAndUpsert(client, config, entries, releasePr?.body);
+	await regenerateAndUpsert(client, config, defaultBranch, entries, releasePr?.body);
 }
 /** `issue_comment` created: parse a command and apply it, model-free. */
 async function handleIssueComment(client, ctx) {
@@ -23596,9 +23601,11 @@ async function handleIssueComment(client, ctx) {
 		await client.postComment(ctx.prNumber, `Onegaishimasu couldn't run that command (${command.reason}). Try \`/onegai kind: fix\`, \`/onegai summary: <one line>\`, \`/onegai notes:\`, \`/onegai pin\`, or \`/onegai reclassify\`.`);
 		return;
 	}
+	const defaultBranch = await client.getDefaultBranch();
+	if (merged.baseRef !== defaultBranch) return;
 	const releasePr = await client.findReleasePr(config.releaseBranch);
 	let entries = releasePr ? require_version$1.parseSnapshot(releasePr.body, releasePr.comments) : [];
-	if (!releasePr) entries = await bootstrapEntries(client, config, ctx.provider, { onProviderError: ctx.warn });
+	if (!releasePr) entries = await bootstrapEntries(client, config, defaultBranch, ctx.provider, { onProviderError: ctx.warn });
 	const existing = entries.find((e) => e.pr === ctx.prNumber);
 	if (!existing) {
 		await client.addReaction(ctx.commentId, "-1");
@@ -23622,7 +23629,7 @@ async function handleIssueComment(client, ctx) {
 		const { entry } = applyCommand(existing, command);
 		entries = upsertEntry(entries, entry);
 	}
-	const updated = await regenerateAndUpsert(client, config, entries, releasePr?.body);
+	const updated = await regenerateAndUpsert(client, config, defaultBranch, entries, releasePr?.body);
 	await client.addReaction(ctx.commentId, "+1");
 	if (updated === null) await client.postComment(ctx.prNumber, "Onegaishimasu applied the correction, but nothing merged since the latest release needs a release yet, so there is no release PR to record it in. The next release classifies this PR again.");
 }
