@@ -2,7 +2,7 @@ import { applyDiffBudget } from "./classify/diff-budget.js";
 import { classify } from "./classify/classifier.js";
 import type { Config } from "./config.js";
 import type { Entry } from "./entry.js";
-import type { GitHubClient } from "./github/api.js";
+import type { GitHubClient, MergedPr } from "./github/api.js";
 import type { Provider } from "./llm/provider.js";
 
 /**
@@ -16,6 +16,7 @@ import type { Provider } from "./llm/provider.js";
 export async function bootstrapEntries(
   client: GitHubClient,
   config: Config,
+  defaultBranch: string,
   provider?: Provider,
   options: {
     onProviderError?: (message: string) => void;
@@ -25,16 +26,21 @@ export async function bootstrapEntries(
 ): Promise<Entry[]> {
   const firstBatch = (await client.getMergedReleasePr(config.releaseBranch)) === null;
   const tag = await client.latestTag();
-  const discovered = await client.listMergedPrNumbersSinceTag(tag);
+  const discovered = await client.listMergedPrNumbersSinceTag(tag, defaultBranch);
   const numbers = [...new Set([...discovered, ...(options.include ?? [])])].sort((a, b) => a - b);
 
-  const entries: Entry[] = [];
-  const unreleasedPrs = new Set(numbers);
-
+  const eligible: MergedPr[] = [];
   for (const number of numbers) {
     const merged = await client.getMergedPr(number);
-    if (merged.headRef === config.releaseBranch) continue;
-    const rawDiff = await client.getPrDiff(number).catch(() => "");
+    if (merged.baseRef === defaultBranch && merged.headRef !== config.releaseBranch) {
+      eligible.push(merged);
+    }
+  }
+
+  const entries: Entry[] = [];
+  const unreleasedPrs = new Set(eligible.map((pr) => pr.input.number));
+  for (const merged of eligible) {
+    const rawDiff = await client.getPrDiff(merged.input.number).catch(() => "");
     const diff = applyDiffBudget(rawDiff, { maxChars: config.diffBudget });
     const entry = await classify(
       { ...merged.input, diff },
